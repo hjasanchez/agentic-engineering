@@ -1,10 +1,23 @@
 A repository of useful guides and frameworks for effective AI-Human interaction.
 
-Current docs:
+Integrating AI at your workplace
 
-- [AI 101 @ Workplace](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20101%20%40%20Workplace.pdf) (for absolute AI/prompt beginners)
-- [AI 201 @ Workplace](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20201%20%40%20Workplace%202026.pdf) (for regular chatbot users, how to actually get results at your workplace)
-- [Diagram of the agentic loop of Context Engineering](https://github.com/hjasanchez/agentic-engineering/blob/main/agentic_loop.jpg)
-- [Diagram of AI-Human Engineering Stack](https://github.com/hjasanchez/agentic-engineering/blob/main/agenticengineering.jpg)
+- [AI 101 @ Workplace YT video](https://www.youtube.com/watch?v=jljFm4YPHO8)
+- [AI 101 @ Workplace slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20101%20%40%20Workplace.pdf) (for absolute AI/prompt beginners)
+- [AI 201 @ Workplace YT video](https://www.youtube.com/watch?v=WVDDf8IlG6E)
+- [AI 201 @ Workplace slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20201%20%40%20Workplace%202026.pdf) (for regular chatbot users, details advanced techniques, meta-prompting, workflowd design, task decomposition, and quality control)
+
+Diagrams
+
+- [Agentic loop of Context Engineering](https://github.com/hjasanchez/agentic-engineering/blob/main/agentic_loop.jpg)
+- [AI-Human Engineering Stack (AIES)](https://github.com/hjasanchez/agentic-engineering/blob/main/agenticengineering.jpg)
+
+Full guides and documentation
+
 - [Complete guide to specifying work for AI](https://github.com/hjasanchez/agentic-engineering/blob/main/The%20Complete%20Guide%20to%20Specifying%20Work%20for%20AI.pdf)
-- [AI-Human Engineering Stack (Beyond prompt & context engineering)](https://github.com/hjasanchez/agentic-engineering/blob/main/The%20AI-Human%20Engineering%20Stack.pdf)
+- [AI-Human Engineering Stack (AIES), beyond prompt/context engineering](https://github.com/hjasanchez/agentic-engineering/blob/main/The%20AI-Human%20Engineering%20Stack.pdf)
+
+AIES Implementation Docs
+
+- [AIES Agent Audit Protocol (for your agent to use)](https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md)
+- [AIES Component Reference Map (for humans to use)](https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Component-Reference-Map.md)
