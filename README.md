@@ -8,7 +8,8 @@ A repository of useful guides and frameworks for effective AI-Human interaction.
 
   AI 201 (for regular chatbot users, details advanced techniques, meta-prompting, workflow design, task decomposition, and quality control)
   - [YT video](https://www.youtube.com/watch?v=WVDDf8IlG6E)
-  - [Slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20201%20%40%20Workplace%202026.pdf) 
+  - [Slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20201%20%40%20Workplace%202026.pdf)
+  - [Prompts, Workflows, Templates](https://drive.google.com/drive/folders/1bltRycYpeBnKVlTjlSZhwFEI1KKc-bRe)
 
 **Diagrams**
 
