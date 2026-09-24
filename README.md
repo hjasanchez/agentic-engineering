@@ -11,6 +11,10 @@ A repository of useful guides and frameworks for effective AI-Human interaction.
   - [Slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20201%20%40%20Workplace%202026.pdf)
   - [Prompts, Workflows, Templates](https://drive.google.com/drive/folders/1bltRycYpeBnKVlTjlSZhwFEI1KKc-bRe)
 
+  AI 301 (for advanced chatbot users, details custom bots, context management, from chatbots to agents, the information map, failure patterns, and the eval mindset)
+  - [YT video](https://youtu.be/R2p5aFcb0lY)
+  - [Slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20301%20%40%20Workplace%202026.pdf)
+
 **Diagrams**
 
 - [Agentic loop of Context Engineering](https://github.com/hjasanchez/agentic-engineering/blob/main/agentic_loop.jpg)
