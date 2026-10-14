@@ -15,6 +15,10 @@ A repository of useful guides and frameworks for effective AI-Human interaction.
   - [YT video](https://youtu.be/R2p5aFcb0lY)
   - [Slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20301%20%40%20Workplace%202026.pdf)
 
+  AI 401 (for agent users, details the agent harness and harness engineering, deterministic tools, add-ons like skills and MCP, intro to loops, and the translation barrier)
+  - [YT video](https://youtu.be/p6nMtu7iH1g)
+  - [Slides](https://github.com/hjasanchez/agentic-engineering/blob/main/AI%20401%20%40%20Workplace%202026.pdf)
+
 **Diagrams**
 
 - [Agentic loop of Context Engineering](https://github.com/hjasanchez/agentic-engineering/blob/main/agentic_loop.jpg)
