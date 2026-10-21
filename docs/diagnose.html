@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which mode are you in? · Mode Fluency</title>
+<meta name="description" content="A short branching self-diagnostic: your default stance with AI, the layer it leans on, the one guardrail to adopt, and what to learn next.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html" aria-current="page">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<div class="wrap">
+  <header class="page-head prose">
+    <p class="eyebrow">Self-diagnostic · about five minutes</p>
+    <h1>Which mode are you in?</h1>
+    <p class="lede">Think of one task you use AI for most often. Answer for that task, not for AI in general.</p>
+    <p>Seven or eight questions. You get your default stance, the Stack layer it leans on, the one guardrail to adopt, and which AI @ Workplace level to watch next. Nothing is sent anywhere: your answers stay in this page (and, if your browser allows it, the last result is remembered on this device only).</p>
+  </header>
+  <noscript><p class="callout">The diagnostic needs JavaScript. Without it, use the <a href="matrix.html">matrix</a> directly: find the stance that matches what you expect from the AI, then read across.</p></noscript>
+  <section class="diag" id="diag" aria-labelledby="diag-title" hidden>
+    <h2 id="diag-title" class="eyebrow" style="margin:0 0 0.6rem;font-family:var(--sans);font-size:0.78rem">Diagnostic</h2>
+    <form id="diag-form" novalidate>
+      <p class="progress" id="diag-progress" aria-live="polite"></p>
+      <fieldset id="diag-fieldset">
+        <legend id="diag-legend" tabindex="-1"></legend>
+        <p class="hint" id="diag-hint"></p>
+        <div id="diag-options"></div>
+      </fieldset>
+      <p class="error-msg" id="diag-error" role="alert"></p>
+      <div class="diag-nav">
+        <button type="button" class="btn secondary" id="diag-back">Back</button>
+        <button type="submit" class="btn" id="diag-next">Next</button>
+      </div>
+    </form>
+    <div class="result" id="diag-result" hidden>
+      <p class="eyebrow">Your result</p>
+      <h2 id="result-title" tabindex="-1">Your default stance: <span id="r-stance"></span></h2>
+      <dl class="facts">
+        <dt>What you expect</dt><dd id="r-expect"></dd>
+        <dt>Load-bearing layer</dt><dd><span class="big" id="r-layer"></span><br><span id="r-layer-q" class="muted"></span></dd>
+        <dt>Characteristic failure</dt><dd id="r-failure"></dd>
+        <dt>The one guardrail to adopt</dt><dd id="r-guardrail" class="rule-box" style="background:var(--hl);padding:0.6rem 0.8rem;border-radius:3px"></dd>
+        <dt>Autonomy mode</dt><dd id="r-autonomy"></dd>
+        <dt>Ambition</dt><dd id="r-ambition"></dd>
+        <dt>Watch next</dt><dd id="r-level"></dd>
+        <dt>Notes from your answers</dt><dd><ul class="clean" id="r-notes"></ul></dd>
+      </dl>
+      <div class="diag-nav">
+        <button type="button" class="btn" id="copy-result">Copy result as text</button>
+        <button type="button" class="btn secondary" id="diag-restart">Start again</button>
+        <span id="copy-status" role="status" aria-live="polite" class="small muted"></span>
+      </div>
+      <p class="small muted" style="margin-top:1rem">This is a self-check, not an assessment. It reflects one task, today. Read the full <a id="r-stance-link" href="stances.html">stance card</a> and the <a href="matrix.html">matrix</a>.</p>
+      <label class="small muted" for="copy-fallback" hidden id="copy-fallback-label">Copy this text manually:</label>
+      <textarea id="copy-fallback" rows="10" style="width:100%;font:inherit;font-size:0.9rem" hidden readonly></textarea>
+    </div>
+  </section>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+      <li>Repository license: GPL-3.0</li>
+      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+      <li><a href="about.html">About and credits</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

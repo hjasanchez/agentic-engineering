@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mode Fluency Matrix · Mode Fluency</title>
+<meta name="description" content="The Mode Fluency Matrix: which layer of the AI-Human Engineering Stack carries each of the Fourteen Stances, plus the autonomy and ambition axes.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html" aria-current="page">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<div class="wrap">
+  <header class="page-head prose">
+    <p class="eyebrow">Stance × Structure</p>
+    <h1>The Mode Fluency Matrix</h1>
+    <p class="lede">Which Stack layer carries each Stance.</p>
+    <p>The Stances describe the contract a human <em>thinks</em> they have with an AI system: &ldquo;I am asking an Oracle&rdquo;, &ldquo;I am handing work to an Executor&rdquo;. The Stack describes what the human must actually <em>supply</em> for any contract to hold: instruction, information, purpose, doubt, consistency, measurement, and a place for the work to run.</p>
+    <p>Each stance leans on one layer more than the others. That layer is where the stance's characteristic failure lives, and therefore where the guardrail belongs. Knowing which stance you are in tells you which layer to check first. That is mode fluency in one move.</p>
+  </header>
+
+  <section aria-labelledby="mx-title">
+    <h2 id="mx-title">The matrix</h2>
+    <p class="muted">Select a stance to light up its layer in the stack. Select a layer to light up the stances that lean on it.</p>
+    <div class="matrix-layout">
+      <div class="mini-stack-wrap">
+        <div class="mini-stack" role="group" aria-label="Stack layers: select one to highlight its stances">
+  <div class="row"><div class="mini-stack"><button type="button" class="layer-btn " data-layer="coherence" aria-pressed="false">Coherence<small>What to become while doing</small></button><button type="button" class="layer-btn " data-layer="judgment" aria-pressed="false">Judgment<small>What to doubt while doing</small></button><button type="button" class="layer-btn " data-layer="intent" aria-pressed="false">Intent<small>What to want while doing</small></button><button type="button" class="layer-btn " data-layer="context" aria-pressed="false">Context<small>What to know while doing</small></button><button type="button" class="layer-btn " data-layer="prompt" aria-pressed="false">Prompt<small>What to do</small></button></div><button type="button" class="layer-btn meta-eval" data-layer="evaluation" aria-pressed="false">Evaluation</button></div>
+  <button type="button" class="layer-btn meta-harness" data-layer="harness" aria-pressed="false">Harness<small>Where and how to do</small></button>
+  <button type="button" class="layer-btn meta-none" data-layer="none" aria-pressed="false">(none)<small>No load-bearing layer</small></button>
+</div>
+        <p class="status" id="matrix-status" role="status" aria-live="polite">Nothing selected.</p>
+        <button type="button" class="btn secondary clear" id="matrix-clear">Clear selection</button>
+      </div>
+      <div class="table-wrap" style="margin-top:0">
+        <table class="stack-on-mobile" id="matrix-table">
+          <caption>The Mode Fluency Matrix, v0.1 (draft), October 2026</caption>
+          <thead><tr><th scope="col">Stance</th><th scope="col">What you expect</th><th scope="col">Load-bearing layer</th><th scope="col">Characteristic failure</th><th scope="col">Guardrail (the cardinal rule)</th></tr></thead>
+          <tbody><tr data-stance="oracle" data-layers="judgment">
+<th scope="row"><button type="button" class="stance-btn" data-stance="oracle" aria-pressed="false">Oracle</button></th>
+<td data-label="What you expect">Truth to a hard question</td>
+<td data-label="Load-bearing layer"><strong>Judgment</strong></td>
+<td data-label="Characteristic failure">Confident plausible prose taken as fact</td>
+<td data-label="Guardrail (the cardinal rule)">Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</td>
+</tr><tr data-stance="genie" data-layers="prompt">
+<th scope="row"><button type="button" class="stance-btn" data-stance="genie" aria-pressed="false">Genie</button></th>
+<td data-label="What you expect">A discrete deliverable</td>
+<td data-label="Load-bearing layer"><strong>Prompt</strong></td>
+<td data-label="Characteristic failure">Literal compliance with a brittle wish</td>
+<td data-label="Guardrail (the cardinal rule)">Specify scope, boundaries and success criteria before you ask (an Intent Doc).</td>
+</tr><tr data-stance="tutor" data-layers="intent">
+<th scope="row"><button type="button" class="stance-btn" data-stance="tutor" aria-pressed="false">Tutor</button></th>
+<td data-label="What you expect">A path to the answer</td>
+<td data-label="Load-bearing layer"><strong>Intent</strong></td>
+<td data-label="Characteristic failure">Being taught toward a goal you never stated</td>
+<td data-label="Guardrail (the cardinal rule)">State what you want to be able to do afterwards before the first question.</td>
+</tr><tr data-stance="mirror" data-layers="coherence">
+<th scope="row"><button type="button" class="stance-btn" data-stance="mirror" aria-pressed="false">Mirror</button></th>
+<td data-label="What you expect">My own thinking, clarified</td>
+<td data-label="Load-bearing layer"><strong>Coherence</strong></td>
+<td data-label="Characteristic failure">Flattery mistaken for reflection</td>
+<td data-label="Guardrail (the cardinal rule)">Ask for the structure of your argument back, not for agreement.</td>
+</tr><tr data-stance="adversary" data-layers="intent">
+<th scope="row"><button type="button" class="stance-btn" data-stance="adversary" aria-pressed="false">Adversary</button></th>
+<td data-label="What you expect">Attack on my plan</td>
+<td data-label="Load-bearing layer"><strong>Intent</strong></td>
+<td data-label="Characteristic failure">Critique of the wrong thing</td>
+<td data-label="Guardrail (the cardinal rule)">Name what you are defending and what would change your mind.</td>
+</tr><tr data-stance="librarian" data-layers="evaluation">
+<th scope="row"><button type="button" class="stance-btn" data-stance="librarian" aria-pressed="false">Librarian</button></th>
+<td data-label="What you expect">Synthesis of what is known</td>
+<td data-label="Load-bearing layer"><strong>Evaluation</strong></td>
+<td data-label="Characteristic failure">Confident retrieval of what was never said</td>
+<td data-label="Guardrail (the cardinal rule)">Check the citation exists and says what is claimed.</td>
+</tr><tr data-stance="interpreter" data-layers="evaluation">
+<th scope="row"><button type="button" class="stance-btn" data-stance="interpreter" aria-pressed="false">Interpreter</button></th>
+<td data-label="What you expect">Decode material I supply</td>
+<td data-label="Load-bearing layer"><strong>Evaluation</strong></td>
+<td data-label="Characteristic failure">Confabulated meaning that sounds insightful</td>
+<td data-label="Guardrail (the cardinal rule)">“Show me exactly which parts of the text support each conclusion.” Never accept an interpretation you cannot trace.</td>
+</tr><tr data-stance="simulator" data-layers="context">
+<th scope="row"><button type="button" class="stance-btn" data-stance="simulator" aria-pressed="false">Simulator</button></th>
+<td data-label="What you expect">A rehearsal of reality</td>
+<td data-label="Load-bearing layer"><strong>Context</strong></td>
+<td data-label="Characteristic failure">A rehearsal of a scenario that is not yours</td>
+<td data-label="Guardrail (the cardinal rule)">Load the real constraints, the real counterpart, the real stakes.</td>
+</tr><tr data-stance="scribe" data-layers="prompt">
+<th scope="row"><button type="button" class="stance-btn" data-stance="scribe" aria-pressed="false">Scribe</button></th>
+<td data-label="What you expect">Craft applied to my substance</td>
+<td data-label="Load-bearing layer"><strong>Prompt</strong></td>
+<td data-label="Characteristic failure">Polished form over a hollow draft</td>
+<td data-label="Guardrail (the cardinal rule)">Provide the substance and the format; review for what was invented to fill gaps.</td>
+</tr><tr data-stance="executor" data-layers="harness judgment">
+<th scope="row"><button type="button" class="stance-btn" data-stance="executor" aria-pressed="false">Executor</button></th>
+<td data-label="What you expect">A delegated job, reviewed after</td>
+<td data-label="Load-bearing layer"><strong>Harness + Judgment</strong></td>
+<td data-label="Characteristic failure">Automation complacency; locally correct steps compounding into the wrong outcome, found late</td>
+<td data-label="Guardrail (the cardinal rule)">Plan before action, checkpoints, a deviation report, nothing consequential ships uninspected. Delegation transfers labor, never responsibility.</td>
+</tr><tr data-stance="muse" data-layers="none">
+<th scope="row"><button type="button" class="stance-btn" data-stance="muse" aria-pressed="false">Muse</button></th>
+<td data-label="What you expect">Provocation, not correctness</td>
+<td data-label="Load-bearing layer"><strong>(none)</strong></td>
+<td data-label="Characteristic failure">There is no failure, only dross</td>
+<td data-label="Guardrail (the cardinal rule)">None. This is why the Muse stays hidden: it cannot be metric&#x27;d.</td>
+</tr><tr data-stance="miner" data-layers="context">
+<th scope="row"><button type="button" class="stance-btn" data-stance="miner" aria-pressed="false">Miner</button></th>
+<td data-label="What you expect">The shape of a space, not one answer</td>
+<td data-label="Load-bearing layer"><strong>Context (writing)</strong></td>
+<td data-label="Characteristic failure">Believing an anomaly because you wanted it; losing the vein</td>
+<td data-label="Guardrail (the cardinal rule)">Assay cold, later. Record every find when you find it: if you didn&#x27;t record it, you never had it.</td>
+</tr><tr data-stance="therapist" data-layers="judgment">
+<th scope="row"><button type="button" class="stance-btn" data-stance="therapist" aria-pressed="false">Therapist / Confessor</button></th>
+<td data-label="What you expect">A space to think aloud</td>
+<td data-label="Load-bearing layer"><strong>Judgment</strong></td>
+<td data-label="Characteristic failure">Dependency; outsourcing judgment about your own life</td>
+<td data-label="Guardrail (the cardinal rule)">Decide in advance what you will not delegate.</td>
+</tr><tr data-stance="translator" data-layers="context">
+<th scope="row"><button type="button" class="stance-btn" data-stance="translator" aria-pressed="false">Translator</button></th>
+<td data-label="What you expect">A bridge between two worlds</td>
+<td data-label="Load-bearing layer"><strong>Context</strong></td>
+<td data-label="Characteristic failure">A bridge from one world to a caricature of the other</td>
+<td data-label="Guardrail (the cardinal rule)">Supply both maps; name both audiences.</td>
+</tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose" aria-labelledby="use-title">
+    <h2 id="use-title">How to use it</h2>
+    <ol class="loop-steps">
+      <li><strong>Before you start:</strong> name the stance out loud. Then look up its layer and do the one thing in the guardrail column.</li>
+      <li><strong>When it goes wrong:</strong> do not rewrite the prompt first. Find the stance you were in, go to its layer, and re-enter there.</li>
+      <li><strong>For a team:</strong> the stances your team uses most tell you which layers your shared setup must make strong. A team that delegates (Executor) needs harness and judgment work; a team that researches (Librarian, Interpreter) needs evaluation.</li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="autonomy">
+    <h2 id="autonomy">Axis 03: Autonomy. How much of the work do I watch?</h2>
+    <div class="prose">
+      <p>As autonomy increases, spec rigor must increase proportionally. In Assistive mode, your brain is the spec. In Autonomous mode, the written spec is the only control mechanism between intent and execution.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="stack-on-mobile">
+        <caption>Modes, from <em>The Complete Guide to Specifying Work for AI</em> (revised with feedback from Cory Gwin)</caption>
+        <thead><tr><th scope="col">Mode</th><th scope="col">How it works</th><th scope="col">Human understanding</th><th scope="col">Risk of incorrect output</th><th scope="col">Spec rigor required</th></tr></thead>
+        <tbody><tr><th scope="row">Assistive</th><td data-label="How it works">You type, AI suggests</td><td data-label="Human understanding">Very High</td><td data-label="Risk of incorrect output">Very Low</td><td data-label="Spec rigor required">Low</td></tr><tr><th scope="row">Directed</th><td data-label="How it works">You describe, AI types, you review</td><td data-label="Human understanding">High</td><td data-label="Risk of incorrect output">Low–Medium</td><td data-label="Spec rigor required">Medium</td></tr><tr><th scope="row">Autonomous</th><td data-label="How it works">You assign, AI executes, you review the result</td><td data-label="Human understanding">Medium</td><td data-label="Risk of incorrect output">Medium–High</td><td data-label="Spec rigor required">High</td></tr><tr><th scope="row">Autonomous + Spec</th><td data-label="How it works">Autonomous, with a written spec</td><td data-label="Human understanding">Medium</td><td data-label="Risk of incorrect output">Medium (reduced)</td><td data-label="Spec rigor required">High (by definition)</td></tr><tr><th scope="row">Continuous</th><td data-label="How it works">AI runs as a background service</td><td data-label="Human understanding">Low</td><td data-label="Risk of incorrect output">High</td><td data-label="Spec rigor required">Very High</td></tr></tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>Adding a spec is the only intervention in the table that improves a risk rating. The smallest spec is the four-line <strong>Intent Doc</strong>: TASK (what specifically was asked for), SCOPE (who or what is affected, and excluded), BOUNDARIES (what the AI will not do), IF UNCERTAIN (ask, flag, or stop).</p>
+      <p>As autonomy rises, the stances shift toward the Executor and the load shifts toward Harness, Judgment and Evaluation. This is why the <a href="learn.html">AI @ Workplace curriculum</a> spends 101&ndash;301 on chatbots and 401 onward on agents: the layer that carries the load moves as the human steps back. Productive people also switch modes on a single task; staying in one mode regardless of the task is its own anti-pattern (mode rigidity).</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="ambition">
+    <h2 id="ambition">Axis 04: Ambition. How big is the ask?</h2>
+    <p class="prose">Mode Fluency adopts Felix Rieseberg's four types of ambition, from <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">&ldquo;How to be more ambitious: A tutorial for humans with models&rdquo;</a> (13 October 2026). The descriptions below are his.</p>
+    <div class="grid four"><article class="card"><h3>Speed</h3><p>The same work in less time, the bread and butter for AI&#x27;s economic value. Well established and requires little creativity in how you approach AI.</p></article><article class="card"><h3>Altitude</h3><p>Going up in abstraction and considering the outcome rather than the individual task.</p></article><article class="card"><h3>Depth</h3><p>Considering a task the way a field-leading expert would. Rather than operating at the task&#x27;s layer, we go one level deeper and touch the underlying data, tools, and problems.</p></article><article class="card"><h3>Range</h3><p>Drawing on multiple fields rather than just the one the task might need at the surface, using knowledge, tools, and techniques you normally wouldn&#x27;t.</p></article></div>
+  </section>
+
+  <section class="prose" aria-labelledby="lin-title">
+    <h2 id="lin-title">Lineage</h2>
+    <p>Stances build on <em>Archetypes of LLM-Human Interaction</em> (v3). Related framings classify by autonomy or social role rather than by the human's expectation: Anthropic's AI Fluency (4Ds: Delegation, Description, Discernment, Diligence), Mollick's centaurs and cyborgs, Microsoft's &ldquo;agent boss&rdquo;, and the CHI 2026 &ldquo;human-LLM archetypes&rdquo; paper for decision support (<a href="https://arxiv.org/abs/2602.11924">arXiv 2602.11924</a>). The Stack's intent engineering layer is credited to Nate B. Jones.</p>
+  </section>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+      <li>Repository license: GPL-3.0</li>
+      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+      <li><a href="about.html">About and credits</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

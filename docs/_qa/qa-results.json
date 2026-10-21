@@ -1,0 +1,1306 @@
+{
+ "pages": [
+  {
+   "page": "index.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "index-390.jpg"
+  },
+  {
+   "page": "calculator-problem.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Calculator Problem · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "calculator-problem-390.jpg"
+  },
+  {
+   "page": "stances.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Fourteen Stances · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "stances-390.jpg"
+  },
+  {
+   "page": "stack.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The AI-Human Engineering Stack · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "stack-390.jpg"
+  },
+  {
+   "page": "matrix.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Mode Fluency Matrix · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "matrix-390.jpg"
+  },
+  {
+   "page": "diagnose.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Which mode are you in? · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "diagnose-390.jpg"
+  },
+  {
+   "page": "learn.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [
+    {
+     "src": "https://i.ytimg.com/vi/jljFm4YPHO8/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 101 @ Workplace: Introduction to LLMs and prompts, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/WVDDf8IlG6E/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 201 @ Workplace: Prompt engineering, prompt chains and workflows, quality control, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/R2p5aFcb0lY/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 301 @ Workplace: Context engineering, custom bots, introduction to agents and evals, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/p6nMtu7iH1g/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 401 @ Workplace: Agents, Harness engineering, determinism, add-ons, intro to loops, on YouTube"
+    }
+   ],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Learn · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "learn-390.jpg"
+  },
+  {
+   "page": "work.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Work with me · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "work-390.jpg"
+  },
+  {
+   "page": "about.html",
+   "width": 390,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "About · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "about-390.jpg"
+  },
+  {
+   "page": "index.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "index-1280.jpg"
+  },
+  {
+   "page": "calculator-problem.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Calculator Problem · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "calculator-problem-1280.jpg"
+  },
+  {
+   "page": "stances.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Fourteen Stances · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "stances-1280.jpg"
+  },
+  {
+   "page": "stack.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The AI-Human Engineering Stack · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "stack-1280.jpg"
+  },
+  {
+   "page": "matrix.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Mode Fluency Matrix · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "matrix-1280.jpg"
+  },
+  {
+   "page": "diagnose.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Which mode are you in? · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "diagnose-1280.jpg"
+  },
+  {
+   "page": "learn.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [
+    {
+     "src": "https://i.ytimg.com/vi/jljFm4YPHO8/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 101 @ Workplace: Introduction to LLMs and prompts, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/WVDDf8IlG6E/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 201 @ Workplace: Prompt engineering, prompt chains and workflows, quality control, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/R2p5aFcb0lY/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 301 @ Workplace: Context engineering, custom bots, introduction to agents and evals, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/p6nMtu7iH1g/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 401 @ Workplace: Agents, Harness engineering, determinism, add-ons, intro to loops, on YouTube"
+    }
+   ],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Learn · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "learn-1280.jpg"
+  },
+  {
+   "page": "work.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Work with me · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "work-1280.jpg"
+  },
+  {
+   "page": "about.html",
+   "width": 1280,
+   "scheme": "light",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "About · Mode Fluency",
+   "bg": "rgb(244, 246, 248)",
+   "noHScroll": true,
+   "shot": "about-1280.jpg"
+  },
+  {
+   "page": "index.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "index-390-dark.jpg"
+  },
+  {
+   "page": "calculator-problem.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Calculator Problem · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "calculator-problem-390-dark.jpg"
+  },
+  {
+   "page": "stances.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Fourteen Stances · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "stances-390-dark.jpg"
+  },
+  {
+   "page": "stack.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The AI-Human Engineering Stack · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "stack-390-dark.jpg"
+  },
+  {
+   "page": "matrix.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Mode Fluency Matrix · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "matrix-390-dark.jpg"
+  },
+  {
+   "page": "diagnose.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Which mode are you in? · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "diagnose-390-dark.jpg"
+  },
+  {
+   "page": "learn.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [
+    {
+     "src": "https://i.ytimg.com/vi/jljFm4YPHO8/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 101 @ Workplace: Introduction to LLMs and prompts, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/WVDDf8IlG6E/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 201 @ Workplace: Prompt engineering, prompt chains and workflows, quality control, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/R2p5aFcb0lY/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 301 @ Workplace: Context engineering, custom bots, introduction to agents and evals, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/p6nMtu7iH1g/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 401 @ Workplace: Agents, Harness engineering, determinism, add-ons, intro to loops, on YouTube"
+    }
+   ],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Learn · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "learn-390-dark.jpg"
+  },
+  {
+   "page": "work.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Work with me · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "work-390-dark.jpg"
+  },
+  {
+   "page": "about.html",
+   "width": 390,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "innerWidth": 390,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "About · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "about-390-dark.jpg"
+  },
+  {
+   "page": "index.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "index-1280-dark.jpg"
+  },
+  {
+   "page": "calculator-problem.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Calculator Problem · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "calculator-problem-1280-dark.jpg"
+  },
+  {
+   "page": "stances.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Fourteen Stances · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "stances-1280-dark.jpg"
+  },
+  {
+   "page": "stack.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The AI-Human Engineering Stack · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "stack-1280-dark.jpg"
+  },
+  {
+   "page": "matrix.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "The Mode Fluency Matrix · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "matrix-1280-dark.jpg"
+  },
+  {
+   "page": "diagnose.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Which mode are you in? · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "diagnose-1280-dark.jpg"
+  },
+  {
+   "page": "learn.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [
+    {
+     "src": "https://i.ytimg.com/vi/jljFm4YPHO8/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 101 @ Workplace: Introduction to LLMs and prompts, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/WVDDf8IlG6E/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 201 @ Workplace: Prompt engineering, prompt chains and workflows, quality control, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/R2p5aFcb0lY/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 301 @ Workplace: Context engineering, custom bots, introduction to agents and evals, on YouTube"
+    },
+    {
+     "src": "https://i.ytimg.com/vi/p6nMtu7iH1g/hqdefault.jpg",
+     "alt": "Video thumbnail: AI 401 @ Workplace: Agents, Harness engineering, determinism, add-ons, intro to loops, on YouTube"
+    }
+   ],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Learn · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "learn-1280-dark.jpg"
+  },
+  {
+   "page": "work.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "Work with me · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "work-1280-dark.jpg"
+  },
+  {
+   "page": "about.html",
+   "width": 1280,
+   "scheme": "dark",
+   "consoleErrors": [],
+   "pageErrors": [],
+   "failed": [],
+   "scrollWidth": 1280,
+   "clientWidth": 1280,
+   "innerWidth": 1280,
+   "imgs": [],
+   "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true,
+    "skip": true
+   },
+   "h1": 1,
+   "title": "About · Mode Fluency",
+   "bg": "rgb(15, 22, 27)",
+   "noHScroll": true,
+   "shot": "about-1280-dark.jpg"
+  }
+ ],
+ "diagnostic": {
+  "exhaustive": {
+   "stancePaths": 14,
+   "commonCombos": 1920,
+   "total": 26880,
+   "bad": [],
+   "badCount": 0,
+   "stances": [
+    "Oracle",
+    "Librarian",
+    "Scribe",
+    "Genie",
+    "Executor",
+    "Interpreter",
+    "Tutor",
+    "Translator",
+    "Adversary",
+    "Simulator",
+    "Mirror",
+    "Therapist",
+    "Muse",
+    "Miner"
+   ],
+   "pathLengths": [
+    7,
+    8
+   ]
+  },
+  "ui": [
+   {
+    "expected": "oracle",
+    "steps": 7,
+    "stance": "oracle",
+    "layer": "Judgment",
+    "shown": true,
+    "level": "AI 101 @ Workplace. Yo"
+   },
+   {
+    "expected": "librarian",
+    "steps": 7,
+    "stance": "librarian",
+    "layer": "Evaluation",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   },
+   {
+    "expected": "scribe",
+    "steps": 7,
+    "stance": "scribe",
+    "layer": "Prompt",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   },
+   {
+    "expected": "genie",
+    "steps": 7,
+    "stance": "genie",
+    "layer": "Prompt",
+    "shown": true,
+    "level": "AI 201 @ Workplace. Th"
+   },
+   {
+    "expected": "executor",
+    "steps": 7,
+    "stance": "executor",
+    "layer": "Harness + Judgment",
+    "shown": true,
+    "level": "AI 101 @ Workplace. Yo"
+   },
+   {
+    "expected": "interpreter",
+    "steps": 7,
+    "stance": "interpreter",
+    "layer": "Evaluation",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   },
+   {
+    "expected": "tutor",
+    "steps": 7,
+    "stance": "tutor",
+    "layer": "Intent",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   },
+   {
+    "expected": "translator",
+    "steps": 7,
+    "stance": "translator",
+    "layer": "Context",
+    "shown": true,
+    "level": "AI 301 @ Workplace. Co"
+   },
+   {
+    "expected": "adversary",
+    "steps": 7,
+    "stance": "adversary",
+    "layer": "Intent",
+    "shown": true,
+    "level": "AI 101 @ Workplace. Yo"
+   },
+   {
+    "expected": "simulator",
+    "steps": 7,
+    "stance": "simulator",
+    "layer": "Context",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   },
+   {
+    "expected": "mirror",
+    "steps": 7,
+    "stance": "mirror",
+    "layer": "Coherence",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   },
+   {
+    "expected": "therapist",
+    "steps": 7,
+    "stance": "therapist",
+    "layer": "Judgment",
+    "shown": true,
+    "level": "AI 101 @ Workplace. Wa"
+   },
+   {
+    "expected": "muse",
+    "steps": 8,
+    "stance": "muse",
+    "layer": "(none)",
+    "shown": true,
+    "level": "AI 101 @ Workplace. Yo"
+   },
+   {
+    "expected": "miner",
+    "steps": 8,
+    "stance": "miner",
+    "layer": "Context (writing)",
+    "shown": true,
+    "level": "AI 401 @ Workplace. Yo"
+   }
+  ],
+  "validation": "Choose one option to continue.",
+  "progressAt3": "Question 3 (7 or 8 in total)",
+  "backToFirst": "In this task, what do you mostly want from the AI?",
+  "backKeepsAnswer": true,
+  "copyStatus": "Copied.",
+  "copiedText": "Mode Fluency self-diagnostic\nDefault stance: Oracle (Truth to a hard question)\nLoad-bearing layer: Judgment (What to doubt while doing)\nCharacteristic failure: Confident plausible prose taken as fact\nGuardrail to adopt: Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.\nAutonomy mode: Directed: you describe, AI types, you review. Spec rigor required: Medium.\nAmbition: Altitude: Going up in abstraction and considering the outcome rather than the individual task. Ask: “what do you want to happen next? What's the goal beyond the goal?” (Felix Rieseberg)\nWatch next: AI 301 @ Workplace (https://youtu.be/R2p5aFcb0lY). Failure patterns and the eval mindset: how to know an output is wrong before it costs you.\nNote: You re-entered at the Context layer. For the Oracle, check Judgment first.\nNote: That is step 1 of 5 on the checking ladder, the weakest: in a long thread, it will tell you that you're absolutely right. Move at least to a fresh chat.\nFrom the Mode Fluency prototype (Henrique Jr. Sanchez). Framework sources: https://github.com/hjasanchez/agentic-engineering",
+  "result390NoHScroll": true,
+  "remembered": "Question 1 (7 or 8 in total) · Last time on this device: Oracle / Judgment (2026-10-21)",
+  "storageBlocked": {
+   "errors": [],
+   "stance": "genie"
+  }
+ },
+ "interactions": {
+  "stances": {
+   "all": [
+    "oracle",
+    "genie",
+    "tutor",
+    "mirror",
+    "adversary",
+    "librarian",
+    "interpreter",
+    "simulator",
+    "scribe",
+    "executor",
+    "muse",
+    "miner",
+    "therapist",
+    "translator"
+   ],
+   "layer:prompt": [
+    "genie",
+    "scribe"
+   ],
+   "layer:context": [
+    "simulator",
+    "miner",
+    "translator"
+   ],
+   "layer:intent": [
+    "tutor",
+    "adversary"
+   ],
+   "layer:judgment": [
+    "oracle",
+    "executor",
+    "therapist"
+   ],
+   "layer:coherence": [
+    "mirror"
+   ],
+   "layer:evaluation": [
+    "librarian",
+    "interpreter"
+   ],
+   "layer:harness": [
+    "executor"
+   ],
+   "layer:none": [
+    "muse"
+   ],
+   "meta:consumption": [
+    "oracle",
+    "genie",
+    "librarian",
+    "executor",
+    "muse",
+    "therapist"
+   ],
+   "meta:construction": [
+    "tutor",
+    "mirror",
+    "miner",
+    "translator"
+   ],
+   "meta:hinge": [
+    "interpreter"
+   ],
+   "meta:unplaced": [
+    "adversary",
+    "simulator",
+    "scribe"
+   ],
+   "harness+unplaced": [],
+   "status": "Showing 0 of 14 stances (layer: Harness; Not placed in v3 table).",
+   "emptyShown": true
+  },
+  "matrix": {
+   "executorLit": [
+    "judgment",
+    "harness"
+   ],
+   "executorStatus": "Executor: load-bearing layer Harness + Judgment.",
+   "oracleLit": [
+    "judgment"
+   ],
+   "contextRows": [
+    "simulator",
+    "miner",
+    "translator"
+   ],
+   "contextStatus": "Context: Simulator, Miner, Translator.",
+   "coherenceRows": [
+    "mirror"
+   ],
+   "afterClear": 0
+  }
+ },
+ "a11y": [
+  {
+   "focused": "skip-link",
+   "outline": "solid 3px",
+   "top": 8
+  },
+  {
+   "focused": "wordmark",
+   "outline": "solid 3px"
+  }
+ ],
+ "fixpass": {
+  "executorAssistive": [
+   {
+    "aut": "assistive",
+    "exp": "months",
+    "contradiction": false,
+    "why": "The Executor stance leans on the harness. You still watch mo"
+   },
+   {
+    "aut": "assistive",
+    "exp": "daily",
+    "contradiction": false,
+    "why": "The Executor stance leans on the harness. You still watch mo"
+   },
+   {
+    "aut": "assistive",
+    "exp": "agents",
+    "contradiction": false,
+    "why": "The Executor stance leans on the harness. You still watch mo"
+   },
+   {
+    "aut": "directed",
+    "exp": "months",
+    "contradiction": false,
+    "why": "The Executor stance leans on the harness. You still watch mo"
+   },
+   {
+    "aut": "directed",
+    "exp": "daily",
+    "contradiction": false,
+    "why": "The Executor stance leans on the harness. You still watch mo"
+   },
+   {
+    "aut": "directed",
+    "exp": "agents",
+    "contradiction": false,
+    "why": "The Executor stance leans on the harness. You still watch mo"
+   }
+  ],
+  "typoFree": {
+   "aI": false,
+   "PR": false,
+   "sample": "Autonomy mode: Continuous: AI runs as a background service. Spec rigor required: Very High."
+  },
+  "progress": [
+   "Question 1 (7 or 8 in total)",
+   "Question 2 (7 or 8 in total)",
+   "Question 3 (7 or 8 in total)"
+  ],
+  "matrixStanceClick390": {
+   "ok": true,
+   "litLayer": "Context"
+  },
+  "matrixMuse390": "No load-bearing layer",
+  "matrixLayerClick390": {
+   "inView": true,
+   "rows": [
+    "librarian",
+    "interpreter"
+   ]
+  },
+  "inlineHiddenDesktop": "context",
+  "hinge": [
+   "interpreter"
+  ],
+  "executorTag": "Consumption: the passive extreme (staged oversight is its active form)",
+  "headingSkips": {
+   "index.html": [],
+   "calculator-problem.html": [],
+   "stances.html": [],
+   "stack.html": [],
+   "matrix.html": [],
+   "diagnose.html": [],
+   "learn.html": [],
+   "work.html": [],
+   "about.html": []
+  },
+  "compassLabelPx": [
+   19,
+   19,
+   19,
+   19
+  ],
+  "contrast": {
+   "light": {
+    "textNodes": 1081,
+    "worst": {
+     "ratio": 4.54,
+     "text": "What to become while doing",
+     "cls": "",
+     "page": "matrix.html"
+    },
+    "fails": [],
+    "failCount": 0
+   },
+   "dark": {
+    "textNodes": 1081,
+    "worst": {
+     "ratio": 5.58,
+     "text": "What to become while doing",
+     "cls": "",
+     "page": "matrix.html"
+    },
+    "fails": [],
+    "failCount": 0
+   }
+  }
+ }
+}
