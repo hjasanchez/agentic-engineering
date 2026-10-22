@@ -1,0 +1,52 @@
+{
+  "scope": "hjasanchez/agentic-engineering @ 31eadf4 (branch meta-strategy), whole repo, read-only",
+  "autonomy": "autonomous",
+  "components": {
+    "prompt": {"grade": "strong", "evidence": [
+      "strategy/briefs/R1_competitive_landscape.md:26 acceptance criteria, :33 non-goals, :35 tradeoffs, :37 if uncertain, :39 verification",
+      "strategy/briefs/W2_blind_review.md:1 Task/Goal/Inputs/Output/Acceptance/Constraints/Non-goals/If uncertain",
+      "strategy/briefs/N1_enterprise_register.md:2 layers on 00_SHARED_CONTEXT.md and N_naming_common.md"],
+      "gap": "Short naming and design briefs carry no acceptance criteria of their own (N1:1-8)."},
+    "context": {"grade": "partial", "evidence": [
+      "strategy/briefs/00_SHARED_CONTEXT.md:1 shared context read first by every agent, dated updates at :50 and :58",
+      "strategy/HANDOFF.md:1 handoff state for the next session",
+      "strategy/briefs/R1_competitive_landscape.md:6 inputs are absolute paths under /home/user/meta-strategy, outside the repo",
+      "strategy/README.md:12 source texts deliberately not committed",
+      "searched AGENTS.md, CLAUDE.md, notes/, progress.md, lessons or mistake logs: none"],
+      "gap": "The context architecture lives outside the repo; nothing in the repo tells an agent where to start."},
+    "intent": {"grade": "partial", "evidence": [
+      "strategy/briefs/00_SHARED_CONTEXT.md:30 the strategic question and primary customer",
+      "strategy/STRATEGY_BRIEF.md:6 [YOUR CALL] decision boundary; :262 decisions only the owner makes",
+      "strategy/briefs/R1_competitive_landscape.md:35 per-brief tradeoff (precision over coverage)",
+      "searched VALUES.md, goals, principles, ranked priorities: none"],
+      "gap": "Tradeoffs are restated per brief; no standing ranked goals for when reach, revenue and rigour conflict."},
+    "judgment": {"grade": "partial", "evidence": [
+      "strategy/briefs/00_SHARED_CONTEXT.md:42 evidence standard; refusal plus flag beats a guess",
+      "strategy/briefs/W2_blind_review.md:20 read-only scope; :23 flag as a question",
+      "strategy/briefs/D_design_common.md:6 concept page first, owner chooses before the full build"],
+      "gap": "No risk tiers; scope rules are prose, never enforced."},
+    "coherence": {"grade": "partial", "evidence": [
+      "strategy/briefs/00_SHARED_CONTEXT.md:1 one shared file for all agents",
+      "README.md:61 says skills are MIT; LICENSE:1 is GPL-3.0; no MIT file in the repo",
+      "README.md:34 links skills/mode-fluency-diagnostic/, which does not exist at 31eadf4",
+      "strategy/HANDOFF.md:19 AIES vs Stack naming still open"],
+      "gap": "Shared guidance exists but nothing detects drift between README, licence and files."},
+    "evaluation": {"grade": "partial", "evidence": [
+      "docs/_qa/qa-report.md:4 builder QA; 'Script: kept outside the repo'",
+      "docs/_qa/blind-review.md:7 independent blind review",
+      "strategy/design-directions/A-instrument/_qa/qa.js:5 hard-coded /home/user/meta-strategy path",
+      "searched .github/workflows, tests/, .pre-commit-config.yaml, checks/: none"],
+      "gap": "Evaluation events, not a mechanism: nothing re-runs from the repo or on each change."},
+    "harness": {"grade": "missing", "evidence": [
+      "searched AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .cursor/, .github/, .mcp.json, .codex/, Makefile: none",
+      "strategy/HANDOFF.md:12 push refused: no credential in the session",
+      "strategy/README.md:3 drafted overnight with Claude orchestrating five research agents"],
+      "gap": "The agents ran in a workspace outside the repo; no part of that setup is versioned here."}
+  },
+  "stances": [
+    {"stance": "Librarian", "evidence": ["strategy/briefs/R1_competitive_landscape.md:40 re-open every cited URL"]},
+    {"stance": "Miner", "evidence": ["strategy/briefs/N_naming_common.md:27 generate without web; separate collision check; do not rank"]},
+    {"stance": "Executor", "evidence": ["strategy/briefs/W1_site_PRD.md:104 deviation report requested"]},
+    {"stance": "Adversary", "evidence": ["strategy/briefs/W2_blind_review.md:3 find what is wrong before Henrique sees it"]}
+  ]
+}

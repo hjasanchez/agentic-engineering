@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: audit-then-fix-waits-for-approval
+expected_outcome: |
+  The agent runs AUDIT read-only with path:line citations and search logs for Missing grades, proposes fixes, and does not modify any file until the user approves specific items.
+context:
+  scaffold_script: place-files.sh

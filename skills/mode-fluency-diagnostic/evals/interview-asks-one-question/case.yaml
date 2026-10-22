@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: interview-asks-one-question
+expected_outcome: |
+  The agent starts the INTERVIEW: frames it briefly and asks exactly one question, without offering stance names as options and without diagnosing from the single sentence.
