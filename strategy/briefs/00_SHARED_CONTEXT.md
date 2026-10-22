@@ -46,3 +46,11 @@ knowledge workers and SME teams, with a slice of technical teams, leadership buy
 - Do not modify any file in research/ that you did not create. Do not spawn subagents unless your brief says you may.
 - Budget: at most 40 web searches/fetches unless your brief says otherwise. If a site blocks you, note it and move on.
 - Audience for your output: the orchestrator (an AI) and Henrique (a sharp, non-AI-specialist professional who will act on it).
+
+## Update 2026-10-22 (Henrique's feedback after reviewing the overnight work)
+- He liked the concept (four axes, stance × layer matrix) and the site skeleton.
+- NOT sold on the name "Mode Fluency": feels long/awkward for an enterprise, and has no direct reference to AI, automation,
+  LLMs or agents, which he believes is needed to reach the mass of potential customers and enterprises.
+- The site design is "not captivating and unique enough". The site must itself showcase the animation and sophistication
+  an agent can produce, or people will think "this guy claims AI can do all this but his website is crap".
+- The strategy brief (STRATEGY_BRIEF.md) and the current prototype (site/) remain the reference for content and positioning.
