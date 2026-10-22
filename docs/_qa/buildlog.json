@@ -1,0 +1,56 @@
+{
+ "ticker": [
+  "build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0",
+  "size: 321,878 bytes deployable, fonts excluded (budget 900,000)",
+  "qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0",
+  "a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)",
+  "diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI",
+  "checks: 123 of 123 passed; report in _qa/qa-report.md"
+ ],
+ "about": [
+  [
+   "date",
+   "2026-10-22"
+  ],
+  [
+   "pages",
+   "9, sharing one header and footer"
+  ],
+  [
+   "files",
+   "15 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)"
+  ],
+  [
+   "size",
+   "321,878 bytes, fonts excluded (budget 900,000)"
+  ],
+  [
+   "libraries",
+   "0 frameworks, 0 libraries, 0 external scripts; fonts from Google Fonts"
+  ],
+  [
+   "fields",
+   "14 stance behaviours (7 from the design concept, 7 new) plus the hero, the essay strip and 14 card fields"
+  ],
+  [
+   "QA loads",
+   "72 in headless Chromium: console errors 0, failed requests 0, horizontal overflow 0"
+  ],
+  [
+   "contrast",
+   "4,409 text elements per theme; lowest 4.98:1 light, 6.07:1 dark"
+  ],
+  [
+   "diagnostic",
+   "26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI"
+  ],
+  [
+   "hero field",
+   "1,600 agents at 1280 px, 60 fps in the QA browser (indicative)"
+  ],
+  [
+   "checks",
+   "123 of 123 passed"
+  ]
+ ]
+}

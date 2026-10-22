@@ -1,245 +1,136 @@
-# QA report: Mode Fluency site prototype
+# QA report: Mode Fluency site, Direction C ("The Field")
 
-Run: 2026-10-21, headless Chromium 141 (`/opt/pw-browsers/chromium`) via the globally installed Playwright 1.56.1
-(no `playwright install`). Pages opened from `file://`. Script: kept outside the repo (scratchpad `qa.js`);
-raw results in `_qa/qa-results.json`.
+Run: 2026-10-22, headless Chromium (`/opt/pw-browsers/chromium`, build 1194) driven by the global Playwright 1.56.1 (`/opt/node22/lib/node_modules`); no `playwright install`. Every page opened from `file://`. Harness: `qa.js` + `finalize.py` in the session scratchpad (not shipped). Screenshots: `/home/user/meta-strategy/site-c-screenshots/`.
 
-## Summary
+**Result: 123 of 123 binary checks passed.**
 
-| PRD §2 metric | Result |
-|---|---|
-| Zero console errors from disk | **PASS**: 0 console errors, 0 page errors, 0 failed requests across 36 loads (9 pages x 390/1280 x light/dark) |
-| No horizontal scroll at 390 and 1280 | **PASS**: `documentElement.scrollWidth <= viewport width` on all 36 loads; screenshots in `_qa/` |
-| 14 stances, 7 components, 4 autonomy modes, 4 ambition types present, from sources | **PASS** (grep below; text taken from the source files, see Content notes) |
-| Diagnostic returns stance + binding layer on every path | **PASS**: 26,880 combinations (all 14 stance paths x 1920 answer combinations), 0 without a stance, layer, guardrail or level; plus all 14 stance paths clicked through the UI |
-| Landmarks, alt text, focus states, prefers-color-scheme | **PASS**: header/nav/main/footer + skip link on every page; 0 images without alt; focus outline `solid 3px` accent; dark theme tokens under `prefers-color-scheme` (dark screenshots `*-dark.jpg`) |
-| Under 2 MB, no external JS, fonts system or Google | **PASS for the served site: 176 KB** (HTML+CSS+JS+SVG). No external scripts, no iframes, system font stack. Screenshots now live outside `site/` (see Fix pass) |
-| No fabricated testimonials, logos, clients, prices, unsourced stats | **PASS**: only prices are "from $3,500" and "from $1,200"; every statistic on the essay and work pages carries a numbered source or inline source line; no testimonials/logos/clients |
+## PRD §4 success metrics
 
-## Page loads (console errors and horizontal scroll)
-
-| Page | Width | Scheme | Console/page errors | Failed requests | scrollWidth | No h-scroll | Images w/o alt | Landmarks |
-|---|---|---|---|---|---|---|---|---|
-| index.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| calculator-problem.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| stances.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| stack.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| matrix.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| diagnose.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| learn.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| work.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| about.html | 390 | light | 0 | 0 | 390 | pass | 0 | yes |
-| index.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| calculator-problem.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| stances.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| stack.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| matrix.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| diagnose.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| learn.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| work.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| about.html | 1280 | light | 0 | 0 | 1280 | pass | 0 | yes |
-| index.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| calculator-problem.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| stances.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| stack.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| matrix.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| diagnose.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| learn.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| work.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| about.html | 390 | dark | 0 | 0 | 390 | pass | 0 | yes |
-| index.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| calculator-problem.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| stances.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| stack.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| matrix.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| diagnose.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| learn.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| work.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-| about.html | 1280 | dark | 0 | 0 | 1280 | pass | 0 | yes |
-
-Screenshots (moved in the fix pass to `/home/user/meta-strategy/site-qa-screenshots/`, outside `site/`): `<page>-390.jpg`, `<page>-1280.jpg` (full page, light), `<page>-390-dark.jpg` (first screens, dark),
-`matrix-interaction-*.jpg`, `diagnose-result-*.jpg`. Images were downscaled after capture to keep the folder small.
-
-## Interactions
-
-- Stances filter (`stances.html`): layer filter returns prompt ['genie', 'scribe'], context ['simulator', 'miner', 'translator'],
-  intent ['tutor', 'adversary'], judgment ['oracle', 'executor', 'therapist'], coherence ['mirror'],
-  evaluation ['librarian', 'interpreter'], harness ['executor'], none ['muse'].
-  Meta filter: consumption ['oracle', 'genie', 'librarian', 'muse', 'therapist'], construction ['tutor', 'mirror', 'miner', 'translator'], hinge ['interpreter', 'executor'],
-  not placed ['adversary', 'simulator', 'scribe']. Combined filter with no match shows the empty message and status "Showing 0 of 14 stances (layer: Harness; Not placed in v3 table).".
-  Buttons use `aria-pressed`; status is an `aria-live` region.
-- Matrix (`matrix.html`): Executor lights ['judgment', 'harness']; Oracle lights ['judgment']; Context layer lights
-  ['simulator', 'miner', 'translator']; Coherence lights ['mirror']; Clear resets (0 lit elements after).
-- Diagnostic (`diagnose.html`): path lengths [7, 8] questions. Validation message without a choice: "Choose one option to continue.".
-  Back button returns to question 1 with the earlier answer kept: True. Copy button: "Copied." (clipboard text verified;
-  textarea fallback when the Clipboard API is unavailable). Last result remembered via localStorage: "Question 1 of 7 · Last time on this device: Oracle / Judgment (2026-10-21)".
-  With localStorage throwing on access: page errors [], result still produced (genie).
-  Result view at 390px has no horizontal scroll: True.
-
-| UI path (stance branch) | Questions answered | Result stance | Load-bearing layer | Watch next |
-|---|---|---|---|---|
-| oracle | 7 | oracle | Judgment | AI 101 @ Workplace |
-| librarian | 7 | librarian | Evaluation | AI 401 @ Workplace |
-| scribe | 7 | scribe | Prompt | AI 401 @ Workplace |
-| genie | 7 | genie | Prompt | AI 201 @ Workplace |
-| executor | 7 | executor | Harness + Judgment | AI 101 @ Workplace |
-| interpreter | 7 | interpreter | Evaluation | AI 401 @ Workplace |
-| tutor | 7 | tutor | Intent | AI 401 @ Workplace |
-| translator | 7 | translator | Context | AI 301 @ Workplace |
-| adversary | 7 | adversary | Intent | AI 101 @ Workplace |
-| simulator | 7 | simulator | Context | AI 401 @ Workplace |
-| mirror | 7 | mirror | Coherence | AI 401 @ Workplace |
-| therapist | 7 | therapist | Judgment | AI 101 @ Workplace |
-| muse | 8 | muse | (none) | AI 101 @ Workplace |
-| miner | 8 | miner | Context (writing) | AI 401 @ Workplace |
-
-## Grep (PRD §9): files containing each term (out of 9 pages + site.js)
-
-All present: Oracle 5, Genie 5, Tutor 4, Mirror 4, Adversary 4, Librarian 4, Interpreter 5, Simulator 4, Scribe 4,
-Executor 5, Muse 4, Miner 4, Therapist 4, Translator 4; Prompt/Context/Intent/Judgment/Coherence/Evaluation/Harness
-Engineering 1 each (stack.html) and as layer names on matrix.html, stances.html and index.html; Assistive 4, Directed 3,
-Autonomous 3, Continuous 4; Speed 4, Altitude 3, Depth 3, Range 3.
-Banned words (revolutionary, unlock, supercharge, game-changing, cutting-edge): 0 hits.
-Header and footer: byte-identical across all 9 pages except the `aria-current="page"` marker on the active link.
-Contrast: superseded. The first pass missed the layer colours (blind review defect 8); see the Fix pass section for the full computed table.
-
-## Content notes
-
-- `[source needed]` markers: **none**. Every essay citation resolved in research/R4 (Papert, NCTM, Ellington, Hembree,
-  NTSB, FAA PARC/CAST, Parasuraman & Manzey, METR 2025 and 2026), R2 (S&P Global via CIO Dive) or R1 (Anthropic 4D,
-  Karpathy, Nate B. Jones).
-- METR: presented as the July 2025 finding, with METR's February 2026 update ("an unreliable signal"; intervals include
-  zero; no slowdown shown), per the coordinator's correction. Papert's *Mindstorms* quote anchors the essay;
-  Parasuraman & Manzey 2010 backs the case for structural checks (essay and work page).
-- S&P Global 42%: the Stack document says "late 2025"; R2 dates the press report to 14 March 2025. The site follows R2
-  ("a 2025 survey").
-- Stances: v3 states an explicit cardinal rule only for the Interpreter, Executor and Miner; the other eleven cards use the
-  Matrix guardrail column and are labelled that way. Adversary, Simulator and Scribe are not in v3's
-  consumption/construction table, so the filter shows them as "Not placed" instead of guessing.
-- Essay length: 1,151 words (excluding citation markers and the source list).
-
-
----
-
-# Fix pass (2026-10-21, after the blind review)
-
-The blind review (`blind-review.md`) found 13 defects and raised 5 questions. All 13 defects are fixed. The coordinator
-also asked for a cooler "instrument panel" palette, screenshots moved out of `site/`, and the README rewritten for a
-`docs/` branch deploy. All of that is done too. Playwright QA was re-run on the same 36 loads, with regression checks
-added for each fix.
-
-## Defects fixed
-
-| # | Defect | Fix | Verified by |
+| # | Metric | Result | Evidence |
 |---|---|---|---|
-| 1 | learn.html privacy sentence was inaccurate | Now: the four thumbnails load from YouTube's image host (i.ytimg.com) when the page opens, and nothing else loads from YouTube until you click | Text check |
-| 2 | Executor tagged "Hinge" | Only the Interpreter carries Hinge. Executor tag: "Consumption: the passive extreme (staged oversight is its active form)"; filter chip renamed "Hinge (Interpreter)" | Hinge filter shows ['interpreter'] |
-| 3 | Home §1 mapped artefacts to axes wrongly | Reworded to credit Rieseberg's ambition types as the fourth source | Text check |
-| 4 | Executor and Miner cards missing v3 guardrails | Added the structural harness guardrail (Executor) and "ore, never a citation" (Miner), verbatim from v3 | Text check |
-| 5 | Diagnostic: Executor + Assistive/Directed contradicted itself | `computeResult` gives the "work you don't watch" reason only for Autonomous/Continuous; Executor with watched work gets its own 401 reason | 6 Executor x {assistive, directed} x experience combinations: contradiction = False |
-| 6 | Matrix interaction invisible on phones | Below 1000px a clicked stance row gets an inline mini stack with its layer lit (hidden on desktop, where the sticky stack works). Clicking a layer scrolls to the first lit row. Muse shows "No load-bearing layer" | 390px: Translator's lit layer in the viewport = True (Context); Evaluation layer click puts rows ['librarian', 'interpreter'] in view = True; inline stack hidden at 1280 = True |
-| 7 | Progress total jumped from 7 to 8 | Now reads "Question N (7 or 8 in total)" | ['Question 1 (7 or 8 in total)', 'Question 2 (7 or 8 in total)', 'Question 3 (7 or 8 in total)'] |
-| 8 | `--muted` on `--layer-5` was 4.37:1 | New palette, with all seven layer colours re-derived and checked by script (table below) | Rendered-text scan: 0 failures |
-| 9 | Heading levels skipped h1 to h3 | Added h2 "All fourteen stances" (stances) and "The levels" (learn) | No skips on any of the 9 pages |
-| 10 | "aI runs" typo | Only an initial "You" is lowercased now | Copied text contains "aI": False |
-| 11 | "you review the PR" | Now "you review the result", in the matrix autonomy table and in the diagnostic | Contains "PR": False |
-| 12 | Essay footnotes out of order | Sources renumbered in order of first citation (Rieseberg is now [11]; 4D, Karpathy and Jones are [12] to [14]) | Text check |
-| 13 | Compass labels about 9px on phones | Labels moved outside the ring (Structure and Ambition set vertically), and the viewBox narrowed from 504 to 388 units | At 390px the labels render at about 16px (bounding box 19px) |
+| 1 | 9 pages open from file:// in headless Chromium at 390 and 1280, light and dark, reduced motion on and off: 0 console errors, 0 failed requests, no horizontal scroll | **PASS** | 72 loads; console/page errors 0; failed requests 0; scrollWidth > viewport 0 (checked at the top and after scrolling to the bottom) |
+| 2 | Lowest text contrast ≥ 4.5:1 in both themes (programmatic scan of all text nodes on all pages) | **PASS** | light: 4,409 text elements, lowest 4.98:1; dark: 4,409, lowest 6.07:1 |
+| 3 | All 14 stances, 7 components, 4 autonomy modes, 4 ambition types present; 5 stances word-for-word | **PASS** | all present; Tutor, Mirror, Adversary, Librarian, Simulator: Expectation and "Why it stays hidden" match src_archetypes_v3.md exactly (after removing Markdown emphasis) |
+| 4 | Diagnostic: all answer combinations return a result; 4 paths driven through the UI | **PASS** | 26,880 of 26,880 (14 stance paths × 1,920 answer combinations); 4 UI paths (3 by clicks incl. one Back, 1 keyboard only) |
+| 5 | Every page readable with JavaScript disabled | **PASS** | all 9 pages: main text present, 0 text elements hidden outside the JS-only instruments |
+| 6 | Total site ≤ 900 KB excluding fonts; no external JS; fonts only from Google Fonts | **PASS** | 321,878 bytes deployable (335,475 with _qa/); external scripts 0; hosts requested: fonts.googleapis.com, fonts.gstatic.com, i.ytimg.com |
+| 7 | No banned words; no invented stats, testimonials, logos, prices beyond the two given | **PASS** | banned-word hits 0; prices found: $1,200, $3,500; no testimonials, logos or client names; stance-field counters are labelled as on-screen simulation counts (about.html, deviation 3) |
+| 8 | "calculator" not in the hero of index.html; "machine" is; essay title unchanged | **PASS** | hero has "machine", not "calculator"; essay h1 "The Calculator Problem" |
+| 9 | Wordmark "Mode Fluency" set once in CSS --brand and read by JS | **PASS** | 1 definition (assets/field.css); field.js and diagnose.js read it; titles built from it; no literal wordmark in any page body (only the <title>/meta no-JS fallbacks) |
 
-## Re-run results
+## 1. Page loads (72)
 
-- **Console and page errors:** 0 across 36 loads (9 pages x 390/1280 x light/dark). **PASS.**
-- **Horizontal scroll:** 0 failures. **PASS.**
-- **Diagnostic:** 26,880 combinations, 0 without a stance, layer, guardrail or level. All 14 stance paths also clicked through the UI. **PASS.**
-- **Grep:** all 14 stances, 7 components, 4 autonomy modes and 4 ambition types present; no banned words. **PASS.**
-- **Size:** `site/` is 236,751 bytes in total, including `_qa/` (report, JSON, blind review). **PASS.** The screenshots
-  (yours and the reviewer's `review-*.png`, plus the new `fix-*.jpg`) are in `/home/user/meta-strategy/site-qa-screenshots/`.
-- **Rendered-text contrast** (every visible text node against its effective background, all 9 pages, 1280px, matrix
-  with a selection active): light theme, 1081 nodes, 0 below 4.5:1, lowest
-  4.54:1 ("What to become while doing", matrix.html). Dark theme,
-  1081 nodes, 0 below 4.5:1, lowest 5.58:1. **PASS.**
+| Page | 390 light | 390 dark | 1280 light | 1280 dark |
+|---|---|---|---|---|
+| index.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| calculator-problem.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| stances.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| stack.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| matrix.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| diagnose.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| learn.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| work.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+| about.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
 
-## Palette and token contrast (computed by script, not by eye)
+Each cell is two runs (reduced motion on and off). "sw" is the largest `scrollWidth` seen. External requests were only to: fonts.googleapis.com, fonts.gstatic.com, i.ytimg.com (fonts, and the four learn.html thumbnails once scrolled into view).
 
-The serif display face is kept. Layer colours: l1 Prompt, l2 Context, l3 Intent, l4 Judgment, l5 Coherence,
-l6 Evaluation, l7 Harness. Text tokens: ink = fg. `rule_strong` is used only for borders, so it is checked against the
-3:1 non-text threshold.
+## 2. Contrast (every visible text element, colour composited over its effective background)
 
-| Theme | Foreground | Background | FG | BG | Ratio | Pass |
-|---|---|---|---|---|---|---|
-| light | ink | bg | #17222c | #f4f6f8 | 14.89 | pass |
-| light | ink | surface | #17222c | #ffffff | 16.13 | pass |
-| light | ink | hl | #17222c | #e3f0f2 | 13.84 | pass |
-| light | ink | l1 | #17222c | #f1f5f8 | 14.72 | pass |
-| light | ink | l2 | #17222c | #ebf1f5 | 14.16 | pass |
-| light | ink | l3 | #17222c | #e5eef3 | 13.72 | pass |
-| light | ink | l4 | #17222c | #dfeaf0 | 13.19 | pass |
-| light | ink | l5 | #17222c | #d9e7ee | 12.77 | pass |
-| light | ink | l6 | #17222c | #e3f0f2 | 13.84 | pass |
-| light | ink | l7 | #17222c | #ffffff | 16.13 | pass |
-| light | muted | bg | #5a6873 | #f4f6f8 | 5.29 | pass |
-| light | muted | surface | #5a6873 | #ffffff | 5.73 | pass |
-| light | muted | hl | #5a6873 | #e3f0f2 | 4.92 | pass |
-| light | muted | l1 | #5a6873 | #f1f5f8 | 5.23 | pass |
-| light | muted | l2 | #5a6873 | #ebf1f5 | 5.03 | pass |
-| light | muted | l3 | #5a6873 | #e5eef3 | 4.88 | pass |
-| light | muted | l4 | #5a6873 | #dfeaf0 | 4.69 | pass |
-| light | muted | l5 | #5a6873 | #d9e7ee | 4.54 | pass |
-| light | muted | l6 | #5a6873 | #e3f0f2 | 4.92 | pass |
-| light | muted | l7 | #5a6873 | #ffffff | 5.73 | pass |
-| light | accent | bg | #0b6b78 | #f4f6f8 | 5.72 | pass |
-| light | accent | surface | #0b6b78 | #ffffff | 6.2 | pass |
-| light | accent | hl | #0b6b78 | #e3f0f2 | 5.32 | pass |
-| light | accent | l1 | #0b6b78 | #f1f5f8 | 5.65 | pass |
-| light | accent | l2 | #0b6b78 | #ebf1f5 | 5.44 | pass |
-| light | accent | l3 | #0b6b78 | #e5eef3 | 5.27 | pass |
-| light | accent | l4 | #0b6b78 | #dfeaf0 | 5.07 | pass |
-| light | accent | l5 | #0b6b78 | #d9e7ee | 4.9 | pass |
-| light | accent | l6 | #0b6b78 | #e3f0f2 | 5.32 | pass |
-| light | accent | l7 | #0b6b78 | #ffffff | 6.2 | pass |
-| light | on_accent | accent | #ffffff | #0b6b78 | 6.2 | pass |
-| light | rule_strong (UI border, needs 3:1) | bg | #7d8c97 | #f4f6f8 | 3.19 | pass |
-| light | rule_strong (UI border, needs 3:1) | surface | #7d8c97 | #ffffff | 3.46 | pass |
-| dark | ink | bg | #e6edf2 | #0f161b | 15.43 | pass |
-| dark | ink | surface | #e6edf2 | #151e25 | 14.27 | pass |
-| dark | ink | hl | #e6edf2 | #132b31 | 12.53 | pass |
-| dark | ink | l1 | #e6edf2 | #17212a | 13.8 | pass |
-| dark | ink | l2 | #e6edf2 | #1a252e | 13.18 | pass |
-| dark | ink | l3 | #e6edf2 | #1d2933 | 12.53 | pass |
-| dark | ink | l4 | #e6edf2 | #202d37 | 11.9 | pass |
-| dark | ink | l5 | #e6edf2 | #23313c | 11.27 | pass |
-| dark | ink | l6 | #e6edf2 | #132b31 | 12.53 | pass |
-| dark | ink | l7 | #e6edf2 | #151e25 | 14.27 | pass |
-| dark | muted | bg | #9aaab5 | #0f161b | 7.64 | pass |
-| dark | muted | surface | #9aaab5 | #151e25 | 7.07 | pass |
-| dark | muted | hl | #9aaab5 | #132b31 | 6.2 | pass |
-| dark | muted | l1 | #9aaab5 | #17212a | 6.83 | pass |
-| dark | muted | l2 | #9aaab5 | #1a252e | 6.52 | pass |
-| dark | muted | l3 | #9aaab5 | #1d2933 | 6.2 | pass |
-| dark | muted | l4 | #9aaab5 | #202d37 | 5.89 | pass |
-| dark | muted | l5 | #9aaab5 | #23313c | 5.58 | pass |
-| dark | muted | l6 | #9aaab5 | #132b31 | 6.2 | pass |
-| dark | muted | l7 | #9aaab5 | #151e25 | 7.07 | pass |
-| dark | accent | bg | #5fc2cf | #0f161b | 8.78 | pass |
-| dark | accent | surface | #5fc2cf | #151e25 | 8.12 | pass |
-| dark | accent | hl | #5fc2cf | #132b31 | 7.13 | pass |
-| dark | accent | l1 | #5fc2cf | #17212a | 7.85 | pass |
-| dark | accent | l2 | #5fc2cf | #1a252e | 7.5 | pass |
-| dark | accent | l3 | #5fc2cf | #1d2933 | 7.13 | pass |
-| dark | accent | l4 | #5fc2cf | #202d37 | 6.77 | pass |
-| dark | accent | l5 | #5fc2cf | #23313c | 6.41 | pass |
-| dark | accent | l6 | #5fc2cf | #132b31 | 7.13 | pass |
-| dark | accent | l7 | #5fc2cf | #151e25 | 8.12 | pass |
-| dark | on_accent | accent | #0f161b | #5fc2cf | 8.78 | pass |
-| dark | rule_strong (UI border, needs 3:1) | bg | #5d6d78 | #0f161b | 3.41 | pass |
-| dark | rule_strong (UI border, needs 3:1) | surface | #5d6d78 | #151e25 | 3.15 | pass |
+Scanned at 390 and 1280 with motion off, on all 9 pages, plus interactive states: stack with a weak layer and Evaluation off, the diagnostic report, a matrix selection and a stances filter. Brand text drawn by CSS `::before` is included.
 
----
+**Light:** 4,409 elements, below 4.5:1: 0. Lowest five:
 
-# Open questions for Henrique (from the blind review)
+| Ratio | Text | Element | Page | Width |
+|---|---|---|---|---|
+| 4.98 | L3 | span.sd-lnum | stack.html | 1280 |
+| 4.98 | L4 | span.sd-lnum | stack.html | 1280 |
+| 4.98 | L5 | span.sd-lnum | stack.html | 1280 |
+| 4.98 | L3 | span.sd-lnum | stack.html | 390 |
+| 4.98 | L4 | span.sd-lnum | stack.html | 390 |
 
-1. **METR perception gap.** The essay says the gap between feeling and fact "is the part that survives". METR's Feb 2026 update reports no new perception data. Keep it as opinion, or soften it to "the 2025 result showed a gap"?
-2. **Diagnostic recovery question.** It offers only Prompt, Context, Intent, Evaluation or "did it myself". Stances that lean on Judgment, Coherence or Harness (Oracle, Therapist, Mirror, Executor) can never get the "right layer, good instinct" note. Add Judgment/Coherence/Harness options?
-3. **Diagnostic experience question.** Only "new" changes the output (it forces AI 101). Should the other answers shift the recommended level?
-4. **QA artefacts in the repo.** Resolved for now by moving the screenshots to `site-qa-screenshots/`. Decide whether that folder, and `docs/_qa/`, should be committed at all.
-5. **Matrix row order.** MODE_FLUENCY_MATRIX.md leads with Oracle, Genie, Interpreter, Executor and Miner; the site uses the v3 pantheon order. Which order is canonical?
+**Dark:** 4,409 elements, below 4.5:1: 0. Lowest five:
+
+| Ratio | Text | Element | Page | Width |
+|---|---|---|---|---|
+| 6.07 | stance | span.lv | index.html | 1280 |
+| 6.07 | expects | span.lv | index.html | 1280 |
+| 6.07 | load | span.lv | index.html | 1280 |
+| 6.07 | field | span.lv | index.html | 1280 |
+| 6.07 | fail | span.lv | index.html | 1280 |
+
+Caveat: text over the hero canvas is measured against the page background; particles behind the hero copy are drawn at 13% alpha (a quiet zone).
+
+## 3. Content
+
+- 14 stances on stances.html, 7 components on stack.html, 4 autonomy modes and 4 ambition types on matrix.html: all present.
+- Word-for-word spot-check against `research/src_archetypes_v3.md` (Expectation and "Why it stays hidden"):
+  - Tutor: Expectation identical, Why it stays hidden identical
+  - Mirror: Expectation identical, Why it stays hidden identical
+  - Adversary: Expectation identical, Why it stays hidden identical
+  - Librarian: Expectation identical, Why it stays hidden identical
+  - Simulator: Expectation identical, Why it stays hidden identical
+- Stance cards, essay, Stack components, matrix rows, autonomy table, ambition text, Article 4 text and lineage are carried over from the reviewed prototype (site/), whose fixes are kept: Hinge tag only on the Interpreter; Executor and Miner guardrails from v3; the "Not placed" handling; the learn.html privacy sentence; essay footnotes in order of first citation; METR 2026 caveat and the Papert quote; S&P figure dated 14 March 2025.
+- `[source needed]` markers: 0 (no new facts were introduced).
+
+## 4. Diagnostic
+
+- Exhaustive: 26,880 of 26,880 combinations return stance, layer, guardrail and level, with no `undefined` in the copied text; 14 stances and levels 101, 201, 301, 401 reachable. The question logic, data and scoring are copied unchanged from the prototype.
+
+| UI path | Result | Layer | Watch next | Answers | Copy |
+|---|---|---|---|---|---|
+| P1 Oracle, new, assistive (clicks) | oracle | Judgment | AI 101 | 7 | copied. ("Mode Fluency self-diagnostic") |
+| P2 Executor, agents, continuous (clicks) | executor | Harness + Judgment | AI 401 | 7 | copied. ("Mode Fluency self-diagnostic") |
+| P3 Miner via Ideas, 8 questions (clicks, with one Back) | miner | Context (writing) | AI 301 | 8 | copied. ("Mode Fluency self-diagnostic") |
+| P4 Interpreter (keyboard only: number keys) | interpreter | Evaluation | AI 401 | 7 | copied. ("Mode Fluency self-diagnostic") |
+
+Progress reads "question N (7 or 8 in total)" throughout; focus moves to each new question and to the report heading; Back restores the earlier choice. At 390 the report has no horizontal scroll.
+
+## 5. Interactions
+
+- **Compass (home, 1280 dark):** pointer swept 0→100°: needle 099, axis STRUCTURE, §1 row "Structure" active
+- **Stance selector (home):** arrow keys cycled all 14 behaviours (Oracle, Genie, Tutor, Executor, Miner, Mirror, Muse, Adversary, Librarian, Interpreter, Simulator, Scribe, Translator, Therapist); 14 distinct HUD readouts; pointer on Interpreter → "mode=interpreter · evidence trail: traced 30 · untraced 6 (rumours)"
+- **Home circuit:** hover Executor → 2 hot wires, layers Judgment, Harness
+- **Stances filters:** Hinge → ['interpreter']; Not placed → ['adversary', 'simulator', 'scribe']; Harness → ['executor']; empty combination shows the message ("Showing 0 of 14 stances (layer: Harness; Not placed)."); Hinge tag on: ['interpreter']
+- **Lazy card fields:** scrolled to oracle: 2 of 14 running ; scrolled to interpreter: 2 of 14 running ; scrolled to translator: 2 of 14 running
+- **Matrix:** click Librarian → path "Librarian —load→ Evaluation", log printed the guardrail; click Context → stances ['Miner', 'Simulator', 'Translator']; keyboard Down, Down, Right from Oracle → focus on "Evaluationhow to know"
+- **Stack:** Intent + Context weak → "binding constraint: Context (the lowest weak layer)"; states ['prompt:ok', 'context:weak', 'intent:weak', 'judgment:starved', 'coherence:starved']; 3 spine segments cut; Evaluation off → "evaluation weak: the layers still function; you just cannot see whether they are functioning well"
+- **Learn altimeter:** 101 → 301 → 601
+- **Theme toggle:** light → dark → auto
+- **Hero field:** 1,600 agents at 1280, 60 fps in the QA browser after interaction (software-rendered headless; indicative only)
+
+## 6. JavaScript disabled
+
+| Page | Main text (chars) | Hidden text outside JS-only instruments | JS-only instruments hidden |
+|---|---|---|---|
+| index.html | 4,768 | 0 | compass-col, stance-picker, stance-stage |
+| calculator-problem.html | 11,522 | 0 | none |
+| stances.html | 13,408 | 0 | js-only, filters, status, sc-stage, sys |
+| stack.html | 9,880 | 0 | js-only, sd-bar, sys |
+| matrix.html | 6,684 | 0 | section |
+| diagnose.html | 3,578 | 0 | console |
+| learn.html | 2,818 | 0 | altimeter |
+| work.html | 3,404 | 0 | none |
+| about.html | 6,864 | 0 | none |
+
+The wordmark still renders without JS (CSS `::before`, value "Mode Fluency"). The diagnostic page shows its questions on paper; the matrix page shows the full table.
+
+## 7. Size, dependencies, words
+
+- Deployable: 321,878 bytes in 15 files (HTML, `assets/field.css`, `assets/field.js`, `assets/diagnose.js`, `assets/favicon.svg`, README, .nojekyll); with `_qa/`: 335,475 bytes. Fonts excluded (Google Fonts). Budget 900,000.
+- External scripts: 0. Inline script: one line per page (adds the `js` class and applies a saved theme before paint).
+- Banned words (revolutionary, unlock, supercharge, game-changing, seamless, cutting-edge, empower): 0 hits across HTML, CSS, JS and README.
+- Prices: only "from $3,500" and "from $1,200". No testimonials, logos or client names.
+
+- Shared header and footer: byte-identical across all 9 pages apart from the `aria-current="page"` marker (checked by hash).
+
+## 8. Screenshots
+
+`<page>-<width>-<theme>[-rm]-top.jpg` for every page, width and theme (motion on), plus `-mid` and `-bottom` in light; reduced-motion tops at 390; `nojs-<page>-1280.jpg`; `diagnose-P1..P4-390.jpg` (full page); `interact-*.jpg` (compass, Interpreter field, home circuit, stance cards, matrix, stack binding constraint, essay notes); `mode-*-a/b.png` (the seven new stance behaviours before and with the pointer).
+
+## 9. Not verified
+
+Safari and Firefox rendering; real screen readers (only structure, focus order and live regions were checked); real-device frame rates; the live behaviour of the Clipboard API outside Chromium; GitHub Pages and Cloudflare Pages deploys (instructions written, not executed). The repository's Agent Audit Protocol has not yet been run on the site itself.
+
+## 10. Deviations from the PRD
+
+Listed in full on about.html ("Deviation report"). In short: hero button renamed "Read the essay" to keep "calculator" out of the hero; matrix pages follow MODE_FLUENCY_MATRIX.md row order while stances.html follows v3 order (open question); the seven new stance fields are illustrations and their counters are on-screen simulation counts; the binding-constraint chain covers the five cognitive layers, with separate switches for Evaluation and Harness; the essay strip is pinned under the header; the privacy sentence says thumbnails load "when they scroll into view" (they are lazy); instruments are hidden without JS and their content is given as text; diagnostic logic unchanged including its two open questions; "engineer" dropped from the about text as unsourced.

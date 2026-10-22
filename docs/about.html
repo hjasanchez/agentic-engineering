@@ -1,63 +1,161 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- @head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
 <title>About · Mode Fluency</title>
-<meta name="description" content="Henrique Jr. Sanchez: a practitioner who built AI @ Workplace, the AI-Human Engineering Stack and the Fourteen Stances. Lineage and credits.">
+<meta name="description" content="Henrique Jr. Sanchez, the lineage of the ideas, the self-audit, and how an AI agent built this site: build log and deviation report.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
 </head>
-<body>
+<body data-page="about" data-title="About">
+<!-- @header -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
     <nav class="site-nav" aria-label="Main">
-      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html" aria-current="page">About</a></li></ul>
+      <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html" aria-current="page">About</a></li></ul>
     </nav>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
+<!-- /@header -->
 <main id="main" tabindex="-1">
-
-<div class="wrap">
-  <header class="page-head prose">
-    <p class="eyebrow">About</p>
+<header class="page-head">
+  <div class="wrap">
+    <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> about <span class="dim">&middot; whoami</span></p>
     <h1>Henrique Jr. Sanchez</h1>
     <p class="lede">A practitioner, not a vendor.</p>
-  </header>
-  <div class="prose">
-    <p>I work full time as an engineer in a field that is not AI. I built everything on this site as a practitioner: the AI @ Workplace series, <a href="stack.html">the AI-Human Engineering Stack</a>, the Specifying Work guide, and <a href="stances.html">the Fourteen Stances</a>. Mode Fluency is the name for what holds them together.</p>
-    <p>I am not selling a model or a platform, and nothing here depends on one vendor. The specific models and tools will change. The skills underneath (clear communication, information management, purpose articulation, knowing the limits of your own knowledge, making many parts work as one) are not really AI skills. They are intelligence skills.</p>
-
-    <h2>Lineage</h2>
-    <!-- DECISION FOR HENRIQUE: the Stack and Specifying Work documents are co-credited to "Hayen Mill"; this page keeps that credit as published on stack.html and does not discuss it. Decide the line before launch (STRATEGY_BRIEF.md 3.7). -->
-    <p>None of this came from nowhere, and I would rather over-credit than be assumed derivative. <strong>Anthropic's AI Fluency</strong> course (with Joseph Feller and Rick Dakan) and its 4Ds, Delegation, Description, Discernment and Diligence, are the baseline; mode fluency is meant as the diagnostic layer above them. <strong>Ethan Mollick</strong>'s <em>Co-Intelligence</em>, his centaurs and cyborgs and the jagged frontier are a reason stances need choosing at all. <strong>Nate B. Jones</strong> made the public case for intent engineering, which is the third layer of the Stack, and identified the Stack's fractal property. <strong>Andrej Karpathy</strong> endorsed &ldquo;context engineering&rdquo; and named &ldquo;agentic engineering&rdquo;, the developer end of the same ladder. The CHI 2026 paper by Chappidi, Singh and Krauze, &ldquo;Who Does What? Archetypes of Roles Assigned to LLMs During Human-AI Decision-Making&rdquo; (<a href="https://arxiv.org/abs/2602.11924">arXiv 2602.11924</a>), got to &ldquo;archetypes&rdquo; first, for decision support; the Stances are for everyday knowledge work. The four ambition types are <strong>Felix Rieseberg</strong>'s (<a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">How to be more ambitious</a>). The autonomy modes table draws on <strong>Cory Gwin</strong>'s analysis, and his feedback revised the Specifying Work guide.</p>
-
-    <h2>We audited ourselves</h2>
-    <p>Before launching this site, we ran the Stack on the project itself. The binding constraint was not prompt or context: there was plenty of content. It was <strong>intent</strong> (what is this work for?) and <strong>coherence</strong> (five artifacts, three names). This site, and the decision to call the whole thing Mode Fluency, is the coherence fix. If the method cannot diagnose its own author, it should not be sold to anyone else.</p>
-
-    <h2>License</h2>
-    <p>The source repository, <a href="https://github.com/hjasanchez/agentic-engineering">hjasanchez/agentic-engineering</a>, is published under the GPL-3.0 license. This site lives in that repository.</p>
-
-    <h2>Contact</h2>
-    <p><a href="work.html#contact-title">Work with me</a> · <a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a> · <a href="https://github.com/hjasanchez">GitHub</a></p>
+    <div class="prose">
+      <p>I work full time in a field that is not AI. I built everything on this site as a practitioner: the AI @ Workplace series, <a href="stack.html">the AI-Human Engineering Stack</a>, the Specifying Work guide, and <a href="stances.html">the Fourteen Stances</a>. <span data-brand></span> is the name for what holds them together.</p>
+      <p>I am not selling a model or a platform, and nothing here depends on one vendor. The specific models and tools will change. The skills underneath (clear communication, information management, purpose articulation, knowing the limits of your own knowledge, making many parts work as one) are not really AI skills. They are intelligence skills.</p>
+    </div>
   </div>
-</div>
+</header>
 
+<section class="section" aria-labelledby="lin-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§1</span> lineage</p>
+    <h2 id="lin-title">Lineage</h2>
+    <!-- DECISION FOR HENRIQUE: the Stack and Specifying Work documents are co-credited to "Hayen Mill"; this page keeps that credit as published on stack.html and does not discuss it. Decide the line before launch (STRATEGY_BRIEF.md 3.7). -->
+    <div class="prose"><p>None of this came from nowhere, and I would rather over-credit than be assumed derivative. <strong>Anthropic's AI Fluency</strong> course (with Joseph Feller and Rick Dakan) and its 4Ds, Delegation, Description, Discernment and Diligence, are the baseline; mode fluency is meant as the diagnostic layer above them. <strong>Ethan Mollick</strong>'s <em>Co-Intelligence</em>, his centaurs and cyborgs and the jagged frontier are a reason stances need choosing at all. <strong>Nate B. Jones</strong> made the public case for intent engineering, which is the third layer of the Stack, and identified the Stack's fractal property. <strong>Andrej Karpathy</strong> endorsed &ldquo;context engineering&rdquo; and named &ldquo;agentic engineering&rdquo;, the developer end of the same ladder. The CHI 2026 paper by Chappidi, Singh and Krauze, &ldquo;Who Does What? Archetypes of Roles Assigned to LLMs During Human-AI Decision-Making&rdquo; (<a href="https://arxiv.org/abs/2602.11924">arXiv 2602.11924</a>), got to &ldquo;archetypes&rdquo; first, for decision support; the Stances are for everyday knowledge work. The four ambition types are <strong>Felix Rieseberg</strong>'s (<a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">How to be more ambitious</a>). The autonomy modes table draws on <strong>Cory Gwin</strong>'s analysis, and his feedback revised the Specifying Work guide.</p></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="audit-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§2</span> self_audit</p>
+    <h2 id="audit-title">We audited ourselves</h2>
+    <div class="prose"><p>Before launching this site, we ran the Stack on the project itself. The binding constraint was not prompt or context: there was plenty of content. It was <strong>intent</strong> (what is this work for?) and <strong>coherence</strong> (five artifacts, three names). This site, and the decision to call the whole thing <span data-brand></span>, is the coherence fix. If the method cannot diagnose its own author, it should not be sold to anyone else.</p></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="agent-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§3</span> built_by_an_agent</p>
+    <h2 id="agent-title">Built by an agent</h2>
+    <div class="prose"><p>This site was designed and built by an AI agent (Claude, working in Claude Code). It worked from written briefs (a design brief, three competing visual directions of which I chose this one, and a product spec for the nine pages) and from my own source texts. The agent wrote the code, ran its own quality checks, and wrote the report below about where it departed from the spec. The numbers are from its final QA run, not estimates.</p></div>
+    <h3 style="margin-top:28px">Build log</h3>
+    <div class="table-wrap" style="max-width:860px">
+      <table class="data log-table">
+        <caption>From site-c/_qa/qa-report.md</caption>
+        <tbody>
+<!-- @aboutlog -->
+          <tr><th scope="row" class="sys">date</th><td>2026-10-22</td></tr>
+          <tr><th scope="row" class="sys">pages</th><td>9, sharing one header and footer</td></tr>
+          <tr><th scope="row" class="sys">files</th><td>15 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)</td></tr>
+          <tr><th scope="row" class="sys">size</th><td>321,878 bytes, fonts excluded (budget 900,000)</td></tr>
+          <tr><th scope="row" class="sys">libraries</th><td>0 frameworks, 0 libraries, 0 external scripts; fonts from Google Fonts</td></tr>
+          <tr><th scope="row" class="sys">fields</th><td>14 stance behaviours (7 from the design concept, 7 new) plus the hero, the essay strip and 14 card fields</td></tr>
+          <tr><th scope="row" class="sys">QA loads</th><td>72 in headless Chromium: console errors 0, failed requests 0, horizontal overflow 0</td></tr>
+          <tr><th scope="row" class="sys">contrast</th><td>4,409 text elements per theme; lowest 4.98:1 light, 6.07:1 dark</td></tr>
+          <tr><th scope="row" class="sys">diagnostic</th><td>26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</td></tr>
+          <tr><th scope="row" class="sys">hero field</th><td>1,600 agents at 1280 px, 60 fps in the QA browser (indicative)</td></tr>
+          <tr><th scope="row" class="sys">checks</th><td>123 of 123 passed</td></tr>
+<!-- /@aboutlog -->
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:32px">Deviation report</h3>
+    <p class="source-note">Where this build departed from its spec, and why. Written by the agent at the end of the build.</p>
+    <!-- @deviations -->
+    <ol class="deviation prose">
+      <li><strong>Hero button renamed.</strong> The home hero&rsquo;s first button reads &ldquo;Read the essay&rdquo; instead of &ldquo;Read The Calculator Problem&rdquo;, so the word &ldquo;calculator&rdquo; does not appear in the hero (a spec requirement). The essay keeps its title.</li>
+      <li><strong>Two row orders.</strong> The matrix circuit and table follow MODE_FLUENCY_MATRIX.md (Oracle, Genie, Interpreter, Executor, Miner first); the stances page follows the v3 pantheon order. Which order is canonical is still an open question for Henrique, so each page follows its own source.</li>
+      <li><strong>The seven new stance fields are illustrations.</strong> Adversary, Librarian, Interpreter, Simulator, Scribe, Translator and Therapist were designed for this build. Their counters (for example &ldquo;never said 3&rdquo;) count simulated tokens on screen; they are not statistics about people or models.</li>
+      <li><strong>Binding-constraint demo scope.</strong> The dependency chain in the Stack demo covers the five cognitive layers only, as the source does. Evaluation and Harness have their own switches, which show their published failure signatures instead of dimming layers.</li>
+      <li><strong>Essay strip.</strong> The reactive strip sits at the top of the essay and stays pinned under the header while you read, marking reading progress. Nothing animates behind the text.</li>
+      <li><strong>Privacy sentence made more exact.</strong> Thumbnails are lazy-loaded, so learn.html says they load from YouTube&rsquo;s image host &ldquo;when they scroll into view&rdquo;; the rest of the spec&rsquo;s sentence is kept.</li>
+      <li><strong>Without JavaScript.</strong> Every page&rsquo;s text is present; the instruments themselves (compass, fields, circuit, filters, console) are hidden, and their content is given as text instead: the axis list, the stance cards, the matrix table, and the diagnostic&rsquo;s questions on paper.</li>
+      <li><strong>Diagnostic logic untouched.</strong> The two open questions from the prototype review (the recovery question cannot name Judgment, Coherence or Harness; only a &ldquo;new&rdquo; experience answer changes the result) are left as they were, because the spec said to keep the logic.</li>
+      <li><strong>About wording.</strong> The prototype said Henrique works &ldquo;as an engineer&rdquo;; that detail is not in the source notes, so this page says only that Henrique works full time in a field that is not AI.</li>
+      <li><strong>Not verified.</strong> Safari, Firefox and real screen readers were not tested; frame rates come from headless Chromium and are indicative only. The site&rsquo;s own protocol audit has not been run yet (see below).</li>
+    </ol>
+    <!-- /@deviations -->
+    <h3 style="margin-top:32px">Re-audited with its own protocol</h3>
+    <div class="prose"><p>A site that teaches checkpoints and deviation reports should carry its own, and be checked by its own method rather than a separate standard. Each release of this site is to be re-audited with the repository&rsquo;s <a href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md">Agent Audit Protocol</a>: find the binding layer, fix that first, publish what changed. This first build ships with its QA report and the deviation report above (<a href="_qa/qa-report.md">_qa/qa-report.md</a>); the first protocol audit of the site itself is the next step, and its findings will be published the same way.</p></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="lic-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§4</span> license</p>
+    <h2 id="lic-title">License</h2>
+    <div class="prose">
+      <p>The source repository, <a href="https://github.com/hjasanchez/agentic-engineering">hjasanchez/agentic-engineering</a>, is published under the GPL-3.0 license. This site lives in that repository, so its code is GPL-3.0 too.</p>
+      <p>For the written content (essays, stance and Stack texts), the license <strong>proposed</strong> is CC BY-SA 4.0: reuse and adapt it with credit, and share alike. This is a proposal, not yet a decision.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="contact-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§5</span> contact</p>
+    <h2 id="contact-title">Contact</h2>
+    <p class="lv-links"><a class="more" href="work.html#contact-title">Work with me &rarr;</a><a class="more" href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn &rarr;</a><a class="more" href="https://github.com/hjasanchez">GitHub &rarr;</a></p>
+  </div>
+</section>
 </main>
+<!-- @footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
-    <ul class="footer-links">
-      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-      <li>Repository license: GPL-3.0</li>
-      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
-      <li><a href="about.html">About and credits</a></li>
-    </ul>
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
+        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Repository license: GPL-3.0</li>
+        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
+<!-- /@footer -->
 </body>
 </html>

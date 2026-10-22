@@ -1,173 +1,250 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- @head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
 <title>The AI-Human Engineering Stack · Mode Fluency</title>
-<meta name="description" content="The AI-Human Engineering Stack: Prompt, Context, Intent, Judgment and Coherence, plus Evaluation and Harness. The dependency rule and the diagnostic loop.">
+<meta name="description" content="The AI-Human Engineering Stack as a system: Prompt, Context, Intent, Judgment, Coherence, plus Evaluation and Harness. The dependency rule and the diagnostic loop.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
 </head>
-<body>
+<body data-page="stack" data-title="The AI-Human Engineering Stack">
+<!-- @header -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
     <nav class="site-nav" aria-label="Main">
-      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html" aria-current="page">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+      <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html" aria-current="page">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
     </nav>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
+<!-- /@header -->
 <main id="main" tabindex="-1">
-
-<div class="wrap">
-  <header class="page-head prose">
-    <p class="eyebrow"><span class="num">Axis 02</span> · Structure</p>
+<header class="page-head">
+  <div class="wrap">
+    <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> axis 02 <span class="dim">&middot; structure &middot; what must I supply for that expectation to hold?</span></p>
     <h1>The AI-Human Engineering Stack</h1>
     <p class="lede">Five layers of cognitive engineering, two meta-functions that operate across them, and a user interaction model that ties them together.</p>
-    <p>Working effectively with AI requires more than writing good prompts. Each layer answers a different categorical question. Each depends on all layers beneath it. The gap between people who use AI effectively and people who struggle is rarely about prompt skill. It is almost always about the invisible layers, the ones the Stack is designed to make visible.</p>
-  </header>
+    <div class="prose"><p>Working effectively with AI requires more than writing good prompts. Each layer answers a different categorical question. Each depends on all layers beneath it. The gap between people who use AI effectively and people who struggle is rarely about prompt skill. It is almost always about the invisible layers, the ones the Stack is designed to make visible.</p></div>
+  </div>
+</header>
 
-  <figure class="stack-figure">
-    <svg viewBox="0 0 360 410" role="img" aria-labelledby="stack-t stack-d"><title id="stack-t">The AI-Human Engineering Stack</title><desc id="stack-d">Five layers stacked from bottom to top: Prompt (what to do), Context (what to know while doing), Intent (what to want while doing), Judgment (what to doubt while doing), Coherence (what to become while doing). A vertical band labelled Evaluation (how to know while doing) runs alongside all five layers. All of it sits on a base labelled Harness (where and how to do). An arrow on the left shows that each layer depends on all layers beneath it.</desc><g class="svg-muted"><text x="14" y="200" font-size="11" transform="rotate(-90 14 200)" text-anchor="middle" letter-spacing="1">DEPENDS ON EVERYTHING BELOW</text></g><line x1="26" y1="330" x2="26" y2="40" class="svg-stroke" stroke-width="1.5"/><path d="M26 32 L21 44 L31 44 Z" class="svg-muted"/><rect x="38" y="20" width="242" height="58" rx="3" class="svg-l5 svg-stroke" stroke-width="1"/><text x="52" y="45" font-size="16" font-weight="700" class="svg-ink">5. Coherence</text><text x="52" y="65" font-size="13" class="svg-muted" font-style="italic">What to become while doing</text><rect x="38" y="82" width="242" height="58" rx="3" class="svg-l4 svg-stroke" stroke-width="1"/><text x="52" y="107" font-size="16" font-weight="700" class="svg-ink">4. Judgment</text><text x="52" y="127" font-size="13" class="svg-muted" font-style="italic">What to doubt while doing</text><rect x="38" y="144" width="242" height="58" rx="3" class="svg-l3 svg-stroke" stroke-width="1"/><text x="52" y="169" font-size="16" font-weight="700" class="svg-ink">3. Intent</text><text x="52" y="189" font-size="13" class="svg-muted" font-style="italic">What to want while doing</text><rect x="38" y="206" width="242" height="58" rx="3" class="svg-l2 svg-stroke" stroke-width="1"/><text x="52" y="231" font-size="16" font-weight="700" class="svg-ink">2. Context</text><text x="52" y="251" font-size="13" class="svg-muted" font-style="italic">What to know while doing</text><rect x="38" y="268" width="242" height="58" rx="3" class="svg-l1 svg-stroke" stroke-width="1"/><text x="52" y="293" font-size="16" font-weight="700" class="svg-ink">1. Prompt</text><text x="52" y="313" font-size="13" class="svg-muted" font-style="italic">What to do</text><rect x="286" y="20" width="62" height="306" rx="3" class="svg-l6 svg-accent-stroke" stroke-width="1.5"/><text x="322" y="173" font-size="15" font-weight="700" class="svg-accent" text-anchor="middle" transform="rotate(-90 322 173)">Evaluation</text><text x="304" y="173" font-size="11" class="svg-muted" text-anchor="middle" transform="rotate(-90 304 173)">how to know while doing</text><rect x="38" y="336" width="310" height="58" rx="3" class="svg-l7 svg-stroke" stroke-width="1.5" stroke-dasharray="5 3"/><text x="52" y="361" font-size="16" font-weight="700" class="svg-ink">Harness</text><text x="52" y="381" font-size="13" class="svg-muted" font-style="italic">Where and how to do</text></svg>
-    <figcaption>The Stack, bottom to top. Evaluation runs alongside every layer; the harness is the platform underneath. Each layer is harder to see, harder to specify, and harder to evaluate than the one below.</figcaption>
-  </figure>
-
-  <section aria-labelledby="map-title">
-    <h2 id="map-title">The component map</h2>
-    <div class="table-wrap">
-      <table class="stack-on-mobile">
-        <caption>From the Component Reference Map, v1.0, March 2026</caption>
-        <thead><tr><th scope="col">Component</th><th scope="col">Governs</th><th scope="col">Scope</th><th scope="col">Failure signature</th></tr></thead>
-        <tbody><tr><th scope="row"><a href="#prompt">Prompt Engineering</a></th><td data-label="Governs">What to do</td><td data-label="Scope">Per-session</td><td data-label="Failure signature">Incoherent capability: individually plausible, collectively inconsistent</td></tr><tr><th scope="row"><a href="#context">Context Engineering</a></th><td data-label="Governs">What to know</td><td data-label="Scope">Per-system</td><td data-label="Failure signature">Informed incompetence: good instructions, wrong or missing information</td></tr><tr><th scope="row"><a href="#intent">Intent Engineering</a></th><td data-label="Governs">What to want</td><td data-label="Scope">Per-organization</td><td data-label="Failure signature">Misaligned optimization: task done correctly, actual goal undermined</td></tr><tr><th scope="row"><a href="#judgment">Judgment Engineering</a></th><td data-label="Governs">What to doubt</td><td data-label="Scope">Continuous</td><td data-label="Failure signature">Confident wrongness: high metric performance, progressive real-world drift</td></tr><tr><th scope="row"><a href="#coherence">Coherence Engineering</a></th><td data-label="Governs">What to become</td><td data-label="Scope">Per-ecosystem</td><td data-label="Failure signature">Emergent misalignment: each agent correct, collective behavior wrong</td></tr><tr><th scope="row"><a href="#evaluation">Evaluation Engineering</a></th><td data-label="Governs">How to know</td><td data-label="Scope">Cross-layer</td><td data-label="Failure signature">Silent failure: the system can&#x27;t see what&#x27;s breaking or where</td></tr><tr><th scope="row"><a href="#harness">Harness Engineering</a></th><td data-label="Governs">Where and how</td><td data-label="Scope">Infrastructure</td><td data-label="Failure signature">Capability mismatch: the platform constrains what the cognitive layers could do</td></tr></tbody>
-      </table>
+<section class="section" aria-labelledby="sys-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§1</span> system_diagram</p>
+    <h2 id="sys-title">Seven components, one system</h2>
+    <div class="prose"><p>Five layers stack bottom to top. Evaluation runs alongside every layer; the harness is the platform underneath. Each layer is harder to see, harder to specify, and harder to evaluate than the one below. <span class="js-only">The amber current climbs the dependency spine; the green pulses are evaluation reading each layer. Mark any layer weak and watch what happens above it.</span></p></div>
+    <div class="stackdiag" id="stackdiag">
+      <svg class="sd-wires" aria-hidden="true" focusable="false"></svg>
+      <div class="sd-layers">
+      <div class="sd-node" data-l="prompt" id="sd-prompt">
+        <span class="sd-lnum" aria-hidden="true">L1</span>
+        <h3>Prompt</h3>
+        <p class="sd-q">What to do</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-session</span><span><span class="lv">fails as</span> Incoherent capability: individually plausible, collectively inconsistent</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div><div class="sd-node" data-l="context" id="sd-context">
+        <span class="sd-lnum" aria-hidden="true">L2</span>
+        <h3>Context</h3>
+        <p class="sd-q">What to know while doing</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-system</span><span><span class="lv">fails as</span> Informed incompetence: good instructions, wrong or missing information</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div><div class="sd-node" data-l="intent" id="sd-intent">
+        <span class="sd-lnum" aria-hidden="true">L3</span>
+        <h3>Intent</h3>
+        <p class="sd-q">What to want while doing</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-organization</span><span><span class="lv">fails as</span> Misaligned optimization: task done correctly, actual goal undermined</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div><div class="sd-node" data-l="judgment" id="sd-judgment">
+        <span class="sd-lnum" aria-hidden="true">L4</span>
+        <h3>Judgment</h3>
+        <p class="sd-q">What to doubt while doing</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Continuous</span><span><span class="lv">fails as</span> Confident wrongness: high metric performance, progressive real-world drift</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div><div class="sd-node" data-l="coherence" id="sd-coherence">
+        <span class="sd-lnum" aria-hidden="true">L5</span>
+        <h3>Coherence</h3>
+        <p class="sd-q">What to become while doing</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-ecosystem</span><span><span class="lv">fails as</span> Emergent misalignment: each agent correct, collective behavior wrong</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div>
+      </div>
+      <div class="sd-evalbar" aria-hidden="true"><span class="sd-evt">Evaluation</span><span class="sd-evq">how to know while doing</span></div>
+      <div class="sd-node sd-harness" data-l="harness" id="sd-harness">
+        <span class="sd-lnum" aria-hidden="true">base</span>
+        <h3>Harness</h3>
+        <p class="sd-q">Where and how to do</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Infrastructure</span><span><span class="lv">fails as</span> Capability mismatch: the platform constrains what the cognitive layers could do</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div>
+      <div class="sd-node sd-evalctl" data-l="evaluation" id="sd-evaluation">
+        <span class="sd-lnum" aria-hidden="true">meta</span>
+        <h3>Evaluation</h3>
+        <p class="sd-q">How to know while doing</p>
+        <p class="sys sd-meta"><span><span class="lv">scope</span> Cross-layer</span><span><span class="lv">fails as</span> Silent failure: the system can&#x27;t see what&#x27;s breaking or where</span></p>
+        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+      </div>
     </div>
-    <div class="grid two">
-<article class="card component" id="prompt" aria-labelledby="c-prompt">
-  <p class="eyebrow"><span class="num">Layer 1</span></p>
+    <div class="sd-bar js-only"><button type="button" class="cmd cmd-ghost small" id="sd-reset" hidden><span class="cmd-glyph" aria-hidden="true">$</span> reset all layers</button></div>
+    <p class="sys sd-readout js-only" id="sd-readout" role="status" aria-live="polite">binding constraint: none marked. Mark a layer weak to find it.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dep-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§2</span> dependency_rule</p>
+    <h2 id="dep-title">The dependency rule</h2>
+    <div class="prose"><p>Each layer depends on all layers beneath it. A system cannot have strong intent engineering without adequate context engineering: agents can't make aligned tradeoffs without the information to see what they're trading off. A system cannot have strong judgment engineering without clear intent: agents can't know when to doubt themselves if they don't know what they're supposed to want.</p></div>
+    <p class="free-line">Identify the lowest weak layer. That is the binding constraint. Improving any layer above it before fixing the layer below produces diminishing returns. Most architectures in 2026 have their binding constraint at context or intent engineering.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="loop-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§3</span> diagnostic_loop</p>
+    <h2 id="loop-title">The diagnostic loop</h2>
+    <div class="prose"><p>When output is unsatisfactory, the natural instinct is to rewrite the prompt. The Stack gives a more precise diagnostic.</p></div>
+    <figure class="loop-fig">
+      <svg viewBox="0 0 360 150" role="img" aria-labelledby="loop-t loop-d"><title id="loop-t">The diagnostic loop</title><desc id="loop-d">Three steps in a cycle: Evaluate detects a problem, Diagnose identifies which layer failed, Re-enter at that layer, then evaluate again.</desc>
+        <path class="lp-path" d="M60 62 H300 C300 128 60 128 60 62"/>
+        <rect class="lp-node" x="12" y="40" width="96" height="44" rx="2"/><text x="60" y="67" text-anchor="middle">Evaluate</text>
+        <rect class="lp-node" x="132" y="40" width="96" height="44" rx="2"/><text x="180" y="67" text-anchor="middle">Diagnose</text>
+        <rect class="lp-node" x="252" y="40" width="96" height="44" rx="2"/><text x="300" y="67" text-anchor="middle">Re-enter</text>
+        <circle class="lp-dot" r="4"/>
+        <text class="lp-sub" x="180" y="142" text-anchor="middle">at the layer that failed, not always the prompt</text>
+      </svg>
+    </figure>
+    <ol class="steps">
+      <li><strong>Evaluate.</strong> Evaluation detects a problem, either autonomously (tests fail) or through human review (the output doesn't seem right).</li>
+      <li><strong>Diagnose.</strong> Identify which layer failed. Was the instruction unclear (prompt)? Was information missing (context)? Were the wrong tradeoffs made (intent)? Was a risk ignored (judgment)? Is the behavior inconsistent with previous work (coherence)?</li>
+      <li><strong>Re-enter</strong> at the specific layer that needs correction. Not always the prompt. Often the fix is adding a file to context, clarifying a priority, or defining an uncertainty protocol, none of which involve changing the prompt at all.</li>
+    </ol>
+    <div class="prose" style="margin-top:18px"><p>The resulting skill is <strong>mode fluency</strong>: recognizing which layer is failing and intervening at the right level. Most AI frustration comes from trying to fix context problems with better prompts, or judgment problems with more context.</p></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="map-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§4</span> component_map</p>
+    <h2 id="map-title">The components in detail</h2>
+    <p class="source-note">From the Component Reference Map, v1.0, March 2026.</p>
+    <div class="ruled-grid two">
+<article id="prompt" aria-labelledby="c-prompt">
+  <p class="card-tag"><span class="num">Layer 1</span></p>
   <h3 id="c-prompt">Prompt Engineering</h3>
-  <p class="question">What to do</p>
+  <p class="q-line">What to do</p>
   <p>The craft of designing the structural scaffolding that bridges the gap between a model&#x27;s theoretical capability and its practical output.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>What to do</dd>
     <dt>Scope</dt><dd>Per-session</dd>
     <dt>Characteristic artifacts</dt><dd>Structured instructions, role definitions, format specs, task decomposition</dd>
-    <dt>Failure signature</dt><dd><strong>Incoherent capability: individually plausible, collectively inconsistent</strong></dd>
+    <dt>Failure signature</dt><dd>Incoherent capability: individually plausible, collectively inconsistent</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">The human feels like they are talking to a brilliant entity that cannot understand what they mean.</p>
-</article><article class="card component" id="context" aria-labelledby="c-context">
-  <p class="eyebrow"><span class="num">Layer 2</span></p>
+  <p class="aside-line">The human feels like they are talking to a brilliant entity that cannot understand what they mean.</p>
+</article>
+<article id="context" aria-labelledby="c-context">
+  <p class="card-tag"><span class="num">Layer 2</span></p>
   <h3 id="c-context">Context Engineering</h3>
-  <p class="question">What to know while doing</p>
+  <p class="q-line">What to know while doing</p>
   <p>The architecture of computing the precise slice of state required to focus a model&#x27;s attention budget on a specific decision.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>What to know</dd>
     <dt>Scope</dt><dd>Per-system</dd>
     <dt>Characteristic artifacts</dt><dd>State files, context documents, retrieval systems, memory stores, compression protocols</dd>
-    <dt>Failure signature</dt><dd><strong>Informed incompetence: good instructions, wrong or missing information</strong></dd>
+    <dt>Failure signature</dt><dd>Informed incompetence: good instructions, wrong or missing information</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">The human feels like they are working with someone who follows instructions perfectly but has some sort of troublesome amnesia.</p>
-</article><article class="card component" id="intent" aria-labelledby="c-intent">
-  <p class="eyebrow"><span class="num">Layer 3</span></p>
+  <p class="aside-line">The human feels like they are working with someone who follows instructions perfectly but has some sort of troublesome amnesia.</p>
+</article>
+<article id="intent" aria-labelledby="c-intent">
+  <p class="card-tag"><span class="num">Layer 3</span></p>
   <h3 id="c-intent">Intent Engineering</h3>
-  <p class="question">What to want while doing</p>
+  <p class="q-line">What to want while doing</p>
   <p>The discipline of making what humans know (goals, values, tradeoffs, decision boundaries) explicit, structured, and machine-actionable.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>What to want</dd>
     <dt>Scope</dt><dd>Per-organization</dd>
     <dt>Characteristic artifacts</dt><dd>Goal hierarchies, values docs, tradeoff specifications, decision boundaries, escalation logic</dd>
-    <dt>Failure signature</dt><dd><strong>Misaligned optimization: task done correctly, actual goal undermined</strong></dd>
+    <dt>Failure signature</dt><dd>Misaligned optimization: task done correctly, actual goal undermined</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">It looks like success until you examine the second-order effects. Metrics improve. Dashboards are green.</p>
-</article><article class="card component" id="judgment" aria-labelledby="c-judgment">
-  <p class="eyebrow"><span class="num">Layer 4</span></p>
+  <p class="aside-line">It looks like success until you examine the second-order effects. Metrics improve. Dashboards are green.</p>
+</article>
+<article id="judgment" aria-labelledby="c-judgment">
+  <p class="card-tag"><span class="num">Layer 4</span></p>
   <h3 id="c-judgment">Judgment Engineering</h3>
-  <p class="question">What to doubt while doing</p>
+  <p class="q-line">What to doubt while doing</p>
   <p>The discipline of designing systems that can recognize when their own operating assumptions, including their intent specifications, have become insufficient, and can adapt, escalate, or gracefully degrade rather than optimizing confidently in the wrong direction.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>What to doubt</dd>
     <dt>Scope</dt><dd>Continuous</dd>
     <dt>Characteristic artifacts</dt><dd>Uncertainty protocols, scope boundaries, pre-implementation checkpoints, escalation conditions</dd>
-    <dt>Failure signature</dt><dd><strong>Confident wrongness: high metric performance, progressive real-world drift</strong></dd>
+    <dt>Failure signature</dt><dd>Confident wrongness: high metric performance, progressive real-world drift</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">It hits every metric. It violates no explicit boundary. And it is steadily drifting.</p>
-</article><article class="card component" id="coherence" aria-labelledby="c-coherence">
-  <p class="eyebrow"><span class="num">Layer 5</span></p>
+  <p class="aside-line">It hits every metric. It violates no explicit boundary. And it is steadily drifting.</p>
+</article>
+<article id="coherence" aria-labelledby="c-coherence">
+  <p class="card-tag"><span class="num">Layer 5</span></p>
   <h3 id="c-coherence">Coherence Engineering</h3>
-  <p class="question">What to become while doing</p>
+  <p class="q-line">What to become while doing</p>
   <p>The discipline of ensuring that a multi-agent ecosystem produces emergent behavior consistent with the overarching purpose of the system, even when individual agents are operating correctly within their own scope.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>What to become</dd>
     <dt>Scope</dt><dd>Per-ecosystem</dd>
     <dt>Characteristic artifacts</dt><dd>Behavioral guidelines, inter-agent protocols, system-level monitoring, architectural principles</dd>
-    <dt>Failure signature</dt><dd><strong>Emergent misalignment: each agent correct, collective behavior wrong</strong></dd>
+    <dt>Failure signature</dt><dd>Emergent misalignment: each agent correct, collective behavior wrong</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">Auditing any single agent shows correct behavior. The problem exists only at the system level.</p>
-</article><article class="card component" id="evaluation" aria-labelledby="c-evaluation">
-  <p class="eyebrow"><span class="num">Meta-function</span></p>
+  <p class="aside-line">Auditing any single agent shows correct behavior. The problem exists only at the system level.</p>
+</article>
+<article id="evaluation" aria-labelledby="c-evaluation">
+  <p class="card-tag"><span class="num">Meta-function</span></p>
   <h3 id="c-evaluation">Evaluation Engineering</h3>
-  <p class="question">How to know while doing</p>
+  <p class="q-line">How to know while doing</p>
   <p>Not a layer: a parallel function that observes, measures, and corrects every layer of the stack, continuously and often autonomously. The layers tell you what to configure; evaluation tells you whether it&#x27;s working.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>How to know</dd>
     <dt>Scope</dt><dd>Cross-layer</dd>
     <dt>Characteristic artifacts</dt><dd>Test suites, assertion libraries, layer-attributed diagnostics, autonomous correction loops</dd>
-    <dt>Failure signature</dt><dd><strong>Silent failure: the system can&#x27;t see what&#x27;s breaking or where</strong></dd>
+    <dt>Failure signature</dt><dd>Silent failure: the system can&#x27;t see what&#x27;s breaking or where</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">If you remove evaluation, the layers still function; you just can&#x27;t see whether they&#x27;re functioning well.</p>
-</article><article class="card component" id="harness" aria-labelledby="c-harness">
-  <p class="eyebrow"><span class="num">Meta-function</span></p>
+  <p class="aside-line">If you remove evaluation, the layers still function; you just can&#x27;t see whether they&#x27;re functioning well.</p>
+</article>
+<article id="harness" aria-labelledby="c-harness">
+  <p class="card-tag"><span class="num">Meta-function</span></p>
   <h3 id="c-harness">Harness Engineering</h3>
-  <p class="question">Where and how to do</p>
+  <p class="q-line">Where and how to do</p>
   <p>The infrastructure, tooling, and execution environment in which the stack operates. Not a layer of cognitive concern, but the platform on which all cognitive concerns are implemented.</p>
   <dl class="facts">
     <dt>Governs</dt><dd>Where and how</dd>
     <dt>Scope</dt><dd>Infrastructure</dd>
     <dt>Characteristic artifacts</dt><dd>Execution platform, tool integrations, orchestration definitions, CI/CD pipeline, session management</dd>
-    <dt>Failure signature</dt><dd><strong>Capability mismatch: the platform constrains what the cognitive layers could do</strong></dd>
+    <dt>Failure signature</dt><dd>Capability mismatch: the platform constrains what the cognitive layers could do</dd>
   </dl>
-  <p class="small muted" style="margin-top:0.7rem">The harness is the kitchen; the layers are the recipe. A better kitchen doesn&#x27;t change the recipe, but it changes what&#x27;s feasible.</p>
+  <p class="aside-line">The harness is the kitchen; the layers are the recipe. A better kitchen doesn&#x27;t change the recipe, but it changes what&#x27;s feasible.</p>
 </article>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="prose" aria-labelledby="dep-title">
-    <h2 id="dep-title">The dependency rule</h2>
-    <p>Each layer depends on all layers beneath it. A system cannot have strong intent engineering without adequate context engineering: agents can't make aligned tradeoffs without the information to see what they're trading off. A system cannot have strong judgment engineering without clear intent: agents can't know when to doubt themselves if they don't know what they're supposed to want.</p>
-    <div class="callout"><p><strong>Identify the lowest weak layer. That is the binding constraint.</strong> Improving any layer above it before fixing the layer below produces diminishing returns. Most architectures in 2026 have their binding constraint at context or intent engineering.</p></div>
-  </section>
-
-  <section class="prose" aria-labelledby="loop-title">
-    <h2 id="loop-title">The diagnostic loop</h2>
-    <p>When output is unsatisfactory, the natural instinct is to rewrite the prompt. The Stack gives a more precise diagnostic.</p>
-    <figure class="stack-figure" style="max-width:520px"><svg viewBox="0 0 360 150" role="img" aria-labelledby="loop-t loop-d">
-<title id="loop-t">The diagnostic loop</title>
-<desc id="loop-d">Three steps in a cycle: Evaluate detects a problem, Diagnose identifies which layer failed, Re-enter at that layer, then evaluate again.</desc>
-<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="svg-accent"/></marker></defs>
-<g font-size="14" font-weight="700" text-anchor="middle">
-<rect x="8" y="40" width="96" height="44" rx="22" class="svg-surface svg-accent-stroke" stroke-width="1.5"/><text x="56" y="67" class="svg-ink">Evaluate</text>
-<rect x="132" y="40" width="96" height="44" rx="22" class="svg-surface svg-accent-stroke" stroke-width="1.5"/><text x="180" y="67" class="svg-ink">Diagnose</text>
-<rect x="256" y="40" width="96" height="44" rx="22" class="svg-surface svg-accent-stroke" stroke-width="1.5"/><text x="304" y="67" class="svg-ink">Re-enter</text>
-</g>
-<g fill="none" class="svg-accent-stroke" stroke-width="1.5">
-<line x1="106" y1="62" x2="128" y2="62" marker-end="url(#arr)"/>
-<line x1="230" y1="62" x2="252" y2="62" marker-end="url(#arr)"/>
-<path d="M304 86 C304 132, 56 132, 56 90" marker-end="url(#arr)"/>
-</g>
-<text x="180" y="146" font-size="12" text-anchor="middle" class="svg-muted">at the layer that failed, not always the prompt</text>
-</svg></figure>
-    <ol class="loop-steps">
-      <li><strong>Evaluate.</strong> Evaluation detects a problem, either autonomously (tests fail) or through human review (the output doesn't seem right).</li>
-      <li><strong>Diagnose.</strong> Identify which layer failed. Was the instruction unclear (prompt)? Was information missing (context)? Were the wrong tradeoffs made (intent)? Was a risk ignored (judgment)? Is the behavior inconsistent with previous work (coherence)?</li>
-      <li><strong>Re-enter</strong> at the specific layer that needs correction. Not always the prompt. Often the fix is adding a file to context, clarifying a priority, or defining an uncertainty protocol, none of which involve changing the prompt at all.</li>
-    </ol>
-    <p>The resulting skill is <strong>mode fluency</strong>: recognizing which layer is failing and intervening at the right level. Most AI frustration comes from trying to fix context problems with better prompts, or judgment problems with more context.</p>
-  </section>
-
-  <section class="prose" aria-labelledby="fractal-title">
+<section class="section" aria-labelledby="fractal-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§5</span> fractal</p>
     <h2 id="fractal-title">The fractal property</h2>
+    <div class="prose">
     <p>The same five-layer structure applies at every scale of human-machine collaboration (a property Nate B. Jones identified).</p>
     <ul class="clean">
       <li><strong>Individual:</strong> how you instruct an AI tool, what personal context you provide, what your goals and values are, whether you notice when your approach stops working, and how your various AI tools work together rather than in isolation.</li>
@@ -177,30 +254,49 @@
     <p>The individual who masters intent engineering for their personal workflow is developing the exact skills needed to build organizational intent architecture.</p>
     <h3>Where the regress stops</h3>
     <p>If judgment monitors intent, what monitors judgment? The regress is terminated by human governance. At some point in every system there must be a human, or a human institution, that says: &ldquo;This is what we value. This is what we are willing to be held accountable for.&rdquo; That foundation cannot be automated without circularity.</p>
-  </section>
+  </div>
+  </div>
+</section>
 
-  <section class="prose" aria-labelledby="docs-title">
-    <h2 id="docs-title">Implementation documents</h2>
-    <ul class="clean">
-      <li><a href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Component-Reference-Map.md">AI-Human Stack Component Reference Map</a>: for humans. What each component looks like when implemented, maturity levels, and an architecture comparison template.</li>
-      <li><a href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md">AI-Human Stack Agent Audit Protocol</a>: for your agent to run against your system.</li>
-      <li><a href="https://github.com/hjasanchez/agentic-engineering/blob/main/The%20AI-Human%20Engineering%20Stack.pdf">The AI-Human Engineering Stack (full document, PDF)</a> and its companion, <a href="https://github.com/hjasanchez/agentic-engineering/blob/main/The%20Complete%20Guide%20to%20Specifying%20Work%20for%20AI.pdf">The Complete Guide to Specifying Work for AI (PDF)</a>.</li>
-    </ul>
+<section class="section" aria-labelledby="docs-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§6</span> protocols</p>
+    <h2 id="docs-title">The two protocol documents</h2>
+    <div class="doc-links">
+      <a class="doc-link" href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md"><span class="sys">github &middot; for your agent</span><strong>AI-Human Stack Agent Audit Protocol</strong><span>For your agent to run against your system.</span></a>
+      <a class="doc-link" href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Component-Reference-Map.md"><span class="sys">github &middot; for humans</span><strong>AI-Human Stack Component Reference Map</strong><span>What each component looks like when implemented, maturity levels, and an architecture comparison template.</span></a>
+    </div>
+    <div class="prose" style="margin-top:20px"><p>The full documents: <a href="https://github.com/hjasanchez/agentic-engineering/blob/main/The%20AI-Human%20Engineering%20Stack.pdf">The AI-Human Engineering Stack (PDF)</a> and its companion, <a href="https://github.com/hjasanchez/agentic-engineering/blob/main/The%20Complete%20Guide%20to%20Specifying%20Work%20for%20AI.pdf">The Complete Guide to Specifying Work for AI (PDF)</a>.</p></div>
     <p class="source-note">Text on this page is drawn from <em>The AI-Human Engineering Stack</em> and the <em>Component Reference Map</em> (Hayen Mill &amp; Henrique Jr. Sanchez, March 2026).</p>
-  </section>
-</div>
-
+  </div>
+</section>
 </main>
+<!-- @footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
-    <ul class="footer-links">
-      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-      <li>Repository license: GPL-3.0</li>
-      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
-      <li><a href="about.html">About and credits</a></li>
-    </ul>
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
+        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Repository license: GPL-3.0</li>
+        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
+<!-- /@footer -->
 </body>
 </html>

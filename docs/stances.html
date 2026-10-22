@@ -1,228 +1,292 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- @head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
 <title>The Fourteen Stances · Mode Fluency</title>
-<meta name="description" content="The Fourteen Stances: Oracle, Genie, Tutor, Mirror, Adversary, Librarian, Interpreter, Simulator, Scribe, Executor, Muse, Miner, Therapist, Translator. Expectation, failure mode and cardinal rule for each.">
+<meta name="description" content="The Fourteen Stances: Oracle, Genie, Tutor, Mirror, Adversary, Librarian, Interpreter, Simulator, Scribe, Executor, Muse, Miner, Therapist, Translator. Each with a live field, its failure mode and its cardinal rule.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
 </head>
-<body>
+<body data-page="stances" data-title="The Fourteen Stances">
+<!-- @header -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
     <nav class="site-nav" aria-label="Main">
-      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html" aria-current="page">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+      <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html" aria-current="page">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
     </nav>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
+<!-- /@header -->
 <main id="main" tabindex="-1">
-
-<div class="wrap">
-  <header class="page-head prose">
-    <p class="eyebrow"><span class="num">Axis 01</span> · Stance</p>
+<header class="page-head">
+  <div class="wrap">
+    <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> axis 01 <span class="dim">&middot; stance &middot; what am I expecting from this exchange?</span></p>
     <h1>The Fourteen Stances</h1>
     <p class="lede">Archetypes of human-AI interaction. Each stance is the contract you <em>think</em> you have with the AI before you type a word.</p>
-    <p>Most people hold one or two stances without naming them, usually the Oracle (truth to a hard question) and the Genie (grant my wish). Both are fragile, because they demand an authority the technology cannot reliably provide. The other twelve are quieter, and most of them are more useful. Each card gives the expectation, why the stance stays hidden, the boundary test where the source has one, the failure mode, and the cardinal rule.</p>
-    <p class="source-note">Text from <em>Archetypes of LLM-Human Interaction</em> v3 by Henrique Jr. Sanchez. Where v3 states a cardinal rule explicitly (Interpreter, Executor, Miner) it is quoted; for the other stances the rule is the guardrail column of the <a href="matrix.html">Mode Fluency Matrix</a>. Load-bearing layers are from the Matrix.</p>
-  </header>
-
-  <div class="filters" role="group" aria-labelledby="filter-title">
-    <p id="filter-title" class="eyebrow" style="margin:0">Filter the stances</p>
+    <div class="prose">
+      <p>Most people hold one or two stances without naming them, usually the Oracle (truth to a hard question) and the Genie (grant my wish). Both are fragile, because they demand an authority the technology cannot reliably provide. The other twelve are quieter, and most of them are more useful. Each card gives the expectation, why the stance stays hidden, the boundary test where the source has one, the failure mode, and the cardinal rule.</p>
+      <p class="js-only">Each card also runs its stance as a small field of tokens: what the contract does when it runs, and where it quietly fails. Only the cards on screen animate. Pointer or touch: you are the warm point.</p>
+    </div>
+    <p class="source-note">Text from <em>Archetypes of LLM-Human Interaction</em> v3 by Henrique Jr. Sanchez. Where v3 states a cardinal rule explicitly (Interpreter, Executor, Miner) it is quoted; for the other stances the rule is the guardrail column of the <a href="matrix.html"><span data-brand></span> Matrix</a>. Load-bearing layers are from the Matrix.</p>
+  </div>
+</header>
+<section class="section" aria-labelledby="all-title" style="padding-top:28px">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§1</span> pantheon</p>
+    <h2 id="all-title">All fourteen stances</h2>
+    <div class="filters js-only" role="group" aria-labelledby="filter-title">
+    <p id="filter-title" class="sys section-tag" style="margin:0"><span class="num">&gt;</span> filter</p>
     <div class="filter-group" role="group" aria-label="Filter by load-bearing layer">
-      <span class="label" aria-hidden="true">Load-bearing layer</span><button type="button" class="chip" data-filter="layer" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="layer" data-value="prompt" aria-pressed="false">Prompt</button><button type="button" class="chip" data-filter="layer" data-value="context" aria-pressed="false">Context</button><button type="button" class="chip" data-filter="layer" data-value="intent" aria-pressed="false">Intent</button><button type="button" class="chip" data-filter="layer" data-value="judgment" aria-pressed="false">Judgment</button><button type="button" class="chip" data-filter="layer" data-value="coherence" aria-pressed="false">Coherence</button><button type="button" class="chip" data-filter="layer" data-value="evaluation" aria-pressed="false">Evaluation</button><button type="button" class="chip" data-filter="layer" data-value="harness" aria-pressed="false">Harness</button><button type="button" class="chip" data-filter="layer" data-value="none" aria-pressed="false">None</button>
+      <span class="label sys" aria-hidden="true">Load-bearing layer</span><button type="button" class="chip" data-filter="layer" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="layer" data-value="prompt" aria-pressed="false">Prompt</button><button type="button" class="chip" data-filter="layer" data-value="context" aria-pressed="false">Context</button><button type="button" class="chip" data-filter="layer" data-value="intent" aria-pressed="false">Intent</button><button type="button" class="chip" data-filter="layer" data-value="judgment" aria-pressed="false">Judgment</button><button type="button" class="chip" data-filter="layer" data-value="coherence" aria-pressed="false">Coherence</button><button type="button" class="chip" data-filter="layer" data-value="evaluation" aria-pressed="false">Evaluation</button><button type="button" class="chip" data-filter="layer" data-value="harness" aria-pressed="false">Harness</button><button type="button" class="chip" data-filter="layer" data-value="none" aria-pressed="false">None</button>
     </div>
     <div class="filter-group" role="group" aria-label="Filter by consumption or construction">
-      <span class="label" aria-hidden="true">Consumption / construction</span><button type="button" class="chip" data-filter="meta" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="meta" data-value="consumption" aria-pressed="false">Consumption</button><button type="button" class="chip" data-filter="meta" data-value="construction" aria-pressed="false">Construction</button><button type="button" class="chip" data-filter="meta" data-value="hinge" aria-pressed="false">Hinge (Interpreter)</button><button type="button" class="chip" data-filter="meta" data-value="unplaced" aria-pressed="false">Not placed</button>
+      <span class="label sys" aria-hidden="true">Consumption / construction</span><button type="button" class="chip" data-filter="meta" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="meta" data-value="consumption" aria-pressed="false">Consumption</button><button type="button" class="chip" data-filter="meta" data-value="construction" aria-pressed="false">Construction</button><button type="button" class="chip" data-filter="meta" data-value="hinge" aria-pressed="false">Hinge (Interpreter)</button><button type="button" class="chip" data-filter="meta" data-value="unplaced" aria-pressed="false">Not placed</button>
     </div>
   </div>
-  <p class="status" id="stance-status" role="status" aria-live="polite">Showing all 14 stances.</p>
-
-  <h2 id="all-title" class="eyebrow" style="font-family:var(--sans);font-size:0.78rem;margin:1rem 0 0.6rem">All fourteen stances</h2>
-  <div class="grid three" id="stance-grid" aria-labelledby="all-title">
-<article class="card stance-card" id="oracle" data-layers="judgment" data-meta="consumption" aria-labelledby="h-oracle">
-<h3 id="h-oracle">Oracle</h3>
-<p><span class="tag accent">Layer: Judgment</span><span class="tag">Consumption</span></p>
-<dl class="facts">
+    <p class="status js-only" id="stance-status" role="status" aria-live="polite">Showing all 14 stances.</p>
+    <div class="stance-grid" id="stance-grid">
+<article class="stance-card" id="oracle" data-layers="judgment" data-meta="consumption" aria-labelledby="h-oracle">
+  <div class="sc-top"><h3 id="h-oracle">Oracle</h3><p class="sys sc-num">01 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Judgment</span><span class="tag">Consumption</span></p>
+  <div class="sc-stage js-only" data-stance="Oracle"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> every token converges on one bright point</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Coming to the LLM with the expectation of receiving truth in the form of an answer to a difficult question not easily knowable by the human.</dd>
 <dt>Why it dominates</dt><dd>It is a zero-sum archetype: the human asks, the LLM delivers, and the human&#x27;s cognitive load is minimized. That makes it seductive, and it demands an authority (truth without method) the technology cannot reliably provide.</dd>
 <dt>Failure mode</dt><dd>It collapses when the LLM hallucinates or confabulates, because the user has outsourced their epistemic filter. They asked for truth and received plausible prose.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</p></div>
-<p class="small muted" style="margin-top:0.7rem">Adopt the Tutor over the Oracle: “Don&#x27;t tell me the answer yet. What questions should I be asking?”</p>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</p></div>
+  <p class="aside-line">Adopt the Tutor over the Oracle: “Don&#x27;t tell me the answer yet. What questions should I be asking?”</p>
 </article>
-<article class="card stance-card" id="genie" data-layers="prompt" data-meta="consumption" aria-labelledby="h-genie">
-<h3 id="h-genie">Genie</h3>
-<p><span class="tag accent">Layer: Prompt</span><span class="tag">Consumption</span></p>
-<dl class="facts">
+<article class="stance-card" id="genie" data-layers="prompt" data-meta="consumption" aria-labelledby="h-genie">
+  <div class="sc-top"><h3 id="h-genie">Genie</h3><p class="sys sc-num">02 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Prompt</span><span class="tag">Consumption</span></p>
+  <div class="sc-stage js-only" data-stance="Genie"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> tokens fill exactly the shape that was asked for, and nothing else</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Coming to the LLM with the expectation of asking for a wish: a request with a discrete deliverable outcome which can be verified, and receiving it.</dd>
 <dt>Why it dominates</dt><dd>Like the Oracle, it is a zero-sum archetype: the human asks, the LLM delivers, and the human&#x27;s cognitive load is minimized. It demands deliverables without negotiation.</dd>
 <dt>Failure mode</dt><dd>It collapses when the deliverable requires context the user did not provide, because wishes, by mythological contract, are literal and brittle.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Specify scope, boundaries and success criteria before you ask (an Intent Doc).</p></div>
-<p class="small muted" style="margin-top:0.7rem">Adopt the Collaborator over the Genie: treat the first output as a rough joint draft. “Here is my intent and my constraints. Let&#x27;s iterate.”</p>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Specify scope, boundaries and success criteria before you ask (an Intent Doc).</p></div>
+  <p class="aside-line">Adopt the Collaborator over the Genie: treat the first output as a rough joint draft. “Here is my intent and my constraints. Let&#x27;s iterate.”</p>
 </article>
-<article class="card stance-card" id="tutor" data-layers="intent" data-meta="construction" aria-labelledby="h-tutor">
-<h3 id="h-tutor">Tutor <span class="alias">(or Socratic Midwife)</span></h3>
-<p><span class="tag accent">Layer: Intent</span><span class="tag">Construction</span></p>
-<dl class="facts">
+<article class="stance-card" id="tutor" data-layers="intent" data-meta="construction" aria-labelledby="h-tutor">
+  <div class="sc-top"><h3 id="h-tutor">Tutor <span class="alias">(or Socratic Midwife)</span></h3><p class="sys sc-num">03 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Intent</span><span class="tag">Construction</span></p>
+  <div class="sc-stage js-only" data-stance="Tutor"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> a path forms; it leads wherever the tutor thinks you are going</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Not an answer, but a path to an answer. The human arrives confused and expects the LLM to diagnose gaps in understanding, ask clarifying questions, and guide discovery.</dd>
 <dt>Why it stays hidden</dt><dd>It requires patience. The user must tolerate being questioned in return, which feels slower than the Oracle.</dd>
 <dt>Failure mode</dt><dd>Being taught toward a goal you never stated.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">State what you want to be able to do afterwards before the first question.</p></div>
-<p class="small muted" style="margin-top:0.7rem">Robust against hallucination because it keeps the human in the reasoning loop.</p>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>State what you want to be able to do afterwards before the first question.</p></div>
+  <p class="aside-line">Robust against hallucination because it keeps the human in the reasoning loop.</p>
 </article>
-<article class="card stance-card" id="mirror" data-layers="coherence" data-meta="construction" aria-labelledby="h-mirror">
-<h3 id="h-mirror">Mirror</h3>
-<p><span class="tag accent">Layer: Coherence</span><span class="tag">Construction</span></p>
-<dl class="facts">
+<article class="stance-card" id="mirror" data-layers="coherence" data-meta="construction" aria-labelledby="h-mirror">
+  <div class="sc-top"><h3 id="h-mirror">Mirror</h3><p class="sys sc-num">04 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Coherence</span><span class="tag">Construction</span></p>
+  <div class="sc-stage js-only" data-stance="Mirror"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> the field returns your own position, reflected across the line</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>The LLM reflects the user&#x27;s own thoughts back with greater clarity, precision, or structure. The value is not in novelty but in recognition.</dd>
 <dt>Why it stays hidden</dt><dd>It feels almost embarrassing to admit you are talking to a machine just to hear your own thoughts organized. Yet this is an enormous use case.</dd>
 <dt>Failure mode</dt><dd>Flattery mistaken for reflection.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Ask for the structure of your argument back, not for agreement.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Ask for the structure of your argument back, not for agreement.</p></div>
 </article>
-<article class="card stance-card" id="adversary" data-layers="intent" data-meta="unplaced" aria-labelledby="h-adversary">
-<h3 id="h-adversary">Adversary <span class="alias">(or Devil&#x27;s Advocate)</span></h3>
-<p><span class="tag accent">Layer: Intent</span><span class="tag">Not placed in v3 table</span></p>
-<dl class="facts">
+<article class="stance-card" id="adversary" data-layers="intent" data-meta="unplaced" aria-labelledby="h-adversary">
+  <div class="sc-top"><h3 id="h-adversary">Adversary <span class="alias">(or Devil&#x27;s Advocate)</span></h3><p class="sys sc-num">05 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Intent</span><span class="tag">Not placed in v3 table</span></p>
+  <div class="sc-stage js-only" data-stance="Adversary"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> critique streams in; until you name what you defend, it lands on a decoy</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>The human brings a belief, plan, or draft and expects the LLM to attack it, find holes, or steel-man the opposition.</dd>
 <dt>Why it stays hidden</dt><dd>It requires the user to suspend ego and invite criticism from a non-human, which feels unnatural unless explicitly framed.</dd>
 <dt>Failure mode</dt><dd>Critique of the wrong thing.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Name what you are defending and what would change your mind.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Name what you are defending and what would change your mind.</p></div>
 </article>
-<article class="card stance-card" id="librarian" data-layers="evaluation" data-meta="consumption" aria-labelledby="h-librarian">
-<h3 id="h-librarian">Librarian <span class="alias">(not the Oracle)</span></h3>
-<p><span class="tag accent">Layer: Evaluation</span><span class="tag">Consumption</span></p>
-<dl class="facts">
+<article class="stance-card" id="librarian" data-layers="evaluation" data-meta="consumption" aria-labelledby="h-librarian">
+  <div class="sc-top"><h3 id="h-librarian">Librarian <span class="alias">(not the Oracle)</span></h3><p class="sys sc-num">06 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Evaluation</span><span class="tag">Consumption</span></p>
+  <div class="sc-stage js-only" data-stance="Librarian"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> tokens leave the shelves for one synthesis; a few come from shelves that do not exist</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Retrieval and synthesis of known information, not prophecy. The user wants to know what has been said, not what is.</dd>
 <dt>Why it stays hidden</dt><dd>It blurs with the Oracle, but the emotional contract is different. The Librarian admits fallibility; the Oracle does not.</dd>
 <dt>Failure mode</dt><dd>Confident retrieval of what was never said.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Check the citation exists and says what is claimed.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Check the citation exists and says what is claimed.</p></div>
 </article>
-<article class="card stance-card" id="interpreter" data-layers="evaluation" data-meta="hinge" aria-labelledby="h-interpreter">
-<h3 id="h-interpreter">Interpreter</h3>
-<p><span class="tag accent">Layer: Evaluation</span><span class="tag">Hinge: passive by default, active with the evidence trail</span></p>
-<dl class="facts">
+<article class="stance-card" id="interpreter" data-layers="evaluation" data-meta="hinge" aria-labelledby="h-interpreter">
+  <div class="sc-top"><h3 id="h-interpreter">Interpreter</h3><p class="sys sc-num">07 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Evaluation</span><span class="tag">Hinge: passive by default, active with the evidence trail</span></p>
+  <div class="sc-stage js-only" data-stance="Interpreter"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> material in, conclusions out; only the evidence trail shows which conclusions have a source</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>The human brings the material (a paper, a contract, a dataset, a statute, a medical report) and expects the LLM to decode it: compress the complexity, say what it actually means, and draw out what conclusions or actions follow from it. “I don&#x27;t have time to master this domain. Tell me what this thing means and what I should take from it.”</dd>
 <dt>Why it stays hidden</dt><dd>It masquerades as its neighbors. It feels like the Librarian (the Librarian finds material; the Interpreter decodes material you already have) and like the Tutor (the Tutor builds understanding you keep; the Interpreter delivers conclusions you use). “Just reading, but outsourced” doesn&#x27;t feel like a skill.</dd>
 <dt>Boundary test</dt><dd>Did you hand the AI something to decode? If the AI has to go find the material, that&#x27;s the Librarian. If the goal is lasting understanding rather than a conclusion, that&#x27;s the Tutor. The Interpreter is the middle act: material in, meaning and conclusions out.</dd>
 <dt>Failure mode</dt><dd>The most hallucination-prone archetype in the pantheon, because confabulated interpretation looks exactly like correct interpretation. An Oracle that errs is obviously wrong; an Interpreter that errs sounds insightful. And the user who needs an Interpreter is the least equipped person in the loop to catch the error.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule</p><p style="margin:0">Never accept an interpretation you cannot trace back to the source. If you can&#x27;t point to the sentence, clause, or row that supports the conclusion, you don&#x27;t have an interpretation; you have a rumor in polished prose.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule</p><p>Never accept an interpretation you cannot trace back to the source. If you can&#x27;t point to the sentence, clause, or row that supports the conclusion, you don&#x27;t have an interpretation; you have a rumor in polished prose.</p></div>
 </article>
-<article class="card stance-card" id="simulator" data-layers="context" data-meta="unplaced" aria-labelledby="h-simulator">
-<h3 id="h-simulator">Simulator</h3>
-<p><span class="tag accent">Layer: Context</span><span class="tag">Not placed in v3 table</span></p>
-<dl class="facts">
+<article class="stance-card" id="simulator" data-layers="context" data-meta="unplaced" aria-labelledby="h-simulator">
+  <div class="sc-top"><h3 id="h-simulator">Simulator</h3><p class="sys sc-num">08 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Context</span><span class="tag">Not placed in v3 table</span></p>
+  <div class="sc-stage js-only" data-stance="Simulator"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> two parties rehearse; without your real counterpart it is a generic scene</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>The LLM becomes a sandbox. Simulate a negotiation, a historical figure, a market, a difficult conversation. The user wants to rehearse reality.</dd>
 <dt>Why it stays hidden</dt><dd>It feels like “playing,” not working, though it is often the highest-value interaction.</dd>
 <dt>Failure mode</dt><dd>A rehearsal of a scenario that is not yours.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Load the real constraints, the real counterpart, the real stakes.</p></div>
-<p class="small muted" style="margin-top:0.7rem">“Simulate how a skeptical board member would respond to this proposal.”</p>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Load the real constraints, the real counterpart, the real stakes.</p></div>
+  <p class="aside-line">“Simulate how a skeptical board member would respond to this proposal.”</p>
 </article>
-<article class="card stance-card" id="scribe" data-layers="prompt" data-meta="unplaced" aria-labelledby="h-scribe">
-<h3 id="h-scribe">Scribe <span class="alias">(or Intern)</span></h3>
-<p><span class="tag accent">Layer: Prompt</span><span class="tag">Not placed in v3 table</span></p>
-<dl class="facts">
+<article class="stance-card" id="scribe" data-layers="prompt" data-meta="unplaced" aria-labelledby="h-scribe">
+  <div class="sc-top"><h3 id="h-scribe">Scribe <span class="alias">(or Intern)</span></h3><p class="sys sc-num">09 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Prompt</span><span class="tag">Not placed in v3 table</span></p>
+  <div class="sc-stage js-only" data-stance="Scribe"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> rough material becomes clean lines; the gaps are filled with marks you never wrote</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Transform rough material into polished form. Transcribe, format, expand bullet points, clean up code. The human provides the substance; the LLM provides the craft.</dd>
 <dt>Why it stays hidden</dt><dd>It is humble. There is no magic in it, so users rarely name it as an archetype, yet it dominates actual usage.</dd>
 <dt>Failure mode</dt><dd>Polished form over a hollow draft.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Provide the substance and the format; review for what was invented to fill gaps.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Provide the substance and the format; review for what was invented to fill gaps.</p></div>
 </article>
-<article class="card stance-card" id="executor" data-layers="harness judgment" data-meta="consumption" aria-labelledby="h-executor">
-<h3 id="h-executor">Executor</h3>
-<p><span class="tag accent">Layer: Harness + Judgment</span><span class="tag">Consumption: the passive extreme (staged oversight is its active form)</span></p>
-<dl class="facts">
+<article class="stance-card" id="executor" data-layers="harness judgment" data-meta="consumption" aria-labelledby="h-executor">
+  <div class="sc-top"><h3 id="h-executor">Executor</h3><p class="sys sc-num">10 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Harness + Judgment</span><span class="tag">Consumption: the passive extreme (staged oversight is its active form)</span></p>
+  <div class="sc-stage js-only" data-stance="Executor"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> a stream leaves on its own; the checkpoint line catches it</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Full delegation of an outcome. The human supplies the goal; the agent supplies the steps, the labor, and the intermediate decisions; the work happens where the human is not looking; the human reviews when it is done. A job, supervised after the fact.</dd>
 <dt>Why it stays hidden</dt><dd>It is new (it barely existed before agents) and it doesn&#x27;t register as a stance toward AI at all, because it feels like simply managing. It also hides inside the Genie&#x27;s vocabulary (“I asked it to do X”).</dd>
 <dt>Boundary test</dt><dd>Did you inspect the deliverable as the whole of the work (Genie), or is the deliverable just the end of a chain you never saw (Executor)? And did you supply the substance the craft works on (Scribe), or only the goal? Execution judgment is transferred; goal judgment is supposed to stay with you.</dd>
 <dt>Failure mode</dt><dd>Automation complacency, and it fails on the human&#x27;s side of the contract. Oversight atrophies because not-watching is the entire point of delegation; the agent completes the letter of the task and misses its point; many small, locally correct steps compound into one wrong outcome; and the failure surfaces later than in any other archetype.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule</p><p style="margin:0">Delegation transfers labor, never responsibility. If you can&#x27;t see where the work went, you don&#x27;t have completed work; you have confident claims about completed work.</p></div>
-<p class="small" style="margin-top:0.7rem"><strong>Guardrail.</strong> The guardrail is structural, not interpretive: plan before action, checkpoints at intermediate states, an explicit deviation report (“tell me everywhere you departed from the letter of the task, and why”), and nothing consequential ships uninspected.</p>
+  <div class="rulebox"><p class="sys">cardinal rule</p><p>Delegation transfers labor, never responsibility. If you can&#x27;t see where the work went, you don&#x27;t have completed work; you have confident claims about completed work.</p></div>
+  <p class="aside-line"><strong>Guardrail.</strong> The guardrail is structural, not interpretive: plan before action, checkpoints at intermediate states, an explicit deviation report (“tell me everywhere you departed from the letter of the task, and why”), and nothing consequential ships uninspected.</p>
 </article>
-<article class="card stance-card" id="muse" data-layers="none" data-meta="consumption" aria-labelledby="h-muse">
-<h3 id="h-muse">Muse</h3>
-<p><span class="tag accent">Layer: (none)</span><span class="tag">Consumption</span></p>
-<dl class="facts">
+<article class="stance-card" id="muse" data-layers="none" data-meta="consumption" aria-labelledby="h-muse">
+  <div class="sc-top"><h3 id="h-muse">Muse</h3><p class="sys sc-num">11 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: (none)</span><span class="tag">Consumption</span></p>
+  <div class="sc-stage js-only" data-stance="Muse"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> no target, no checkpoint: provocation only</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Not correctness, but provocation. The user wants lateral jumps, absurd juxtapositions, metaphors from unrelated domains.</dd>
 <dt>Why it stays hidden</dt><dd>It contradicts the utility-focused narrative around AI. You cannot metric a muse.</dd>
 <dt>Failure mode</dt><dd>There is no failure, only dross.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">None. This is why the Muse stays hidden: it cannot be metric&#x27;d.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>None. This is why the Muse stays hidden: it cannot be metric&#x27;d.</p></div>
 </article>
-<article class="card stance-card" id="miner" data-layers="context" data-meta="construction" aria-labelledby="h-miner">
-<h3 id="h-miner">Miner</h3>
-<p><span class="tag accent">Layer: Context (writing)</span><span class="tag">Construction</span></p>
-<dl class="facts">
+<article class="stance-card" id="miner" data-layers="context" data-meta="construction" aria-labelledby="h-miner">
+  <div class="sc-top"><h3 id="h-miner">Miner</h3><p class="sys sc-num">12 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Context (writing)</span><span class="tag">Construction</span></p>
+  <div class="sc-stage js-only" data-stance="Miner"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> tokens scatter; bright ore surfaces; pass over it to record it before the vein shifts</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Not an output but a space. The human treats the model as a vast, mostly unvisited space of possible outputs and works it like a vein: many variations generated cheaply, collected without immediate judgment, then selected and assayed later with cold attention.</dd>
 <dt>Why it stays hidden</dt><dd>It hides inside the Muse (“I asked for ideas”). It also looks wasteful: generating seven outputs to keep one violates every efficiency instinct the interface trains. And most of what comes up is dross, so without selection discipline the dross rate reads as the tool failing.</dd>
 <dt>Boundary test</dt><dd>Did you ask for one good thing, or for the shape of the space? The Muse receives a provocation and judges it on arrival. The Miner generates in volume, withholds judgment, selects late. If you are evaluating while you read, you are not mining; you are browsing.</dd>
 <dt>Failure mode</dt><dd>Two errors in the same breath. Assaying nothing: the anomaly gets believed because it was wanted (sycophancy through the side door). Losing the vein: the ore is generated by sampling, not stored in the weights, so you cannot re-find a nugget by re-running the same prompt.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule</p><p style="margin:0">If you didn&#x27;t record it when you found it, you never had it.</p></div>
-<p class="small" style="margin-top:0.7rem"><strong>Guardrail.</strong> The mined idea is ore, never a citation; nothing mined enters anything you stake something on until it has survived an independent check.</p>
-<p class="small muted" style="margin-top:0.7rem">“Give me seven approaches from seven different angles. Do not evaluate them; I will choose.”</p>
+  <div class="rulebox"><p class="sys">cardinal rule</p><p>If you didn&#x27;t record it when you found it, you never had it.</p></div>
+  <p class="aside-line"><strong>Guardrail.</strong> The mined idea is ore, never a citation; nothing mined enters anything you stake something on until it has survived an independent check.</p>
+  <p class="aside-line">“Give me seven approaches from seven different angles. Do not evaluate them; I will choose.”</p>
 </article>
-<article class="card stance-card" id="therapist" data-layers="judgment" data-meta="consumption" aria-labelledby="h-therapist">
-<h3 id="h-therapist">Therapist <span class="alias">(or Confessor)</span></h3>
-<p><span class="tag accent">Layer: Judgment</span><span class="tag">Consumption</span></p>
-<dl class="facts">
+<article class="stance-card" id="therapist" data-layers="judgment" data-meta="consumption" aria-labelledby="h-therapist">
+  <div class="sc-top"><h3 id="h-therapist">Therapist <span class="alias">(or Confessor)</span></h3><p class="sys sc-num">13 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Judgment</span><span class="tag">Consumption</span></p>
+  <div class="sc-stage js-only" data-stance="Therapist"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> a slow, breathing space; one ring stays clear: what you will not delegate</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>A non-judgmental space to externalize thoughts. The LLM has no social stake in the user&#x27;s life, making it a safe sounding board for half-formed ideas or emotional processing.</dd>
 <dt>Why it stays hidden</dt><dd>The stigma around “talking to a machine” about human matters, plus legitimate concerns about emotional dependency.</dd>
 <dt>Failure mode</dt><dd>Dependency; outsourcing judgment about your own life.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Decide in advance what you will not delegate.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Decide in advance what you will not delegate.</p></div>
 </article>
-<article class="card stance-card" id="translator" data-layers="context" data-meta="construction" aria-labelledby="h-translator">
-<h3 id="h-translator">Translator <span class="alias">(between worlds)</span></h3>
-<p><span class="tag accent">Layer: Context</span><span class="tag">Construction</span></p>
-<dl class="facts">
+<article class="stance-card" id="translator" data-layers="context" data-meta="construction" aria-labelledby="h-translator">
+  <div class="sc-top"><h3 id="h-translator">Translator <span class="alias">(between worlds)</span></h3><p class="sys sc-num">14 / 14</p></div>
+  <p class="sc-tags"><span class="tag hot">Layer: Context</span><span class="tag">Construction</span></p>
+  <div class="sc-stage js-only" data-stance="Translator"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
+  <p class="sys sc-field js-only"><span class="lv">field</span> tokens cross a bridge; without the second map they land on a caricature</p>
+  <dl class="facts">
 <dt>Expectation</dt><dd>Translate not just languages, but cultures and domains. Explain the engineer to the marketer, the doctor to the patient, the parent to the teenager.</dd>
 <dt>Why it stays hidden</dt><dd>It requires the user to already hold two incomplete maps and know they need a bridge.</dd>
 <dt>Failure mode</dt><dd>A bridge from one world to a caricature of the other.</dd>
 </dl>
-<div class="rule-box"><p class="eyebrow" style="margin:0 0 0.2rem">Cardinal rule (from the Matrix guardrail)</p><p style="margin:0">Supply both maps; name both audiences.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Supply both maps; name both audiences.</p></div>
 </article>
+    </div>
+    <p id="stance-empty" class="callout" hidden>No stance matches both filters. Try &ldquo;All&rdquo; on one of them.</p>
   </div>
-  <p id="stance-empty" class="callout" hidden>No stance matches both filters. Try &ldquo;All&rdquo; on one of them.</p>
-
-  <section class="prose" aria-labelledby="meta-title">
+</section>
+<section class="section" aria-labelledby="meta-title">
+<div class="wrap">
+<p class="sys section-tag"><span class="num">§2</span> meta_pattern</p>
     <h2 id="meta-title">Consumption vs. construction</h2>
-    <p>There may be a deeper axis under the pantheon. The passive stances position the human as a recipient. The active stances position the human as a participant in the thinking. As AI becomes more embedded in serious work, the shift from passive to active may be the single most important cognitive upgrade users can make.</p>
-    <div class="table-wrap">
-      <table class="stack-on-mobile">
+    <div class="prose"><p>There may be a deeper axis under the pantheon. The passive stances position the human as a recipient. The active stances position the human as a participant in the thinking. As AI becomes more embedded in serious work, the shift from passive to active may be the single most important cognitive upgrade users can make.</p></div>
+    <div class="table-wrap" style="max-width:720px">
+      <table class="data meta-table">
         <caption>The meta-pattern, from Archetypes v3</caption>
         <thead><tr><th scope="col">Consumption (passive)</th><th scope="col">Construction (active)</th></tr></thead>
         <tbody><tr><td data-label="Consumption (passive)">Oracle</td><td data-label="Construction (active)">Tutor</td></tr><tr><td data-label="Consumption (passive)">Genie</td><td data-label="Construction (active)">Collaborator</td></tr><tr><td data-label="Consumption (passive)">Librarian</td><td data-label="Construction (active)">Translator</td></tr><tr><td data-label="Consumption (passive)">Therapist</td><td data-label="Construction (active)">Mirror</td></tr><tr><td data-label="Consumption (passive)">Interpreter (unverified)</td><td data-label="Construction (active)">Interpreter (evidence-trail mode)</td></tr><tr><td data-label="Consumption (passive)">Muse (receives the surprise)</td><td data-label="Construction (active)">Miner (works the vein)</td></tr><tr><td data-label="Consumption (passive)">Executor (blind delegation)</td><td data-label="Construction (active)">Executor (staged oversight)</td></tr></tbody>
       </table>
     </div>
-    <p>The Interpreter sits at the hinge: passive by default, active only when you demand the evidence trail. The Executor sits at the passive extreme, which is why its guardrail must be built out of structure; the Miner sits at the active extreme, which is why its guardrail is the journal. The Collaborator appears in this table as the active form of the Genie but is not one of the fourteen. The Adversary, the Simulator and the Scribe are not placed in the v3 table, so the filter shows them as &ldquo;Not placed&rdquo;.</p>
-    <p>Every stance is one habit away from its active form.</p>
-  </section>
-</div>
-
+    <div class="prose" style="margin-top:22px"><p>The Interpreter sits at the hinge: passive by default, active only when you demand the evidence trail. The Executor sits at the passive extreme, which is why its guardrail must be built out of structure; the Miner sits at the active extreme, which is why its guardrail is the journal. The Collaborator appears in this table as the active form of the Genie but is not one of the fourteen. The Adversary, the Simulator and the Scribe are not placed in the v3 table, so the filter shows them as &ldquo;Not placed&rdquo;.</p>
+    <p class="free-line">Every stance is one habit away from its active form.</p></div>
+  </div>
+</section>
 </main>
+<!-- @footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
-    <ul class="footer-links">
-      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-      <li>Repository license: GPL-3.0</li>
-      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
-      <li><a href="about.html">About and credits</a></li>
-    </ul>
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
+        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Repository license: GPL-3.0</li>
+        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
+<!-- /@footer -->
 </body>
 </html>

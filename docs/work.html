@@ -1,89 +1,159 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- @head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
 <title>Work with me · Mode Fluency</title>
-<meta name="description" content="The Mode Fluency Assessment (from $3,500, about two weeks) and AI @ Workplace workshops (from $1,200), remote and vendor-neutral.">
+<meta name="description" content="The Mode Fluency Assessment (from $3,500, about two weeks) and AI @ Workplace workshops (from $1,200). Everything on the site and in the repo is free; you pay for time.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
 </head>
-<body>
+<body data-page="work" data-title="Work with me">
+<!-- @header -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
     <nav class="site-nav" aria-label="Main">
-      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html" aria-current="page">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+      <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html" aria-current="page">Work with me</a></li><li><a href="about.html">About</a></li></ul>
     </nav>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
+<!-- /@header -->
 <main id="main" tabindex="-1">
-
-<div class="wrap">
-  <header class="page-head prose">
-    <p class="eyebrow">Services</p>
+<header class="page-head">
+  <div class="wrap">
+    <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> work_with_me <span class="dim">&middot; services &middot; vendor-neutral</span></p>
     <h1>Work with me</h1>
-    <p class="lede">Two ways to work together, both vendor-neutral. The frameworks and skills stay free; you pay for the time it takes to apply them to your team.</p>
-  </header>
-  <div class="grid two">
-    <section class="card" aria-labelledby="assess-title">
-      <p class="eyebrow">Fixed-fee diagnostic</p>
-      <h2 id="assess-title" style="margin-top:0.2rem">The Mode Fluency Assessment</h2>
-      <p class="price">From $3,500 <span class="small muted">· about 2 weeks</span></p>
-      <p>For a small or mid-sized team that already uses AI and wants to know where it breaks, and what to fix first.</p>
-      <h3>What you get</h3>
-      <ul class="clean">
+    <p class="free-line">Everything on this site and in the repo is free. You pay for my time.</p>
+    <div class="prose"><p>Two ways to work together, both vendor-neutral. The frameworks stay free; you pay for the time it takes to apply them to your team.</p></div>
+  </div>
+</header>
+
+<section class="section" aria-labelledby="split-title" style="padding-top:36px">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§1</span> free_vs_paid</p>
+    <h2 id="split-title">What is free, and what is paid</h2>
+    <div class="split">
+      <div>
+        <p class="sys">free &middot; for everyone</p>
+        <h3>The material</h3>
+        <ul class="clean">
+          <li><a href="stack.html">The AI-Human Engineering Stack</a>, <a href="stances.html">the Fourteen Stances</a> and <a href="matrix.html">the matrix</a></li>
+          <li>The Specifying Work guide and the two Stack protocol documents, in the <a href="https://github.com/hjasanchez/agentic-engineering">repository</a></li>
+          <li>The <a href="learn.html">AI @ Workplace 101 to 401</a> talks and slides</li>
+          <li>The <a href="diagnose.html">self-diagnostic</a> on this site</li>
+          <li>Planned for the repository, also free: a downloadable diagnostic skill you run with your own agent</li>
+        </ul>
+      </div>
+      <div>
+        <p class="sys">paid &middot; my time</p>
+        <h3>Applying it to your team</h3>
+        <ul class="clean">
+          <li><a href="#assess-title">The <span data-brand></span> Assessment</a>, from $3,500</li>
+          <li><a href="#ws-title">AI @ Workplace workshops</a>, from $1,200 per session</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Services">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§2</span> services</p>
+    <div class="ruled-grid two" style="margin-top:8px">
+      <article aria-labelledby="assess-title">
+        <p class="card-tag">fixed-fee diagnostic</p>
+        <h2 id="assess-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">The <span data-brand></span> Assessment</h2>
+        <p class="price-big">from $3,500 &middot; about 2 weeks</p>
+        <p>For a small or mid-sized team that already uses AI and wants to know where it breaks, and what to fix first.</p>
+        <h3 style="margin-top:22px;font-size:1.25rem">What you get</h3>
+        <ul class="clean">
         <li>Interviews with the people doing the work, and an inventory of your AI tools and workflows.</li>
         <li>A Stack audit: the <a href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md">Agent Audit Protocol</a> run by an agent on your artifacts, plus my own reading, locating your binding constraint layer by layer.</li>
         <li>The <a href="matrix.html">stance-by-layer matrix</a> applied to your recurring workflows: which stances your team actually uses, and which guardrails are missing.</li>
         <li>A prioritised 90-day plan.</li>
         <li>An EU AI Act <strong>Article 4 evidence pack</strong>: a written record of your AI-literacy measures.</li>
       </ul>
-    </section>
-    <section class="card" aria-labelledby="ws-title">
-      <p class="eyebrow">Training</p>
-      <h2 id="ws-title" style="margin-top:0.2rem">AI @ Workplace workshops</h2>
-      <p class="price">From $1,200 <span class="small muted">· per session</span></p>
-      <p>Remote, half day or full day. The <a href="learn.html">101 to 401</a> material, mapped onto your team's own workflows rather than generic examples. Booked on its own, or as the delivery step after an assessment.</p>
-      <h3>Why not just a workshop?</h3>
-      <p>Because training alone does not fix the hardest failures. Automation bias &ldquo;cannot be prevented by training or instructions&rdquo;, and complacency affects experts as well as novices (Parasuraman &amp; Manzey, <em>Human Factors</em>, 2010). The assessment installs structure: checkpoints, evaluation, a harness. The workshop teaches people to use it.</p>
-    </section>
+      </article>
+      <article aria-labelledby="ws-title">
+        <p class="card-tag">training</p>
+        <h2 id="ws-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">AI @ Workplace workshops</h2>
+        <p class="price-big">from $1,200 &middot; per session</p>
+        <p>Remote, half day or full day. The <a href="learn.html">101 to 401</a> material, mapped onto your team's own workflows rather than generic examples. Booked on its own, or as the delivery step after an assessment.</p>
+        <h3 style="margin-top:22px;font-size:1.25rem">Why not just a workshop?</h3>
+        <p>Because training alone does not fix the hardest failures. Automation bias &ldquo;cannot be prevented by training or instructions&rdquo;, and complacency affects experts as well as novices (Parasuraman &amp; Manzey, <em>Human Factors</em>, 2010). The assessment installs structure: checkpoints, evaluation, a harness. The workshop teaches people to use it.</p>
+      </article>
+    </div>
+    <p class="source-note">Prices are starting points for a small team and are confirmed in writing before any work begins. There are no client testimonials on this site yet because this is a new practice.</p>
   </div>
+</section>
 
-  <section class="prose" aria-labelledby="a4-title">
+<section class="section" aria-labelledby="a4-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§3</span> article_4</p>
     <h2 id="a4-title">About Article 4, honestly</h2>
-    <p>Since July 2026 (Regulation (EU) 2026/1744), Article 4 of the EU AI Act says providers and deployers &ldquo;shall take measures to support the development of AI literacy of their staff&rdquo;, and that this &ldquo;does not require providers or deployers to guarantee any specific level of AI literacy of any individual.&rdquo; National enforcement has applied since 2 August 2026. According to the European Commission's AI Literacy Q&amp;A, no certificate is required and internal records of training and other initiatives are enough evidence.</p>
+    <div class="prose"><p>Since July 2026 (Regulation (EU) 2026/1744), Article 4 of the EU AI Act says providers and deployers &ldquo;shall take measures to support the development of AI literacy of their staff&rdquo;, and that this &ldquo;does not require providers or deployers to guarantee any specific level of AI literacy of any individual.&rdquo; National enforcement has applied since 2 August 2026. According to the European Commission's AI Literacy Q&amp;A, no certificate is required and internal records of training and other initiatives are enough evidence.</p>
     <p>So I will not sell you a certificate, and I will not sell you a fear of fines. The evidence pack is a clear record of proportionate measures, tailored to your tools and roles. This is not legal advice.</p>
     <p class="source-note">Sources: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744">Regulation (EU) 2026/1744, OJ L, 24 July 2026</a>; <a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers">European Commission, AI Literacy Questions &amp; Answers (updated 20 October 2026)</a>.</p>
-  </section>
+  </div>
+  </div>
+</section>
 
-  <section class="prose" aria-labelledby="free-title">
-    <h2 id="free-title">What stays free</h2>
-    <p>The Stack, the Stances, the matrix, the Specifying Work guide and the AI @ Workplace talks are public in the <a href="https://github.com/hjasanchez/agentic-engineering">repository</a>. Skills that package the practice as files people and their agents can both use (a stance selector, a Stack audit, the Intent Doc) are planned for release there, free.</p>
-  </section>
-
-  <section class="prose" aria-labelledby="contact-title">
+<section class="section" aria-labelledby="contact-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§4</span> contact</p>
     <h2 id="contact-title">Get in touch</h2>
-    <!-- PLACEHOLDER: hello@modefluency.com is not a live address yet (domain not registered as of 2026-10-21). Replace before launch. -->
-    <p>Email <a href="mailto:hello@modefluency.com">hello@modefluency.com</a> with a line about your team and the task that keeps going wrong. Or find me on <a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a> and <a href="https://github.com/hjasanchez">GitHub</a>.</p>
-    <p class="small muted">Prices are starting points for a small team and are confirmed in writing before any work begins. There are no client testimonials on this site yet because this is a new practice.</p>
-  </section>
-</div>
-
+    <div class="prose"><p>Send a line about your team and the task that keeps going wrong.</p></div>
+    <div class="contact-list">
+      <!-- PLACEHOLDER: hello@modefluency.com is not a live address yet (domain not registered as of 2026-10-22). It is shown as plain selectable text, not a mailto link, until it works. Replace before launch. -->
+      <p><span class="lv">email</span> <span class="selectable">hello@modefluency.com</span> <span class="dim">(placeholder)</span></p>
+      <p><span class="lv">linkedin</span> <a href="https://www.linkedin.com/in/henriquejsanchez">linkedin.com/in/henriquejsanchez</a></p>
+      <p><span class="lv">repository</span> <a href="https://github.com/hjasanchez/agentic-engineering">github.com/hjasanchez/agentic-engineering</a></p>
+    </div>
+  </div>
+</section>
 </main>
+<!-- @footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
-    <ul class="footer-links">
-      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-      <li>Repository license: GPL-3.0</li>
-      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
-      <li><a href="about.html">About and credits</a></li>
-    </ul>
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
+        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Repository license: GPL-3.0</li>
+        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
+<!-- /@footer -->
 </body>
 </html>

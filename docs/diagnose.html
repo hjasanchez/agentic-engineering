@@ -1,86 +1,134 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- @head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
 <title>Which mode are you in? · Mode Fluency</title>
-<meta name="description" content="A short branching self-diagnostic: your default stance with AI, the layer it leans on, the one guardrail to adopt, and what to learn next.">
+<meta name="description" content="A short branching self-diagnostic run as a console session: your default stance, the layer it leans on, the guardrail to adopt, and what to learn next.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="assets/compass.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
+<script src="assets/diagnose.js" defer></script>
 </head>
-<body>
+<body data-page="diagnose" data-title="Which mode are you in?">
+<!-- @header -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="wordmark" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="none" class="svg-stroke" stroke-width="1.5"/><g class="svg-stroke" stroke-width="1.5"><line x1="16" y1="2" x2="16" y2="6"/><line x1="30" y1="16" x2="26" y2="16"/><line x1="16" y1="30" x2="16" y2="26"/><line x1="2" y1="16" x2="6" y2="16"/></g><path d="M16 7 L19 16 L16 25 L13 16 Z" class="svg-muted" transform="rotate(40 16 16)"/><path d="M16 7 L19 16 L13 16 Z" class="svg-accent" transform="rotate(40 16 16)"/><circle cx="16" cy="16" r="1.6" class="svg-bg"/></svg><span>Mode Fluency</span></a>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
     <nav class="site-nav" aria-label="Main">
-      <ul><li><a href="index.html">Home</a></li><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html" aria-current="page">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+      <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html" aria-current="page">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
     </nav>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
+<!-- /@header -->
 <main id="main" tabindex="-1">
-
-<div class="wrap">
-  <header class="page-head prose">
-    <p class="eyebrow">Self-diagnostic · about five minutes</p>
+<header class="page-head">
+  <div class="wrap">
+    <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> diagnose <span class="dim">&middot; self-diagnostic &middot; about five minutes</span></p>
     <h1>Which mode are you in?</h1>
     <p class="lede">Think of one task you use AI for most often. Answer for that task, not for AI in general.</p>
-    <p>Seven or eight questions. You get your default stance, the Stack layer it leans on, the one guardrail to adopt, and which AI @ Workplace level to watch next. Nothing is sent anywhere: your answers stay in this page (and, if your browser allows it, the last result is remembered on this device only).</p>
-  </header>
-  <noscript><p class="callout">The diagnostic needs JavaScript. Without it, use the <a href="matrix.html">matrix</a> directly: find the stance that matches what you expect from the AI, then read across.</p></noscript>
-  <section class="diag" id="diag" aria-labelledby="diag-title" hidden>
-    <h2 id="diag-title" class="eyebrow" style="margin:0 0 0.6rem;font-family:var(--sans);font-size:0.78rem">Diagnostic</h2>
-    <form id="diag-form" novalidate>
-      <p class="progress" id="diag-progress" aria-live="polite"></p>
-      <fieldset id="diag-fieldset">
-        <legend id="diag-legend" tabindex="-1"></legend>
-        <p class="hint" id="diag-hint"></p>
-        <div id="diag-options"></div>
-      </fieldset>
-      <p class="error-msg" id="diag-error" role="alert"></p>
-      <div class="diag-nav">
-        <button type="button" class="btn secondary" id="diag-back">Back</button>
-        <button type="submit" class="btn" id="diag-next">Next</button>
-      </div>
-    </form>
-    <div class="result" id="diag-result" hidden>
-      <p class="eyebrow">Your result</p>
-      <h2 id="result-title" tabindex="-1">Your default stance: <span id="r-stance"></span></h2>
-      <dl class="facts">
-        <dt>What you expect</dt><dd id="r-expect"></dd>
-        <dt>Load-bearing layer</dt><dd><span class="big" id="r-layer"></span><br><span id="r-layer-q" class="muted"></span></dd>
-        <dt>Characteristic failure</dt><dd id="r-failure"></dd>
-        <dt>The one guardrail to adopt</dt><dd id="r-guardrail" class="rule-box" style="background:var(--hl);padding:0.6rem 0.8rem;border-radius:3px"></dd>
-        <dt>Autonomy mode</dt><dd id="r-autonomy"></dd>
-        <dt>Ambition</dt><dd id="r-ambition"></dd>
-        <dt>Watch next</dt><dd id="r-level"></dd>
-        <dt>Notes from your answers</dt><dd><ul class="clean" id="r-notes"></ul></dd>
-      </dl>
-      <div class="diag-nav">
-        <button type="button" class="btn" id="copy-result">Copy result as text</button>
-        <button type="button" class="btn secondary" id="diag-restart">Start again</button>
-        <span id="copy-status" role="status" aria-live="polite" class="small muted"></span>
-      </div>
-      <p class="small muted" style="margin-top:1rem">This is a self-check, not an assessment. It reflects one task, today. Read the full <a id="r-stance-link" href="stances.html">stance card</a> and the <a href="matrix.html">matrix</a>.</p>
-      <label class="small muted" for="copy-fallback" hidden id="copy-fallback-label">Copy this text manually:</label>
-      <textarea id="copy-fallback" rows="10" style="width:100%;font:inherit;font-size:0.9rem" hidden readonly></textarea>
-    </div>
-  </section>
-</div>
+    <div class="prose"><p>Seven or eight questions. You get your default stance, the Stack layer it leans on, the one guardrail to adopt, and which AI @ Workplace level to watch next. Nothing is sent anywhere: your answers stay in this page (and, if your browser allows it, the last result is remembered on this device only).</p></div>
+  </div>
+</header>
 
+<section class="section" aria-labelledby="console-title" style="padding-top:28px">
+  <div class="wrap">
+    <div class="console js-only" id="console">
+      <div class="console-bar sys"><h2 id="console-title" class="sys" style="font-size:inherit;color:inherit;max-width:none">session: diagnose</h2><span class="prog" id="dg-progress" aria-live="polite">question 1 (7 or 8 in total)</span></div>
+      <div class="console-body">
+        <div class="tx" id="dg-tx"></div>
+        <div class="q-block" id="dg-q">
+          <p class="q-text" id="dg-qtext" tabindex="-1"><span class="pr" aria-hidden="true">q1 </span><span id="dg-qvis" aria-hidden="true"></span><span class="sr-only" id="dg-qsr"></span></p>
+          <p class="q-hint" id="dg-hint" hidden></p>
+          <div class="opts" id="dg-opts" role="group" aria-labelledby="dg-qsr"></div>
+          <p class="err" id="dg-err" role="alert"></p>
+          <div class="console-nav"><button type="button" class="cmd cmd-ghost small" id="dg-back" disabled><span class="cmd-glyph" aria-hidden="true">$</span> back</button><span class="kbd-hint">keys: number to answer &middot; backspace to go back</span></div>
+        </div>
+        <div class="report" id="dg-report" hidden>
+          <p class="tx-line"><span class="pr">&gt;</span> report.print</p>
+          <h2 id="result-title" tabindex="-1">Your default stance <span class="big" id="r-stance"></span></h2>
+          <dl class="rp">
+            <dt>what you expect</dt><dd id="r-expect"></dd>
+            <dt>load-bearing layer</dt><dd id="r-layer"></dd>
+            <dt>characteristic failure</dt><dd id="r-failure" class="warn"></dd>
+            <dt>the guardrail to adopt</dt><dd id="r-guardrail" class="guard"></dd>
+            <dt>autonomy mode</dt><dd id="r-autonomy"></dd>
+            <dt>ambition</dt><dd id="r-ambition"></dd>
+            <dt>watch next</dt><dd id="r-level"></dd>
+            <dt>notes from your answers</dt><dd><ul id="r-notes"></ul></dd>
+          </dl>
+          <div class="console-nav">
+            <button type="button" class="cmd small" id="copy-result"><span class="cmd-glyph" aria-hidden="true">$</span> copy result</button>
+            <button type="button" class="cmd cmd-ghost small" id="dg-restart"><span class="cmd-glyph" aria-hidden="true">$</span> start again</button>
+            <span id="copy-status" role="status" aria-live="polite" class="kbd-hint"></span>
+          </div>
+          <label class="kbd-hint" for="copy-fallback" hidden id="copy-fallback-label">Copy this text manually:</label>
+          <textarea id="copy-fallback" class="copy-fallback" rows="10" hidden readonly></textarea>
+          <p class="tx-line" style="margin-top:16px">This is a self-check, not an assessment. It reflects one task, today. Read the full <a id="r-stance-link" href="stances.html">stance card</a> and the <a href="matrix.html">matrix</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="static-qs no-js-only">
+      <p class="callout">The interactive console needs JavaScript. Here are the same questions, so you can run the diagnostic on paper: the first questions lead to your stance; then look it up in <a href="matrix.html">the matrix</a> and read across to its layer and guardrail.</p>
+      <h2 class="sys section-tag" style="margin-top:24px">the questions</h2>
+      <ol>
+<li>In this task, what do you mostly want from the AI?<ul><li>An answer, or a fact</li><li>A thing made, or a job done</li><li>Help understanding something</li><li>Help thinking, practising or deciding</li></ul></li>
+<li><span class="sys dim">If you chose “An answer, or a fact”:</span> Where should the answer come from?<ul><li>From the AI itself: I want the truth about a hard question I can't easily check myself <span class="dim">&rarr; Oracle</span></li><li>From what is already known or published: find it and pull it together <span class="dim">&rarr; Librarian</span></li></ul></li>
+<li><span class="sys dim">If you chose “A thing made, or a job done”:</span> What do you hand over?<ul><li>My own rough material (notes, bullets, a draft), to be polished or formatted <span class="dim">&rarr; Scribe</span></li><li>A request for one deliverable, which I check when it arrives <span class="dim">&rarr; Genie</span></li><li>A goal: the AI works out the steps and does them, and I review at the end <span class="dim">&rarr; Executor</span></li></ul></li>
+<li><span class="sys dim">If you chose “Help understanding something”:</span> Which is closer?<ul><li>I have the material (a contract, a report, a dataset): tell me what it means and what follows from it <span class="dim">&rarr; Interpreter</span></li><li>I want to understand it myself, and keep that understanding <span class="dim">&rarr; Tutor</span></li><li>I need to carry it between two worlds (the engineer to the marketer, the doctor to the patient) <span class="dim">&rarr; Translator</span></li></ul></li>
+<li><span class="sys dim">If you chose “Help thinking, practising or deciding”:</span> Which is closer?<ul><li>Attack my plan or draft: find the holes <span class="dim">&rarr; Adversary</span></li><li>Rehearse something real: a negotiation, a difficult conversation, a market <span class="dim">&rarr; Simulator</span></li><li>Reflect my own thinking back to me, with more structure <span class="dim">&rarr; Mirror</span></li><li>A non-judgemental space to think aloud about something personal <span class="dim">&rarr; Therapist</span></li><li>Ideas: surprise me</li></ul></li>
+<li><span class="sys dim">If you chose “Ideas: surprise me”:</span> How do you want the ideas?<ul><li>One good spark, which I judge as soon as it arrives <span class="dim">&rarr; Muse</span></li><li>Many variations, kept, and sorted later with a cold eye <span class="dim">&rarr; Miner</span></li></ul></li>
+<li>How long have you used AI tools for work?<ul><li>I'm new to them, or have barely tried</li><li>Weeks to months of chatbot use</li><li>Daily chatbot use, maybe custom bots or projects</li><li>I use agents that take actions (files, tools, other apps)</li></ul></li>
+<li>In this task, how much of the work do you watch?<ul><li>Assistive: I type, the AI suggests</li><li>Directed: I describe, the AI types, I review</li><li>Autonomous: I assign, the AI executes, I review the result</li><li>Continuous: the AI runs as a background service</li></ul></li>
+<li>How big is the ask?<ul><li>Speed: the same work in less time</li><li>Altitude: the outcome beyond the task</li><li>Depth: the task done the way a field-leading expert would</li><li>Range: bring in other fields, tools and techniques</li></ul></li>
+<li>Last time the output disappointed you, what did you do first?<ul><li>Rewrote or reworded the prompt</li><li>Added files, examples or background information</li><li>Explained what mattered most, or which tradeoff to make</li><li>Checked it against a source, a test or the original</li><li>Gave up and did it myself</li></ul></li>
+<li>Before the output leaves under your name, how do you usually check it?<ul><li>I don't, usually</li><li>I ask the same chat to check its work</li><li>I paste it into a fresh chat and ask it to find errors</li><li>I run it past a different model</li><li>I check it against the source, or my own calculation</li><li>I ask a person with the expertise I lack</li></ul></li>
+</ol>
+    </div>
+  </div>
+</section>
 </main>
+<!-- @footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <p><strong>Mode Fluency</strong> is the practice of Henrique Jr. Sanchez. This site is a prototype (October 2026): copy and prices are drafts.</p>
-    <ul class="footer-links">
-      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-      <li>Repository license: GPL-3.0</li>
-      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
-      <li><a href="about.html">About and credits</a></li>
-    </ul>
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
+        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Repository license: GPL-3.0</li>
+        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
+<!-- /@footer -->
 </body>
 </html>

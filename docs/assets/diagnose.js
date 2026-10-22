@@ -1,7 +1,9 @@
-/* Mode Fluency prototype: vanilla JS, no dependencies. State lives in memory;
-   localStorage is optional and wrapped in try/catch. */
+/* Mode Fluency self-diagnostic: the question logic, data and scoring are carried over unchanged from the reviewed
+   prototype (site/assets/site.js, where all 26,880 answer combinations were verified to return a result). Only the
+   interface is new: a console session. Vanilla JS, no dependencies; localStorage optional and wrapped in try/catch. */
 (function () {
   "use strict";
+  var BRAND = window.MF_BRAND || getComputedStyle(document.documentElement).getPropertyValue("--brand").trim().replace(/^["']|["']$/g, "");
   var DATA = {
  "stances": {
   "oracle": {
@@ -235,125 +237,10 @@
   }
  }
 };
-
   function $(sel, root) { return (root || document).querySelector(sel); }
-  function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function store(key, val) {
-    try {
-      if (val === undefined) return window.localStorage.getItem(key);
-      window.localStorage.setItem(key, val);
-    } catch (err) { return null; }
+    try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; }
     return null;
-  }
-
-  /* ---------- Stances filter ---------- */
-  function initStances() {
-    var grid = $("#stance-grid");
-    if (!grid) return;
-    var state = { layer: "all", meta: "all" };
-    var cards = $all(".stance-card", grid);
-    var status = $("#stance-status");
-    var empty = $("#stance-empty");
-    function apply() {
-      var shown = 0;
-      cards.forEach(function (c) {
-        var layers = (c.getAttribute("data-layers") || "").split(" ");
-        var okL = state.layer === "all" || layers.indexOf(state.layer) !== -1;
-        var okM = state.meta === "all" || c.getAttribute("data-meta") === state.meta;
-        c.hidden = !(okL && okM);
-        if (!c.hidden) shown++;
-      });
-      var desc = [];
-      if (state.layer !== "all") desc.push("layer: " + DATA.layerName[state.layer]);
-      if (state.meta !== "all") desc.push(DATA.metaLabel[state.meta]);
-      status.textContent = (shown === cards.length && !desc.length) ? "Showing all 14 stances." :
-        "Showing " + shown + " of " + cards.length + " stances" + (desc.length ? " (" + desc.join("; ") + ")" : "") + ".";
-      empty.hidden = shown !== 0;
-    }
-    $all(".chip[data-filter]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        var g = b.getAttribute("data-filter");
-        state[g] = b.getAttribute("data-value");
-        $all('.chip[data-filter="' + g + '"]').forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-        apply();
-      });
-    });
-    apply();
-  }
-
-  /* ---------- Matrix interaction ---------- */
-  function initMatrix() {
-    var table = $("#matrix-table");
-    if (!table) return;
-    var rows = $all("tbody tr", table);
-    var sbtns = $all(".stance-btn", table);
-    var lbtns = $all(".layer-btn");
-    var status = $("#matrix-status");
-    var narrow = window.matchMedia ? window.matchMedia("(max-width: 999px)") : { matches: false };
-    var reduce = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
-    // On narrow screens the mini stack sits far above the table, so the clicked row gets its own
-    // small copy of the stack with the load-bearing layer lit (hidden by CSS at desktop widths).
-    function showInline(row, layers) {
-      var cell = row.querySelector("th");
-      var box = document.createElement("div");
-      box.className = "inline-stack";
-      box.setAttribute("aria-hidden", "true");
-      ["coherence", "judgment", "intent", "context", "prompt", "evaluation", "harness"].forEach(function (k) {
-        var d = document.createElement("span");
-        d.className = "inline-layer" + (layers.indexOf(k) !== -1 ? " is-lit" : "");
-        d.textContent = DATA.layerName[k];
-        box.appendChild(d);
-      });
-      if (layers.indexOf("none") !== -1) {
-        var n = document.createElement("span"); n.className = "inline-none"; n.textContent = "No load-bearing layer"; box.appendChild(n);
-      }
-      cell.appendChild(box);
-    }
-    function reset() {
-      $all(".inline-stack", table).forEach(function (x) { x.parentNode.removeChild(x); });
-      rows.forEach(function (r) { r.classList.remove("is-lit"); });
-      sbtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
-      lbtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); b.classList.remove("is-lit"); });
-    }
-    sbtns.forEach(function (b) {
-      b.addEventListener("click", function () {
-        var was = b.getAttribute("aria-pressed") === "true";
-        reset();
-        if (was) { status.textContent = "Nothing selected."; return; }
-        var key = b.getAttribute("data-stance");
-        var s = DATA.stances[key];
-        b.setAttribute("aria-pressed", "true");
-        var row = b.closest("tr");
-        row.classList.add("is-lit");
-        s.layers.forEach(function (l) {
-          var lb = $('.layer-btn[data-layer="' + l + '"]');
-          if (lb) lb.classList.add("is-lit");
-        });
-        showInline(row, s.layers);
-        status.textContent = s.name + ": load-bearing layer " + s.layerLabel + ".";
-      });
-    });
-    lbtns.forEach(function (b) {
-      b.addEventListener("click", function () {
-        var was = b.getAttribute("aria-pressed") === "true";
-        reset();
-        if (was) { status.textContent = "Nothing selected."; return; }
-        var l = b.getAttribute("data-layer");
-        b.setAttribute("aria-pressed", "true");
-        var names = [];
-        rows.forEach(function (r) {
-          if ((r.getAttribute("data-layers") || "").split(" ").indexOf(l) !== -1) {
-            r.classList.add("is-lit");
-            names.push(DATA.stances[r.getAttribute("data-stance")].name);
-          }
-        });
-        status.textContent = DATA.layerName[l] + ": " + (names.length ? names.join(", ") : "no stance leans on this layer directly") + ".";
-        var first = rows.filter(function (r) { return r.classList.contains("is-lit"); })[0];
-        if (first && narrow.matches) first.scrollIntoView({ behavior: reduce.matches ? "auto" : "smooth", block: "start" });
-      });
-    });
-    var clear = $("#matrix-clear");
-    if (clear) clear.addEventListener("click", function () { reset(); status.textContent = "Nothing selected."; });
   }
 
   /* ---------- Diagnostic ---------- */
@@ -471,7 +358,7 @@
 
   function resultText(r) {
     var lines = [
-      "Mode Fluency self-diagnostic",
+      BRAND + " self-diagnostic",
       "Default stance: " + r.stance.name + " (" + r.expect + ")",
       "Load-bearing layer: " + r.layer + " (" + r.layerQ + ")",
       "Characteristic failure: " + r.failure,
@@ -481,7 +368,7 @@
       "Watch next: " + r.levelInfo.title + " (" + r.levelInfo.url + "). " + r.why
     ];
     r.notes.forEach(function (n) { lines.push("Note: " + n); });
-    lines.push("From the Mode Fluency prototype (Henrique Jr. Sanchez). Framework sources: https://github.com/hjasanchez/agentic-engineering");
+    lines.push("From the " + BRAND + " site (Henrique Jr. Sanchez). Framework sources: https://github.com/hjasanchez/agentic-engineering");
     return lines.join("\n");
   }
 
@@ -503,14 +390,16 @@
     return { stancePaths: stancePaths, commonCombos: combos };
   }
 
-  function initDiagnostic() {
-    var root = $("#diag");
+  /* ---------- Console session (new interface; logic above is unchanged) ---------- */
+  var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  function initConsole() {
+    var root = $("#console");
     if (!root) return;
-    root.hidden = false;
-    var form = $("#diag-form"), legend = $("#diag-legend"), hint = $("#diag-hint"), opts = $("#diag-options");
-    var progress = $("#diag-progress"), err = $("#diag-error"), back = $("#diag-back"), resBox = $("#diag-result");
-    var history = []; // [{qid, value}]
-    var current = "family";
+    var tx = $("#dg-tx"), qBlock = $("#dg-q"), qText = $("#dg-qtext"), qVis = $("#dg-qvis"), qSr = $("#dg-qsr"), hint = $("#dg-hint");
+    var opts = $("#dg-opts"), err = $("#dg-err"), back = $("#dg-back"), progress = $("#dg-progress"), report = $("#dg-report");
+    var history = [], current = "family", typeTimer = 0, lastNote = "";
 
     function getQ(qid) {
       if (STANCE_QS[qid]) return STANCE_QS[qid];
@@ -524,36 +413,6 @@
       }
       return null;
     }
-    function estimateTotal() {
-      var stanceQs = history.filter(function (h) { return STANCE_QS[h.qid]; }).length;
-      if (!stanceDone()) {
-        if (current === "family") stanceQs = 2;
-        else stanceQs = stanceQs + 1;
-      }
-      return stanceQs + COMMON_QS.length;
-    }
-    function render() {
-      var q = getQ(current);
-      var prev = history.length && history[history.length - 1].qid === current ? history[history.length - 1].value : null;
-      legend.textContent = q.text;
-      hint.textContent = q.hint || "";
-      hint.hidden = !q.hint;
-      opts.innerHTML = "";
-      q.options.forEach(function (o, i) {
-        var id = "opt-" + current + "-" + i;
-        var lab = document.createElement("label");
-        lab.className = "option"; lab.setAttribute("for", id);
-        var inp = document.createElement("input");
-        inp.type = "radio"; inp.name = "answer"; inp.id = id; inp.value = o.v;
-        if (prev === o.v) inp.checked = true;
-        var span = document.createElement("span"); span.textContent = o.label;
-        lab.appendChild(inp); lab.appendChild(span); opts.appendChild(lab);
-      });
-      var idx = (history.length && history[history.length - 1].qid === current) ? history.length : history.length + 1;
-      progress.textContent = "Question " + idx + " (7 or 8 in total)";
-      back.disabled = history.length === 0;
-      err.textContent = "";
-    }
     function nextQid(qid, value) {
       if (STANCE_QS[qid]) {
         var o = STANCE_QS[qid].options.filter(function (x) { return x.v === value; })[0];
@@ -562,15 +421,68 @@
       for (var i = 0; i < COMMON_QS.length; i++) if (COMMON_QS[i].id === qid) return COMMON_QS[i + 1] ? COMMON_QS[i + 1].id : null;
       return null;
     }
+    function labelOf(qid, v) { var q = getQ(qid); var o = q.options.filter(function (x) { return x.v === v; })[0]; return o ? o.label : v; }
+    function renderTranscript() {
+      tx.innerHTML = "";
+      history.forEach(function (h, i) {
+        var a = el("p", "tx-line"); a.appendChild(el("span", "pr", "q" + (i + 1) + " ")); a.appendChild(document.createTextNode(getQ(h.qid).text));
+        tx.appendChild(a); tx.appendChild(el("p", "tx-line ans", labelOf(h.qid, h.value)));
+      });
+    }
+    function typeInto(node, text) {
+      clearTimeout(typeTimer);
+      if (reduced) { node.textContent = text; return; }
+      var i = 0, step = Math.max(2, Math.ceil(text.length / 26));
+      qText.classList.add("typing");
+      (function tick() {
+        i = Math.min(text.length, i + step); node.textContent = text.slice(0, i);
+        if (i < text.length) typeTimer = setTimeout(tick, 16); else qText.classList.remove("typing");
+      })();
+    }
+    function render(focus) {
+      var q = getQ(current);
+      var n = history.length + 1;
+      qSr.textContent = "Question " + n + ". " + q.text;
+      typeInto(qVis, q.text);
+      $(".pr", qText).textContent = "q" + n + " ";
+      hint.textContent = q.hint || ""; hint.hidden = !q.hint;
+      opts.innerHTML = "";
+      q.options.forEach(function (o, i) {
+        var b = el("button", "opt"); b.type = "button"; b.setAttribute("data-v", o.v);
+        b.appendChild(el("span", "key", "[" + (i + 1) + "]")); b.appendChild(el("span", "", o.label));
+        if (q._prev === o.v) b.setAttribute("aria-pressed", "true");
+        b.addEventListener("click", function () { answer(o.v); });
+        opts.appendChild(b);
+      });
+      progress.textContent = "question " + n + " (7 or 8 in total)" + lastNote;
+      back.disabled = history.length === 0;
+      err.textContent = "";
+      renderTranscript();
+      if (focus) qText.focus();
+    }
+    function answer(v) {
+      var q = getQ(current); q._prev = v;
+      history.push({ qid: current, value: v });
+      var nq = nextQid(current, v);
+      if (!nq) { showResult(); return; }
+      current = nq; render(true);
+    }
+    function goBack() {
+      if (!history.length) return;
+      var last = history.pop();
+      current = last.qid; getQ(current)._prev = last.value;
+      report.hidden = true; qBlock.hidden = false;
+      render(true);
+    }
     function showResult() {
       var ans = { stance: stanceDone() };
       history.forEach(function (h) { if (!STANCE_QS[h.qid]) ans[h.qid] = h.value; });
       var r = computeResult(ans);
-      form.hidden = true; resBox.hidden = false;
+      renderTranscript();
+      qBlock.hidden = true; report.hidden = false;
       $("#r-stance").textContent = r.stance.name;
       $("#r-expect").textContent = r.expect;
-      $("#r-layer").textContent = r.layer;
-      $("#r-layer-q").textContent = r.layerQ;
+      $("#r-layer").textContent = r.layer + " (" + r.layerQ + ")";
       $("#r-failure").textContent = r.failure;
       $("#r-guardrail").textContent = r.guardrail;
       $("#r-autonomy").textContent = r.autonomy;
@@ -579,60 +491,53 @@
       var a = document.createElement("a"); a.href = r.levelInfo.url; a.textContent = r.levelInfo.title;
       lv.appendChild(a); lv.appendChild(document.createTextNode(". " + r.why));
       var ul = $("#r-notes"); ul.innerHTML = "";
-      r.notes.forEach(function (n) { var li = document.createElement("li"); li.textContent = n; ul.appendChild(li); });
+      r.notes.forEach(function (n) { ul.appendChild(el("li", "", n)); });
       $("#r-stance-link").href = "stances.html#" + r.stanceKey;
       root.setAttribute("data-result-stance", r.stanceKey);
       root.setAttribute("data-result-layer", r.layer);
-      resBox._text = resultText(r);
+      root.setAttribute("data-result-level", r.level);
+      report._text = resultText(r);
+      progress.textContent = "session complete: " + history.length + " answers";
+      $("#copy-status").textContent = ""; $("#copy-fallback").hidden = true; $("#copy-fallback-label").hidden = true;
       store("mf-last-result", JSON.stringify({ stance: r.stance.name, layer: r.layer, when: new Date().toISOString().slice(0, 10) }));
       $("#result-title").focus();
     }
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var picked = $('input[name="answer"]:checked', opts);
-      if (!picked) { err.textContent = "Choose one option to continue."; return; }
-      if (history.length && history[history.length - 1].qid === current) history.pop();
-      history.push({ qid: current, value: picked.value });
-      var nq = nextQid(current, picked.value);
-      if (!nq) { showResult(); return; }
-      current = nq; render(); legend.focus();
-    });
-    back.addEventListener("click", function () {
-      if (!history.length) return;
-      var last = history[history.length - 1];
-      if (last.qid === current) { history.pop(); last = history[history.length - 1]; if (!last) return render(); }
-      current = last.qid;
-      render(); legend.focus();
-    });
-    $("#diag-restart").addEventListener("click", function () {
-      history = []; current = "family"; resBox.hidden = true; form.hidden = false;
-      root.removeAttribute("data-result-stance"); root.removeAttribute("data-result-layer");
-      render(); legend.focus();
+    back.addEventListener("click", goBack);
+    $("#dg-restart").addEventListener("click", function () {
+      history = []; current = "family"; Object.keys(STANCE_QS).forEach(function (k) { delete STANCE_QS[k]._prev; }); COMMON_QS.forEach(function (q) { delete q._prev; });
+      report.hidden = true; qBlock.hidden = false;
+      root.removeAttribute("data-result-stance"); root.removeAttribute("data-result-layer"); root.removeAttribute("data-result-level");
+      render(true);
     });
     $("#copy-result").addEventListener("click", function () {
-      var text = resBox._text || "";
-      var st = $("#copy-status");
+      var text = report._text || "", st = $("#copy-status");
       function fallback() {
         var ta = $("#copy-fallback"); ta.hidden = false; $("#copy-fallback-label").hidden = false;
         ta.value = text; ta.focus(); ta.select();
         var ok = false;
         try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
-        st.textContent = ok ? "Copied." : "Select the text below and copy it.";
+        st.textContent = ok ? "copied." : "select the text below and copy it.";
       }
       try {
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text).then(function () { st.textContent = "Copied."; }, fallback);
-        } else { fallback(); }
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { st.textContent = "copied."; }, fallback);
+        else fallback();
       } catch (e) { fallback(); }
+    });
+    // keyboard: number keys answer, Backspace goes back (only when focus is inside the console and not in a text field)
+    root.addEventListener("keydown", function (e) {
+      if (e.target && (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT")) return;
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      if (!qBlock.hidden && /^[1-9]$/.test(e.key)) {
+        var b = opts.querySelectorAll(".opt")[+e.key - 1];
+        if (b) { e.preventDefault(); b.click(); }
+      } else if (e.key === "Backspace" && history.length) { e.preventDefault(); goBack(); }
     });
     var last = null;
     try { last = JSON.parse(store("mf-last-result") || "null"); } catch (e) { last = null; }
-    render();
-    if (last && last.stance) progress.textContent += " · Last time on this device: " + last.stance + " / " + last.layer + " (" + last.when + ")";
+    if (last && last.stance) lastNote = " · last time on this device: " + last.stance + " / " + last.layer + " (" + last.when + ")";
+    render(false);
   }
 
   window.ModeFluencyDiagnostic = { compute: computeResult, text: resultText, paths: enumeratePaths };
-
-  function init() { initStances(); initMatrix(); initDiagnostic(); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initConsole); else initConsole();
 })();

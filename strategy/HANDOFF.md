@@ -1,6 +1,13 @@
 # Handoff — overnight session 2026-10-21
 
-## Read first
+## Read first (updated 2026-10-22 evening)
+- Full site in Direction C (nine pages): https://claude.ai/artifact/E6M4mYgTGMg4MAP3Bf9oaC
+- Design directions compared: https://claude.ai/artifact/J8Zapq3J1taJJ9hx7iqsxo (A: 5Lr9jYVvjtPeToUwutnze3, B: 1tU4Zq9n6PfGbV82pZW3EG, C: MRTdQ589uCkGsNwZuACURx)
+- Naming round 2: https://claude.ai/artifact/FFh29UPzHQCKJAh93kW2bW (decision: keep "Mode Fluency")
+- Answers, proposed README, offer plan: https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
+- The diagnostic skill: skills/mode-fluency-diagnostic/ on the branch
+
+## Read first (original)
 - Strategy brief (phone-friendly): https://claude.ai/artifact/P5ZSRJPmn2mFpJaF2gMFVS
 - Website prototype (tap through all nine pages): https://claude.ai/artifact/DN8xJuzxUstVykxiJU13W5
 - Same content as files: /home/user/meta-strategy/STRATEGY_BRIEF.md and /home/user/meta-strategy/site/
