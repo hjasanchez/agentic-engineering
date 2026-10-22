@@ -6,7 +6,9 @@ and a deterministic binding-constraint rule.
 
 ## 1. Rules
 
-The evidence standard and grades are in SKILL.md §2 and §8. Three additions: gaps are the most valuable finding; grade the
+The evidence standard and grades are in SKILL.md §2 and §8. **The definitions in §3 below win wherever
+`maturity-map.md` reads differently.** ❌ means you looked where it would live and it is absent; when a weak artifact
+exists, the grade is ⚠️, however weak. Three additions: gaps are the most valuable finding; grade the
 mechanism, never the output ("the result looks good"); a system prompt that describes the task is Prompt, and becomes
 Intent only when it says why, what to trade off and what to escalate.
 
@@ -60,31 +62,35 @@ single agent or person, grade consistency across sessions. Trap: one consistent 
 
 **Evaluation — how to know (meta-function).** ✅ automated checks wired into the run (tests, lints, hooks, CI) that feed
 failures back, at more than the output layer, with a human re-entry path and some way to say which layer failed. ⚠️ checks
-exist but run only when someone remembers, or check only format. ❌ no check of any kind. Flag evaluation gaming explicitly
-if seen (tests that pass by shortcut, assertions edited to green). Trap: QA reports written once are evidence of an
-evaluation *event*, not an evaluation *mechanism*.
+exist but run only when someone remembers, check only format, or the only check is a person reviewing before use. ❌ no
+check of any kind, manual or automated. Flag evaluation gaming explicitly if seen (tests that pass by shortcut, assertions
+edited to green). Trap: a QA report written once is an evaluation *event*, not a *mechanism*: ⚠️ at most.
 
 **Harness — where and how (meta-function).** ✅ a defined execution environment, tool access matched to the work,
 permissions (ask before delete/send/spend), encoded orchestration, reproducible configuration in version control, undo
-(version history). ⚠️ some of it, or the setup lives in one person's machine. ❌ no evidence of where or how agents run.
-Trap: the presence of a git repo is undo, not a harness.
+(version history). ⚠️ some of it, or the setup lives in one person's machine. ❌ no harness anywhere: nothing shows agents
+running. If the scope shows agents ran but their setup lives outside it, the grade is ◻️ and the gap says what to share
+(SKILL.md §2). Trap: the presence of a git repo is undo, not a harness.
 
 ## 4. Report template
 
 ```
 # Stack audit: <scope>, <date>
-Scope: <paths in> · Out of scope: <paths> · Mode: read-only · Question the owner asked: <...>
+Scope: <paths in> · Out of scope: <paths> · Snapshot: <commit or date> · Mode: read-only · Question: <...>
+Autonomy: <level or ◻️> — evidence <citations>
 
 ## Summary
 | Component | Grade | Maturity | Primary gap (one sentence) |
 (Prompt, Context, Intent, Judgment, Coherence, Evaluation, Harness)
 
 ## Binding constraint
-<component> — why it binds (rule in SKILL.md §8; name any exception used) and what it is costing.
+<layer> — the lowest weak cognitive layer (SKILL.md §8), and what it is costing.
+## Meta-function gaps and blocking gaps
+Evaluation <grade>, Harness <grade>. Blocking gap (autonomy Autonomous+ and ❌): <none | fix before the layer fix>.
 
 ## Component findings
 ### <Component>: <grade>
-Evidence: <citations> · Gaps: <...> · Next step: <one action>
+Maturity: <level> · Evidence: <citations> · Gaps: <...> · Next step: <one action>
 
 ## Observed stances
 | Usage record | Stance | Boundary test that decided it | Citation |
@@ -101,15 +107,18 @@ Evidence: <citations> · Gaps: <...> · Next step: <one action>
 
 ```json
 {
-  "scope": "path or description",
-  "autonomy": "assistive|directed|autonomous|continuous|unknown",
+  "scope": "path or description, with snapshot",
+  "autonomy": "assistive|directed|autonomous|continuous|not_assessable",
+  "autonomy_evidence": ["path:line \"quote\""],
   "components": {
-    "prompt":     {"grade": "strong|partial|missing|not_assessable", "evidence": ["path:line ..."], "gap": "..."},
-    "context":    {"...": "..."}, "intent": {}, "judgment": {}, "coherence": {}, "evaluation": {}, "harness": {}
+    "prompt": {"grade": "strong|partial|missing|not_assessable", "evidence": ["..."], "gap": "..."},
+    "context": {}, "intent": {}, "judgment": {}, "coherence": {}, "evaluation": {}, "harness": {}
   },
-  "stances": [{"stance": "Executor", "evidence": ["path:line ..."]}]
+  "stances": [{"stance": "Executor", "evidence": ["..."]}]
 }
 ```
 
-`missing` requires at least one evidence entry starting `searched` (the search log). `not_assessable` requires a note in
-`gap` saying what would make it assessable.
+Every evidence entry must *start* with one citation form: `path:line` or `path:start-end`, optionally followed by a
+double-quoted fragment that must appear on that line; `[A<n>]` (optionally quoted; checked against `--transcript`);
+`[msg] "quote"`; or `searched <paths or patterns>: <result>`. ✅/⚠️ need at least one non-search citation; ❌ needs a
+search log naming a path or pattern (or, in an interview, an answer); ◻️ needs a `gap` note. Commentary may follow.

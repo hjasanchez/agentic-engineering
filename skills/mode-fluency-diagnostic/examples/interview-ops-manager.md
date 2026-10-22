@@ -2,11 +2,12 @@
 
 *Dogfood run of the INTERVIEW mode, SKILL.md §4. The user is simulated: an operations manager at a ~450-person industrial
 parts distributor who uses ChatGPT daily and started using a Copilot agent two weeks ago. Claude played both roles and
-kept them apart: the interviewer saw only the answers. 14 questions (13 core + branch H1), no follow-ups needed.*
+kept them apart: the interviewer saw only the answers. 14 questions (13 core + branch H1), no follow-ups needed.
+Re-run in the fix pass (EVAL.md §8) under the revised Q9, Prompt rubric and binding rule.*
 
 ## Transcript (condensed; the questions are verbatim)
 
-**Agent:** About 12–14 questions, one at a time, roughly ten minutes. No wrong answers; a concrete recent example beats a
+**Agent:** 12–14 questions, one at a time, roughly ten minutes. No wrong answers; a concrete recent example beats a
 general description; skip anything you like.
 
 1. **Q1** *What is your role, and what kind of work fills most of your week?*
@@ -30,8 +31,8 @@ general description; skip anything you like.
    The agent only has the SharePoint list."
 8. **Q8** *Does it ever know why a task matters, or what to favour when things conflict?*
    **A8** "No. I suppose it assumes accuracy matters."
-9. **Q9** *What do you want it to do when it isn't sure? Have you ever told it?*
-   **A9** "Tell me. I've never said so."
+9. **Q9** *Before you rely on its work, do you ever ask how sure it is, ask for its plan, or tell it when to stop and ask you?*
+   **A9** "No. I just get the draft and use it."
 10. **Q10** *The last time an output was wrong or disappointing: what did you do next?*
     **A10** "The K thing. The COO asked why K was on track. I apologised, then typed to the agent 'be more careful and check
     all sources'. IT told me later it can't read Teams at all."
@@ -68,33 +69,37 @@ Weekly real work runs through the agent [A2] [A12]; ChatGPT work is Directed: sh
 
 | Layer | Reading | Evidence |
 |---|---|---|
-| Prompt | ⚠️ Partial | one or two lines [A6]; one saved prompt; no boundaries [A3] |
+| Prompt | ❌ Missing | one-line requests for the work that mattered: "a firm but polite reply" [A3], "what's going on with delivery performance" [A4]; the saved prompt is one line too [A6] |
 | Context | ⚠️ Partial | role-only custom instructions, fresh chats [A7]; the agent cannot see Teams [A10] |
 | Intent | ❌ Missing | never states why or what to favour [A8] |
-| Judgment | ❌ Missing | never told it to ask or flag [A9] |
+| Judgment | ❌ Missing | never asks for doubt or a plan before relying on it [A9]; no plan from the agent [A12] |
 | Coherence | ⚠️ Partial | shared agent; nothing else shared [A13] |
-| Evaluation | ❌ Missing | skimmed against memory [A5]; bullets pasted unchecked [A4] |
+| Evaluation | ❌ Missing | skimmed against memory [A5]; bullets pasted straight into the deck [A4] |
 | Harness | ⚠️ Partial | IT-set workspace and permissions, cannot send [A12]; repeat mistakes fixed by hand [A11] |
 
-## Binding layer: Evaluation
-The lowest weak cognitive layer is Prompt, but SKILL.md §8 exception (a) applies: she now runs Autonomous work weekly and
-Evaluation is Missing, so nothing above it can be trusted until there is a check. It already cost her: the COO caught the
-error, not her [A5]. Her fix went to the wrong layer: she re-prompted ("be more careful") [A10] for what was a Context gap
-(the agent cannot read Teams) that only an Evaluation check would have exposed. The Executor guardrail and the binding layer
-point at the same move.
+## Binding layer: Prompt
+The lowest weak cognitive layer (SKILL.md §8). The work that mattered went out on one-line requests, and the gaps were
+filled for her: a 5% credit nobody agreed [A3], four unsourced bullets in the leadership deck [A4].
+
+## Blocking gap: Evaluation ❌ — fix before the layer fix
+She runs Autonomous work weekly [A2] [A12] and nothing checks it before it reaches the COO [A5]. The COO caught the error,
+not her. Her fix also went to the wrong layer: she re-prompted ("be more careful") [A10] for a Context gap (the agent cannot
+read Teams) that only a check would have exposed. The Executor guardrail and the blocking gap point at the same move.
 
 ## 30-day plan
-1. **Binding layer: a pre-forward check for the Monday summary.** Ask the agent to end every summary with a table: supplier,
+1. **Blocking gap: a pre-forward check for the Monday summary.** Ask the agent to end every summary with a table: supplier,
    status, source item, date of that item. Before forwarding, open three rows at random and check them against SharePoint
    and the Teams channel. *Lives in:* a note pinned in the Teams chat. *Time:* 5 minutes a week. *Done-check:* by day 28,
    four summaries forwarded with a source table, and every mismatch you found written in one list.
-2. **Interpreter guardrail for the KPI deck.** Add one line to your analysis request: "For each conclusion, cite the file and
-   the rows that support it; say UNVERIFIED if none." Delete any bullet you cannot trace. *Lives in:* the saved Word prompt.
-   *Time:* 2 minutes per deck. *Done-check:* by day 21, every bullet in the leadership deck has a row reference.
-3. **Never fix the same mistake twice by hand.** Add four lines to ChatGPT custom instructions: British spelling; no "I hope
-   this email finds you well"; round on-time % to one decimal as finance does; never offer credits, discounts or dates I
-   have not stated. Ask IT to add one line to the agent's instructions: "You cannot see Teams; say so in every summary."
-   *Time:* 15 minutes. *Done-check:* by day 30, none of the three repeat fixes [A11] needed for a week.
+2. **Binding layer: two saved briefs for the work that matters.** Supplier email: "Reply to the chain below. Position:
+   [what we will and will not do]. Do not offer credits, discounts or dates I have not stated. Under 150 words." KPI
+   analysis: "Audience: leadership deciding [X]. For each conclusion cite the file and rows that support it; write
+   UNVERIFIED if none." The second also installs the Interpreter guardrail. *Lives in:* the Word doc, replacing the
+   one-liner. *Time:* 20 minutes once. *Done-check:* by day 21, every leadership bullet has a row reference.
+3. **Never fix the same mistake twice by hand.** Add three lines to ChatGPT custom instructions: British spelling; no "I
+   hope this email finds you well"; round on-time % to one decimal as finance does. Ask IT to add one line to the agent's
+   instructions: "You cannot see Teams; say so in every summary." *Time:* 15 minutes. *Done-check:* by day 30, none of the
+   three repeat fixes [A11] needed for a week.
 
 **Readback.** Asked whether any reading felt wrong, the user said Intent seemed harsh. Asked for the example that
 contradicts it, she gave "I write 'for leadership'" [A15]. Naming the audience is Context, not a tradeoff or a priority, so

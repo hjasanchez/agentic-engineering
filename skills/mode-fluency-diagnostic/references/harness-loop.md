@@ -14,6 +14,10 @@ Agent = model + harness; the harness is everything that is not the model.
 | It lost track on a long task | Smaller tasks in a loop, with notes in files | A `notes/progress.md` it reads at start and updates at end |
 | It lacked your judgment | Translation: write the judgment down | A short decision note: "when X, we do Y, because Z" |
 
+**Unattended work gets both.** When autonomy is Autonomous or Continuous, any rule a script can check gets the
+instruction line *and* the check, whichever row the mistake came from: nobody is watching to catch the line being ignored.
+A mistake already fixed by hand twice is that case.
+
 Before choosing a fix, find the layer (SKILL.md §8): a missing rule is usually Prompt or Intent, missing information is
 Context, an ignored rule is an Evaluation/Harness gap, missing judgment is Intent or Judgment. Fix at the layer that failed.
 

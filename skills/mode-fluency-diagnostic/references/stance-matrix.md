@@ -41,6 +41,10 @@ Ask of each episode: *what did the human hand over, what did they expect back, a
 - **Personal processing?** Thinking aloud about their own life or feelings → **Therapist**. Note it, do not probe it; it is
   outside a work diagnostic unless the user brings it in.
 
+**When two tests fire**, decide by what was handed over: material to decode (Interpreter), the human's own substance
+to polish (Scribe), only a goal (Genie, or Executor if steps went unwatched). A job title never decides: a translator
+post-editing a machine draft is Scribe or Genie; Translator means the AI bridged two audiences' maps.
+
 Only Interpreter, Executor and Miner have boundary tests written out in Archetypes v3; the others above are derived from
 each stance's stated expectation. When an episode fits two stances, record both and say which test separated them.
 

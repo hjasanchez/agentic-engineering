@@ -3,8 +3,9 @@
 Source: *AI-Human Engineering Stack — Component Reference Map* v1.0 (Mill & Sanchez, March 2026), condensed.
 Use it to assign a maturity level and to pick a next step that is one level up, not three.
 
-**Grade ↔ maturity.** ❌ Missing = Absent. ⚠️ Partial = Minimal, or Intermediate with gaps. ✅ Strong = Intermediate
-complete, or Advanced. ◻️ Not assessable has no maturity level.
+**Grades come from `stack-audit.md` §3, which wins wherever this map reads differently**; this map only places a grade
+on a level. ❌ Missing = Absent (looked; nothing there). ⚠️ Partial = anything from some Minimal elements up to Intermediate
+with gaps; manual review as the only Evaluation is ⚠️. ✅ Strong = Intermediate complete, or Advanced. ◻️ has no level.
 
 | Component | Minimal | Intermediate | Advanced | Failure signature |
 |---|---|---|---|---|

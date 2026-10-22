@@ -52,20 +52,22 @@ Read tools/mode-fluency-diagnostic/SKILL.md and follow it exactly.
 ## Example sessions (both real runs, in `examples/`)
 
 **AUDIT of this repository** ([full report](examples/audit-agentic-engineering.md)). Prompt ✅, Context, Intent, Judgment,
-Coherence and Evaluation ⚠️, Harness ❌. Binding constraint: Harness, because the overnight agent work ran in a workspace the
-repo does not contain. Two findings a reader can check in seconds: the README links a folder that did not exist at the
+Coherence and Evaluation ⚠️, Harness ◻️ (the agents ran in a workspace the repo does not contain). Binding constraint:
+Context: an agent opening the repo cold has no entry point and paths that do not resolve. Two findings a reader can check in seconds: the README links a folder that did not exist at the
 audited commit, and it calls the skills MIT while the only licence file is GPL-3.0.
 
-> **Harness: ❌ Missing.** Evidence: `searched AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .cursor/, .github/, .mcp.json,
-> .codex/, Makefile: none`. The harness that ran the work exists but is outside view: the push was refused for lack of a
-> credential (`strategy/HANDOFF.md:12`).
+> **Harness: ◻️ Not assessable.** Evidence: `searched AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .cursor/, .github/,
+> .mcp.json, .codex/, Makefile: none`. The harness that ran the work exists but is outside view: the push was refused for
+> lack of a credential (`strategy/HANDOFF.md:12`). To grade it, share the session settings or version them here.
 
 **INTERVIEW of an operations manager** ([full profile](examples/interview-ops-manager.md); the user is simulated). Dominant
-stances Executor, Interpreter, Genie; autonomy Autonomous for two weeks; binding layer Evaluation.
+stances Executor, Interpreter, Genie; autonomy Autonomous for two weeks; binding layer Prompt, with Evaluation ❌ as a
+blocking gap to fix first.
 
 > **A10** "The COO asked why K was on track. I apologised, then typed to the agent 'be more careful and check all sources'.
 > IT told me later it can't read Teams at all." → She re-prompted for what was a Context gap that only an Evaluation check
-> would have exposed. Action 1: a source-and-date table under every summary, three rows spot-checked before forwarding.
+> would have exposed. Action 1 (the blocking gap): a source-and-date table under every summary, three rows spot-checked
+> before forwarding.
 
 ## Free and paid
 
@@ -76,8 +78,8 @@ human-run Mode Fluency Assessment for a team, and AI @ Workplace workshops on yo
 ## Files
 
 `SKILL.md` (the instructions) · `references/` (stance matrix, Stack audit, maturity map, spec templates, harness loop,
-question bank) · `scripts/score_audit.py` (validates an audit JSON and computes the binding constraint; `python3 -I`, no
-dependencies) · `PROMPT_PACK.md` · `examples/` · `evals/` (test prompts) · `EVAL.md` (how it was tested).
+question bank) · `scripts/score_audit.py` (checks an audit's citations against the files and computes the binding constraint and
+blocking gaps; `python3 -I`, no dependencies; tests in `scripts/tests/`) · `PROMPT_PACK.md` · `examples/` · `evals/` (test prompts) · `EVAL.md` (how it was tested).
 
 ## License and citation
 

@@ -1,52 +1,61 @@
 {
   "scope": "hjasanchez/agentic-engineering @ 31eadf4 (branch meta-strategy), whole repo, read-only",
   "autonomy": "autonomous",
+  "autonomy_evidence": [
+    "strategy/README.md:3 \"Drafted overnight on 2026-10-21 with Claude orchestrating five research agents\"",
+    "strategy/HANDOFF.md:1 \"overnight session\""],
   "components": {
     "prompt": {"grade": "strong", "evidence": [
-      "strategy/briefs/R1_competitive_landscape.md:26 acceptance criteria, :33 non-goals, :35 tradeoffs, :37 if uncertain, :39 verification",
-      "strategy/briefs/W2_blind_review.md:1 Task/Goal/Inputs/Output/Acceptance/Constraints/Non-goals/If uncertain",
-      "strategy/briefs/N1_enterprise_register.md:2 layers on 00_SHARED_CONTEXT.md and N_naming_common.md"],
+      "strategy/briefs/R1_competitive_landscape.md:26 \"### Acceptance criteria\" (also :33 non-goals, :35 tradeoffs, :37 if uncertain, :39 verification)",
+      "strategy/briefs/W2_blind_review.md:1-24 \"### Non-goals\" (full Minimal Viable Spec)",
+      "strategy/briefs/N1_enterprise_register.md:2 \"Read 00_SHARED_CONTEXT.md, N_naming_common.md\""],
       "gap": "Short naming and design briefs carry no acceptance criteria of their own (N1:1-8)."},
     "context": {"grade": "partial", "evidence": [
-      "strategy/briefs/00_SHARED_CONTEXT.md:1 shared context read first by every agent, dated updates at :50 and :58",
-      "strategy/HANDOFF.md:1 handoff state for the next session",
-      "strategy/briefs/R1_competitive_landscape.md:6 inputs are absolute paths under /home/user/meta-strategy, outside the repo",
-      "strategy/README.md:12 source texts deliberately not committed",
-      "searched AGENTS.md, CLAUDE.md, notes/, progress.md, lessons or mistake logs: none"],
+      "strategy/briefs/00_SHARED_CONTEXT.md:1 \"read first, in full\" (dated updates at :50 and :58)",
+      "strategy/HANDOFF.md:1 \"Handoff\"",
+      "strategy/briefs/R1_competitive_landscape.md:6 \"/home/user/meta-strategy/briefs/00_SHARED_CONTEXT.md\" (inputs live outside the repo)",
+      "strategy/README.md:12 \"deliberately not committed\"",
+      "strategy/briefs/00_SHARED_CONTEXT.md:41 \"Today is 2026-10-21.\" (stale fact in a living file)",
+      "searched AGENTS.md, CLAUDE.md, notes/, progress.md, *lesson*, *mistake*: none"],
       "gap": "The context architecture lives outside the repo; nothing in the repo tells an agent where to start."},
     "intent": {"grade": "partial", "evidence": [
-      "strategy/briefs/00_SHARED_CONTEXT.md:30 the strategic question and primary customer",
-      "strategy/STRATEGY_BRIEF.md:6 [YOUR CALL] decision boundary; :262 decisions only the owner makes",
-      "strategy/briefs/R1_competitive_landscape.md:35 per-brief tradeoff (precision over coverage)",
-      "searched VALUES.md, goals, principles, ranked priorities: none"],
+      "strategy/briefs/00_SHARED_CONTEXT.md:30 \"The strategic question\"",
+      "strategy/STRATEGY_BRIEF.md:6 \"marked [YOUR CALL] are yours\"",
+      "strategy/STRATEGY_BRIEF.md:262 \"Decisions only you can make\"",
+      "strategy/briefs/R1_competitive_landscape.md:36 \"Precision over coverage\"",
+      "searched VALUES.md, *goal*, *principle*, ranked priorities in *.md: none"],
       "gap": "Tradeoffs are restated per brief; no standing ranked goals for when reach, revenue and rigour conflict."},
     "judgment": {"grade": "partial", "evidence": [
-      "strategy/briefs/00_SHARED_CONTEXT.md:42 evidence standard; refusal plus flag beats a guess",
-      "strategy/briefs/W2_blind_review.md:20 read-only scope; :23 flag as a question",
-      "strategy/briefs/D_design_common.md:6 concept page first, owner chooses before the full build"],
+      "strategy/briefs/00_SHARED_CONTEXT.md:43 \"A refusal plus a flag beats a guess.\"",
+      "strategy/briefs/W2_blind_review.md:20 \"Read-only on site/\"",
+      "strategy/briefs/W2_blind_review.md:24 \"Flag it as a question rather than a defect.\"",
+      "strategy/briefs/D_design_common.md:6 \"This is a concept page for Henrique to choose between\""],
       "gap": "No risk tiers; scope rules are prose, never enforced."},
     "coherence": {"grade": "partial", "evidence": [
-      "strategy/briefs/00_SHARED_CONTEXT.md:1 one shared file for all agents",
-      "README.md:61 says skills are MIT; LICENSE:1 is GPL-3.0; no MIT file in the repo",
-      "README.md:34 links skills/mode-fluency-diagnostic/, which does not exist at 31eadf4",
-      "strategy/HANDOFF.md:19 AIES vs Stack naming still open"],
-      "gap": "Shared guidance exists but nothing detects drift between README, licence and files."},
+      "strategy/briefs/00_SHARED_CONTEXT.md:1 \"Shared context for all research agents\"",
+      "README.md:61 \"Code and skills: MIT.\"",
+      "LICENSE:1 \"GNU GENERAL PUBLIC LICENSE\"",
+      "searched *LICENSE*, *mit*: only LICENSE (GPL-3.0)",
+      "README.md:34 \"skills/mode-fluency-diagnostic/\" (absent at 31eadf4)",
+      "strategy/briefs/W2_blind_review.md:6 \"/home/user/meta-strategy/site/\" (the repo has docs/)",
+      "strategy/HANDOFF.md:19 \"Retitle \"AIES\"\" (naming still open)"],
+      "gap": "Shared guidance exists, but README, licence and file tree already disagree and nothing detects it."},
     "evaluation": {"grade": "partial", "evidence": [
-      "docs/_qa/qa-report.md:4 builder QA; 'Script: kept outside the repo'",
-      "docs/_qa/blind-review.md:7 independent blind review",
-      "strategy/design-directions/A-instrument/_qa/qa.js:5 hard-coded /home/user/meta-strategy path",
+      "docs/_qa/qa-report.md:4 \"Script: kept outside the repo\"",
+      "docs/_qa/blind-review.md:7 \"This is a careful build.\" (independent blind review)",
+      "strategy/design-directions/A-instrument/_qa/qa.js:5 \"file:///home/user/meta-strategy/design-directions/A-instrument/index.html\"",
       "searched .github/workflows, tests/, .pre-commit-config.yaml, checks/: none"],
       "gap": "Evaluation events, not a mechanism: nothing re-runs from the repo or on each change."},
-    "harness": {"grade": "missing", "evidence": [
+    "harness": {"grade": "not_assessable", "evidence": [
       "searched AGENTS.md, CLAUDE.md, GEMINI.md, .claude/, .cursor/, .github/, .mcp.json, .codex/, Makefile: none",
-      "strategy/HANDOFF.md:12 push refused: no credential in the session",
-      "strategy/README.md:3 drafted overnight with Claude orchestrating five research agents"],
-      "gap": "The agents ran in a workspace outside the repo; no part of that setup is versioned here."}
+      "strategy/HANDOFF.md:12 \"The push was refused: this session has no GitHub credential\"",
+      "strategy/design-directions/A-instrument/_qa/qa.js:2 \"/opt/node22/lib/node_modules/playwright\""],
+      "gap": "Agents clearly ran, in a workspace outside the repo. To grade: share the session settings (permissions, hooks) and the workspace layout, or version them here."}
   },
   "stances": [
-    {"stance": "Librarian", "evidence": ["strategy/briefs/R1_competitive_landscape.md:40 re-open every cited URL"]},
-    {"stance": "Miner", "evidence": ["strategy/briefs/N_naming_common.md:27 generate without web; separate collision check; do not rank"]},
-    {"stance": "Executor", "evidence": ["strategy/briefs/W1_site_PRD.md:104 deviation report requested"]},
-    {"stance": "Adversary", "evidence": ["strategy/briefs/W2_blind_review.md:3 find what is wrong before Henrique sees it"]}
+    {"stance": "Librarian", "evidence": ["strategy/briefs/R1_competitive_landscape.md:40 \"Re-open every URL you cite\""]},
+    {"stance": "Miner", "evidence": ["strategy/briefs/N_naming_common.md:27 \"Do not rank across agents.\""]},
+    {"stance": "Executor", "evidence": ["strategy/briefs/W1_site_PRD.md:104 \"any deviation from this PRD and why\""]},
+    {"stance": "Adversary", "evidence": ["strategy/briefs/W2_blind_review.md:3 \"Find what is wrong before Henrique sees it.\""]}
   ]
 }

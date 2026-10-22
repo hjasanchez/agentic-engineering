@@ -1,10 +1,10 @@
 # Interview question bank
 
-Ask **10–14 questions, one per message**: the 13 core questions in order, plus **one** branch question where the
-branching note makes it eligible (asked after Q11, before Q12). A second branch question needs room: drop Q12 (solo users)
-or fold Q8 into Q13, and mark the folded layer lower confidence. Allow one follow-up per question, only to turn an
-abstract answer into a concrete example; follow-ups do not count toward the 14. Number answers A1, A2... in the order
-asked, and note which bank ID each answers.
+Ask **12–14 questions, one per message**: the 13 core questions in order (solo users skip Q12), plus one branch question
+where its note makes it eligible, asked after Q11. A second branch question is allowed for solo users (in Q12's place), or
+for anyone by folding Q8 into Q13 (mark Intent lower confidence). Never more than 14. If the user asks for a shorter run,
+skip Q12 and fold Q8: 11 is the floor. Allow one follow-up per question, only to turn an abstract answer into a concrete
+example; follow-ups do not count. Number answers A1, A2... in the order asked, and note which bank ID each answers.
 
 Phrase questions in the user's vocabulary (Q1 tells you it). Do not name stances or layers while interviewing.
 
@@ -20,7 +20,7 @@ Phrase questions in the user's vocabulary (Q1 tells you it). Do not name stances
 | Q6 | When you start a task with AI, what do you usually tell it? If you have a saved prompt or template, describe or paste one. | Prompt | Pasted prompt: grade it against the Prompt check in stack-audit.md §3 |
 | Q7 | What does it know when it works for you: do you attach files, keep notes or instructions it reads every time, or start fresh? | Context, Coherence | "Fresh every time" → Context ≤ ⚠️ |
 | Q8 | Does it ever know *why* a task matters or what to favour when things conflict, say speed against accuracy? Where would it learn that? | Intent | |
-| Q9 | What do you want it to do when it isn't sure? Have you ever told it? | Judgment | |
+| Q9 | Before you rely on its work, do you ever ask how sure it is, ask for its plan, or tell it when to stop and ask you? | Judgment | Doubt *before or while* it acts; checking afterwards is Evaluation (Q5, Q10) |
 | Q10 | Tell me about the last time an AI output was wrong or disappointing. What did you do next? | Evaluation, mode fluency | The key question. Note whether they re-entered at the failing layer or rewrote the prompt |
 | Q11 | Is there a mistake it makes again and again? How do you handle it today? | Harness loop | The answer is the raw material for 30-day Action 3 |
 | Q12 | If a colleague ran the same task with AI, would they get the same kind of result? Is anything shared: prompts, instructions, a team assistant? | Coherence | Skip for solo users with no team |
@@ -39,15 +39,15 @@ Priority when several are eligible: H1, then I1 or M1 (whichever matches the hig
 
 ## Reading the layers from answers
 
+Grade from what they *do* in the episodes, not what they say they usually do; when the two disagree, the episode wins and
+you quote both. Judge Prompt on the tasks that mattered (Q5, Q6), not on throwaway one-liners.
+
 | Layer | Strong | Partial | Missing |
 |---|---|---|---|
-| Prompt [Q3, Q6] | Briefs state task, scope, format and limits; reused template | Some structure, inconsistent | One-line requests |
+| Prompt [Q3, Q5, Q6] | For work that matters, briefs state task, audience or scope, format and limits, from a template or by habit | Some of that, or only in a saved template they rarely use | One-line requests even for work that matters |
 | Context [Q7, M1] | Persistent instructions or reference files loaded every time; notes kept | Attaches files ad hoc | Starts fresh every time |
 | Intent [Q8, Q13] | Why and tradeoffs written where the AI reads them | Says why sometimes, in passing | Never; "it just does the task" |
-| Judgment [Q9, Q5, H2] | Told it when to ask, flag or stop; approves plans first | Checks afterwards only | Has never considered it |
+| Judgment [Q9, H2] | Has told it when to ask, flag or stop, or approves a plan first | Sometimes asks "how sure are you?" or for a plan | Never asks for doubt before relying on it |
 | Coherence [Q12, Q7] | Shared instructions or assistant; results consistent across people or sessions | Some sharing, unmaintained | Everyone does it their own way |
-| Evaluation [Q5, Q10, I1] | A routine check before anything leaves (traces sources, numbers, a checklist or script) | Reads it over; checks when it "looks off" | Forwards as is |
-| Harness [Q2, H1, Q11] | Defined workspace, permissions, recurring mistakes fixed in the setup | Some setup, fixes by hand each time | Not assessable for chat-only users unless they describe a setup |
-
-Grade from what they *do* in the episodes, not what they say they usually do. When the two disagree, the episode wins;
-quote both.
+| Evaluation [Q5, Q10, I1] | A routine check before anything leaves (traces sources, numbers; a checklist or script) | Reads it over; checks when it "looks off" | Forwards as is |
+| Harness [Q2, H1, Q11] | Defined workspace and permissions; recurring mistakes fixed in the setup | Some setup (a project, a custom assistant, IT permissions); fixes by hand | Uses agents with no stated limits or workspace. Chat-only users with no setup described: ◻️ |
