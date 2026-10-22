@@ -54,3 +54,12 @@ knowledge workers and SME teams, with a slice of technical teams, leadership buy
 - The site design is "not captivating and unique enough". The site must itself showcase the animation and sophistication
   an agent can produce, or people will think "this guy claims AI can do all this but his website is crap".
 - The strategy brief (STRATEGY_BRIEF.md) and the current prototype (site/) remain the reference for content and positioning.
+
+## Update 2026-10-22 evening (Henrique's decisions)
+- Design: Direction C ("The Field", /home/user/meta-strategy/design-directions/C-field/) is chosen. Build the full site in it.
+- Name: "Mode Fluency" stays (it grew on him). Tagline: "Know which mode you're in."
+- Landing copy: replace "calculator" with "machine" in the hero lede so first-time visitors are not puzzled:
+  "We taught everyone to press the buttons. Nobody taught them which problems the machine is for."
+  The essay keeps its title "The Calculator Problem" (the explanation follows immediately there).
+- Philosophy: free resources for everyone; charge for what needs his human time. The repo's "AIES Implementation Docs"
+  will be replaced in the spotlight by a polished, downloadable diagnostic skill people run with their own agent.
