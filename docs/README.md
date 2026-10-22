@@ -14,7 +14,9 @@ system fallbacks.
   the Stack diagram, the altimeter, the theme toggle). Each section runs only when its markup is on the page.
 - `assets/diagnose.js`: the self-diagnostic (question logic unchanged from the reviewed prototype) and its console UI.
 - `assets/favicon.svg`: the icon.
-- `_qa/qa-report.md`: the final QA report. `_qa/buildlog.json`: the numbers shown in the footer build log.
+- `_qa/qa-report.md`: the final QA report (about.html links to it). `_qa/buildlog.json`: the numbers shown in the footer build log.
+  `_qa/blind-review.md` is an internal review: delete it before copying the folder to `docs/` unless you want it public.
+- `STATUS.md`: build status note; safe to delete before deploy.
 - `.nojekyll`: tells GitHub Pages not to run Jekyll (so `_qa/` is served as is).
 
 ## Preview

@@ -30,6 +30,7 @@
     <nav class="site-nav" aria-label="Main">
       <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html" aria-current="page">About</a></li></ul>
     </nav>
+    <a class="header-cta" href="work.html">Work with me</a>
     <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
@@ -78,11 +79,11 @@
           <tr><th scope="row" class="sys">date</th><td>2026-10-22</td></tr>
           <tr><th scope="row" class="sys">pages</th><td>9, sharing one header and footer</td></tr>
           <tr><th scope="row" class="sys">files</th><td>15 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)</td></tr>
-          <tr><th scope="row" class="sys">size</th><td>321,878 bytes, fonts excluded (budget 900,000)</td></tr>
+          <tr><th scope="row" class="sys">size</th><td>329,535 bytes, fonts excluded (budget 900,000)</td></tr>
           <tr><th scope="row" class="sys">libraries</th><td>0 frameworks, 0 libraries, 0 external scripts; fonts from Google Fonts</td></tr>
           <tr><th scope="row" class="sys">fields</th><td>14 stance behaviours (7 from the design concept, 7 new) plus the hero, the essay strip and 14 card fields</td></tr>
           <tr><th scope="row" class="sys">QA loads</th><td>72 in headless Chromium: console errors 0, failed requests 0, horizontal overflow 0</td></tr>
-          <tr><th scope="row" class="sys">contrast</th><td>4,409 text elements per theme; lowest 4.98:1 light, 6.07:1 dark</td></tr>
+          <tr><th scope="row" class="sys">contrast</th><td>4,437 text elements per theme; lowest 4.98:1 light, 6.07:1 dark</td></tr>
           <tr><th scope="row" class="sys">diagnostic</th><td>26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</td></tr>
           <tr><th scope="row" class="sys">hero field</th><td>1,600 agents at 1280 px, 60 fps in the QA browser (indicative)</td></tr>
           <tr><th scope="row" class="sys">checks</th><td>123 of 123 passed</td></tr>
@@ -100,7 +101,8 @@
       <li><strong>Binding-constraint demo scope.</strong> The dependency chain in the Stack demo covers the five cognitive layers only, as the source does. Evaluation and Harness have their own switches, which show their published failure signatures instead of dimming layers.</li>
       <li><strong>Essay strip.</strong> The reactive strip sits at the top of the essay and stays pinned under the header while you read, marking reading progress. Nothing animates behind the text.</li>
       <li><strong>Privacy sentence made more exact.</strong> Thumbnails are lazy-loaded, so learn.html says they load from YouTube&rsquo;s image host &ldquo;when they scroll into view&rdquo;; the rest of the spec&rsquo;s sentence is kept.</li>
-      <li><strong>Without JavaScript.</strong> Every page&rsquo;s text is present; the instruments themselves (compass, fields, circuit, filters, console) are hidden, and their content is given as text instead: the axis list, the stance cards, the matrix table, and the diagnostic&rsquo;s questions on paper.</li>
+      <li><strong>Without JavaScript.</strong> Every page&rsquo;s text is present; the instruments (compass, fields, circuits, filters, console) are hidden, and their content is given as text instead: the axis list, the stance cards, the matrix table, and the diagnostic&rsquo;s questions on paper.</li>
+      <li><strong>Fix pass after a blind review.</strong> An independent reviewer found 0 high, 4 medium and 14 low issues and no invented content. All 4 medium issues and most low ones were fixed (see _qa/qa-report.md, &ldquo;Fix pass&rdquo;); the stance texts that v3 gives at greater length are still abridged on the cards without ellipses.</li>
       <li><strong>Diagnostic logic untouched.</strong> The two open questions from the prototype review (the recovery question cannot name Judgment, Coherence or Harness; only a &ldquo;new&rdquo; experience answer changes the result) are left as they were, because the spec said to keep the logic.</li>
       <li><strong>About wording.</strong> The prototype said Henrique works &ldquo;as an engineer&rdquo;; that detail is not in the source notes, so this page says only that Henrique works full time in a field that is not AI.</li>
       <li><strong>Not verified.</strong> Safari, Firefox and real screen readers were not tested; frame rates come from headless Chromium and are indicative only. The site&rsquo;s own protocol audit has not been run yet (see below).</li>
@@ -137,9 +139,9 @@
       <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
         <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>size: 329,535 bytes deployable, fonts excluded (budget 900,000)</li>
         <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
-        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
         <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
         <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
       </ol>

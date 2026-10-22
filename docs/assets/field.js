@@ -168,6 +168,7 @@
     };
     f.loop = ts => {
       if (!f.running) return;
+      if (cfg.active && !cfg.active()) { f.running = false; f.fps = 0; return; }
       const dt = f.lastTs ? ts - f.lastTs : 16.7;
       f.lastTs = ts;
       const k = clamp(dt / 16.7, 0.25, 2.5);
@@ -179,7 +180,7 @@
       f.raf = requestAnimationFrame(f.loop);
     };
     f.update = () => {
-      const should = f.visible && !document.hidden && !reduced;
+      const should = f.visible && !document.hidden && !reduced && (!cfg.active || cfg.active());
       if (should && !f.running) { f.running = true; f.lastTs = 0; f.raf = requestAnimationFrame(f.loop); }
       else if (!should && f.running) { f.running = false; cancelAnimationFrame(f.raf); f.fps = 0; }
     };
@@ -733,9 +734,15 @@
   const G = { cx: 0, cy: 0, R: 100, q: { x0: 0, y0: 0, x1: 0, y1: 0 } };
   let heroField = null;
 
+  const axisSay = document.createElement('p');
+  axisSay.className = 'sr-only'; axisSay.setAttribute('aria-live', 'polite');
+  if (slot) slot.after(axisSay);
+  let axisSaid = -1;
   function setAxis(i, focus) {
     if (!axisBtns.length) return;
     i = ((i % 4) + 4) % 4;
+    if (i !== axisSaid && axisSaid !== -1) axisSay.textContent = 'Axis: ' + AXES[i].toLowerCase() + '. ' + (axisRows[i] ? $('.axis-q', axisRows[i]).textContent : '');
+    axisSaid = i;
     axis = i;
     axisBtns.forEach((b, j) => { b.setAttribute('aria-checked', String(j === i)); b.tabIndex = j === i ? 0 : -1; });
     if (focus) axisBtns[i].focus();
@@ -934,6 +941,7 @@
     const sNodes = $$('.s-node', circuit), lNodes = $$('.l-node', circuit);
     const lIndex = Object.fromEntries(LAYERS.map((l, i) => [l, i]));
     let wires = [], pulses = [], pulseRaf = 0, activeS = -1, activeL = null;
+    let userPicked = false, asmTimers = [], visible = false, pulseUntil = 0;
     function layout() {
       const cr = circuit.getBoundingClientRect();
       svg.setAttribute('viewBox', '0 0 ' + cr.width + ' ' + cr.height);
@@ -979,10 +987,14 @@
       lNodes.forEach(n => { n.classList.toggle('lit', hotL.has(n.dataset.l)); n.classList.toggle('on', n.dataset.l === activeL); n.setAttribute('aria-pressed', String(n.dataset.l === activeL)); });
       circuit.classList.toggle('dim-others', activeS >= 0 || !!activeL);
     }
-    function runPulses() {
-      cancelAnimationFrame(pulseRaf);
+    // pulses run only while the circuit is on screen, the tab is visible, and for three cycles after the last
+    // interaction (or while it is hovered or focused); after that the hot wires stay lit and the loop stops.
+    const engaged = () => circuit.matches(':hover') || circuit.contains(document.activeElement);
+    function runPulses(touch) {
+      if (touch) pulseUntil = performance.now() + 4500;
+      cancelAnimationFrame(pulseRaf); pulseRaf = 0;
       $$('.pulse', svg).forEach(p => p.remove());
-      if (reduced) return;
+      if (reduced || !visible || document.hidden) return;
       const hot = wires.filter(w => w.path.classList.contains('hot') && w.l);
       pulses = hot.map(w => { const c = svgEl('circle', { r: 3.5, class: 'pulse' }); svg.append(c); return { w, c }; });
       const t0 = performance.now();
@@ -993,12 +1005,31 @@
           const e = 1 - Math.pow(1 - u, 3), pt = w.path.getPointAtLength(e * w.len);
           c.setAttribute('cx', pt.x.toFixed(1)); c.setAttribute('cy', pt.y.toFixed(1)); c.setAttribute('opacity', '1');
         });
+        if (!visible || document.hidden) { pulseRaf = 0; return; }
+        if (now > pulseUntil && !engaged()) { pulses.forEach(({ c }) => c.remove()); pulses = []; pulseRaf = 0; return; }
         if (pulses.length) pulseRaf = requestAnimationFrame(go);
       };
       if (pulses.length) pulseRaf = requestAnimationFrame(go);
     }
-    function stance(i, how) { activeS = i; activeL = null; apply(); runPulses(); opts.onStance && opts.onStance(MATRIX[i], how); }
-    function layer(L, how) { activeL = L; activeS = -1; apply(); runPulses(); opts.onLayer && opts.onLayer(L, MATRIX.filter(r => r[2].includes(L)), how); }
+    function endAssembly() {
+      asmTimers.forEach(clearTimeout); asmTimers = [];
+      wires.forEach(w => { w.path.style.strokeDasharray = ''; w.path.style.strokeDashoffset = ''; w.path.style.transition = ''; });
+    }
+    function rove(list, el) { list.forEach(n => { n.tabIndex = n === el ? 0 : -1; }); }
+    function stance(i, how) {
+      if (how !== 'init' && how !== 'asm') { if (!userPicked) { userPicked = true; endAssembly(); } }
+      activeS = i; activeL = null; apply(); runPulses(true);
+      const n = sNodes.find(s => +s.dataset.i === i); if (n) rove(sNodes, n);
+      opts.onStance && opts.onStance(MATRIX[i], how);
+    }
+    function layer(L, how) {
+      if (!userPicked) { userPicked = true; endAssembly(); }
+      activeL = L; activeS = -1; apply(); runPulses(true);
+      const n = lNodes.find(x => x.dataset.l === L); if (n) rove(lNodes, n);
+      opts.onLayer && opts.onLayer(L, MATRIX.filter(r => r[2].includes(L)), how);
+    }
+    rove(sNodes, sNodes.find(s => s.dataset.i === '0') || sNodes[0]); rove(lNodes, lNodes[0]);
+    document.addEventListener('visibilitychange', () => runPulses(false));
     sNodes.forEach(n => {
       const i = +n.dataset.i;
       n.addEventListener('pointerenter', () => stance(i, 'hover'));
@@ -1020,20 +1051,27 @@
       else if (e.key === 'ArrowLeft' && list === lNodes) { e.preventDefault(); const L = LAYERS[j], si = MATRIX.findIndex(r => r[2].includes(L)); const n = sNodes.find(s => +s.dataset.i === si); if (n) n.focus(); }
     });
     new ResizeObserver(() => layout()).observe(circuit);
+    // assembly: each wire draws in turn (decorative, ~1.8 s). A user's pick at any moment ends it and is kept.
     let assembled = false;
-    new IntersectionObserver((es, io) => {
-      if (!es.some(e => e.isIntersecting) || assembled) return;
-      assembled = true; io.disconnect();
-      if (reduced) { stance(0, 'init'); return; }
-      const ws = wires.slice();
-      ws.forEach(w => { w.path.style.strokeDasharray = w.len; w.path.style.strokeDashoffset = w.len; });
-      ws.forEach((w, j) => setTimeout(() => {
-        w.path.style.transition = 'stroke-dashoffset .5s cubic-bezier(.3,.7,.2,1)';
-        w.path.style.strokeDashoffset = '0';
-        activeS = w.s; activeL = null; apply();
-      }, 80 + j * 72));
-      setTimeout(() => { ws.forEach(w => { w.path.style.strokeDasharray = ''; w.path.style.strokeDashoffset = ''; w.path.style.transition = ''; }); stance(0, 'init'); }, 80 + ws.length * 72 + 520);
-    }, { threshold: 0.2 }).observe(circuit);
+    new IntersectionObserver(es => {
+      visible = es.some(e => e.isIntersecting);
+      if (visible && !assembled) {
+        assembled = true;
+        if (reduced || userPicked) { if (!userPicked) stance(0, 'init'); return; }
+        const ws = wires.slice();
+        ws.forEach(w => { w.path.style.strokeDasharray = w.len; w.path.style.strokeDashoffset = w.len; });
+        ws.forEach((w, j) => asmTimers.push(setTimeout(() => {
+          if (userPicked) return;
+          w.path.style.transition = 'stroke-dashoffset .5s cubic-bezier(.3,.7,.2,1)';
+          w.path.style.strokeDashoffset = '0';
+          activeS = w.s; activeL = null; apply();
+        }, 80 + j * 72)));
+        asmTimers.push(setTimeout(() => { endAssembly(); if (!userPicked) stance(0, 'init'); }, 80 + ws.length * 72 + 520));
+        return;
+      }
+      runPulses(false);
+    }, { threshold: 0 }).observe(circuit);
+    circuit.addEventListener('pointerenter', () => runPulses(true));
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
     return { layout };
   }
@@ -1077,7 +1115,7 @@
       let n = 0;
       cards.forEach(c => {
         const okL = sel.layer === 'all' || c.dataset.layers.split(' ').includes(sel.layer);
-        const okM = sel.meta === 'all' || c.dataset.meta === sel.meta;
+        const okM = sel.meta === 'all' || c.dataset.meta.split(' ').includes(sel.meta);
         c.hidden = !(okL && okM); if (!c.hidden) n++;
       });
       if (empty) empty.hidden = n !== 0;
@@ -1185,12 +1223,14 @@
           const u = ((el * 0.6 + i * 0.17) % 1), pt = w.p.getPointAtLength((1 - u) * w.len);
           c.setAttribute('cx', pt.x.toFixed(1)); c.setAttribute('cy', pt.y.toFixed(1));
         });
+        if (document.hidden || !sdVisible) { pulseRaf = 0; return; }
         pulseRaf = requestAnimationFrame(go);
       };
-      if (sdVisible) pulseRaf = requestAnimationFrame(go);
+      if (sdVisible && !document.hidden) pulseRaf = requestAnimationFrame(go);
     }
     let sdVisible = false;
     new IntersectionObserver(es => { sdVisible = es[0].isIntersecting; runPulses(); }).observe(sd);
+    document.addEventListener('visibilitychange', () => runPulses());
     new ResizeObserver(layout).observe(sd);
   }
 
@@ -1213,8 +1253,10 @@
     pin(); addEventListener('resize', pin); if (document.fonts && document.fonts.ready) document.fonts.ready.then(pin);
     let prog = 0;
     const measure = () => { const r = article.getBoundingClientRect(); prog = clamp((-r.top + innerHeight * 0.4) / Math.max(1, r.height), 0, 1); };
+    let lastAct = performance.now();
     const sf = makeField(cv, strip, {
       bgKey: 'bg',
+      active: () => performance.now() - lastAct < 1500,
       count: W => Math.round(clamp(W / 3, 120, 420)),
       step(f, k) {
         measure();
@@ -1239,12 +1281,18 @@
         drawHuman(f, ctx);
       },
     });
+    const wake = () => { lastAct = performance.now(); sf.update(); };
+    addEventListener('scroll', wake, { passive: true }); strip.addEventListener('pointermove', wake, { passive: true });
     if (reduced) { let q = false; addEventListener('scroll', () => { if (q) return; q = true; requestAnimationFrame(() => { q = false; sf.still(20); }); }, { passive: true }); }
   }
 
   /* ================================================================== NAV: keep the current page's link in view on phones */
-  const cur = $('.site-nav a[aria-current="page"]');
-  if (cur && cur.parentElement) { const nav = $('.site-nav'); if (nav.scrollWidth > nav.clientWidth) nav.scrollLeft = cur.offsetLeft - 16; }
+  const nav = $('.site-nav'), cur = $('.site-nav a[aria-current="page"]');
+  if (nav) {
+    const edges = () => { const over = nav.scrollWidth > nav.clientWidth + 2; nav.classList.toggle('fade-r', over && nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 4); nav.classList.toggle('fade-l', over && nav.scrollLeft > 4); };
+    if (cur && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = cur.offsetLeft - 16;
+    nav.addEventListener('scroll', edges, { passive: true }); addEventListener('resize', edges); edges();
+  }
 
   /* ================================================================== FOOTER: live line under the static build log */
   const tick = $('#ticker-lines');

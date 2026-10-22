@@ -30,6 +30,7 @@
     <nav class="site-nav" aria-label="Main">
       <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
     </nav>
+    <a class="header-cta" href="work.html">Work with me</a>
     <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
@@ -62,7 +63,7 @@
           <button type="button" class="axis-btn axis-w" role="radio" aria-checked="false" data-axis="3" tabindex="-1">Ambition</button>
         </div>
       </div>
-      <p class="sys compass-readout" aria-live="polite"><span class="dim">needle&nbsp;</span><span id="needle-deg">000</span>&deg; <span class="dim">&rarr; axis&nbsp;</span><span id="needle-axis">STANCE</span></p>
+      <p class="sys compass-readout" aria-hidden="true"><span class="dim">needle&nbsp;</span><span id="needle-deg">000</span>&deg; <span class="dim">&rarr; axis&nbsp;</span><span id="needle-axis">STANCE</span></p>
     </div>
   </div>
 </section>
@@ -111,7 +112,7 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§2</span> stance_selector</p>
     <h2 id="stance-title">A stance is a contract. Watch it run.</h2>
-    <p class="prose">Every exchange with AI carries an expectation you may never have said out loud. Pick any of the fourteen and watch a thousand tokens behave as that contract: where they go, what they ask of you, and where the work quietly fails.</p>
+    <p class="prose">Every exchange with AI carries an expectation you may never have said out loud. Pick any of the fourteen and watch hundreds of tokens behave as that contract: where they go, what they ask of you, and where the work quietly fails.</p>
     <div class="stance-rig">
       <div class="stance-picker js-only" role="radiogroup" aria-label="Choose a stance">
         <button type="button" class="stance-btn" role="radio" aria-checked="true" data-stance="Oracle">Oracle</button>
@@ -150,8 +151,8 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§3</span> matrix.circuit</p>
     <h2 id="matrix-title">Each stance leans on one layer</h2>
-    <p class="prose">A stance is the contract you <em>think</em> you have with the AI. A Stack layer is what you must actually <em>supply</em> for that contract to hold. Each stance leans on one layer more than the others; that is where its failure lives, and where the guardrail belongs. Hover, tap or tab to a stance and follow the current.</p>
-    <div class="circuit" id="circuit">
+    <p class="prose">A stance is the contract you <em>think</em> you have with the AI. A Stack layer is what you must actually <em>supply</em> for that contract to hold. Each stance leans on one layer more than the others; that is where its failure lives, and where the guardrail belongs. <span class="js-only">Hover, tap or tab to a stance and follow the current.</span><span class="no-js-only">The full table is on <a href="matrix.html#mx-title">the matrix page</a>.</span></p>
+    <div class="circuit js-only" id="circuit">
       <svg class="wires" id="wires" aria-hidden="true" focusable="false"></svg>
       <div class="col col-stances">
         <p class="sys col-head">stance</p>
@@ -206,7 +207,7 @@
       <article class="path">
         <p class="sys path-who">--role learner</p>
         <h3>You use AI chat tools and want to get better on purpose</h3>
-        <p>Start with the AI @ Workplace series at the level that matches your experience, then take the five-minute self-diagnostic to find your default stance.</p>
+        <p>Start with the AI @ Workplace video series (recorded talks with slides) at the level that matches your experience, then take the five-minute self-diagnostic to find your default stance.</p>
         <p class="links"><a class="more" href="learn.html">AI @ Workplace 101&ndash;401 &rarr;</a><a class="more" href="diagnose.html">Which mode are you in? &rarr;</a></p>
       </article>
       <article class="path">
@@ -263,9 +264,9 @@
       <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
         <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>size: 329,535 bytes deployable, fonts excluded (budget 900,000)</li>
         <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
-        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
         <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
         <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
       </ol>

@@ -653,3 +653,22 @@ html:not(.js) .sc-stage { display: none; }
 .sources-section { padding-top: 24px; }
 sup { line-height: 0; }
 .svc-free { font-style: italic; color: var(--ink); margin-top: 14px; font-size: 1.125rem; }
+
+/* ---- fix pass (blind review) ---- */
+.sd-evalctl { border: 0; border-top: 1px dashed var(--ok); background: transparent; padding: 10px 0 0 0; }
+.sd-evlabel { color: var(--ink-2); }
+.sd-evlabel em { font-family: var(--serif); font-size: 1rem; color: var(--ink); }
+.circuit.dim-others .wires path:not(.hot) { opacity: .22; }
+.wires path { stroke-width: 1.1; }
+.header-cta { display: none; }
+@media (max-width: 1100px) {
+  .header-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; font-family: var(--mono); font-size: 0.75rem; text-decoration: none; color: var(--bg); background: var(--ink); border-radius: 2px; white-space: nowrap; margin-left: auto; }
+  .header-cta + .theme-toggle { margin-left: 8px; }
+  .site-nav { -webkit-mask-image: none; mask-image: none; }
+  .site-nav.fade-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); }
+  .site-nav.fade-l { -webkit-mask-image: linear-gradient(to right, transparent, #000 40px); mask-image: linear-gradient(to right, transparent, #000 40px); }
+  .site-nav.fade-l.fade-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 56px), transparent); }
+  html:not(.js) .site-nav ul { flex-wrap: wrap; width: auto; }
+}
+@media (max-width: 520px) { .header-row { gap: 8px; } .theme-toggle .sys { display: none; } .theme-toggle, .header-cta { padding: 0 10px; } .wordmark { gap: 8px; } }
+@media (max-width: 1100px) { .header-row { padding-top: 6px; } }

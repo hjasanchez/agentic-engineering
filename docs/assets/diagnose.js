@@ -454,7 +454,10 @@
         b.addEventListener("click", function () { answer(o.v); });
         opts.appendChild(b);
       });
-      progress.textContent = "question " + n + " (7 or 8 in total)" + lastNote;
+      var sq = history.filter(function (h) { return STANCE_QS[h.qid]; }).length, total = null;
+      if (stanceDone()) total = sq + COMMON_QS.length;
+      else if (current !== "family" && current !== "think") total = sq + 1 + COMMON_QS.length;
+      progress.textContent = "question " + n + (total ? " of " + total : " (7 or 8 in total)");
       back.disabled = history.length === 0;
       err.textContent = "";
       renderTranscript();
@@ -534,7 +537,7 @@
     });
     var last = null;
     try { last = JSON.parse(store("mf-last-result") || "null"); } catch (e) { last = null; }
-    if (last && last.stance) lastNote = " · last time on this device: " + last.stance + " / " + last.layer + " (" + last.when + ")";
+    if (last && last.stance && $("#dg-last")) $("#dg-last").textContent = "last time on this device: " + last.stance + " / " + last.layer + " (" + last.when + ")";
     render(false);
   }
 

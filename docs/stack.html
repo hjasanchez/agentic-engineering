@@ -30,6 +30,7 @@
     <nav class="site-nav" aria-label="Main">
       <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html" aria-current="page">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
     </nav>
+    <a class="header-cta" href="work.html">Work with me</a>
     <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
   </div>
 </header>
@@ -93,9 +94,8 @@
         <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
       </div>
       <div class="sd-node sd-evalctl" data-l="evaluation" id="sd-evaluation">
-        <span class="sd-lnum" aria-hidden="true">meta</span>
-        <h3>Evaluation</h3>
-        <p class="sd-q">How to know while doing</p>
+        <h3 class="sr-only">Evaluation</h3>
+        <p class="sys sd-evlabel"><span aria-hidden="true">&uarr;</span> the dashed rail on the right is Evaluation: <em>how to know while doing</em></p>
         <p class="sys sd-meta"><span><span class="lv">scope</span> Cross-layer</span><span><span class="lv">fails as</span> Silent failure: the system can&#x27;t see what&#x27;s breaking or where</span></p>
         <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
       </div>
@@ -116,8 +116,11 @@
 
 <section class="section" aria-labelledby="loop-title">
   <div class="wrap">
-    <p class="sys section-tag"><span class="num">§3</span> diagnostic_loop</p>
-    <h2 id="loop-title">The diagnostic loop</h2>
+    <p class="sys section-tag"><span class="num">§3</span> interaction_model</p>
+    <h2 id="loop-title">The user interaction model</h2>
+    <div class="prose"><p>The stack is not a one-shot configuration, but a continuous interaction between the user and the layers, mediated by evaluation.</p>
+    <p>The user begins at the bottom, with prompt engineering. Every AI interaction starts with an instruction. But before the first prompt is written, the user has typically already made harness decisions (which tool to use) and may have configured context, intent, judgment and coherence. The stack is configured bottom-up but often set up in parallel.</p></div>
+    <h3 style="margin-top:28px">The diagnostic loop</h3>
     <div class="prose"><p>When output is unsatisfactory, the natural instinct is to rewrite the prompt. The Stack gives a more precise diagnostic.</p></div>
     <figure class="loop-fig">
       <svg viewBox="0 0 360 150" role="img" aria-labelledby="loop-t loop-d"><title id="loop-t">The diagnostic loop</title><desc id="loop-d">Three steps in a cycle: Evaluate detects a problem, Diagnose identifies which layer failed, Re-enter at that layer, then evaluate again.</desc>
@@ -278,9 +281,9 @@
       <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
         <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 321,878 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>size: 329,535 bytes deployable, fonts excluded (budget 900,000)</li>
         <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
-        <li>a11y: 4,409 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
         <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
         <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
       </ol>
