@@ -29,22 +29,24 @@
 ```
 modefluency/
   README-FIRST.txt
-  repo-agentic-engineering/      <- THE SOURCE OF TRUTH. A git clone; branch meta-strategy published to GitHub (9 commits).
+  repo-agentic-engineering/      <- THE SOURCE OF TRUTH. A git clone; branch meta-strategy, merged to main via PR #2 on 2026-10-25.
     README.md                    new newcomer README (three doors: learn / diagnose / go deeper)
     MODE_FLUENCY_MATRIX.md       the stance x layer artifact
-    docs/                        the full website (Direction C, 9 pages, static, .nojekyll, README with deploy steps, _qa/ reports)
+    docs/                        the full website (Direction C, 9 pages, static, .nojekyll, README with deploy steps, _qa/ QA report + build log)
+    LICENSES/                    MIT.txt and CC-BY-SA-4.0.txt; root LICENSE is the pointer
     skills/mode-fluency-diagnostic/   the free skill: SKILL.md (INTERVIEW/AUDIT/FIX/BUILD), references/, scripts/score_audit.py
-                                 (+ scripts/tests/run_tests.py, 4/4 pass with python3 -I), PROMPT_PACK.md, README.md, EVAL.md, examples/, evals/, LICENSE (MIT)
-    strategy/                    STRATEGY_BRIEF.md, OFFER_BRAINSTORM.md, HANDOFF.md (this file; the older 2026-10-21 handoff is in git history), research/R1–R5 + Archetypes v3,
+                                 (+ scripts/tests/run_tests.py, 4/4 pass with python -I on Windows and python3 -I elsewhere), PROMPT_PACK.md, README.md, EVAL.md, examples/, evals/, LICENSE (MIT)
+    strategy/                    STRATEGY_BRIEF.md, OFFER_BRAINSTORM.md, HANDOFF.md (this file; the older 2026-10-21 handoff is in git history), research/R1–R6 + Archetypes v3, qa/ (site_qa.py, the QA gate), site-review/,
                                  naming/ (N1–N4 + NAMING_ROUND2.md), design-directions/ (A, B, C single pages + DR_design_principles_2026.md),
-                                 briefs/ (every agent spec), skill-review/ (blind-review transcripts)
-    (original files: the 4 AI@Workplace PDFs, the two guide PDFs, the two protocol .md files, two diagrams, LICENSE GPL-3.0)
+                                 briefs/ (every agent spec, W1–W11), skill-review/ (blind reviews + EVAL_RERUN_2026-10-25.md)
+    (original files: the 4 AI@Workplace PDFs, the two guide PDFs, the two protocol .md files, two diagrams)
   workspace/                     the cloud working folder: same content as strategy/ plus site/ (first prototype), site-c/ (= docs/),
                                  design-directions/, deliverables/ (the HTML pages that were published as Claude artifacts,
                                  make_artifact_variant.py), readme/, naming/, research/ (incl. third-party source texts: do NOT commit those)
 ```
-GitHub: https://github.com/hjasanchez/agentic-engineering, branch `meta-strategy` at commit 6d012bc (tree identical to local).
-`main` is untouched. Nothing is merged yet. Pages is not enabled yet.
+GitHub: https://github.com/hjasanchez/agentic-engineering. `main` holds everything (merge commit 19db5e2, 2026-10-25); `meta-strategy`
+is fast-forwarded to it and stays the working branch. **Live:** GitHub Pages from main /docs at https://hjasanchez.github.io/agentic-engineering/
+(checked 2026-10-25: every page 200, 0 console errors). modefluency.com is bought (Namecheap) but DNS is not pointed yet.
 
 Published pages (private to Henrique's account; still valid for reading):
 strategy brief https://claude.ai/artifact/P5ZSRJPmn2mFpJaF2gMFVS · naming round 2 https://claude.ai/artifact/FFh29UPzHQCKJAh93kW2bW ·
@@ -58,35 +60,36 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
 4. Full nine-page site in Direction C; blind review (0 high, 4 medium, 14 low) and fix pass; 123/123 checks: 72 clean loads, lowest contrast 4.98:1, 26,880/26,880 diagnostic paths, readable without JS, 330 KB.
 5. The diagnostic skill; blind review (4 high, 9 medium, 7 low) and fix pass with rulings: autonomy must be set from cited evidence; binding constraint = lowest weak cognitive layer; Evaluation/Harness ❌ at Autonomous+ = "blocking gap"; a setup outside scope is ◻️ not ❌; the script rejects fabricated citations (test file with 16 planted defects fails as it should).
 6. New README, offer brainstorm, hosting + GitHub guidance. Branch published via GitHub Desktop.
+7. **2026-10-25 (local session):** decisions recorded; license split; five cards restored; pen-name credit removed; `docs/_qa/blind-review.md`
+   deleted; reusable QA gate `strategy/qa/site_qa.py` (97/97, build log rewritten from measurement); blind review of the edits and fix pass;
+   skill re-run blind on 3 eval cases (9/9) and Windows fixes (UTF-8 output, `-X utf8`, audit JSON outside scope); R6 one-off offers research;
+   PR #2 merged; GitHub Pages enabled and verified.
 
 ## 5. What is left (suggested order)
-1. **Merge and go live:** open the PR for `meta-strategy` → merge to `main` → Settings → Pages (main, /docs) or Cloudflare Pages. Verify the live URL on a phone and a laptop. Then delete `docs/_qa/blind-review.md` before or after (the site README says to).
-2. **Real-device checks nobody has done:** Safari, Firefox (scroll-driven animations are behind @supports), a real screen reader, battery/perf on a mid laptop. Fix what shows.
-3. **Decisions Henrique made on 2026-10-25** (apply, do not re-ask): (a) license: code and skills MIT, documents/slides/videos
-   CC BY-SA 4.0, root LICENSE points to `LICENSES/`, README and site footer say "Code MIT · documents CC BY-SA 4.0", earlier GPL-3.0
-   releases stay as published; (b) restore the full Archetypes v3 text on the five abridged cards (Oracle, Genie, Interpreter,
-   Executor, Miner); (c) contact stays hello@modefluency.com: domain via Namecheap, DNS on Cloudflare, Cloudflare Email Routing
-   to his Gmail, placeholder text until the forward works; (d) remove the pen-name co-author credit from the site, README, matrix and all
-   other repo text, PDFs stay as published; (e) Mode Fluency videos go on his existing main YouTube channel in a "Mode Fluency"
-   playlist and channel section, the site links the playlist; (f) assessment stays "from $3,500", first two or three clients may
-   get $2,500 for a written case study, agreed in conversation only; (g) no team edition for now, Sprint off the site and offered
-   only as an upsell to assessment clients. **Still open:** the first harness-kit job family (the one Henrique knows from his day job).
-4. **Domain:** register modefluency.com (+ .dev; check .ai/.io at a registrar); a trademark sanity search (EU/WIPO blocked automated checks; USPTO had no hit).
-5. **Launch essay distribution:** "The Calculator Problem" on LinkedIn + a "From AI Fluency (4Ds) to Mode Fluency" piece; 5-post series; HN once. Playlist/channel split for the AI videos.
-6. **Skill hardening:** an independent agent has not re-run the skill since its fix pass; run the 3 eval cases in `skills/mode-fluency-diagnostic/evals/` with a fresh agent; then announce the skill (repo README already links it).
-7. **Next content:** AI 501 (local agents) as planned; the 90-day plan in STRATEGY_BRIEF.md §3.5.
-8. Later products per OFFER_BRAINSTORM.md: team edition of the diagnostic, harness starter kits per job family, evals starter.
-
+1. **Custom domain (Henrique's steps, then ours):** at Cloudflare add modefluency.com, point Namecheap's nameservers to it, add the DNS
+   records for GitHub Pages (A 185.199.108.153 / .109.153 / .110.153 / .111.153 for the apex, CNAME www → hjasanchez.github.io, DNS only /
+   grey cloud), and Email Routing hello@ → Gmail. Then we: set the custom domain in Pages (`gh api -X PUT .../pages -f cname=modefluency.com`
+   plus a `docs/CNAME` file), wait for the DNS check, enforce HTTPS, re-verify, and turn the work.html email into a mailto link.
+2. **Real-device checks nobody has done:** Safari, Firefox (scroll-driven animations are behind @supports), a real screen reader, battery/perf
+   on a mid laptop, the particle field on a phone. Fix what shows, re-run `python strategy/qa/site_qa.py docs --write-buildlog --out docs/_qa/qa-report.md`.
+3. **Still open for Henrique:** the first harness-kit job family (the one he knows from his day job); whether to polish the Oracle and Genie
+   expectation sentences, which are his own v3 wording verbatim and read a little raw on a public card.
+4. **Trademark sanity search** for "Mode Fluency" (EU/WIPO blocked automated checks; USPTO had no hit on 2026-10-21).
+5. **Launch essay distribution:** "The Calculator Problem" on LinkedIn + a "From AI Fluency (4Ds) to Mode Fluency" piece; 5-post series; HN once.
+   A "Mode Fluency" playlist and channel section on his main YouTube channel; the site's learn page links the playlist.
+6. **Announce the skill** (repo README already links it). The eval re-run passed; the units check in grader 04 is thin (see EVAL_RERUN).
+7. **First one-off product:** the Workflow teardown (R6 shortlist #1), a one-page offer and intake form; then the Article 4 evidence pack.
+8. **Next content:** AI 501 (local agents) as planned; the 90-day plan in STRATEGY_BRIEF.md §3.5. Later products per OFFER_BRAINSTORM.md.
 ## 6. How we worked (keep these conventions)
 - **Orchestrator thin, agents do bulk work.** Every delegated task got a written brief in `strategy/briefs/` (Minimal Viable Spec or PRD: inputs by path, exact output path, binary acceptance criteria, non-goals, uncertainty policy, budget, tier, "no helpers"). Agents write to disk and return ≤15 lines. Important artefacts get a **blind review** by a fresh agent that did not build them, then a fix pass by the builder, then the orchestrator verifies deterministically (greps, tests, contrast scans) before committing.
 - **Save early.** One run of three builders was lost to a cloud worker restart before any file was saved. Builders now write a working file within 15 minutes and keep a STATUS.md.
-- **Site QA recipe** (reuse): Playwright, headless Chromium, file://, 390 and 1280 px, light/dark, reduced-motion on/off, JS off; console errors, failed requests, scrollWidth ≤ viewport; programmatic contrast scan of all text nodes ≥ 4.5:1; grep banned words; exhaustive diagnostic path check; footer build-log numbers must be real.
+- **Site QA gate:** `python strategy/qa/site_qa.py docs --write-buildlog --out docs/_qa/qa-report.md` (about 3 minutes). It implements the recipe: Playwright, headless Chromium, file://, 390 and 1280 px, light/dark, reduced-motion on/off, JS off; console errors, failed requests, scrollWidth ≤ viewport; programmatic contrast scan of all text nodes ≥ 4.5:1; grep banned words; exhaustive diagnostic path check; footer build-log numbers must be real.
 - **Voice:** Henrique's: plain, direct, dry humor allowed, no hype. Credit lineage generously (Anthropic 4D, Mollick, Nate B. Jones, Karpathy, Felix Rieseberg, CHI 2026 archetypes paper).
 - **Pronouns:** he/him for Henrique (set by him on 2026-10-25; the local CLAUDE.md is the authority).
 
 ## 7. Known rough edges
 - The three third-party article texts (Nadella, Rieseberg, Sivulka) live only in `workspace/research/src_*`; cite by URL, never commit.
 - `workspace/` and `repo-agentic-engineering/strategy/` overlap; the repo copy is canonical.
-- `place-files.sh` in the skill's evals shows as "changed" in GitHub Desktop on Windows (executable bit). Harmless; commit or ignore.
-- `docs/_qa/` ships QA reports with the site; harmless but delete `blind-review.md` before launch if you prefer.
+- `place-files.sh` in the skill's evals showed as "changed" on Windows (executable bit); `core.fileMode false` is set in this clone, so it no longer does.
+- `docs/_qa/` ships the QA report and build log with the site (the footer links to them); keep them current with `--write-buildlog`.
 - Frame rates for the particle field were measured only in headless Chromium.
