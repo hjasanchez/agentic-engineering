@@ -3,9 +3,9 @@
 `C:\Users\henri\Desktop\CCode\modefluency\`, inside a Claude project, with direct git push. Read this whole file first.*
 
 ## 1. Who and what
-- **Owner:** Henrique Jr. Sanchez (they/them). GitHub `hjasanchez`. Full-time job in another field; this is a side project
-  (5–10 h/week) that they hope grows into the main job. Global, English-only. Solo. Philosophy: give the resources away,
-  charge for their human time. "Hayen Mill", co-author on two older PDFs, is their own pen name, not a second person.
+- **Owner:** Henrique Jr. Sanchez (he/him). GitHub `hjasanchez`. Full-time job in another field; this is a side project
+  (5–10 h/week) that he hopes grows into the main job. Global, English-only. Solo. Philosophy: give the resources away,
+  charge for their human time. "Hayen Mill", co-author on two older PDFs, is his own pen name, not a second person.
 - **The venture:** **Mode Fluency** ("Know which mode you're in"). A practice for working with AI deliberately, built on four
   of Henrique's artifacts: the **AI @ Workplace** video curriculum (101→601), the **AI-Human Engineering Stack** (5 layers +
   2 meta-functions), the **Specifying Work for AI** guide, and the **Fourteen Stances** (archetypes of human-AI interaction).
@@ -62,7 +62,15 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
 ## 5. What is left (suggested order)
 1. **Merge and go live:** open the PR for `meta-strategy` → merge to `main` → Settings → Pages (main, /docs) or Cloudflare Pages. Verify the live URL on a phone and a laptop. Then delete `docs/_qa/blind-review.md` before or after (the site README says to).
 2. **Real-device checks nobody has done:** Safari, Firefox (scroll-driven animations are behind @supports), a real screen reader, battery/perf on a mid laptop. Fix what shows.
-3. **Henrique's open decisions:** (a) repo license: README says MIT for code/skills, repo LICENSE is GPL-3.0, the skill folder carries its own MIT; pick one story; (b) restore full stance texts on the 5 abridged cards (Oracle, Genie, Interpreter, Executor, Miner) or keep abridged; (c) replace placeholder email hello@modefluency.com in docs/work.html; (d) Hayen Mill byline line; (e) separate the AI videos from the hydroponics channel; (f) assessment price ($2,500/3,500/6,000); (g) offer-plan questions: team edition of the diagnostic? Sprint feasible in evenings? first harness kit job family?
+3. **Decisions Henrique made on 2026-10-25** (apply, do not re-ask): (a) license: code and skills MIT, documents/slides/videos
+   CC BY-SA 4.0, root LICENSE points to `LICENSES/`, README and site footer say "Code MIT · documents CC BY-SA 4.0", earlier GPL-3.0
+   releases stay as published; (b) restore the full Archetypes v3 text on the five abridged cards (Oracle, Genie, Interpreter,
+   Executor, Miner); (c) contact stays hello@modefluency.com: domain via Namecheap, DNS on Cloudflare, Cloudflare Email Routing
+   to his Gmail, placeholder text until the forward works; (d) remove the Hayen Mill credit from the site, README, matrix and all
+   other repo text, PDFs stay as published; (e) Mode Fluency videos go on his existing main YouTube channel in a "Mode Fluency"
+   playlist and channel section, the site links the playlist; (f) assessment stays "from $3,500", first two or three clients may
+   get $2,500 for a written case study, agreed in conversation only; (g) no team edition for now, Sprint off the site and offered
+   only as an upsell to assessment clients. **Still open:** the first harness-kit job family (the one Henrique knows from his day job).
 4. **Domain:** register modefluency.com (+ .dev; check .ai/.io at a registrar); a trademark sanity search (EU/WIPO blocked automated checks; USPTO had no hit).
 5. **Launch essay distribution:** "The Calculator Problem" on LinkedIn + a "From AI Fluency (4Ds) to Mode Fluency" piece; 5-post series; HN once. Playlist/channel split for the AI videos.
 6. **Skill hardening:** an independent agent has not re-run the skill since its fix pass; run the 3 eval cases in `skills/mode-fluency-diagnostic/evals/` with a fresh agent; then announce the skill (repo README already links it).
@@ -74,7 +82,7 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
 - **Save early.** One run of three builders was lost to a cloud worker restart before any file was saved. Builders now write a working file within 15 minutes and keep a STATUS.md.
 - **Site QA recipe** (reuse): Playwright, headless Chromium, file://, 390 and 1280 px, light/dark, reduced-motion on/off, JS off; console errors, failed requests, scrollWidth ≤ viewport; programmatic contrast scan of all text nodes ≥ 4.5:1; grep banned words; exhaustive diagnostic path check; footer build-log numbers must be real.
 - **Voice:** Henrique's: plain, direct, dry humor allowed, no hype. Credit lineage generously (Anthropic 4D, Mollick, Nate B. Jones, Karpathy, Felix Rieseberg, CHI 2026 archetypes paper).
-- **Pronouns:** they/them for Henrique.
+- **Pronouns:** he/him for Henrique (set by him on 2026-10-25; the local CLAUDE.md is the authority).
 
 ## 7. Known rough edges
 - The three third-party article texts (Nadella, Rieseberg, Sivulka) live only in `workspace/research/src_*`; cite by URL, never commit.
