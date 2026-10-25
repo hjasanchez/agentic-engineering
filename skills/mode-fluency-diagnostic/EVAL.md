@@ -12,8 +12,8 @@ as a careful self-test; an independent blind review followed (§8). The `evals/`
 | Every file SKILL.md references exists; every `references/` file is linked from SKILL.md | **Pass**: 7 of 7 |
 | Relative links in all Markdown files resolve | **Pass** |
 | The six banned words listed in brief W4 §4, whole folder | **Pass**: 0 hits |
-| Size (after the fix pass) | Text an agent or chat user loads (SKILL.md + references + PROMPT_PACK): **58.3 KB ≤ 60 KB**. The script (10.7 KB) is run, not loaded |
-| `scripts/score_audit.py` under `python3 -I`, standard library only | First version: four paths passed. Replaced in the fix pass; see §8 |
+| Size (after the fix pass) | Text an agent or chat user loads (SKILL.md + references + PROMPT_PACK): **58.6 KB ≤ 60 KB** (after the 2026-10-25 fixes). The script (11.0 KB) is run, not loaded |
+| `scripts/score_audit.py` under `python3 -I -X utf8`, standard library only | First version: four paths passed. Replaced in the fix pass; see §8 |
 
 ## 2. Dogfood 1: AUDIT of `hjasanchez/agentic-engineering` (`examples/audit-agentic-engineering.md`)
 
@@ -93,7 +93,8 @@ All high and medium defects fixed; lows L1–L7 fixed. Rulings from the coordina
 | M7–M9 script grounding | Rewritten: every entry must start with a citation form; `path:line[-end] "quote"` checked against the line (whitespace-normalised); extensionless paths; absolute or escaping paths rejected; search logs must name a path or pattern; `[A<n>]` and quotes checked with `--transcript`; stance names and citations checked; autonomy enum enforced |
 | L1–L7 | No tracebacks (exit 1/2 as documented); PROMPT_PACK stands alone and carries the new rules; maturity in the per-component block; tie order for boundary tests; Harness Missing criterion; "What next" fits solo users and points to the videos; one arch sentence removed |
 
-**Tests (all `python3 -I`):** `scripts/tests/run_tests.py` passes 4/4: `must_pass.json` exits 0 (binding Prompt, blocking
+**Tests (all `python3 -I`):** `scripts/tests/run_tests.py` passes 4/4 (first measured on a UTF-8 console; re-run 2026-10-25 under
+plain `python -I` on a Windows cp1252 console after the encoding and absolute-path fixes, 4/4): `must_pass.json` exits 0 (binding Prompt, blocking
 gap Evaluation); `must_fail.json` exits 1 and reports all 16 planted defects (the reviewer's "trust me", bare "searched",
 fabricated quote, extensionless path, cite not at the start, string evidence, absolute path, invalid autonomy, invalid
 stance, plus root escape, unknown `[A9]`, fabricated interview quote, pattern-free search log); `--root` without a value
@@ -105,5 +106,5 @@ map with repo-relative paths) is unchanged and now matches the binding layer. IN
 JSON and graded with `--transcript` (exit 0, all 17 answer citations and quotes found); binding Prompt; blocking gap
 Evaluation; plan reordered (blocking gap, binding layer, harness-loop fix).
 
-**Left:** no independent re-run after the fixes; the dogfood interview user is still simulated by the builder.
+**Left:** the 2026-10-25 blind eval re-run (`strategy/skill-review/EVAL_RERUN_2026-10-25.md` in the repo) covered the three `evals/` cases only; the dogfood interview user is still simulated by the builder.
 

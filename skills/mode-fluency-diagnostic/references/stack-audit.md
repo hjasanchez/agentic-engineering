@@ -1,6 +1,6 @@
 # Stack audit: the tightened Agent Audit Protocol
 
-Source: *AI-Human Engineering Stack — Agent Audit Protocol* v1.0 (Mill & Sanchez, March 2026), tightened for
+Source: *AI-Human Engineering Stack — Agent Audit Protocol* v1.0 (Sanchez, March 2026), tightened for
 reproducibility: explicit grade criteria per component, a fourth grade (◻️ Not assessable), a search log for every ❌,
 and a deterministic binding-constraint rule.
 

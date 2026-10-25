@@ -31,6 +31,7 @@ Q1 go in that same message). If two modes fit, or none, ask which in one questio
 If both INTERVIEW and AUDIT fit (a team with a repo), run AUDIT first and use up to five interview questions only for what the
 files cannot show (Section 5, step 5). Before AUDIT, FIX or BUILD, agree **scope** in writing: which paths, what is out,
 and that AUDIT is read-only. Ask the user what decision the diagnosis should help them make; it sets what "useful" means.
+If you are also asking which mode, put both in one question ("Interview or files, and what decision is this for?").
 **If nobody can answer** (a one-shot run, a scheduled task), do not block: use the folder you were pointed at as the scope,
 read-only, and the question "how does this work with AI, and what one change would help most?"; state both at the top of
 the report. FIX and BUILD still stop at the approval question.
@@ -136,8 +137,9 @@ AUDIT never edits anything.
    instruction files, commit messages, task logs, agent transcripts. Apply the boundary tests; cite each mapping. With no
    usage records, write "Stances: Not assessable (no usage records in scope)" rather than guessing from the domain.
 7. **Find the binding constraint and blocking gaps** (Section 8), then connect each observed failure pattern to its layer of origin.
-8. **Deterministic check** (when you can run Python): write the grades as JSON (`stack-audit.md` §5) and run
-   `python3 -I scripts/score_audit.py audit.json --root <repo>`. It rejects entries that are not citations, checks that
+8. **Deterministic check** (when you can run Python): write the grades as JSON (`stack-audit.md` §5) to a temporary folder **outside the audited
+   scope** (never inside it: AUDIT creates no files there) and run
+   `python3 -I -X utf8 scripts/score_audit.py <tmp>/audit.json --root <repo>` (on Windows, `python` if `python3` is not found). It rejects entries that are not citations, checks that
    every cited `path:line` exists and contains its quoted fragment, and computes the binding constraint and blocking gaps.
    It cannot judge whether a citation supports the grade; that stays your job.
 9. **Deliver the report** using the template in `stack-audit.md` §4. Lead with the summary table and the binding

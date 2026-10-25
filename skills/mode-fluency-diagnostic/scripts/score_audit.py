@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate a Mode Fluency audit JSON, then print its summary, binding constraint and blocking gaps.
 
-Usage: python3 -I score_audit.py AUDIT.json [--root DIR] [--transcript ANSWERS.json]
+Usage: python3 -I -X utf8 score_audit.py AUDIT.json [--root DIR] [--transcript ANSWERS.json]
   --root DIR          check every cited path:line exists under DIR, and that a quoted fragment appears on that line
   --transcript FILE   interview answers as {"A1": "text", ...}; every [A<n>] cited must exist, and its quote must appear
 Exit: 0 valid · 1 validation errors (all printed) · 2 bad arguments or unreadable input. Standard library only.
@@ -39,7 +39,7 @@ class Checker:
         self.errors.append(msg)
 
     def file_lines(self, where, path):
-        if os.path.isabs(path):
+        if os.path.isabs(path) or path.startswith(("/", "\\")):  # Windows 3.13+: "/etc/passwd" is not isabs
             self.err(f"{where}: absolute path not allowed: {path}")
             return None
         full = os.path.realpath(os.path.join(self.root, path))
@@ -183,6 +183,9 @@ def diagnose(audit):
 
 
 def main(argv):
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):  # grade symbols are not in cp1252 (Windows consoles)
+            stream.reconfigure(encoding="utf-8", errors="replace")
     args, opts = [], {}
     it = iter(argv[1:])
     for a in it:

@@ -79,7 +79,7 @@ human-run Mode Fluency Assessment for a team, and AI @ Workplace workshops on yo
 
 `SKILL.md` (the instructions) · `references/` (stance matrix, Stack audit, maturity map, spec templates, harness loop,
 question bank) · `scripts/score_audit.py` (checks an audit's citations against the files and computes the binding constraint and
-blocking gaps; `python3 -I`, no dependencies; tests in `scripts/tests/`) · `PROMPT_PACK.md` · `examples/` · `evals/` (test prompts) · `EVAL.md` (how it was tested).
+blocking gaps; `python3 -I -X utf8` (`python` on Windows), no dependencies; tests in `scripts/tests/`) · `PROMPT_PACK.md` · `examples/` · `evals/` (test prompts) · `EVAL.md` (how it was tested).
 
 ## License and citation
 

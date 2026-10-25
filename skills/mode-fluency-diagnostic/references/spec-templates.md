@@ -1,6 +1,6 @@
 # Spec templates
 
-Source: *The Complete Guide to Specifying Work for AI* (Mill & Sanchez, March 2026). The largest preventable failure is
+Source: *The Complete Guide to Specifying Work for AI* (Sanchez, March 2026). The largest preventable failure is
 an AI executing competently on a misunderstood instruction. As autonomy rises, the written spec becomes the only control
 between intent and execution, so spec rigour must rise with it.
 

@@ -1,6 +1,6 @@
 # Maturity map: what each component looks like as it matures
 
-Source: *AI-Human Engineering Stack — Component Reference Map* v1.0 (Mill & Sanchez, March 2026), condensed.
+Source: *AI-Human Engineering Stack — Component Reference Map* v1.0 (Sanchez, March 2026), condensed.
 Use it to assign a maturity level and to pick a next step that is one level up, not three.
 
 **Grades come from `stack-audit.md` §3, which wins wherever this map reads differently**; this map only places a grade
