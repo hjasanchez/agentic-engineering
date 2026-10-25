@@ -1,16 +1,16 @@
 {
  "ticker": [
   "build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0",
-  "size: 329,535 bytes deployable, fonts excluded (budget 900,000)",
-  "qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0",
+  "size: 330,726 bytes deployable, fonts excluded (budget 900,000)",
+  "qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0",
   "a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)",
-  "diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI",
-  "checks: 123 of 123 passed; report in _qa/qa-report.md"
+  "diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI",
+  "checks: 97 of 97 passed; report in _qa/qa-report.md"
  ],
  "about": [
   [
    "date",
-   "2026-10-22"
+   "2026-10-25"
   ],
   [
    "pages",
@@ -22,7 +22,7 @@
   ],
   [
    "size",
-   "329,535 bytes, fonts excluded (budget 900,000)"
+   "330,726 bytes, fonts excluded (budget 900,000)"
   ],
   [
    "libraries",
@@ -42,7 +42,7 @@
   ],
   [
    "diagnostic",
-   "26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI"
+   "26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI"
   ],
   [
    "hero field",
@@ -50,7 +50,7 @@
   ],
   [
    "checks",
-   "123 of 123 passed"
+   "97 of 97 passed"
   ]
  ]
 }

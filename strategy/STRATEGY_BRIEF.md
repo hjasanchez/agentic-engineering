@@ -161,7 +161,7 @@ skills are MIT. Money flows to hosted, metered tools and to services built on sk
 | **Framework** | **The AI-Human Engineering Stack** (spell it out; retire "AIES") | AIES is the AAAI/ACM Conference on AI, Ethics and Society. Avoid the collision. |
 | **Stances** | **The Fourteen Stances** (subtitle: archetypes of human-AI interaction) | "Stance" is the plain word; "archetypes" keeps the lineage; avoids the CHI 2026 collision in the headline. |
 | **Open reference** | repo **agentic-engineering** (keep, for now) | 71 stars and inbound links; rides the generic SEO term. Revisit a rename to `mode-fluency` in six months; GitHub redirects old URLs. |
-| **Retire** | PonicLabs (for AI), Hayen Mill (as co-author on new work) | PonicLabs is a hydroponics brand with a co-founder. The pseudonym invites a credibility question you do not need; keep credit on the two existing documents as published. |
+| **Retire** | PonicLabs (for AI), the pen name (as co-author on new work) | PonicLabs is a hydroponics brand with a co-founder. The pseudonym invites a credibility question you do not need; keep credit on the two existing documents as published. |
 
 Names I rejected and why: *Principal* (my first instinct; generic, taken on every TLD, Principal Financial Group); *Directing
 Intelligence* (forthcoming 2027 book); *Delegation Engineering* (clean today, but an "X engineering" term and DeepMind's
@@ -245,7 +245,7 @@ Content without reach is the binding constraint of the venture. Minimum viable d
 - The name sits next to Anthropic's "AI Fluency". That is deliberate adjacency, but if Anthropic ever ships "modes" as a
   product term the name gets crowded. Mitigation: the essay and the matrix are the moat, not the two words.
 - No trademark search was possible tonight. Do one before spending on the name.
-- The co-author pseudonym: a journalist or a client who searches "Hayen Mill" will find your old YouTube handle. Decide a line
+- The co-author pseudonym: a journalist or a client who searches the pen name will find your old YouTube handle. Decide a line
   now ("a pen name I used for drafting with AI") and stick to it.
 - Selling to SMEs is outreach work you have not done yet. The 90-day plan assumes warm-network conversations first.
 - Live delivery across time zones conflicts with the day job. Price for scarcity rather than volume.
@@ -264,4 +264,4 @@ Content without reach is the binding constraint of the venture. Minimum viable d
 2. Whether to retitle "AIES" and "Archetypes" per §3.1.
 3. Assessment price point ($2,500 / $3,500 / $6,000).
 4. Whether to separate the AI content from the PonicLabs channel.
-5. How to handle the Hayen Mill byline going forward.
+5. How to handle the pen-name byline going forward.

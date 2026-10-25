@@ -4,7 +4,7 @@
 Henrique Jr. Sanchez (GitHub: hjasanchez; YouTube: "Henrique Sanchez (PonicLabs)", @henriquejsanchez). Creator of the public repo
 https://github.com/hjasanchez/agentic-engineering ("semi-popular"). Works a full-time job in another (non-AI) field; this is a side
 project that they hope can out-earn the day job so they can transition. Global, English-only market. Solo founder. The co-author
-name "Hayen Mill" on two documents is an AI persona/pseudonym, not a second human. Pronouns: they/them.
+name (a pen name) on two documents is an AI persona/pseudonym, not a second human. Pronouns: they/them.
 
 ## What they have built (all source texts are in /home/user/meta-strategy/research/)
 1. "AI @ Workplace" video+slide series: AI 101 (LLM intro, prompts), 201 (prompt systems, workflows, quality control),

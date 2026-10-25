@@ -5,7 +5,7 @@
 ## 1. Who and what
 - **Owner:** Henrique Jr. Sanchez (he/him). GitHub `hjasanchez`. Full-time job in another field; this is a side project
   (5–10 h/week) that he hopes grows into the main job. Global, English-only. Solo. Philosophy: give the resources away,
-  charge for their human time. "Hayen Mill", co-author on two older PDFs, is his own pen name, not a second person.
+  charge for their human time. The co-author on two older PDFs is his own pen name, not a second person.
 - **The venture:** **Mode Fluency** ("Know which mode you're in"). A practice for working with AI deliberately, built on four
   of Henrique's artifacts: the **AI @ Workplace** video curriculum (101→601), the **AI-Human Engineering Stack** (5 layers +
   2 meta-functions), the **Specifying Work for AI** guide, and the **Fourteen Stances** (archetypes of human-AI interaction).
@@ -66,7 +66,7 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
    CC BY-SA 4.0, root LICENSE points to `LICENSES/`, README and site footer say "Code MIT · documents CC BY-SA 4.0", earlier GPL-3.0
    releases stay as published; (b) restore the full Archetypes v3 text on the five abridged cards (Oracle, Genie, Interpreter,
    Executor, Miner); (c) contact stays hello@modefluency.com: domain via Namecheap, DNS on Cloudflare, Cloudflare Email Routing
-   to his Gmail, placeholder text until the forward works; (d) remove the Hayen Mill credit from the site, README, matrix and all
+   to his Gmail, placeholder text until the forward works; (d) remove the pen-name co-author credit from the site, README, matrix and all
    other repo text, PDFs stay as published; (e) Mode Fluency videos go on his existing main YouTube channel in a "Mode Fluency"
    playlist and channel section, the site links the playlist; (f) assessment stays "from $3,500", first two or three clients may
    get $2,500 for a written case study, agreed in conversation only; (g) no team edition for now, Sprint off the site and offered

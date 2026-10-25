@@ -70,7 +70,7 @@ Only what searches and public pages returned. The primary source is the owner's 
 - GitHub: hjasanchez (9 followers) and org OikoSol (listed on Linktree).
 - ResearchGate profile and an Amazon author page (listed on Linktree; not fetched, so book/paper content UNVERIFIED). Henrique's GitHub bio says "Author".
 - Instagram accounts and other personal/hobby links also appear on the Linktree; not relevant and omitted deliberately.
-- Old YouTube channel: https://www.youtube.com/@HayenMill, listed on Linktree as "Old YouTube Channel". This matches the "Hayen Mill" persona in the shared context; not fetched.
+- Old YouTube channel under the pen name, listed on Linktree as "Old YouTube Channel". This matches the pen-name persona in the shared context; not fetched.
 - Medium/Substack/talks: no search result found for any. The web searches run (`"PonicLabs"`, name + PonicLabs + agentic engineering, and repo path) returned none. Past talk/webinar footprint exists in hydroponics: "Aquaponics Virtual Conference 2024" video and "Low-Tech Hydroponics @ Museum of the Future" (2025) on the channel. No AI talks found.
 - Discord: an OikoSol Discord and a "Clean Air Brigade" Discord are listed on the Linktree (unrelated to AI).
 

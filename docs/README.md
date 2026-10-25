@@ -15,7 +15,7 @@ system fallbacks.
 - `assets/diagnose.js`: the self-diagnostic (question logic unchanged from the reviewed prototype) and its console UI.
 - `assets/favicon.svg`: the icon.
 - `_qa/qa-report.md`: the final QA report (about.html links to it). `_qa/buildlog.json`: the numbers shown in the footer build log.
-  `_qa/blind-review.md` is an internal review: delete it before copying the folder to `docs/` unless you want it public.
+  The internal blind review (`_qa/blind-review.md`) was removed before launch.
 - `STATUS.md`: build status note; safe to delete before deploy.
 - `.nojekyll`: tells GitHub Pages not to run Jekyll (so `_qa/` is served as is).
 
@@ -58,6 +58,5 @@ only the no-JavaScript and search-engine fallback; update them too if the rename
 ## Before launch (decisions for Henrique)
 - `hello@modefluency.com` on work.html is a placeholder (see the HTML comment); it is shown as plain text, not a link.
 - Prices are "from $3,500" (assessment) and "from $1,200" (workshop).
-- The content license CC BY-SA 4.0 is marked "proposed" on about.html and in the footer.
-- about.html keeps an HTML comment about the Hayen Mill co-author credit.
+- License: code MIT, documents CC BY-SA 4.0 (decided 2026-10-25); about.html and the footer say so.
 - AI 601 ("dark factories") has no written scope yet; learn.html says so.

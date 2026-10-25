@@ -1,160 +1,559 @@
-# QA report: Mode Fluency site, Direction C ("The Field")
+# Site QA report
 
-Run: 2026-10-22, headless Chromium (`/opt/pw-browsers/chromium`, build 1194) driven by the global Playwright 1.56.1 (`/opt/node22/lib/node_modules`); no `playwright install`. Every page opened from `file://`. Harness: `qa.js` + `finalize.py` in the session scratchpad (not shipped). Screenshots: `/home/user/meta-strategy/site-c-screenshots/`.
+Run: 2026-10-25, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 188 s.
 
-**Result: 123 of 123 binary checks passed.**
+**Result: PASS: 97 of 97 checks passed.**
 
-## PRD §4 success metrics
+`--write-buildlog` rewrote: _qa/buildlog.json, about.html, calculator-problem.html, diagnose.html, index.html, learn.html, matrix.html, stack.html, stances.html, work.html.
 
-| # | Metric | Result | Evidence |
-|---|---|---|---|
-| 1 | 9 pages open from file:// in headless Chromium at 390 and 1280, light and dark, reduced motion on and off: 0 console errors, 0 failed requests, no horizontal scroll | **PASS** | 72 loads; console/page errors 0; failed requests 0; scrollWidth > viewport 0 (checked at the top and after scrolling to the bottom) |
-| 2 | Lowest text contrast ≥ 4.5:1 in both themes (programmatic scan of all text nodes on all pages) | **PASS** | light: 4,437 text elements, lowest 4.98:1; dark: 4,437, lowest 6.07:1 |
-| 3 | All 14 stances, 7 components, 4 autonomy modes, 4 ambition types present; 5 stances word-for-word | **PASS** | all present; Tutor, Mirror, Adversary, Librarian, Simulator: Expectation and "Why it stays hidden" match src_archetypes_v3.md exactly (after removing Markdown emphasis) |
-| 4 | Diagnostic: all answer combinations return a result; 4 paths driven through the UI | **PASS** | 26,880 of 26,880 (14 stance paths × 1,920 answer combinations); 4 UI paths (3 by clicks incl. one Back, 1 keyboard only) |
-| 5 | Every page readable with JavaScript disabled | **PASS** | all 9 pages: main text present, 0 text elements hidden outside the JS-only instruments |
-| 6 | Total site ≤ 900 KB excluding fonts; no external JS; fonts only from Google Fonts | **PASS** | 329,535 bytes deployable (360,333 with _qa/); external scripts 0; hosts requested: fonts.googleapis.com, fonts.gstatic.com, i.ytimg.com |
-| 7 | No banned words; no invented stats, testimonials, logos, prices beyond the two given | **PASS** | banned-word hits 0; prices found: $1,200, $3,500; no testimonials, logos or client names; stance-field counters are labelled as on-screen simulation counts (about.html, deviation 3) |
-| 8 | "calculator" not in the hero of index.html; "machine" is; essay title unchanged | **PASS** | hero has "machine", not "calculator"; essay h1 "The Calculator Problem" |
-| 9 | Wordmark "Mode Fluency" set once in CSS --brand and read by JS | **PASS** | 1 definition (assets/field.css); field.js and diagnose.js read it; titles built from it; no literal wordmark in any page body (only the <title>/meta no-JS fallbacks) |
+## Summary
 
-## 1. Page loads (72)
+| Check | Result | Evidence |
+|---|---|---|
+| Loads (72) | PASS | console errors 0; failed requests 0; loads with horizontal overflow 0 |
+| JavaScript off (18) | PASS | readable 18 of 18 |
+| Contrast light | PASS | 4,437 text elements; below 4.5:1: 0; lowest 4.98:1 (`span.sd-lnum` "L3", stack.html 390); not parsed 0; exempt (disabled) 4 |
+| Contrast dark | PASS | 4,437 text elements; below 4.5:1: 0; lowest 6.07:1 (`caption` "From site-c/_qa/qa-report.md", about.html 390); not parsed 0; exempt (disabled) 4 |
+| Banned words | PASS | 0 hits |
+| Diagnostic | PASS | 26,880 of 26,880 return a result; derived from source 26,880; derived from UI 26,880 |
+| Footer build log | PASS | 0 mismatches; footers identical on all pages: yes |
 
-| Page | 390 light | 390 dark | 1280 light | 1280 dark |
-|---|---|---|---|---|
-| index.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| calculator-problem.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| stances.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| stack.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| matrix.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| diagnose.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| learn.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| work.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
-| about.html | ok (2 runs, sw 390) | ok (2 runs, sw 390) | ok (2 runs, sw 1280) | ok (2 runs, sw 1280) |
+## 0. Inventory
 
-Each cell is two runs (reduced motion on and off). "sw" is the largest `scrollWidth` seen. External requests were only to: fonts.googleapis.com, fonts.gstatic.com, i.ytimg.com (fonts, and the four learn.html thumbnails once scrolled into view).
+| Item | Value |
+|---|---|
+| Pages | 9 (about.html, calculator-problem.html, diagnose.html, index.html, learn.html, matrix.html, stack.html, stances.html, work.html) |
+| Deployable files (excl. `_qa/`, STATUS.md) | 15 |
+| Deployable bytes | 330,726 |
+| External scripts | 0 |
 
-## 2. Contrast (every visible text element, colour composited over its effective background)
+## 1. Loads
 
-Scanned at 390 and 1280 with motion off, on all 9 pages, plus interactive states: stack with a weak layer and Evaluation off, the diagnostic report, a matrix selection and a stances filter. Brand text drawn by CSS `::before` is included.
+Each row: one fresh browser context. Counts: console errors (incl. uncaught page errors), failed requests (network failures and HTTP >= 400), overflow (1 if `scrollWidth` > viewport width at the top, middle or bottom). `sw` = largest scrollWidth seen.
 
-**Light:** 4,437 elements, below 4.5:1: 0. Lowest five:
+| Page | Width | Theme | Motion | Console errors | Failed requests | Overflow | sw |
+|---|---|---|---|---|---|---|---|
+| about.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| about.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| about.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| about.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| about.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| about.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| about.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| about.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| calculator-problem.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| calculator-problem.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| calculator-problem.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| calculator-problem.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| calculator-problem.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| calculator-problem.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| calculator-problem.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| calculator-problem.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| diagnose.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| diagnose.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| diagnose.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| diagnose.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| diagnose.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| diagnose.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| diagnose.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| diagnose.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| index.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| index.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| index.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| index.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| index.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| index.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| index.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| index.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| learn.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| learn.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| learn.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| learn.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| learn.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| learn.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| learn.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| learn.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| matrix.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| matrix.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| matrix.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| matrix.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| matrix.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| matrix.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| matrix.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| matrix.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| stack.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| stack.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| stack.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| stack.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| stack.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| stack.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| stack.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| stack.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| stances.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| stances.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| stances.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| stances.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| stances.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| stances.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| stances.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| stances.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
+| work.html | 390 | light | on | 0 | 0 | 0 | 390 |
+| work.html | 390 | light | off (reduced) | 0 | 0 | 0 | 390 |
+| work.html | 390 | dark | on | 0 | 0 | 0 | 390 |
+| work.html | 390 | dark | off (reduced) | 0 | 0 | 0 | 390 |
+| work.html | 1280 | light | on | 0 | 0 | 0 | 1280 |
+| work.html | 1280 | light | off (reduced) | 0 | 0 | 0 | 1280 |
+| work.html | 1280 | dark | on | 0 | 0 | 0 | 1280 |
+| work.html | 1280 | dark | off (reduced) | 0 | 0 | 0 | 1280 |
 
-| Ratio | Text | Element | Page | Width |
-|---|---|---|---|---|
-| 4.98 | L3 | span.sd-lnum | stack.html | 1280 |
-| 4.98 | L4 | span.sd-lnum | stack.html | 1280 |
-| 4.98 | L5 | span.sd-lnum | stack.html | 1280 |
-| 4.98 | L3 | span.sd-lnum | stack.html | 390 |
-| 4.98 | L4 | span.sd-lnum | stack.html | 390 |
+Requests answered locally (no network): fonts.googleapis.com (102), i.ytimg.com (48).
 
-**Dark:** 4,437 elements, below 4.5:1: 0. Lowest five:
+## 2. JavaScript off
 
-| Ratio | Text | Element | Page | Width |
-|---|---|---|---|---|
-| 6.07 | stance | span.lv | index.html | 1280 |
-| 6.07 | expects | span.lv | index.html | 1280 |
-| 6.07 | load | span.lv | index.html | 1280 |
-| 6.07 | field | span.lv | index.html | 1280 |
-| 6.07 | fail | span.lv | index.html | 1280 |
+"Readable" = main text >= 400 characters, visible h1, no horizontal overflow, no failed requests, and no text that is visible with JS on but hidden without JS outside the JS-only instruments.
 
-Caveat: text over the hero canvas is measured against the page background; particles behind the hero copy are drawn at 13% alpha (a quiet zone).
+| Page | Width | Main text (chars) | h1 | sw | Lost text | JS-only instruments hidden | Readable |
+|---|---|---|---|---|---|---|---|
+| about.html | 390 | 7,311 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| about.html | 1280 | 7,311 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
+| calculator-problem.html | 390 | 11,522 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| calculator-problem.html | 1280 | 11,522 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
+| diagnose.html | 390 | 3,578 | yes | 390 | 0 | button.theme-toggle.js-only, div#console.console.js-only | yes |
+| diagnose.html | 1280 | 3,578 | yes | 1280 | 0 | button.theme-toggle.js-only, div#console.console.js-only | yes |
+| index.html | 390 | 4,503 | yes | 390 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
+| index.html | 1280 | 4,503 | yes | 1280 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
+| learn.html | 390 | 2,815 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| learn.html | 1280 | 2,815 | yes | 1280 | 0 | button.theme-toggle.js-only, div#altimeter.altimeter.js-only | yes |
+| matrix.html | 390 | 6,684 | yes | 390 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
+| matrix.html | 1280 | 6,684 | yes | 1280 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
+| stack.html | 390 | 10,417 | yes | 390 | 0 | button.theme-toggle.js-only, div.sd-bar.js-only, p#sd-readout.sys.sd-readout, span.js-only | yes |
+| stack.html | 1280 | 10,417 | yes | 1280 | 0 | button.theme-toggle.js-only, div.sd-bar.js-only, p#sd-readout.sys.sd-readout, span.js-only | yes |
+| stances.html | 390 | 15,764 | yes | 390 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
+| stances.html | 1280 | 15,764 | yes | 1280 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
+| work.html | 390 | 3,404 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| work.html | 1280 | 3,404 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 
-## 3. Content
+## 3. Contrast
 
-- 14 stances on stances.html, 7 components on stack.html, 4 autonomy modes and 4 ambition types on matrix.html: all present.
-- Word-for-word spot-check against `research/src_archetypes_v3.md` (Expectation and "Why it stays hidden"):
-  - Tutor: Expectation identical, Why it stays hidden identical
-  - Mirror: Expectation identical, Why it stays hidden identical
-  - Adversary: Expectation identical, Why it stays hidden identical
-  - Librarian: Expectation identical, Why it stays hidden identical
-  - Simulator: Expectation identical, Why it stays hidden identical
-- Stance cards, essay, Stack components, matrix rows, autonomy table, ambition text, Article 4 text and lineage are carried over from the reviewed prototype (site/), whose fixes are kept: Hinge tag only on the Interpreter; Executor and Miner guardrails from v3; the "Not placed" handling; the learn.html privacy sentence; essay footnotes in order of first citation; METR 2026 caveat and the Papert quote; S&P figure dated 14 March 2025.
-- `[source needed]` markers: 0 (no new facts were introduced).
+Every visible text element, reduced-motion loads at 390 and 1280, plus interactive states. Ratios rounded down to two decimals.
 
-## 4. Diagnostic
+| Theme | Elements | Below 4.5 | Lowest | Element | Text | Page | Width | State |
+|---|---|---|---|---|---|---|---|---|
+| light | 4,437 | 0 | 4.98 | `span.sd-lnum` | L3 | stack.html | 390 | Context and Evaluation marked weak |
+| dark | 4,437 | 0 | 6.07 | `caption` | From site-c/_qa/qa-report.md | about.html | 390 | load |
 
-- Exhaustive: 26,880 of 26,880 combinations return stance, layer, guardrail and level, with no `undefined` in the copied text; 14 stances and levels 101, 201, 301, 401 reachable. The question logic, data and scoring are copied unchanged from the prototype.
+**Light: lowest ten**
 
-| UI path | Result | Layer | Watch next | Answers | Copy |
+| Ratio | Text | Element | fg | bg | Page | Width | State |
+|---|---|---|---|---|---|---|---|
+| 4.98 | L3 | `span.sd-lnum` | 143,74,0 | 219,224,216 | stack.html | 390 | Context and Evaluation marked weak |
+| 4.98 | L4 | `span.sd-lnum` | 143,74,0 | 219,224,216 | stack.html | 390 | Context and Evaluation marked weak |
+| 4.98 | L5 | `span.sd-lnum` | 143,74,0 | 219,224,216 | stack.html | 390 | Context and Evaluation marked weak |
+| 4.98 | L3 | `span.sd-lnum` | 143,74,0 | 219,224,216 | stack.html | 1280 | Context and Evaluation marked weak |
+| 4.98 | L4 | `span.sd-lnum` | 143,74,0 | 219,224,216 | stack.html | 1280 | Context and Evaluation marked weak |
+| 4.98 | L5 | `span.sd-lnum` | 143,74,0 | 219,224,216 | stack.html | 1280 | Context and Evaluation marked weak |
+| 5.23 | Pointer or touch: you are the warm point. Disturb  | `p#stage-hint.sys.stage-hint` | 79,92,85 | 219,224,216 | index.html | 390 | load |
+| 5.23 | Pointer or touch: you are the warm point. Disturb  | `p#stage-hint.sys.stage-hint` | 79,92,85 | 219,224,216 | index.html | 1280 | load |
+| 5.23 | Intent | `h3` | 79,92,85 | 219,224,216 | stack.html | 390 | Context and Evaluation marked weak |
+| 5.23 | What to want while doing | `p.sd-q` | 79,92,85 | 219,224,216 | stack.html | 390 | Context and Evaluation marked weak |
+
+Exempt as disabled controls (4): button#dg-back.cmd.cmd-ghost (6.15, diagnose.html); span.cmd-glyph (6.15, diagnose.html)
+
+**Dark: lowest ten**
+
+| Ratio | Text | Element | fg | bg | Page | Width | State |
+|---|---|---|---|---|---|---|---|
+| 6.07 | From site-c/_qa/qa-report.md | `caption` | 148,161,151 | 24,34,30 | about.html | 390 | load |
+| 6.07 | From site-c/_qa/qa-report.md | `caption` | 148,161,151 | 24,34,30 | about.html | 1280 | load |
+| 6.07 | session: diagnose | `h2#console-title.sys` | 148,161,151 | 24,34,30 | diagnose.html | 390 | load |
+| 6.07 | Pick the closest. You can go back. | `p#dg-hint.q-hint` | 148,161,151 | 24,34,30 | diagnose.html | 390 | load |
+| 6.07 | keys: number to answer · backspace to go back | `span.kbd-hint` | 148,161,151 | 24,34,30 | diagnose.html | 390 | load |
+| 6.07 | session: diagnose | `h2#console-title.sys` | 148,161,151 | 24,34,30 | diagnose.html | 390 | diagnostic report |
+| 6.07 | what you expect | `dt` | 148,161,151 | 24,34,30 | diagnose.html | 390 | diagnostic report |
+| 6.07 | load-bearing layer | `dt` | 148,161,151 | 24,34,30 | diagnose.html | 390 | diagnostic report |
+| 6.07 | characteristic failure | `dt` | 148,161,151 | 24,34,30 | diagnose.html | 390 | diagnostic report |
+| 6.07 | the guardrail to adopt | `dt` | 148,161,151 | 24,34,30 | diagnose.html | 390 | diagnostic report |
+
+Exempt as disabled controls (4): button#dg-back.cmd.cmd-ghost (6.07, diagnose.html); span.cmd-glyph (6.07, diagnose.html)
+
+Per scan:
+
+| Page | Width | Theme | State | Elements | Lowest |
 |---|---|---|---|---|---|
-| P1 Oracle, new, assistive (clicks) | oracle | Judgment | AI 101 | 7 | copied. ("Mode Fluency self-diagnostic") |
-| P2 Executor, agents, continuous (clicks) | executor | Harness + Judgment | AI 401 | 7 | copied. ("Mode Fluency self-diagnostic") |
-| P3 Miner via Ideas, 8 questions (clicks, with one Back) | miner | Context (writing) | AI 301 | 8 | copied. ("Mode Fluency self-diagnostic") |
-| P4 Interpreter (keyboard only: number keys) | interpreter | Evaluation | AI 401 | 7 | copied. ("Mode Fluency self-diagnostic") |
+| about.html | 390 | light | load | 123 | 5.43 |
+| about.html | 390 | dark | load | 123 | 6.07 |
+| about.html | 1280 | light | load | 123 | 5.43 |
+| about.html | 1280 | dark | load | 123 | 6.07 |
+| calculator-problem.html | 390 | light | load | 171 | 5.43 |
+| calculator-problem.html | 390 | dark | load | 171 | 6.82 |
+| calculator-problem.html | 1280 | light | load | 171 | 5.43 |
+| calculator-problem.html | 1280 | dark | load | 171 | 6.82 |
+| diagnose.html | 390 | light | load | 47 | 5.43 |
+| diagnose.html | 390 | light | diagnostic report | 85 | 5.43 |
+| diagnose.html | 390 | dark | load | 47 | 6.07 |
+| diagnose.html | 390 | dark | diagnostic report | 85 | 6.07 |
+| diagnose.html | 1280 | light | load | 47 | 5.43 |
+| diagnose.html | 1280 | light | diagnostic report | 85 | 5.43 |
+| diagnose.html | 1280 | dark | load | 47 | 6.07 |
+| diagnose.html | 1280 | dark | diagnostic report | 85 | 6.07 |
+| index.html | 390 | light | load | 188 | 5.23 |
+| index.html | 390 | dark | load | 188 | 6.07 |
+| index.html | 1280 | light | load | 195 | 5.23 |
+| index.html | 1280 | dark | load | 195 | 6.07 |
+| learn.html | 390 | light | load | 94 | 5.43 |
+| learn.html | 390 | dark | load | 94 | 6.82 |
+| learn.html | 1280 | light | load | 102 | 5.43 |
+| learn.html | 1280 | dark | load | 102 | 6.82 |
+| matrix.html | 390 | light | load | 231 | 5.43 |
+| matrix.html | 390 | light | Librarian selected | 231 | 5.43 |
+| matrix.html | 390 | dark | load | 231 | 6.07 |
+| matrix.html | 390 | dark | Librarian selected | 231 | 6.07 |
+| matrix.html | 1280 | light | load | 238 | 5.43 |
+| matrix.html | 1280 | light | Librarian selected | 238 | 5.43 |
+| matrix.html | 1280 | dark | load | 238 | 6.07 |
+| matrix.html | 1280 | dark | Librarian selected | 238 | 6.07 |
+| stack.html | 390 | light | load | 253 | 5.43 |
+| stack.html | 390 | light | Context and Evaluation marked weak | 253 | 4.98 |
+| stack.html | 390 | dark | load | 253 | 6.07 |
+| stack.html | 390 | dark | Context and Evaluation marked weak | 253 | 6.07 |
+| stack.html | 1280 | light | load | 253 | 5.43 |
+| stack.html | 1280 | light | Context and Evaluation marked weak | 253 | 4.98 |
+| stack.html | 1280 | dark | load | 253 | 6.07 |
+| stack.html | 1280 | dark | Context and Evaluation marked weak | 253 | 6.07 |
+| stances.html | 390 | light | load | 315 | 5.43 |
+| stances.html | 390 | light | first layer filter on | 115 | 5.43 |
+| stances.html | 390 | dark | load | 315 | 6.07 |
+| stances.html | 390 | dark | first layer filter on | 115 | 6.07 |
+| stances.html | 1280 | light | load | 315 | 5.43 |
+| stances.html | 1280 | light | first layer filter on | 115 | 5.43 |
+| stances.html | 1280 | dark | load | 315 | 6.07 |
+| stances.html | 1280 | dark | first layer filter on | 115 | 6.07 |
+| work.html | 390 | light | load | 98 | 5.43 |
+| work.html | 390 | dark | load | 98 | 6.82 |
+| work.html | 1280 | light | load | 98 | 5.43 |
+| work.html | 1280 | dark | load | 98 | 6.82 |
 
-Progress reads "question N (7 or 8 in total)" throughout; focus moves to each new question and to the report heading; Back restores the earlier choice. At 390 the report has no horizontal scroll.
+## 4. Banned words
 
-## 5. Interactions
+Case-insensitive substring match for: revolutionary, unlock, supercharge, game-changing, seamless, empower. Text scanned per page: innerText with JS on (1280, light), innerText with JS off (1280), the title.
 
-- **Compass (home, 1280 dark):** pointer swept 0→100°: needle 099, axis STRUCTURE, §1 row "Structure" active
-- **Stance selector (home):** arrow keys cycled all 14 behaviours (Oracle, Genie, Tutor, Executor, Miner, Mirror, Muse, Adversary, Librarian, Interpreter, Simulator, Scribe, Translator, Therapist); 14 distinct HUD readouts; pointer on Interpreter → "mode=interpreter · evidence trail: traced 30 · untraced 6 (rumours)"
-- **Home circuit:** hover Executor → 2 hot wires, layers Judgment, Harness
-- **Stances filters:** Hinge → ['interpreter']; Not placed → ['adversary', 'simulator', 'scribe']; Harness → ['executor']; empty combination shows the message ("Showing 0 of 14 stances (layer: Harness; Not placed)."); Hinge tag on: ['interpreter']
-- **Lazy card fields:** scrolled to oracle: 2 of 14 running ; scrolled to interpreter: 2 of 14 running ; scrolled to translator: 2 of 14 running
-- **Matrix:** click Librarian → path "Librarian —load→ Evaluation", log printed the guardrail; click Context → stances ['Miner', 'Simulator', 'Translator']; keyboard Down, Down, Right from Oracle → focus on "Evaluationhow to know"
-- **Stack:** Intent + Context weak → "binding constraint: Context (the lowest weak layer)"; states ['prompt:ok', 'context:weak', 'intent:weak', 'judgment:starved', 'coherence:starved']; 3 spine segments cut; Evaluation off → "evaluation weak: the layers still function; you just cannot see whether they are functioning well"
-- **Learn altimeter:** 101 → 301 → 601
-- **Theme toggle:** light → dark → auto
-- **Hero field:** 1,600 agents at 1280, 60 fps in the QA browser after interaction (software-rendered headless; indicative only)
+| Page | Hits |
+|---|---|
+| about.html | 0 |
+| calculator-problem.html | 0 |
+| diagnose.html | 0 |
+| index.html | 0 |
+| learn.html | 0 |
+| matrix.html | 0 |
+| stack.html | 0 |
+| stances.html | 0 |
+| work.html | 0 |
 
-## 6. JavaScript disabled
+## 5. Diagnostic
 
-| Page | Main text (chars) | Hidden text outside JS-only instruments | JS-only instruments hidden |
-|---|---|---|---|
-| index.html | 4,503 | 0 | compass-col, stance-picker, stance-stage, js-only, circuit |
-| calculator-problem.html | 11,522 | 0 | none |
-| stances.html | 13,965 | 0 | js-only, filters, status, sc-stage, sys |
-| stack.html | 10,430 | 0 | js-only, sd-bar, sys |
-| matrix.html | 6,684 | 0 | section |
-| diagnose.html | 3,578 | 0 | console |
-| learn.html | 2,815 | 0 | altimeter |
-| work.html | 3,404 | 0 | none |
-| about.html | 7,159 | 0 | none |
+| Measure | Value |
+|---|---|
+| Combinations run through `compute()` and `text()` | 26,880 |
+| ... returning non-empty stance, layer, guardrail, level, no undefined/NaN | 26,880 |
+| Stance paths x common-answer combinations (`paths()`) | 14 x 1,920 |
+| Derived from the source text | 14 stance paths x 4 (experience) x 4 (autonomy) x 4 (ambition) x 5 (recovery) x 6 (check) = 26,880 |
+| Derived by walking the live UI (options and Back, memoised per question) | 26,880 |
+| UI reports reached and checked | 32 (138 option clicks, 11 distinct questions) |
+| Stances reached in the UI | 14: adversary, executor, genie, interpreter, librarian, miner, mirror, muse, oracle, scribe, simulator, therapist, translator, tutor |
+| Levels reached in the UI | 101, 301 |
+| Stances / levels reached via compute() | 14 / 101, 201, 301, 401 |
+| Page errors during the walk | 0 |
 
-The wordmark still renders without JS (CSS `::before`, value "Mode Fluency"). The diagnostic page shows its questions on paper; the matrix page shows the full table.
+## 6. Footer build log
 
-## 7. Size, dependencies, words
+The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the about.html table between `<!-- @aboutlog -->` markers; `_qa/buildlog.json` holds the same text. Dates are not compared. Run with `--write-buildlog` to refresh.
 
-- Deployable: 329,535 bytes in 15 files (HTML, `assets/field.css`, `assets/field.js`, `assets/diagnose.js`, `assets/favicon.svg`, README, .nojekyll); with `_qa/`: 360,333 bytes. Fonts excluded (Google Fonts). Budget 900,000.
-- External scripts: 0. Inline script: one line per page (adds the `js` class and applies a saved theme before paint).
-- Banned words (revolutionary, unlock, supercharge, game-changing, seamless, cutting-edge, empower): 0 hits across HTML, CSS, JS and README.
-- Prices: only "from $3,500" and "from $1,200". No testimonials, logos or client names.
+| Source | Item | Claimed | Measured | Match |
+|---|---|---|---|---|
+| about.html footer | pages | 9 | 9 | yes |
+| about.html footer | files | 15 | 15 | yes |
+| about.html footer | external_scripts | 0 | 0 | yes |
+| about.html footer | bytes | 330726 | 330726 | yes |
+| about.html footer | loads | 72 | 72 | yes |
+| about.html footer | console_errors | 0 | 0 | yes |
+| about.html footer | failed_requests | 0 | 0 | yes |
+| about.html footer | overflow | 0 | 0 | yes |
+| about.html footer | contrast_elements | 4437 | 4437 | yes |
+| about.html footer | lowest_light | 4.98 | 4.98 | yes |
+| about.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| about.html footer | diag_ok | 26880 | 26880 | yes |
+| about.html footer | diag_total | 26880 | 26880 | yes |
+| about.html footer | ui_paths | 32 | 32 | yes |
+| about.html footer | checks_passed | 97 | 97 | yes |
+| about.html footer | checks_total | 97 | 97 | yes |
+| calculator-problem.html footer | pages | 9 | 9 | yes |
+| calculator-problem.html footer | files | 15 | 15 | yes |
+| calculator-problem.html footer | external_scripts | 0 | 0 | yes |
+| calculator-problem.html footer | bytes | 330726 | 330726 | yes |
+| calculator-problem.html footer | loads | 72 | 72 | yes |
+| calculator-problem.html footer | console_errors | 0 | 0 | yes |
+| calculator-problem.html footer | failed_requests | 0 | 0 | yes |
+| calculator-problem.html footer | overflow | 0 | 0 | yes |
+| calculator-problem.html footer | contrast_elements | 4437 | 4437 | yes |
+| calculator-problem.html footer | lowest_light | 4.98 | 4.98 | yes |
+| calculator-problem.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| calculator-problem.html footer | diag_ok | 26880 | 26880 | yes |
+| calculator-problem.html footer | diag_total | 26880 | 26880 | yes |
+| calculator-problem.html footer | ui_paths | 32 | 32 | yes |
+| calculator-problem.html footer | checks_passed | 97 | 97 | yes |
+| calculator-problem.html footer | checks_total | 97 | 97 | yes |
+| diagnose.html footer | pages | 9 | 9 | yes |
+| diagnose.html footer | files | 15 | 15 | yes |
+| diagnose.html footer | external_scripts | 0 | 0 | yes |
+| diagnose.html footer | bytes | 330726 | 330726 | yes |
+| diagnose.html footer | loads | 72 | 72 | yes |
+| diagnose.html footer | console_errors | 0 | 0 | yes |
+| diagnose.html footer | failed_requests | 0 | 0 | yes |
+| diagnose.html footer | overflow | 0 | 0 | yes |
+| diagnose.html footer | contrast_elements | 4437 | 4437 | yes |
+| diagnose.html footer | lowest_light | 4.98 | 4.98 | yes |
+| diagnose.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| diagnose.html footer | diag_ok | 26880 | 26880 | yes |
+| diagnose.html footer | diag_total | 26880 | 26880 | yes |
+| diagnose.html footer | ui_paths | 32 | 32 | yes |
+| diagnose.html footer | checks_passed | 97 | 97 | yes |
+| diagnose.html footer | checks_total | 97 | 97 | yes |
+| index.html footer | pages | 9 | 9 | yes |
+| index.html footer | files | 15 | 15 | yes |
+| index.html footer | external_scripts | 0 | 0 | yes |
+| index.html footer | bytes | 330726 | 330726 | yes |
+| index.html footer | loads | 72 | 72 | yes |
+| index.html footer | console_errors | 0 | 0 | yes |
+| index.html footer | failed_requests | 0 | 0 | yes |
+| index.html footer | overflow | 0 | 0 | yes |
+| index.html footer | contrast_elements | 4437 | 4437 | yes |
+| index.html footer | lowest_light | 4.98 | 4.98 | yes |
+| index.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| index.html footer | diag_ok | 26880 | 26880 | yes |
+| index.html footer | diag_total | 26880 | 26880 | yes |
+| index.html footer | ui_paths | 32 | 32 | yes |
+| index.html footer | checks_passed | 97 | 97 | yes |
+| index.html footer | checks_total | 97 | 97 | yes |
+| learn.html footer | pages | 9 | 9 | yes |
+| learn.html footer | files | 15 | 15 | yes |
+| learn.html footer | external_scripts | 0 | 0 | yes |
+| learn.html footer | bytes | 330726 | 330726 | yes |
+| learn.html footer | loads | 72 | 72 | yes |
+| learn.html footer | console_errors | 0 | 0 | yes |
+| learn.html footer | failed_requests | 0 | 0 | yes |
+| learn.html footer | overflow | 0 | 0 | yes |
+| learn.html footer | contrast_elements | 4437 | 4437 | yes |
+| learn.html footer | lowest_light | 4.98 | 4.98 | yes |
+| learn.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| learn.html footer | diag_ok | 26880 | 26880 | yes |
+| learn.html footer | diag_total | 26880 | 26880 | yes |
+| learn.html footer | ui_paths | 32 | 32 | yes |
+| learn.html footer | checks_passed | 97 | 97 | yes |
+| learn.html footer | checks_total | 97 | 97 | yes |
+| matrix.html footer | pages | 9 | 9 | yes |
+| matrix.html footer | files | 15 | 15 | yes |
+| matrix.html footer | external_scripts | 0 | 0 | yes |
+| matrix.html footer | bytes | 330726 | 330726 | yes |
+| matrix.html footer | loads | 72 | 72 | yes |
+| matrix.html footer | console_errors | 0 | 0 | yes |
+| matrix.html footer | failed_requests | 0 | 0 | yes |
+| matrix.html footer | overflow | 0 | 0 | yes |
+| matrix.html footer | contrast_elements | 4437 | 4437 | yes |
+| matrix.html footer | lowest_light | 4.98 | 4.98 | yes |
+| matrix.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| matrix.html footer | diag_ok | 26880 | 26880 | yes |
+| matrix.html footer | diag_total | 26880 | 26880 | yes |
+| matrix.html footer | ui_paths | 32 | 32 | yes |
+| matrix.html footer | checks_passed | 97 | 97 | yes |
+| matrix.html footer | checks_total | 97 | 97 | yes |
+| stack.html footer | pages | 9 | 9 | yes |
+| stack.html footer | files | 15 | 15 | yes |
+| stack.html footer | external_scripts | 0 | 0 | yes |
+| stack.html footer | bytes | 330726 | 330726 | yes |
+| stack.html footer | loads | 72 | 72 | yes |
+| stack.html footer | console_errors | 0 | 0 | yes |
+| stack.html footer | failed_requests | 0 | 0 | yes |
+| stack.html footer | overflow | 0 | 0 | yes |
+| stack.html footer | contrast_elements | 4437 | 4437 | yes |
+| stack.html footer | lowest_light | 4.98 | 4.98 | yes |
+| stack.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| stack.html footer | diag_ok | 26880 | 26880 | yes |
+| stack.html footer | diag_total | 26880 | 26880 | yes |
+| stack.html footer | ui_paths | 32 | 32 | yes |
+| stack.html footer | checks_passed | 97 | 97 | yes |
+| stack.html footer | checks_total | 97 | 97 | yes |
+| stances.html footer | pages | 9 | 9 | yes |
+| stances.html footer | files | 15 | 15 | yes |
+| stances.html footer | external_scripts | 0 | 0 | yes |
+| stances.html footer | bytes | 330726 | 330726 | yes |
+| stances.html footer | loads | 72 | 72 | yes |
+| stances.html footer | console_errors | 0 | 0 | yes |
+| stances.html footer | failed_requests | 0 | 0 | yes |
+| stances.html footer | overflow | 0 | 0 | yes |
+| stances.html footer | contrast_elements | 4437 | 4437 | yes |
+| stances.html footer | lowest_light | 4.98 | 4.98 | yes |
+| stances.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| stances.html footer | diag_ok | 26880 | 26880 | yes |
+| stances.html footer | diag_total | 26880 | 26880 | yes |
+| stances.html footer | ui_paths | 32 | 32 | yes |
+| stances.html footer | checks_passed | 97 | 97 | yes |
+| stances.html footer | checks_total | 97 | 97 | yes |
+| work.html footer | pages | 9 | 9 | yes |
+| work.html footer | files | 15 | 15 | yes |
+| work.html footer | external_scripts | 0 | 0 | yes |
+| work.html footer | bytes | 330726 | 330726 | yes |
+| work.html footer | loads | 72 | 72 | yes |
+| work.html footer | console_errors | 0 | 0 | yes |
+| work.html footer | failed_requests | 0 | 0 | yes |
+| work.html footer | overflow | 0 | 0 | yes |
+| work.html footer | contrast_elements | 4437 | 4437 | yes |
+| work.html footer | lowest_light | 4.98 | 4.98 | yes |
+| work.html footer | lowest_dark | 6.07 | 6.07 | yes |
+| work.html footer | diag_ok | 26880 | 26880 | yes |
+| work.html footer | diag_total | 26880 | 26880 | yes |
+| work.html footer | ui_paths | 32 | 32 | yes |
+| work.html footer | checks_passed | 97 | 97 | yes |
+| work.html footer | checks_total | 97 | 97 | yes |
+| about.html build-log table | pages | 9 | 9 | yes |
+| about.html build-log table | files | 15 | 15 | yes |
+| about.html build-log table | bytes | 330726 | 330726 | yes |
+| about.html build-log table | loads | 72 | 72 | yes |
+| about.html build-log table | console_errors | 0 | 0 | yes |
+| about.html build-log table | failed_requests | 0 | 0 | yes |
+| about.html build-log table | overflow | 0 | 0 | yes |
+| about.html build-log table | contrast_elements | 4437 | 4437 | yes |
+| about.html build-log table | lowest_light | 4.98 | 4.98 | yes |
+| about.html build-log table | lowest_dark | 6.07 | 6.07 | yes |
+| about.html build-log table | diag_ok | 26880 | 26880 | yes |
+| about.html build-log table | diag_total | 26880 | 26880 | yes |
+| about.html build-log table | ui_paths | 32 | 32 | yes |
+| about.html build-log table | checks_passed | 97 | 97 | yes |
+| about.html build-log table | checks_total | 97 | 97 | yes |
+| _qa/buildlog.json | pages | 9 | 9 | yes |
+| _qa/buildlog.json | files | 15 | 15 | yes |
+| _qa/buildlog.json | external_scripts | 0 | 0 | yes |
+| _qa/buildlog.json | bytes | 330726 | 330726 | yes |
+| _qa/buildlog.json | loads | 72 | 72 | yes |
+| _qa/buildlog.json | console_errors | 0 | 0 | yes |
+| _qa/buildlog.json | failed_requests | 0 | 0 | yes |
+| _qa/buildlog.json | overflow | 0 | 0 | yes |
+| _qa/buildlog.json | contrast_elements | 4437 | 4437 | yes |
+| _qa/buildlog.json | lowest_light | 4.98 | 4.98 | yes |
+| _qa/buildlog.json | lowest_dark | 6.07 | 6.07 | yes |
+| _qa/buildlog.json | diag_ok | 26880 | 26880 | yes |
+| _qa/buildlog.json | diag_total | 26880 | 26880 | yes |
+| _qa/buildlog.json | ui_paths | 32 | 32 | yes |
+| _qa/buildlog.json | checks_passed | 97 | 97 | yes |
+| _qa/buildlog.json | checks_total | 97 | 97 | yes |
 
-## 8. Screenshots
+## 7. Not checked by this harness
 
-`<page>-<width>-<theme>[-rm]-top.jpg` for every page, width and theme (motion on), plus `-mid` and `-bottom` in light; reduced-motion tops at 390; `nojs-<page>-1280.jpg`; `diagnose-P1..P4-390.jpg` (full page); `interact-*.jpg` (compass, Interpreter field, home circuit, stance cards, matrix, stack binding constraint, essay notes); `mode-*-a/b.png` (the seven new stance behaviours before and with the pointer).
+- Browsers other than headless Chromium; real devices; screen readers.
+- Pages render in fallback fonts unless `--network` is given (Google Fonts are answered locally with an empty stylesheet).
+- Text drawn over canvases is measured against the CSS background under it, not the canvas pixels.
+- Contrast on the motion-on loads (scanned on reduced-motion loads only, where frames are static).
+- Footer items the harness does not measure (frameworks/libraries text, hero field agents and fps, field counts) are left as written.
+- Content accuracy, prices, invented numbers: see the blind review.
 
-## 9. Not verified
 
-Safari and Firefox rendering; real screen readers (only structure, focus order and live regions were checked); real-device frame rates; the live behaviour of the Clipboard API outside Chromium; GitHub Pages and Cloudflare Pages deploys (instructions written, not executed). The repository's Agent Audit Protocol has not yet been run on the site itself.
+## All checks
 
-## Fix pass (after the blind review, `_qa/blind-review.md`)
-
-The reviewer found 0 high, 4 medium and 14 low issues, and nothing invented. All four medium issues are fixed, plus 12 of the 14 low ones. Each fix was checked by a targeted script (`fixqa.js`, scratchpad), and then the full QA above was re-run on the fixed site: **123 of 123 checks pass** (72 loads: errors 0, failed requests 0, overflow 0; contrast lowest 4.98:1 light, 6.07:1 dark; diagnostic 26,880 of 26,880). The footer build log now shows these numbers (329,535 bytes deployable).
-
-| # | Finding | Fix | Verified |
-|---|---|---|---|
-| B1 (medium) | The circuit assembly overwrote a stance the user picked during the reveal | The first user pick (click, hover, focus or key) sets a user-intent flag and cancels the assembly timers. The reveal then ends on whatever is selected | matrix.html: Enter on Librarian 300 ms after scrolling in; 3.5 s later the pressed stance is ['Librarian'] and the log reads "stance Librarian  expects Sy…". index.html: ['Librarian'] |
-| A1 (medium) | The compass readout was a live region that never stopped updating | The readout is now `aria-hidden`. A separate polite announcer speaks only when the axis changes | 0 live-region mutations in 3 s idle (was 45). 5 during a 1.2 s pointer sweep across axes (one per axis change) |
-| P1 (medium) | The circuit pulse loop never paused | Pulses run only while the circuit is on screen and the tab is visible, and only for three cycles after an interaction or while it is hovered or focused. After that the lit wires stay lit and the loop stops. stack.html pulses also pause when the tab is hidden | rAF calls in 2 s: index at footer 0; index circuit in view and idle 0; matrix at footer 0; matrix idle 0; index with `document.hidden` 0 |
-| D1 (medium) | The phone nav hid five links; "Work with me" was far down the page | Added a compact "Work with me" button in the header row below 1100 px. The nav strip fades at whichever edge has more links. Without JS the nav wraps instead | At 390: button at top 6px, right edge 307px; nav class "site-nav fade-r"; header 103px; scrollWidth 390. Screenshot: `fix-phone-header-390.png` |
-| F1 (low) | Failure lines taken from the Matrix were not credited | The nine cards where v3 has no failure mode now label it "Failure mode (from the Matrix)", and the source note names them | Text check |
-| F2 (low) | The consumption/construction filter did not match the v3 table | Interpreter and Executor are now in both columns, with tags for their two forms. Hinge stays on the Interpreter only | Consumption → ['oracle', 'genie', 'librarian', 'interpreter', 'executor', 'muse', 'therapist']; Construction → ['tutor', 'mirror', 'interpreter', 'executor', 'miner', 'translator']; Hinge → ['interpreter']; Not placed → ['adversary', 'simulator', 'scribe'] |
-| F3 (low) | "a thousand tokens" | Now "hundreds of tokens" | Text check |
-| F4/A3 (low) | Dead circuit buttons without JS; deviation item overstated | The home circuit is hidden without JS, and a link to the matrix table is shown instead. The deviation report is reworded | No-JS run: 0 text hidden outside JS-only instruments |
-| A2 (low) | 21 tab stops per circuit | Roving tabindex: one tab stop per column, arrows move within a column, Left/Right cross the wire | 2 tab stops per circuit |
-| B2 (low) | The progress counter never narrowed; the "last time" note was repeated by the live region | The count shows "of N" as soon as the branch is known. The last-result note moved out of the live region | question 1 (7 or 8 in total) → question 2 (7 or 8 in total) → question 3 of 8 → question 4 of 8 … |
-| P2 (low) | The essay strip never idled | The strip stops 1.5 s after the last scroll or pointer move and wakes on the next one | rAF calls: 60 in 1 s while scrolling, 0 in 2 s idle |
-| C1 (low) | The calculator metaphor was unexplained on learn.html | The lede now reads "How to use the machine, for people who can already do the work by hand." | Text check |
-| C2 (low) | The Stack lede promises a user interaction model the page never shows | §3 is now "The user interaction model", with the model's opening and entry point from the Stack document, then the diagnostic loop | Text check (wording from src_aies_stack.txt) |
-| C3 (low) | The home page never says "video" | The learner path now says "video series (recorded talks with slides)", and the header "Work with me" is reachable on phones | Text check |
-| D2 (low) | Evaluation was drawn twice | The second box is now a plain caption under the diagram pointing to the dashed rail, so the diagram shows seven components | Screenshot |
-| D3 (low) | The circuit looked tangled at rest | Wires are thinner, and non-selected wires dim further (opacity 0.22) while one is selected | Screenshot |
-| X1 (low) | Review files would be published | The README says to delete `_qa/blind-review.md` (and STATUS.md) before deploy unless they should be public | README |
-
-Not fixed: (1) the abridged v3 texts on the Oracle, Genie, Interpreter, Executor and Miner cards. They are still cut without ellipses, and restoring them in full is an editorial call for Henrique. The deviation report says so. (2) "The Calculator Problem" stays as the first nav item above the hero, because it is the essay's unchanged title.
-
-## 10. Deviations from the PRD
-
-Listed in full on about.html ("Deviation report"). In short: hero button renamed "Read the essay" to keep "calculator" out of the hero; matrix pages follow MODE_FLUENCY_MATRIX.md row order while stances.html follows v3 order (open question); the seven new stance fields are illustrations and their counters are on-screen simulation counts; the binding-constraint chain covers the five cognitive layers, with separate switches for Evaluation and Harness; the essay strip is pinned under the header; the privacy sentence says thumbnails load "when they scroll into view" (they are lazy); instruments are hidden without JS and their content is given as text; diagnostic logic unchanged including its two open questions; "engineer" dropped from the about text as unsourced.
+| Check | Result |
+|---|---|
+| load about.html 390 light motion on | pass |
+| load about.html 390 light motion off (reduced) | pass |
+| load about.html 390 dark motion on | pass |
+| load about.html 390 dark motion off (reduced) | pass |
+| load about.html 1280 light motion on | pass |
+| load about.html 1280 light motion off (reduced) | pass |
+| load about.html 1280 dark motion on | pass |
+| load about.html 1280 dark motion off (reduced) | pass |
+| load calculator-problem.html 390 light motion on | pass |
+| load calculator-problem.html 390 light motion off (reduced) | pass |
+| load calculator-problem.html 390 dark motion on | pass |
+| load calculator-problem.html 390 dark motion off (reduced) | pass |
+| load calculator-problem.html 1280 light motion on | pass |
+| load calculator-problem.html 1280 light motion off (reduced) | pass |
+| load calculator-problem.html 1280 dark motion on | pass |
+| load calculator-problem.html 1280 dark motion off (reduced) | pass |
+| load diagnose.html 390 light motion on | pass |
+| load diagnose.html 390 light motion off (reduced) | pass |
+| load diagnose.html 390 dark motion on | pass |
+| load diagnose.html 390 dark motion off (reduced) | pass |
+| load diagnose.html 1280 light motion on | pass |
+| load diagnose.html 1280 light motion off (reduced) | pass |
+| load diagnose.html 1280 dark motion on | pass |
+| load diagnose.html 1280 dark motion off (reduced) | pass |
+| load index.html 390 light motion on | pass |
+| load index.html 390 light motion off (reduced) | pass |
+| load index.html 390 dark motion on | pass |
+| load index.html 390 dark motion off (reduced) | pass |
+| load index.html 1280 light motion on | pass |
+| load index.html 1280 light motion off (reduced) | pass |
+| load index.html 1280 dark motion on | pass |
+| load index.html 1280 dark motion off (reduced) | pass |
+| load learn.html 390 light motion on | pass |
+| load learn.html 390 light motion off (reduced) | pass |
+| load learn.html 390 dark motion on | pass |
+| load learn.html 390 dark motion off (reduced) | pass |
+| load learn.html 1280 light motion on | pass |
+| load learn.html 1280 light motion off (reduced) | pass |
+| load learn.html 1280 dark motion on | pass |
+| load learn.html 1280 dark motion off (reduced) | pass |
+| load matrix.html 390 light motion on | pass |
+| load matrix.html 390 light motion off (reduced) | pass |
+| load matrix.html 390 dark motion on | pass |
+| load matrix.html 390 dark motion off (reduced) | pass |
+| load matrix.html 1280 light motion on | pass |
+| load matrix.html 1280 light motion off (reduced) | pass |
+| load matrix.html 1280 dark motion on | pass |
+| load matrix.html 1280 dark motion off (reduced) | pass |
+| load stack.html 390 light motion on | pass |
+| load stack.html 390 light motion off (reduced) | pass |
+| load stack.html 390 dark motion on | pass |
+| load stack.html 390 dark motion off (reduced) | pass |
+| load stack.html 1280 light motion on | pass |
+| load stack.html 1280 light motion off (reduced) | pass |
+| load stack.html 1280 dark motion on | pass |
+| load stack.html 1280 dark motion off (reduced) | pass |
+| load stances.html 390 light motion on | pass |
+| load stances.html 390 light motion off (reduced) | pass |
+| load stances.html 390 dark motion on | pass |
+| load stances.html 390 dark motion off (reduced) | pass |
+| load stances.html 1280 light motion on | pass |
+| load stances.html 1280 light motion off (reduced) | pass |
+| load stances.html 1280 dark motion on | pass |
+| load stances.html 1280 dark motion off (reduced) | pass |
+| load work.html 390 light motion on | pass |
+| load work.html 390 light motion off (reduced) | pass |
+| load work.html 390 dark motion on | pass |
+| load work.html 390 dark motion off (reduced) | pass |
+| load work.html 1280 light motion on | pass |
+| load work.html 1280 light motion off (reduced) | pass |
+| load work.html 1280 dark motion on | pass |
+| load work.html 1280 dark motion off (reduced) | pass |
+| JS off about.html 390 | pass |
+| JS off about.html 1280 | pass |
+| JS off calculator-problem.html 390 | pass |
+| JS off calculator-problem.html 1280 | pass |
+| JS off diagnose.html 390 | pass |
+| JS off diagnose.html 1280 | pass |
+| JS off index.html 390 | pass |
+| JS off index.html 1280 | pass |
+| JS off learn.html 390 | pass |
+| JS off learn.html 1280 | pass |
+| JS off matrix.html 390 | pass |
+| JS off matrix.html 1280 | pass |
+| JS off stack.html 390 | pass |
+| JS off stack.html 1280 | pass |
+| JS off stances.html 390 | pass |
+| JS off stances.html 1280 | pass |
+| JS off work.html 390 | pass |
+| JS off work.html 1280 | pass |
+| contrast light | pass |
+| contrast dark | pass |
+| banned words (visible text) | pass |
+| diagnostic: every combination returns a result | pass |
+| diagnostic: count equals source-derived and UI-derived counts | pass |
+| diagnostic: UI reports complete for every stance | pass |
+| footer build log equals this run | pass |

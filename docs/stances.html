@@ -69,9 +69,9 @@
   <div class="sc-stage js-only" data-stance="Oracle"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> every token converges on one bright point</p>
   <dl class="facts">
-<dt>Expectation</dt><dd>Coming to the LLM with the expectation of receiving truth in the form of an answer to a difficult question not easily knowable by the human.</dd>
-<dt>Why it dominates</dt><dd>It is a zero-sum archetype: the human asks, the LLM delivers, and the human&#x27;s cognitive load is minimized. That makes it seductive, and it demands an authority (truth without method) the technology cannot reliably provide.</dd>
-<dt>Failure mode</dt><dd>It collapses when the LLM hallucinates or confabulates, because the user has outsourced their epistemic filter. They asked for truth and received plausible prose.</dd>
+<dt>Expectation</dt><dd>The oracle, in the human&#x27;s eye, is the mental model of coming to the LLM with the expectation of receiving truth in the form of an answer to a difficult question not easily knowable by the human.</dd>
+<dt>Why it dominates</dt><dd>The Oracle and the Genie are indeed dominant, perhaps because they map neatly onto the two oldest human impulses toward knowledge: knowing and having. But they also happen to be the two most fragile archetypes for LLMs, because they demand unilateral authority (truth without method, deliverables without negotiation) that the technology cannot reliably provide.</dd>
+<dt>Failure mode</dt><dd>The Oracle collapses when the LLM hallucinates or confabulates, because the user has outsourced their epistemic filter. They asked for truth and received plausible prose.</dd>
 </dl>
   <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</p></div>
   <p class="aside-line">Adopt the Tutor over the Oracle: “Don&#x27;t tell me the answer yet. What questions should I be asking?”</p>
@@ -82,9 +82,9 @@
   <div class="sc-stage js-only" data-stance="Genie"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> tokens fill exactly the shape that was asked for, and nothing else</p>
   <dl class="facts">
-<dt>Expectation</dt><dd>Coming to the LLM with the expectation of asking for a wish: a request with a discrete deliverable outcome which can be verified, and receiving it.</dd>
-<dt>Why it dominates</dt><dd>Like the Oracle, it is a zero-sum archetype: the human asks, the LLM delivers, and the human&#x27;s cognitive load is minimized. It demands deliverables without negotiation.</dd>
-<dt>Failure mode</dt><dd>It collapses when the deliverable requires context the user did not provide, because wishes, by mythological contract, are literal and brittle.</dd>
+<dt>Expectation</dt><dd>The genie, in the human&#x27;s eye, is the mental model of coming to the LLM with the expectation of asking for a wish, a request with a discrete deliverable outcome which can be verified, and receiving that by the LLM/“genie”.</dd>
+<dt>Why it dominates</dt><dd>Both the Oracle and the Genie are zero-sum archetypes: the human asks, the LLM delivers. The human&#x27;s cognitive load is minimized.</dd>
+<dt>Failure mode</dt><dd>The Genie collapses when the deliverable requires context the user did not provide, because wishes, by mythological contract, are literal and brittle.</dd>
 </dl>
   <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>Specify scope, boundaries and success criteria before you ask (an Intent Doc).</p></div>
   <p class="aside-line">Adopt the Collaborator over the Genie: treat the first output as a rough joint draft. “Here is my intent and my constraints. Let&#x27;s iterate.”</p>
@@ -144,12 +144,12 @@
   <div class="sc-stage js-only" data-stance="Interpreter"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> material in, conclusions out; only the evidence trail shows which conclusions have a source</p>
   <dl class="facts">
-<dt>Expectation</dt><dd>The human brings the material (a paper, a contract, a dataset, a statute, a medical report) and expects the LLM to decode it: compress the complexity, say what it actually means, and draw out what conclusions or actions follow from it. “I don&#x27;t have time to master this domain. Tell me what this thing means and what I should take from it.”</dd>
-<dt>Why it stays hidden</dt><dd>It masquerades as its neighbors. It feels like the Librarian (the Librarian finds material; the Interpreter decodes material you already have) and like the Tutor (the Tutor builds understanding you keep; the Interpreter delivers conclusions you use). “Just reading, but outsourced” doesn&#x27;t feel like a skill.</dd>
+<dt>Expectation</dt><dd>The human brings the material — a paper, a contract, a dataset, a statute, a medical report — and expects the LLM to decode it: compress the complexity, say what it actually means, and draw out what conclusions or actions follow from it. The implicit contract is: “I don&#x27;t have time to master this domain. Tell me what this thing means and what I should take from it.”</dd>
+<dt>Why it stays hidden</dt><dd>It masquerades as its neighbors. It feels like the Librarian (it isn&#x27;t — the Librarian finds material; the Interpreter decodes material you already have), and it feels like the Tutor (it isn&#x27;t — the Tutor builds understanding you keep; the Interpreter delivers conclusions you use). Users rarely notice it as its own act because “just reading, but outsourced” doesn&#x27;t feel like a skill.</dd>
 <dt>Boundary test</dt><dd>Did you hand the AI something to decode? If the AI has to go find the material, that&#x27;s the Librarian. If the goal is lasting understanding rather than a conclusion, that&#x27;s the Tutor. The Interpreter is the middle act: material in, meaning and conclusions out.</dd>
-<dt>Failure mode</dt><dd>The most hallucination-prone archetype in the pantheon, because confabulated interpretation looks exactly like correct interpretation. An Oracle that errs is obviously wrong; an Interpreter that errs sounds insightful. And the user who needs an Interpreter is the least equipped person in the loop to catch the error.</dd>
+<dt>Failure mode</dt><dd>The Interpreter is the most hallucination-prone archetype in the pantheon, because confabulated interpretation looks exactly like correct interpretation. An Oracle that errs is obviously wrong; an Interpreter that errs sounds insightful. Worse, the user who needs an Interpreter is by definition the least equipped person in the loop to catch the error — they handed the material over precisely because they couldn&#x27;t decode it themselves. The defensive move converts the passive Interpreter into an active one: “Show me exactly which parts of the text support each conclusion.” The human must be able to trace every interpretation back to the source, every time.</dd>
 </dl>
-  <div class="rulebox"><p class="sys">cardinal rule</p><p>Never accept an interpretation you cannot trace back to the source. If you can&#x27;t point to the sentence, clause, or row that supports the conclusion, you don&#x27;t have an interpretation; you have a rumor in polished prose.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule</p><p>Never accept an interpretation you cannot trace back to the source. If you can&#x27;t point to the sentence, clause, or row that supports the conclusion, you don&#x27;t have an interpretation — you have a rumor in polished prose.</p></div>
 </article>
 <article class="stance-card" id="simulator" data-layers="context" data-meta="unplaced" aria-labelledby="h-simulator">
   <div class="sc-top"><h3 id="h-simulator">Simulator</h3><p class="sys sc-num">08 / 14</p></div>
@@ -182,12 +182,12 @@
   <div class="sc-stage js-only" data-stance="Executor"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> a stream leaves on its own; the checkpoint line catches it</p>
   <dl class="facts">
-<dt>Expectation</dt><dd>Full delegation of an outcome. The human supplies the goal; the agent supplies the steps, the labor, and the intermediate decisions; the work happens where the human is not looking; the human reviews when it is done. A job, supervised after the fact.</dd>
-<dt>Why it stays hidden</dt><dd>It is new (it barely existed before agents) and it doesn&#x27;t register as a stance toward AI at all, because it feels like simply managing. It also hides inside the Genie&#x27;s vocabulary (“I asked it to do X”).</dd>
-<dt>Boundary test</dt><dd>Did you inspect the deliverable as the whole of the work (Genie), or is the deliverable just the end of a chain you never saw (Executor)? And did you supply the substance the craft works on (Scribe), or only the goal? Execution judgment is transferred; goal judgment is supposed to stay with you.</dd>
-<dt>Failure mode</dt><dd>Automation complacency, and it fails on the human&#x27;s side of the contract. Oversight atrophies because not-watching is the entire point of delegation; the agent completes the letter of the task and misses its point; many small, locally correct steps compound into one wrong outcome; and the failure surfaces later than in any other archetype.</dd>
+<dt>Expectation</dt><dd>Full delegation of an outcome. The human supplies the goal; the agent supplies the steps, the labor, and the intermediate decisions; the work happens where the human is not looking; the human reviews when it is done. “Fix the failing tests.” “Book the trip.” “Reconcile these accounts and draft the summary.” Not a single wish (the Genie) and not craft applied to material you supplied (the Scribe) — a job, supervised after the fact.</dd>
+<dt>Why it stays hidden</dt><dd>It is new — it barely existed before agents — and it doesn&#x27;t register as a stance toward AI at all, because it feels like simply managing. It also hides inside the Genie&#x27;s vocabulary (“I asked it to do X”), which obscures the difference between inspecting one deliverable and supervising a workflow you never watched.</dd>
+<dt>Boundary test</dt><dd>Two questions. Did you inspect the deliverable as the whole of the work (Genie), or is the deliverable just the end of a chain you never saw (Executor)? And did you supply the substance the craft works on (Scribe), or only the goal? The Executor is defined by a delegated how: execution judgment is transferred; goal judgment is supposed to stay with you.</dd>
+<dt>Failure mode</dt><dd>Not hallucination (Oracle, Interpreter), not literalism (Genie) — automation complacency, and it fails on the human&#x27;s side of the contract. Oversight atrophies because not-watching is the entire point of delegation; the agent completes the letter of the task and misses its point; many small, locally correct steps compound into one wrong outcome; and the failure surfaces late — later than any other archetype in this document — at the moment you lean on the finished work.</dd>
 </dl>
-  <div class="rulebox"><p class="sys">cardinal rule</p><p>Delegation transfers labor, never responsibility. If you can&#x27;t see where the work went, you don&#x27;t have completed work; you have confident claims about completed work.</p></div>
+  <div class="rulebox"><p class="sys">cardinal rule</p><p>Delegation transfers labor, never responsibility — and if you can&#x27;t see where the work went, you don&#x27;t have completed work; you have confident claims about completed work.</p></div>
   <p class="aside-line"><strong>Guardrail.</strong> The guardrail is structural, not interpretive: plan before action, checkpoints at intermediate states, an explicit deviation report (“tell me everywhere you departed from the letter of the task, and why”), and nothing consequential ships uninspected.</p>
 </article>
 <article class="stance-card" id="muse" data-layers="none" data-meta="consumption" aria-labelledby="h-muse">
@@ -208,14 +208,13 @@
   <div class="sc-stage js-only" data-stance="Miner"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> tokens scatter; bright ore surfaces; pass over it to record it before the vein shifts</p>
   <dl class="facts">
-<dt>Expectation</dt><dd>Not an output but a space. The human treats the model as a vast, mostly unvisited space of possible outputs and works it like a vein: many variations generated cheaply, collected without immediate judgment, then selected and assayed later with cold attention.</dd>
-<dt>Why it stays hidden</dt><dd>It hides inside the Muse (“I asked for ideas”). It also looks wasteful: generating seven outputs to keep one violates every efficiency instinct the interface trains. And most of what comes up is dross, so without selection discipline the dross rate reads as the tool failing.</dd>
-<dt>Boundary test</dt><dd>Did you ask for one good thing, or for the shape of the space? The Muse receives a provocation and judges it on arrival. The Miner generates in volume, withholds judgment, selects late. If you are evaluating while you read, you are not mining; you are browsing.</dd>
-<dt>Failure mode</dt><dd>Two errors in the same breath. Assaying nothing: the anomaly gets believed because it was wanted (sycophancy through the side door). Losing the vein: the ore is generated by sampling, not stored in the weights, so you cannot re-find a nugget by re-running the same prompt.</dd>
+<dt>Expectation</dt><dd>Not an output but a space. The human treats the model as a vast, mostly unvisited space of possible outputs and works it like a vein: many variations generated cheaply, collected without immediate judgment, then selected and assayed later with cold attention. The implicit contract is “show me what the space contains” — not “tell me the best answer,” and not “provoke me once.”</dd>
+<dt>Why it stays hidden</dt><dd>It hides inside the Muse — “I asked for ideas” — and the difference between receiving one provocation and working a vein looks like degree rather than kind. It also looks wasteful: generating seven outputs to keep one violates every efficiency instinct the interface trains. And most of what comes up is dross, so without the selection discipline the dross rate reads as the tool failing rather than as the cost of ore.</dd>
+<dt>Boundary test</dt><dd>Did you ask for one good thing, or for the shape of the space? The Muse receives a provocation and judges it on arrival. The Miner generates in volume, withholds judgment, selects late — and keeps the strange results somewhere separate to be read cold. If you are evaluating while you read, you are not mining; you are browsing.</dd>
+<dt>Failure mode</dt><dd>The Miner is the only archetype that deliberately courts malfunction — hallucinated connections, wrong-but-interesting tangents, answers to questions you didn&#x27;t ask. That is its value and its vulnerability in one, and there are two errors to name in the same breath. The first is assaying nothing: the anomaly gets believed because it was wanted — sycophancy entered through the side door. The mined idea is ore, never a citation; nothing mined enters anything you stake something on until it has survived an independent check. The second is losing the vein: the ore is generated by sampling, not stored in the weights, so the vein moves — you cannot re-find a nugget by re-running the same prompt.</dd>
 </dl>
   <div class="rulebox"><p class="sys">cardinal rule</p><p>If you didn&#x27;t record it when you found it, you never had it.</p></div>
-  <p class="aside-line"><strong>Guardrail.</strong> The mined idea is ore, never a citation; nothing mined enters anything you stake something on until it has survived an independent check.</p>
-  <p class="aside-line">“Give me seven approaches from seven different angles. Do not evaluate them; I will choose.”</p>
+  <p class="aside-line">“Give me seven approaches from seven different angles. Do not evaluate them — I will choose.”</p>
 </article>
 <article class="stance-card" id="therapist" data-layers="judgment" data-meta="consumption" aria-labelledby="h-therapist">
   <div class="sc-top"><h3 id="h-therapist">Therapist <span class="alias">(or Confessor)</span></h3><p class="sys sc-num">13 / 14</p></div>
@@ -269,19 +268,18 @@
       <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
         <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 329,535 bytes deployable, fonts excluded (budget 900,000)</li>
-        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
         <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
-        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
-        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
+        <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
       </ol>
     </section>
     <div class="footer-meta">
       <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
       <ul class="footer-links">
         <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-        <li>Repository license: GPL-3.0</li>
-        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li>Code MIT · documents CC BY-SA 4.0</li>
         <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
         <li><a href="about.html">About and credits</a></li>
       </ul>

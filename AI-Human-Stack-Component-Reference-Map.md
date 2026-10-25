@@ -1,7 +1,7 @@
 # AI-Human Engineering Stack — Component Reference Map
 
 **Version:** 1.0 | March 2026  
-**Authors:** Hayen Mill & Henrique Jr. Sanchez  
+**Author:** Henrique Jr. Sanchez  
 **Purpose:** A design reference for comparing architectures against the stack. Not a diagnostic questionnaire — a concrete map of what each component looks like when implemented, at different levels of maturity.
 
 ---

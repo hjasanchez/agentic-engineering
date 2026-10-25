@@ -52,7 +52,6 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§1</span> lineage</p>
     <h2 id="lin-title">Lineage</h2>
-    <!-- DECISION FOR HENRIQUE: the Stack and Specifying Work documents are co-credited to "Hayen Mill"; this page keeps that credit as published on stack.html and does not discuss it. Decide the line before launch (STRATEGY_BRIEF.md 3.7). -->
     <div class="prose"><p>None of this came from nowhere, and I would rather over-credit than be assumed derivative. <strong>Anthropic's AI Fluency</strong> course (with Joseph Feller and Rick Dakan) and its 4Ds, Delegation, Description, Discernment and Diligence, are the baseline; mode fluency is meant as the diagnostic layer above them. <strong>Ethan Mollick</strong>'s <em>Co-Intelligence</em>, his centaurs and cyborgs and the jagged frontier are a reason stances need choosing at all. <strong>Nate B. Jones</strong> made the public case for intent engineering, which is the third layer of the Stack, and identified the Stack's fractal property. <strong>Andrej Karpathy</strong> endorsed &ldquo;context engineering&rdquo; and named &ldquo;agentic engineering&rdquo;, the developer end of the same ladder. The CHI 2026 paper by Chappidi, Singh and Krauze, &ldquo;Who Does What? Archetypes of Roles Assigned to LLMs During Human-AI Decision-Making&rdquo; (<a href="https://arxiv.org/abs/2602.11924">arXiv 2602.11924</a>), got to &ldquo;archetypes&rdquo; first, for decision support; the Stances are for everyday knowledge work. The four ambition types are <strong>Felix Rieseberg</strong>'s (<a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">How to be more ambitious</a>). The autonomy modes table draws on <strong>Cory Gwin</strong>'s analysis, and his feedback revised the Specifying Work guide.</p></div>
   </div>
 </section>
@@ -76,17 +75,17 @@
         <caption>From site-c/_qa/qa-report.md</caption>
         <tbody>
 <!-- @aboutlog -->
-          <tr><th scope="row" class="sys">date</th><td>2026-10-22</td></tr>
+          <tr><th scope="row" class="sys">date</th><td>2026-10-25</td></tr>
           <tr><th scope="row" class="sys">pages</th><td>9, sharing one header and footer</td></tr>
           <tr><th scope="row" class="sys">files</th><td>15 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)</td></tr>
-          <tr><th scope="row" class="sys">size</th><td>329,535 bytes, fonts excluded (budget 900,000)</td></tr>
+          <tr><th scope="row" class="sys">size</th><td>330,726 bytes, fonts excluded (budget 900,000)</td></tr>
           <tr><th scope="row" class="sys">libraries</th><td>0 frameworks, 0 libraries, 0 external scripts; fonts from Google Fonts</td></tr>
           <tr><th scope="row" class="sys">fields</th><td>14 stance behaviours (7 from the design concept, 7 new) plus the hero, the essay strip and 14 card fields</td></tr>
           <tr><th scope="row" class="sys">QA loads</th><td>72 in headless Chromium: console errors 0, failed requests 0, horizontal overflow 0</td></tr>
           <tr><th scope="row" class="sys">contrast</th><td>4,437 text elements per theme; lowest 4.98:1 light, 6.07:1 dark</td></tr>
-          <tr><th scope="row" class="sys">diagnostic</th><td>26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</td></tr>
+          <tr><th scope="row" class="sys">diagnostic</th><td>26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</td></tr>
           <tr><th scope="row" class="sys">hero field</th><td>1,600 agents at 1280 px, 60 fps in the QA browser (indicative)</td></tr>
-          <tr><th scope="row" class="sys">checks</th><td>123 of 123 passed</td></tr>
+          <tr><th scope="row" class="sys">checks</th><td>97 of 97 passed</td></tr>
 <!-- /@aboutlog -->
         </tbody>
       </table>
@@ -102,7 +101,7 @@
       <li><strong>Essay strip.</strong> The reactive strip sits at the top of the essay and stays pinned under the header while you read, marking reading progress. Nothing animates behind the text.</li>
       <li><strong>Privacy sentence made more exact.</strong> Thumbnails are lazy-loaded, so learn.html says they load from YouTube&rsquo;s image host &ldquo;when they scroll into view&rdquo;; the rest of the spec&rsquo;s sentence is kept.</li>
       <li><strong>Without JavaScript.</strong> Every page&rsquo;s text is present; the instruments (compass, fields, circuits, filters, console) are hidden, and their content is given as text instead: the axis list, the stance cards, the matrix table, and the diagnostic&rsquo;s questions on paper.</li>
-      <li><strong>Fix pass after a blind review.</strong> An independent reviewer found 0 high, 4 medium and 14 low issues and no invented content. All 4 medium issues and most low ones were fixed (see _qa/qa-report.md, &ldquo;Fix pass&rdquo;); the stance texts that v3 gives at greater length are still abridged on the cards without ellipses.</li>
+      <li><strong>Fix pass after a blind review.</strong> An independent reviewer found 0 high, 4 medium and 14 low issues and no invented content. All 4 medium issues and most low ones were fixed (see _qa/qa-report.md, &ldquo;Fix pass&rdquo;); the five stance texts that v3 gives at greater length (Oracle, Genie, Interpreter, Executor, Miner) were restored in full on 2026-10-25.</li>
       <li><strong>Diagnostic logic untouched.</strong> The two open questions from the prototype review (the recovery question cannot name Judgment, Coherence or Harness; only a &ldquo;new&rdquo; experience answer changes the result) are left as they were, because the spec said to keep the logic.</li>
       <li><strong>About wording.</strong> The prototype said Henrique works &ldquo;as an engineer&rdquo;; that detail is not in the source notes, so this page says only that Henrique works full time in a field that is not AI.</li>
       <li><strong>Not verified.</strong> Safari, Firefox and real screen readers were not tested; frame rates come from headless Chromium and are indicative only. The site&rsquo;s own protocol audit has not been run yet (see below).</li>
@@ -118,8 +117,8 @@
     <p class="sys section-tag"><span class="num">§4</span> license</p>
     <h2 id="lic-title">License</h2>
     <div class="prose">
-      <p>The source repository, <a href="https://github.com/hjasanchez/agentic-engineering">hjasanchez/agentic-engineering</a>, is published under the GPL-3.0 license. This site lives in that repository, so its code is GPL-3.0 too.</p>
-      <p>For the written content (essays, stance and Stack texts), the license <strong>proposed</strong> is CC BY-SA 4.0: reuse and adapt it with credit, and share alike. This is a proposal, not yet a decision.</p>
+      <p>The source repository, <a href="https://github.com/hjasanchez/agentic-engineering">hjasanchez/agentic-engineering</a>, splits its license in two. The code (this site, the skills and the scripts) is MIT: use it as you like and keep the notice.</p>
+      <p>The documents (the PDFs, the protocol files, the matrix, the essays and the text on this site) are CC BY-SA 4.0: reuse and adapt them with credit, and share what you make under the same license. Versions published before 25 October 2026 stay available under GPL-3.0 as released.</p>
     </div>
   </div>
 </section>
@@ -139,19 +138,18 @@
       <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
         <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 329,535 bytes deployable, fonts excluded (budget 900,000)</li>
-        <li>qa 2026-10-22: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
         <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
-        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 4 paths driven through the UI</li>
-        <li>checks: 123 of 123 passed; report in _qa/qa-report.md</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
+        <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
       </ol>
     </section>
     <div class="footer-meta">
       <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
       <ul class="footer-links">
         <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
-        <li>Repository license: GPL-3.0</li>
-        <li>Site content: CC BY-SA 4.0 (proposed)</li>
+        <li>Code MIT · documents CC BY-SA 4.0</li>
         <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
         <li><a href="about.html">About and credits</a></li>
       </ul>

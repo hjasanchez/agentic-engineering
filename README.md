@@ -54,8 +54,8 @@ Everything above is free and stays free. What I charge for is my time: a two-wee
 
 ## Credits and lineage
 
-This work builds on Anthropic's AI Fluency framework (the 4Ds), Ethan Mollick's *Co-Intelligence*, Nate B. Jones's intent engineering, Andrej Karpathy's agentic and context engineering, Felix Rieseberg's four kinds of ambition, and the human-LLM archetypes literature. The AI-Human Engineering Stack and the Specifying guide were co-written with "Hayen Mill", a pen name used while drafting with AI.
+This work builds on Anthropic's AI Fluency framework (the 4Ds), Ethan Mollick's *Co-Intelligence*, Nate B. Jones's intent engineering, Andrej Karpathy's agentic and context engineering, Felix Rieseberg's four kinds of ambition, and the human-LLM archetypes literature.
 
 ## License and citation
 
-Code and skills: MIT. Documents, slides and videos: GPL-3.0 as published (a move to CC BY-SA 4.0 is under consideration). Cite as: Sanchez, H. J. (2026). *Mode Fluency*. github.com/hjasanchez/agentic-engineering.
+Code and skills are MIT ([LICENSES/MIT.txt](LICENSES/MIT.txt)). Documents, slides and videos are CC BY-SA 4.0 ([LICENSES/CC-BY-SA-4.0.txt](LICENSES/CC-BY-SA-4.0.txt)). Cite as: Sanchez, H. J. (2026). *Mode Fluency*. github.com/hjasanchez/agentic-engineering.
