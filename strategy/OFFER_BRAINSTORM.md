@@ -47,3 +47,27 @@ Every rung produces the material for the next and none requires the previous to 
 1. Do you want the team edition to exist at all, given it is software to maintain?
 2. Is the Sprint something you can deliver in evenings and weekends, or is it a transition-phase product?
 3. Which job family do you know best for the first harness kit?
+
+## One-off products (added 2026-10-25)
+Bought once, delivered mostly in writing, fits evenings across time zones. Full benchmarks, hours and reasoning:
+`strategy/research/R6_one_off_offers.md`. Bands are internal; nothing here goes on the site.
+
+| Rank | Offer | Band | Hours | Async | Leads to |
+|---|---|---|---|---|---|
+| 1 | **Workflow teardown**: one workflow in writing → delegation spec (stance, binding layer, three checks) + video | $500–750 (Redline of one prompt/instruction file: $150–250) | 4–6 | 95% | Sprint |
+| 2 | **Team read without software**: 5–10 people run the Diagnostic privately; hand-written team profile + readout | $1,200–2,000 | 8–10 | 90% | Assessment; prototypes the team edition |
+| 3 | **Second opinion** on a rollout plan or vendor pitch (the Adversary as a service) | $750–1,500 | 5–8 | 95% | Assessment / Sprint |
+| 4 | **The Calculator Problem talk**, 45 min remote | $1,500–3,000 | 3–4 per delivery after a 15–20 h build | 0% | Workshop |
+| 5 | **Ten checks**: first ten checks for one workflow, wired into the team's instructions | $1,200–2,000 | 8–12 | 85% | Sprint |
+| 6 | **Article 4 evidence pack** (records review + gap list; not legal advice) | $1,500–2,500 | 10–12 | 90% | Assessment (fee credited) |
+| 7 | **Stance debrief** (written read + 45-min call), max 4/month | $150–250 | 2–2.5 | 60% | Case material |
+| 8 | **One-workflow build** (skill, GPT or agent), only after a teardown | $1,500–3,000 | 12–20 | 80% | Sprint |
+
+Rejected for now: licensing an onboarding module. Free substitutes exist, and it needs an audience. Revisit with the course in
+months 9–12.
+
+**Strongest first product: the Workflow teardown at $500.** It needs no meeting, it reuses the Matrix and the Specifying guide,
+and it produces the Sprint's spec. Credit the fee against a Sprint or assessment within 30 days.
+
+**Ladder note.** The teardown, Redline and debrief add paid rungs below the $1,200 workshop. This is an explicit addition; no
+existing rung moves. Credits on every one-off keep pointing buyers up the ladder.
