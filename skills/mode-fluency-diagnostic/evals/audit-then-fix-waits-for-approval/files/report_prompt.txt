@@ -1,0 +1,1 @@
+Summarise the supplier CSVs into a one-page report for the ops manager.

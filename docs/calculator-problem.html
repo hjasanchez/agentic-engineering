@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- @head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
+<title>The Calculator Problem · Mode Fluency</title>
+<meta name="description" content="We taught everyone to press the buttons. Nobody taught them which problems the calculator is for. An essay on mode fluency, with sources.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
+</head>
+<body data-page="essay" data-title="The Calculator Problem">
+<!-- @header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul><li><a href="calculator-problem.html" aria-current="page">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+    </nav>
+    <a class="header-cta" href="work.html">Work with me</a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
+  </div>
+</header>
+<!-- /@header -->
+<main id="main" tabindex="-1">
+<div class="read-strip" id="read-strip" aria-hidden="true"><canvas></canvas></div>
+<article class="essay" id="essay" aria-labelledby="essay-title">
+  <div class="wrap">
+    <header class="essay-body">
+      <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> cat essays/the-calculator-problem.md <span class="dim">&middot; October 2026 &middot; draft</span></p>
+      <h1 id="essay-title">The Calculator Problem</h1>
+      <p class="lede">We taught everyone to press the buttons. Nobody taught them which problems the calculator is for.</p>
+      <p class="sys byline">Henrique Jr. Sanchez <span class="dim">&middot; serif: the human voice &middot; monospace: the system&rsquo;s notes and sources</span></p>
+    </header>
+    <div class="essay-body">
+<p>In 1980 Seymour Papert wrote the sentence I wish I had written. Computer literacy, he said, &ldquo;is often taken as meaning knowing how to program, or knowing about the varied uses made of computers.&rdquo; Then:</p>
+<blockquote><p>&ldquo;But true computer literacy is not just knowing how to make use of computers and computational ideas. It is knowing when it is appropriate to do so.&rdquo;</p><cite>Seymour Papert, <em>Mindstorms</em> (1980)<sup><a href="#src-1" aria-label="Source 1">[1]</a></sup></cite></blockquote>
+<div class="para">
+<p>Swap &ldquo;computers&rdquo; for &ldquo;AI&rdquo; and you have the problem I keep running into, and the reason this site exists.</p>
+<aside class="note"><span class="lv">[1]</span> Papert, <em>Mindstorms</em> (1980), c. p. 155 of the 1st-edition scan.</aside>
+</div>
+<h2><span class="sys" aria-hidden="true">§1 buttons</span>The buttons are mostly solved</h2>
+<p>Most AI training teaches the buttons: how to write a prompt, which tool your IT department allows, what a context window is. I teach that too. It is what AI @ Workplace 101 to 401 are for, and you need it the way you need to know where the keys are. But the buttons are not where the money is lost.</p>
+<div class="para">
+<p>A 2025 S&amp;P Global survey found that 42% of companies had abandoned most of their AI initiatives, up from 17% the year before.<sup><a href="#src-2" aria-label="Source 2">[2]</a></sup> The models did not get worse that year. What fails, consistently and expensively, is the interface between human purpose and machine execution.</p>
+<aside class="note"><span class="lv">[2]</span> S&amp;P Global survey, reported by CIO Dive on 14 March 2025. Verified through press coverage only.</aside>
+<aside class="note log"><span class="lv">log</span> date corrected: an earlier document said &ldquo;late 2025&rdquo;; the press report is dated 14 March 2025.</aside>
+</div>
+<div class="para">
+<p>The other number everyone quotes is METR's. In July 2025 its randomized controlled trial found that experienced open-source developers took 19% longer with AI tools, while believing afterwards that they had been 20% faster.<sup><a href="#src-3" aria-label="Source 3">[3]</a></sup> I used that figure in my own documents, and it needs an update. In February 2026 METR said its newer data was &ldquo;an unreliable signal&rdquo;, partly because developers increasingly refused to work without AI. The point estimates moved toward a speedup, and both intervals include zero.<sup><a href="#src-4" aria-label="Source 4">[4]</a></sup> So the 2026 follow-up no longer shows a slowdown. The part that survives is the gap between feeling and fact: skilled people could not tell, from the inside, how much the tool was helping.</p>
+<aside class="note"><span class="lv">[3]</span> METR, July 2025: 16 developers, 246 tasks. <span class="lv">[4]</span> METR, 24 February 2026.</aside>
+<aside class="note log"><span class="lv">log</span> correction applied 2026-10-21: the 19% slowdown is no longer cited as the current state. METR&rsquo;s own February 2026 words are quoted instead.</aside>
+</div>
+<h2><span class="sys" aria-hidden="true">§2 calculator</span>What the calculator taught us</h2>
+<div class="para">
+<p>We have done this before. When calculators arrived in classrooms the argument was loud and the outcome was quiet. In 1980 the US National Council of Teachers of Mathematics recommended that &ldquo;problem solving should be the focus of school mathematics&rdquo; and that programs &ldquo;take full advantage of the power of calculators and computers at all grade levels&rdquo;.<sup><a href="#src-5" aria-label="Source 5">[5]</a></sup> The machine took the arithmetic, and the human curriculum moved up.</p>
+<aside class="note"><span class="lv">[5]</span> NCTM, <em>An Agenda for Action</em> (1980), ERIC ED186265.</aside>
+</div>
+<div class="para">
+<p>The research afterwards is specific. A 2003 meta-analysis of 54 studies found that calculator use &ldquo;did not hinder the development of mathematical skills&rdquo;, and that skills improved when calculators were &ldquo;an integral part of testing and instruction&rdquo;.<sup><a href="#src-6" aria-label="Source 6">[6]</a></sup> The one consistent harm signal was early: sustained calculator use in Grade 4 &ldquo;appears to hinder the development of basic skills in average students&rdquo;.<sup><a href="#src-7" aria-label="Source 7">[7]</a></sup> Foundations first, then the tool. And redesign the checking around the tool.</p>
+<aside class="note"><span class="lv">[6]</span> Ellington 2003: meta-analysis of 54 precollege studies. <span class="lv">[7]</span> Hembree &amp; Dessart 1986: meta-analysis of 79 research reports.</aside>
+</div>
+<p>That is the calculator problem. Not &ldquo;should we use it&rdquo;, but &ldquo;for which problems, when, and who checks&rdquo;.</p>
+<h2><span class="sys" aria-hidden="true">§3 limits</span>Where the analogy breaks</h2>
+<div class="para">
+<p>I have to be careful, because the calculator is a flattering comparison. A calculator returns the same correct answer every time. A language model is probabilistic and can be fluently wrong, in the same confident tone it uses when it is right. A calculator automates a skill <em>below</em> the problem. An LLM reaches into the framing, the reasoning and the writing, the &ldquo;math by hand&rdquo; layer itself. There is no clean line beneath which delegation is safe, so you need a way to decide case by case.</p>
+<aside class="note log"><span class="lv">log</span> limits of the analogy, kept in the essay on purpose: a calculator is deterministic; a language model is probabilistic and can be fluently wrong.</aside>
+</div>
+<h2><span class="sys" aria-hidden="true">§4 cockpit</span>What the cockpit taught us</h2>
+<div class="para">
+<p>Aviation has a name for one version of this: mode confusion. After the Asiana 214 crash in 2013, the NTSB found that autothrottle and autopilot complexities were &ldquo;inadequately described in Boeing's documentation and Asiana's pilot training, which increased the likelihood of mode error&rdquo;.<sup><a href="#src-8" aria-label="Source 8">[8]</a></sup> A 2013 FAA working group found that pilots &ldquo;sometimes rely too much on automated systems and may be reluctant to intervene&rdquo;, and that &ldquo;Autoflight mode confusion errors continue to occur&rdquo;.<sup><a href="#src-9" aria-label="Source 9">[9]</a></sup> Skilled crews, working automation. The failure was not knowing which mode they were in.</p>
+<aside class="note"><span class="lv">[8]</span> NTSB, Asiana 214 report, AAR-14/01 (2014). <span class="lv">[9]</span> FAA PARC/CAST Flight Deck Automation Working Group (2013).</aside>
+</div>
+<div class="para">
+<p>The finding that changed how I think about my own work is older. Parasuraman and Manzey's 2010 review found that automation complacency appears in naive and expert participants alike and &ldquo;cannot be overcome with simple practice&rdquo;, and that automation bias &ldquo;cannot be prevented by training or instructions&rdquo;.<sup><a href="#src-10" aria-label="Source 10">[10]</a></sup> Training is necessary and it is not enough. You also need structure: a plan before action, checkpoints, a deviation report, nothing consequential shipped uninspected. Aviation built that into procedure. Knowledge work has no licences, no recurrent checks and no public accident reports, so we have to build the structure ourselves.</p>
+<aside class="note"><span class="lv">[10]</span> Parasuraman &amp; Manzey, <em>Human Factors</em> 52(3), 2010.</aside>
+<aside class="note log"><span class="lv">log</span> this is why the Executor&rsquo;s guardrail is structural: plan, checkpoints, deviation report. See <a href="stances.html#executor">the Executor</a>.</aside>
+</div>
+<h2><span class="sys" aria-hidden="true">§5 mode_fluency</span>Mode fluency</h2>
+<p>Here is the claim. Working well with AI is not one skill. It is moving deliberately along four axes:</p>
+<div class="para">
+<ul class="clean">
+      <li><strong>Stance:</strong> what am I expecting from this exchange? An answer (Oracle), a deliverable (Genie), a decoded document (Interpreter), a job done while I am not looking (Executor), and ten more.</li>
+      <li><strong>Structure:</strong> what must I supply for that expectation to hold? Prompt, context, intent, judgment, coherence, plus evaluation and a harness.</li>
+      <li><strong>Autonomy:</strong> how much of the work am I watching? Assistive, directed, autonomous, continuous.</li>
+      <li><strong>Ambition:</strong> how big is the ask? Speed, altitude, depth, range, in Felix Rieseberg's four types.<sup><a href="#src-11" aria-label="Source 11">[11]</a></sup></li>
+    </ul>
+<aside class="note"><span class="lv">[11]</span> Rieseberg, &ldquo;How to be more ambitious&rdquo;, 13 October 2026.</aside>
+</div>
+<p>Mode fluency is knowing which mode you are in, choosing it on purpose, and when the work goes wrong, re-entering at the right one. When output disappoints, the instinct is to rewrite the prompt. Often that is the wrong layer. The fix is adding a file to context, clarifying a priority, or deciding what the AI should do when it is uncertain, none of which involve changing the prompt at all.</p>
+<div class="para">
+<p>The practical tool is <a href="matrix.html">a table</a>. Each stance leans on one layer of the Stack, and that is where its failure lives. The Oracle fails at judgment: you took confident prose as fact. The Genie fails at the prompt: wishes are literal. The Interpreter fails at evaluation: a confabulated reading sounds more insightful than the true one. The Executor fails latest of all, in the harness and in your judgment, because not watching was the point. Name the stance, then check its layer first.</p>
+<aside class="note log"><span class="lv">log</span> the table is live: <a href="matrix.html">matrix.html</a> wires all 14 stances to their layers.</aside>
+</div>
+<h2><span class="sys" aria-hidden="true">§6 lineage</span>Where this sits</h2>
+<div class="para">
+<p>None of this replaces what you may already know. Anthropic's AI Fluency course and its 4Ds (Delegation, Description, Discernment, Diligence) are a good baseline; if you know the 4Ds, mode fluency is the diagnostic layer above them.<sup><a href="#src-12" aria-label="Source 12">[12]</a></sup> Andrej Karpathy's &ldquo;agentic engineering&rdquo; is the developer end of the same ladder.<sup><a href="#src-13" aria-label="Source 13">[13]</a></sup> Nate B. Jones made the public case for intent engineering, making AI optimize for what you actually want; it is one layer of the Stack, and the credit is his.<sup><a href="#src-14" aria-label="Source 14">[14]</a></sup> What I am adding is the part for people who are not engineers: which stance you are in, which layer that stance depends on, and what to check before anything leaves under your name.</p>
+<aside class="note"><span class="lv">[12]</span> Anthropic, AI Fluency (Feller, Dakan). <span class="lv">[13]</span> Karpathy, February 2026, via The New Stack. <span class="lv">[14]</span> Nate B. Jones, Prompt Kit, 14 February 2026.</aside>
+</div>
+<p>Intelligence is now cheap, but judgment is rare. You may use the calculator. You still sign the exam.</p>
+      <div class="essay-actions"><a class="cmd" href="diagnose.html"><span class="cmd-glyph" aria-hidden="true">?</span> Which mode are you in?</a><a class="cmd cmd-ghost" href="stances.html"><span class="cmd-glyph" aria-hidden="true">$</span> The Fourteen Stances</a></div>
+    </div>
+  </div>
+</article>
+<section class="section sources-section" aria-labelledby="sources-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§7</span> sources</p>
+    <h2 id="sources-title">Sources</h2>
+    <ol class="sources"><li id="src-1">Papert, S. (1980). <em>Mindstorms: Children, Computers, and Powerful Ideas</em>. Basic Books, c. p. 155 of the 1st-edition scan. <a href="https://worrydream.com/refs/Papert_1980_-_Mindstorms,_1st_ed.pdf">https://worrydream.com/refs/Papert_1980_-_Mindstorms,_1st_ed.pdf</a></li><li id="src-2">S&amp;P Global Market Intelligence survey of 1,000+ respondents in North America and Europe, as reported by CIO Dive, 14 March 2025. S&amp;P's own report was not reached; figure verified through press coverage only. <a href="https://www.ciodive.com/news/AI-project-fail-data-SPGlobal/742590/">https://www.ciodive.com/news/AI-project-fail-data-SPGlobal/742590/</a></li><li id="src-3">Becker, J., Rush, N., Barnes, E. &amp; Rein, D. / METR (July 2025). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity. 16 developers, 246 tasks. <a href="https://arxiv.org/abs/2507.09089">https://arxiv.org/abs/2507.09089</a></li><li id="src-4">Becker, J. et al. / METR (24 February 2026). We are Changing our Developer Productivity Experiment Design. <a href="https://metr.org/blog/2026-02-24-uplift-update/">https://metr.org/blog/2026-02-24-uplift-update/</a></li><li id="src-5">NCTM (1980). <em>An Agenda for Action: Recommendations for School Mathematics of the 1980s</em>. ERIC ED186265. <a href="https://eric.ed.gov/?id=ED186265">https://eric.ed.gov/?id=ED186265</a></li><li id="src-6">Ellington, A. J. (2003). A Meta-Analysis of the Effects of Calculators on Students' Achievement and Attitude Levels in Precollege Mathematics Classes. <em>JRME</em> 34(5):433-463. <a href="https://pubs.nctm.org/view/journals/jrme/34/5/article-p433.xml">https://pubs.nctm.org/view/journals/jrme/34/5/article-p433.xml</a></li><li id="src-7">Hembree, R. &amp; Dessart, D. J. (1986). Effects of Hand-Held Calculators in Precollege Mathematics Education: A Meta-Analysis. <em>JRME</em> 17(2):83-99. <a href="https://pubs.nctm.org/view/journals/jrme/17/2/article-p83.xml">https://pubs.nctm.org/view/journals/jrme/17/2/article-p83.xml</a></li><li id="src-8">NTSB (2014). <em>Descent Below Visual Glidepath and Impact With Seawall, Asiana Airlines Flight 214</em>. NTSB/AAR-14/01. <a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1401.pdf">https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1401.pdf</a></li><li id="src-9">PARC/CAST Flight Deck Automation Working Group (2013). <em>Operational Use of Flight Path Management Systems</em>. FAA. <a href="https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/human_factors/OUFPMS_Report.pdf">https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/human_factors/OUFPMS_Report.pdf</a></li><li id="src-10">Parasuraman, R. &amp; Manzey, D. H. (2010). Complacency and Bias in Human Use of Automation: An Attentional Integration. <em>Human Factors</em> 52(3):381-410. <a href="https://doi.org/10.1177/0018720810376055">https://doi.org/10.1177/0018720810376055</a></li><li id="src-11">Rieseberg, F. (13 October 2026). How to be more ambitious: A tutorial for humans with models. <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/</a></li><li id="src-12">Anthropic, with Prof. Joseph Feller and Prof. Rick Dakan. <em>AI Fluency: Framework &amp; Foundations</em> (free course; the 4D framework). <a href="https://www.anthropic.com/ai-fluency">https://www.anthropic.com/ai-fluency</a></li><li id="src-13">Andrej Karpathy proposed &ldquo;agentic engineering&rdquo; as the successor to &ldquo;vibe coding&rdquo;, February 2026; coverage in The New Stack. <a href="https://thenewstack.io/vibe-coding-is-passe/">https://thenewstack.io/vibe-coding-is-passe/</a></li><li id="src-14">Nate B. Jones, Prompt Kit, 14 February 2026 (intent engineering). <a href="https://promptkit.natebjones.com/20260214_b63_promptkit_1">https://promptkit.natebjones.com/20260214_b63_promptkit_1</a></li></ol>
+    <p class="source-note">Quotations and figures were checked against the research notes for this site (research/R4_analogy_evidence.md, research/R2_market_and_monetization.md, research/R1_competitive_landscape.md), dated 2026-10-21.</p>
+  </div>
+</section>
+</main>
+<!-- @footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
+        <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Code MIT · documents CC BY-SA 4.0</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+</body>
+</html>

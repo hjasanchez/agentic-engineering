@@ -1,0 +1,14 @@
+{
+  "scope": "adversarial inputs from the blind review (T1-T9) plus new ones; every entry below must be rejected",
+  "autonomy": "Autonomous agent",
+  "components": {
+    "prompt": {"grade": "strong", "evidence": ["trust me, it is great"]},
+    "context": {"grade": "missing", "evidence": ["searched"]},
+    "intent": {"grade": "partial", "evidence": ["CLAUDE.md:2 \"never edit inputs/\""]},
+    "judgment": {"grade": "partial", "evidence": ["Makefile:3"]},
+    "coherence": {"grade": "partial", "evidence": ["see CLAUDE.md:99"]},
+    "evaluation": {"grade": "partial", "evidence": "CLAUDE.md:1"},
+    "harness": {"grade": "strong", "evidence": ["/etc/passwd:1", "../../score_audit.py:1", "[A9] \"we use hooks\"", "searched everywhere: none"]}
+  },
+  "stances": [{"stance": "Wizard", "evidence": ["nofile.md:999"]}, {"stance": "Executor", "evidence": ["[A3] \"I checked every row\""]}]
+}

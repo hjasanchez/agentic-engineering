@@ -1,0 +1,15 @@
+{
+  "scope": "scripts/tests/fixture (copy of the eval fixture), read-only",
+  "autonomy": "autonomous",
+  "autonomy_evidence": ["CLAUDE.md:2 \"Write the weekly supplier report from the CSVs in inputs/.\"", "notes/progress.md:1 \"agent used last month CSV again\""],
+  "components": {
+    "prompt": {"grade": "partial", "evidence": ["CLAUDE.md:2-3 \"Write the weekly supplier report\"", "CLAUDE.md:3 \"Be accurate.\""], "gap": "no constraints or success criteria"},
+    "context": {"grade": "partial", "evidence": ["notes/progress.md:1", "searched CLAUDE.md for a pointer to notes/progress.md: none"], "gap": "notes not loaded"},
+    "intent": {"grade": "missing", "evidence": ["searched VALUES.md, *goal*, *.md for why|prefer: none"], "gap": "no why"},
+    "judgment": {"grade": "missing", "evidence": ["searched *.md, *.txt for unsure|flag|stop: none"], "gap": "no uncertainty policy"},
+    "coherence": {"grade": "partial", "evidence": ["CLAUDE.md:3 \"Be accurate.\" (only shared rule)"], "gap": "one vague rule"},
+    "evaluation": {"grade": "missing", "evidence": ["searched tests/, checks/, .github/workflows: none", "notes/progress.md:2 \"fixed by hand\""], "gap": "no check"},
+    "harness": {"grade": "not_assessable", "evidence": ["Makefile:2 \"build_report.py\" (script not in scope)"], "gap": "share the workspace that holds inputs/ and scripts/"}
+  },
+  "stances": [{"stance": "Executor", "evidence": ["notes/progress.md:1 \"used last month CSV again\"", "[A3] \"I skimmed it\""]}]
+}

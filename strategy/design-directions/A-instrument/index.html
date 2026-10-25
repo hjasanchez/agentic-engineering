@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- BRAND PLACEHOLDER: the name is undecided. "Mode Fluency" lives in ONE JS constant (BRAND, assets/js/main.js),
+     which sets document.title and the CSS --brand property, and in ONE CSS custom property (--brand, assets/css/main.css)
+     as the no-JS fallback for the header and footer wordmarks. This <title> is only the pre-JS fallback. -->
+<title>Mode Fluency</title>
+<meta name="description" content="Know which mode you're in when you work with AI: the stance you take, the structure you supply, the autonomy you grant and the ambition you set, as one practice.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/svg/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=B612+Mono:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+<script>document.documentElement.className = "js"; try { var t = localStorage.getItem("mf-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <div class="hdr-row">
+      <a class="wordmark" href="#top">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><defs><clipPath id="wm-c"><circle cx="16" cy="16" r="13"/></clipPath></defs><g clip-path="url(#wm-c)"><g id="wm-horizon"><rect x="-8" y="-8" width="48" height="24" fill="var(--sky)"/><rect x="-8" y="16" width="48" height="24" fill="var(--ground)"/><line x1="-8" y1="16" x2="40" y2="16" stroke="var(--ink)" stroke-width="1.2"/></g></g><circle cx="16" cy="16" r="13" fill="none" stroke="var(--sel)" stroke-width="1.6"/><path d="M8 16h5l3 3 3-3h5" fill="none" stroke="var(--warn)" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span class="brand-name" data-brand></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#top" aria-current="page">Home</a></li>
+          <li><a href="#" title="coming in the full build">The Calculator Problem</a></li>
+          <li><a href="#" title="coming in the full build">Stances</a></li>
+          <li><a href="#" title="coming in the full build">Stack</a></li>
+          <li><a href="#" title="coming in the full build">Matrix</a></li>
+          <li><a href="#" title="coming in the full build">Diagnose</a></li>
+          <li><a href="#" title="coming in the full build">Learn</a></li>
+          <li><a href="#" title="coming in the full build">Work with me</a></li>
+          <li><a href="#" title="coming in the full build">About</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Panel lighting: switch between day and night" aria-pressed="false"><span class="tt-seg" data-t="light">Day</span><span class="tt-seg" data-t="dark">Night</span></button>
+    </div>
+    <!-- Flight Mode Annunciator: the current mode on all four axes, always in view -->
+    <div class="fma" role="status" aria-label="Current mode" aria-live="off">
+      <div><span class="k">Stance</span><span class="v" id="fma-stance"><span class="long">Oracle</span><span class="short">ORA</span></span></div>
+      <div><span class="k">Layer</span><span class="v" id="fma-layer"><span class="long">Judgment</span><span class="short">JDG</span></span></div>
+      <div><span class="k">Autonomy</span><span class="v" id="fma-auto"><span class="long">Autonomous</span><span class="short">AUTO</span></span></div>
+      <div><span class="k">Ambition</span><span class="v" id="fma-amb"><span class="long">Altitude</span><span class="short">ALT</span></span></div>
+      <div class="caution"><span class="caution-lamp" id="fma-caution" data-on="false"><span class="cl-long">Mode confusion</span><span class="cl-short">Conf</span></span></div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ HERO: the mode instrument ============ -->
+<div class="hero-track" id="hero-track">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="label byline">A practice by Henrique Jr. Sanchez</p>
+        <h1 id="hero-title">Know which mode you're in.</h1>
+        <p class="live" aria-live="polite" aria-atomic="true" id="live">
+          <span class="label">In <b id="live-stance">Oracle</b> mode the failure is</span>
+          <span class="live-line"><span class="roll" id="live-fail">Confident plausible prose taken as fact.</span></span>
+        </p>
+        <p class="lede">We taught everyone to press the buttons. Nobody taught them which problems the calculator is for.</p>
+        <div class="actions">
+          <a class="btn" href="#" title="coming in the full build">Read The Calculator Problem</a>
+          <a class="btn secondary" href="#" title="coming in the full build">Which mode are you in?</a>
+        </div>
+        <div class="scroll-cue label" aria-hidden="true"><span>Scroll to sweep the stances</span><span class="bar"><i></i></span></div>
+      </div>
+
+      <div class="instrument-col">
+        <div class="instrument" id="instrument">
+          <div class="dial-wrap">
+            <svg id="dial" viewBox="-20 -20 640 640" role="slider" tabindex="0" aria-label="Stance selector. Arrow keys or drag move the needle." aria-valuemin="1" aria-valuemax="14" aria-valuenow="1" aria-valuetext="Oracle. Load-bearing layer: Judgment." aria-describedby="dial-desc">
+              <desc id="dial-desc">A round instrument with four concentric arcs, one per axis: Stance on the outside, then Structure, Autonomy and Ambition. The needle points at the selected stance and its load-bearing layer lights up on the Structure arc. The artificial horizon in the centre banks when the stance and the autonomy setting conflict.</desc>
+            </svg>
+            <p class="dial-static">Stance · Structure · Autonomy · Ambition</p>
+            <button class="stepper step-prev" type="button" id="prev-stance" aria-label="Previous stance">&lsaquo; Prev</button>
+            <button class="stepper step-next" type="button" id="next-stance" aria-label="Next stance">Next &rsaquo;</button>
+          </div>
+          <div class="readout">
+            <div class="readout-row ro-dup"><span class="k">Stance</span><span class="v"><span class="sel" id="ro-stance">Oracle</span> <span class="sub" id="ro-expect">expects truth to a hard question</span></span></div>
+            <div class="readout-row ro-dup"><span class="k">Layer</span><span class="v"><span class="sel" id="ro-layer">Judgment</span> <span class="sub" id="ro-layer-q">what to doubt</span></span></div>
+            <div class="readout-row ctl"><span class="k" id="lab-auto">Autonomy</span><span class="v"><span class="seg" role="radiogroup" aria-labelledby="lab-auto" id="seg-auto"></span><noscript>Assistive, Directed, Autonomous, Continuous</noscript></span></div>
+            <div class="readout-row ctl"><span class="k" id="lab-amb">Ambition</span><span class="v"><span class="seg" role="radiogroup" aria-labelledby="lab-amb" id="seg-amb"></span><noscript>Speed, Altitude, Depth, Range</noscript></span></div>
+            <p class="readout-note" id="ro-note">Guardrail: <span id="ro-guard">Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ §1 FOUR AXES ============ -->
+<section class="section" id="axes" aria-labelledby="axes-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="annun"><span class="annun-id">§1</span><span class="annun-txt">Four axes</span></p>
+        <h2 id="axes-title">One space, four axes</h2>
+      </div>
+      <div>
+        <p class="prose">Mode fluency is the practice of working with AI deliberately: knowing which stance you are in, what you must supply for it to hold, how much of the work you are watching, and how big an ask you are making. It is for people who already use AI every day and still get burned, and for the teams that have to show they did something about it.</p>
+        <p class="prose">The Stances, the Stack, the Specifying guide with the AI @ Workplace curriculum, and Felix Rieseberg's ambition types are not separate things. Together they map four axes of one space. Mode fluency is the skill of moving through it on purpose, and re-entering at the right point when the work goes wrong.</p>
+      </div>
+    </div>
+
+    <div class="gauges">
+      <article class="gauge" data-axis="stance">
+        <div class="g-num"><span class="label">Axis 01</span><span class="label tnum" data-gv="stance">01 / 14</span></div>
+        <p class="g-src">The Fourteen Stances</p>
+        <h3>Stance</h3>
+        <p class="g-q">What am I expecting from this exchange?</p>
+        <svg class="g-svg" viewBox="0 0 260 150" aria-hidden="true" focusable="false"></svg>
+        <ul class="g-modes" aria-label="Stances: select one to set the instrument">
+          <li><button class="chip" type="button" data-set-stance="0">Oracle</button></li>
+          <li><button class="chip" type="button" data-set-stance="1">Genie</button></li>
+          <li><button class="chip" type="button" data-set-stance="2">Tutor</button></li>
+          <li><button class="chip" type="button" data-set-stance="3">Mirror</button></li>
+          <li><button class="chip" type="button" data-set-stance="4">Adversary</button></li>
+          <li><button class="chip" type="button" data-set-stance="5">Librarian</button></li>
+          <li><button class="chip" type="button" data-set-stance="6">Interpreter</button></li>
+          <li><button class="chip" type="button" data-set-stance="7">Simulator</button></li>
+          <li><button class="chip" type="button" data-set-stance="8">Scribe</button></li>
+          <li><button class="chip" type="button" data-set-stance="9">Executor</button></li>
+          <li><button class="chip" type="button" data-set-stance="10">Muse</button></li>
+          <li><button class="chip" type="button" data-set-stance="11">Miner</button></li>
+          <li><button class="chip" type="button" data-set-stance="12">Therapist</button></li>
+          <li><button class="chip" type="button" data-set-stance="13">Translator</button></li>
+        </ul>
+        <a class="more" href="#" title="coming in the full build">See all fourteen stances &rarr;</a>
+      </article>
+      <article class="gauge" data-axis="structure">
+        <div class="g-num"><span class="label">Axis 02</span><span class="label">Set by stance</span></div>
+        <p class="g-src">The AI-Human Engineering Stack</p>
+        <h3>Structure</h3>
+        <p class="g-q">What must I supply for that expectation to hold?</p>
+        <svg class="g-svg" viewBox="0 0 260 150" aria-hidden="true" focusable="false"></svg>
+        <ul class="g-modes" aria-label="Stack layers">
+          <li><span class="chip" data-layer-chip="prompt">Prompt</span></li>
+          <li><span class="chip" data-layer-chip="context">Context</span></li>
+          <li><span class="chip" data-layer-chip="intent">Intent</span></li>
+          <li><span class="chip" data-layer-chip="judgment">Judgment</span></li>
+          <li><span class="chip" data-layer-chip="coherence">Coherence</span></li>
+          <li><span class="chip" data-layer-chip="evaluation">Evaluation</span></li>
+          <li><span class="chip" data-layer-chip="harness">Harness</span></li>
+        </ul>
+        <p class="g-detail">Five cognitive layers, Prompt to Coherence; plus two meta-functions, Evaluation and Harness.</p>
+        <a class="more" href="#" title="coming in the full build">Walk the stack &rarr;</a>
+      </article>
+      <article class="gauge" data-axis="autonomy">
+        <div class="g-num"><span class="label">Axis 03</span><span class="label tnum" data-gv="autonomy">03 / 04</span></div>
+        <p class="g-src">Modes, from Specifying Work for AI</p>
+        <h3>Autonomy</h3>
+        <p class="g-q">How much of the work do I watch?</p>
+        <svg class="g-svg" viewBox="0 0 260 150" aria-hidden="true" focusable="false"></svg>
+        <ul class="g-modes" aria-label="Autonomy modes: select one to set the instrument">
+          <li><button class="chip" type="button" data-set-auto="0">Assistive</button></li>
+          <li><button class="chip" type="button" data-set-auto="1">Directed</button></li>
+          <li><button class="chip" type="button" data-set-auto="2">Autonomous</button></li>
+          <li><button class="chip" type="button" data-set-auto="3">Continuous</button></li>
+        </ul>
+        <p class="g-detail" id="auto-detail">Assistive (you type, AI suggests), Directed (you describe, AI types, you review), Autonomous (you assign, AI executes, you review), Continuous (AI runs as a background service).</p>
+        <a class="more" href="#" title="coming in the full build">Autonomy and spec rigor &rarr;</a>
+      </article>
+      <article class="gauge" data-axis="ambition">
+        <div class="g-num"><span class="label">Axis 04</span><span class="label tnum" data-gv="ambition">02 / 04</span></div>
+        <p class="g-src">Felix Rieseberg's four types</p>
+        <h3>Ambition</h3>
+        <p class="g-q">How big is the ask?</p>
+        <svg class="g-svg" viewBox="0 0 260 150" aria-hidden="true" focusable="false"></svg>
+        <ul class="g-modes" aria-label="Ambition types: select one to set the instrument">
+          <li><button class="chip" type="button" data-set-amb="0">Speed</button></li>
+          <li><button class="chip" type="button" data-set-amb="1">Altitude</button></li>
+          <li><button class="chip" type="button" data-set-amb="2">Depth</button></li>
+          <li><button class="chip" type="button" data-set-amb="3">Range</button></li>
+        </ul>
+        <p class="g-detail" id="amb-detail">Speed: the same work in less time. Altitude: the outcome rather than the individual task. Depth: the task the way a field-leading expert would see it. Range: drawing on more fields than the task needs at the surface.</p>
+        <a class="more" href="#" title="coming in the full build">The four ambition types &rarr;</a>
+      </article>
+    </div>
+    <p class="g-axis-note">The four gauges and the instrument above are one system: set a stance, an autonomy mode or an ambition type here and the needle, the horizon and the mode strip in the header follow.</p>
+  </div>
+</section>
+
+<!-- ============ §2 MODE CONFUSION ============ -->
+<section class="section" id="confusion" aria-labelledby="mc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="annun"><span class="annun-id">§2</span><span class="annun-txt">Mode confusion</span></p>
+        <h2 id="mc-title">Same words, different contract</h2>
+      </div>
+      <p class="prose">In aviation, mode confusion is the pilot believing the automation is doing one thing while it does another. With AI the words of a prompt rarely tell you which stance you are in. Flip the switch: the prompt stays the same, the layer that carries the load moves.</p>
+    </div>
+
+    <div class="mc">
+      <div class="mc-panel">
+        <div class="mc-pairs">
+          <span class="label" id="lab-pair">Pair</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lab-pair" id="mc-pairs" style="margin-top:8px">
+            <button type="button" role="radio" aria-checked="true" data-pair="0">Genie / Executor</button>
+            <button type="button" role="radio" aria-checked="false" data-pair="1" tabindex="-1">Oracle / Tutor</button>
+            <button type="button" role="radio" aria-checked="false" data-pair="2" tabindex="-1">Muse / Miner</button>
+          </div>
+        </div>
+        <div class="mc-prompt"><span class="label">The prompt, unchanged</span><q id="mc-prompt">Reconcile these accounts and draft the summary.</q></div>
+        <div class="switchrow">
+          <span class="sw-lab on" id="mc-a">Genie</span>
+          <button class="bigswitch" type="button" role="switch" aria-checked="false" id="mc-switch" aria-label="Stance: Genie. Switch to Executor"><span class="lever"></span></button>
+          <span class="sw-lab" id="mc-b">Executor</span>
+        </div>
+        <div class="mc-read" aria-live="polite">
+          <dl>
+            <div><dt>Read as</dt><dd id="mc-read">You inspect the deliverable as the whole of the work.</dd></div>
+            <div><dt>Failure</dt><dd class="fail" id="mc-fail">Literal compliance with a brittle wish.</dd></div>
+            <div><dt>Load-bearing layer</dt><dd class="layer" id="mc-layer">Prompt</dd></div>
+            <div><dt>Guardrail</dt><dd id="mc-guard">Specify scope, boundaries and success criteria before you ask (an Intent Doc).</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="mc-panel mc-stack">
+        <span class="label">The Stack, lit by stance</span>
+        <svg id="mc-svg" viewBox="0 0 480 400" aria-hidden="true" focusable="false"></svg>
+        <p class="mc-caption">Prompt, Context, Intent, Judgment and Coherence are cognitive layers; Evaluation and Harness are the meta-functions that run across them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §3 MATRIX SWITCH PANEL ============ -->
+<section class="section" id="matrix" aria-labelledby="matrix-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="annun"><span class="annun-id">§3</span><span class="annun-txt">The matrix</span></p>
+        <h2 id="matrix-title">Each stance leans on one layer</h2>
+      </div>
+      <div>
+        <p class="prose">A stance is the contract you <em>think</em> you have with the AI. A Stack layer is what you must actually <em>supply</em> for that contract to hold. Each stance leans on one layer more than the others; that is where its failure lives, and where the guardrail belongs.</p>
+        <p class="prose">Flip a stance on and its layer lights. Flip on every stance your team uses and the panel shows which layers your shared setup must make strong.</p>
+      </div>
+    </div>
+
+    <div class="panel" id="switch-panel">
+      <div class="panel-top"><span class="label">Overhead panel · Stack layers</span><span class="label tnum" id="sp-count">1 of 14 stances on</span></div>
+      <div class="leds" id="leds">
+        <div class="led" data-led="prompt"><span class="lamp"></span><span class="nm">Prompt</span><span class="gv">What to do</span><span class="ct">0</span></div>
+        <div class="led" data-led="context"><span class="lamp"></span><span class="nm">Context</span><span class="gv">What to know</span><span class="ct">0</span></div>
+        <div class="led" data-led="intent"><span class="lamp"></span><span class="nm">Intent</span><span class="gv">What to want</span><span class="ct">0</span></div>
+        <div class="led on" data-led="judgment"><span class="lamp"></span><span class="nm">Judgment</span><span class="gv">What to doubt</span><span class="ct">1</span></div>
+        <div class="led" data-led="coherence"><span class="lamp"></span><span class="nm">Coherence</span><span class="gv">What to become</span><span class="ct">0</span></div>
+        <div class="led meta" data-led="evaluation"><span class="lamp"></span><span class="nm">Evaluation</span><span class="gv">How to know</span><span class="ct">0</span></div>
+        <div class="led meta" data-led="harness"><span class="lamp"></span><span class="nm">Harness</span><span class="gv">Where and how</span><span class="ct">0</span></div>
+      </div>
+      <div class="switches" id="switches" role="group" aria-label="Stance switches"></div>
+      <div class="typeout"><span class="k">Guardrail</span><output id="typeout" aria-live="polite"><span class="t-st">ORACLE</span> <span class="t-ly">&rsaquo; JUDGMENT &rsaquo;</span> Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</output></div>
+      <div class="panel-foot">
+        <p id="sp-team"><b>Before you start:</b> name the stance out loud, look up its layer, and do the one thing in the guardrail. <b>When it goes wrong:</b> do not rewrite the prompt first; go to the stance's layer and re-enter there.</p>
+        <button class="stepper" type="button" id="sp-reset">Reset panel</button>
+      </div>
+    </div>
+
+    <details class="placard">
+      <summary>Placard: the full Mode Fluency Matrix, fourteen rows</summary>
+      <div class="tbl">
+        <table>
+          <caption>Mode Fluency Matrix, v0.1 (draft), October 2026</caption>
+          <thead><tr><th scope="col">Stance</th><th scope="col">What you expect</th><th scope="col">Load-bearing layer</th><th scope="col">Characteristic failure</th><th scope="col">Guardrail</th></tr></thead>
+          <tbody id="placard-body">
+            <tr><th scope="row">Oracle</th><td data-label="Expect">Truth to a hard question</td><td class="l" data-label="Layer">Judgment</td><td data-label="Failure">Confident plausible prose taken as fact</td><td data-label="Guardrail">Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</td></tr>
+            <tr><th scope="row">Genie</th><td data-label="Expect">A discrete deliverable</td><td class="l" data-label="Layer">Prompt</td><td data-label="Failure">Literal compliance with a brittle wish</td><td data-label="Guardrail">Specify scope, boundaries and success criteria before you ask (an Intent Doc).</td></tr>
+            <tr><th scope="row">Tutor</th><td data-label="Expect">A path to the answer</td><td class="l" data-label="Layer">Intent</td><td data-label="Failure">Being taught toward a goal you never stated</td><td data-label="Guardrail">State what you want to be able to do afterwards before the first question.</td></tr>
+            <tr><th scope="row">Mirror</th><td data-label="Expect">My own thinking, clarified</td><td class="l" data-label="Layer">Coherence</td><td data-label="Failure">Flattery mistaken for reflection</td><td data-label="Guardrail">Ask for the structure of your argument back, not for agreement.</td></tr>
+            <tr><th scope="row">Adversary</th><td data-label="Expect">Attack on my plan</td><td class="l" data-label="Layer">Intent</td><td data-label="Failure">Critique of the wrong thing</td><td data-label="Guardrail">Name what you are defending and what would change your mind.</td></tr>
+            <tr><th scope="row">Librarian</th><td data-label="Expect">Synthesis of what is known</td><td class="l" data-label="Layer">Evaluation</td><td data-label="Failure">Confident retrieval of what was never said</td><td data-label="Guardrail">Check the citation exists and says what is claimed.</td></tr>
+            <tr><th scope="row">Interpreter</th><td data-label="Expect">Decode material I supply</td><td class="l" data-label="Layer">Evaluation</td><td data-label="Failure">Confabulated meaning that sounds insightful</td><td data-label="Guardrail">&ldquo;Show me exactly which parts of the text support each conclusion.&rdquo; Never accept an interpretation you cannot trace.</td></tr>
+            <tr><th scope="row">Simulator</th><td data-label="Expect">A rehearsal of reality</td><td class="l" data-label="Layer">Context</td><td data-label="Failure">A rehearsal of a scenario that is not yours</td><td data-label="Guardrail">Load the real constraints, the real counterpart, the real stakes.</td></tr>
+            <tr><th scope="row">Scribe</th><td data-label="Expect">Craft applied to my substance</td><td class="l" data-label="Layer">Prompt</td><td data-label="Failure">Polished form over a hollow draft</td><td data-label="Guardrail">Provide the substance and the format; review for what was invented to fill gaps.</td></tr>
+            <tr><th scope="row">Executor</th><td data-label="Expect">A delegated job, reviewed after</td><td class="l" data-label="Layer">Harness + Judgment</td><td data-label="Failure">Automation complacency; locally correct steps compounding into the wrong outcome, found late</td><td data-label="Guardrail">Plan before action, checkpoints, a deviation report, nothing consequential ships uninspected. Delegation transfers labor, never responsibility.</td></tr>
+            <tr><th scope="row">Muse</th><td data-label="Expect">Provocation, not correctness</td><td class="l" data-label="Layer">(none)</td><td data-label="Failure">There is no failure, only dross</td><td data-label="Guardrail">None. This is why the Muse stays hidden: it cannot be metric&rsquo;d.</td></tr>
+            <tr><th scope="row">Miner</th><td data-label="Expect">The shape of a space, not one answer</td><td class="l" data-label="Layer">Context (writing)</td><td data-label="Failure">Believing an anomaly because you wanted it; losing the vein</td><td data-label="Guardrail">Assay cold, later. Record every find when you find it: if you didn&rsquo;t record it, you never had it.</td></tr>
+            <tr><th scope="row">Therapist / Confessor</th><td data-label="Expect">A space to think aloud</td><td class="l" data-label="Layer">Judgment</td><td data-label="Failure">Dependency; outsourcing judgment about your own life</td><td data-label="Guardrail">Decide in advance what you will not delegate.</td></tr>
+            <tr><th scope="row">Translator</th><td data-label="Expect">A bridge between two worlds</td><td class="l" data-label="Layer">Context</td><td data-label="Failure">A bridge from one world to a caricature of the other</td><td data-label="Guardrail">Supply both maps; name both audiences.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <p><a class="more" href="#" title="coming in the full build">The full interactive matrix &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ============ §4 ALTITUDE LADDER ============ -->
+<section class="section" id="ladder" aria-labelledby="ladder-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="annun"><span class="annun-id">§4</span><span class="annun-txt">Altitude</span></p>
+        <h2 id="ladder-title">AI @ Workplace, 101 to 601</h2>
+      </div>
+      <div>
+        <p class="prose">How to use the calculator, for people who can already do the math by hand. Start where you are, not at the top. 101 to 301 are about chatbots: in a chatbot, you are between every turn. From 401 on, you set the goal and the guardrails, and then you are on the loop, not in it.</p>
+        <p class="prose">As autonomy rises, the stances shift toward Executor and the load shifts toward Harness, Judgment and Evaluation: the layer that carries the load moves as the human steps back.</p>
+      </div>
+    </div>
+
+    <div class="ladder" id="ladder-body">
+      <div class="tape-col" aria-hidden="true">
+        <div class="tape-sticky">
+          <div class="tape"><div class="tape-inner" id="tape-inner"></div><div class="tape-box" id="tape-box">101</div></div>
+          <p class="tape-cap"><b id="tape-mode">In the loop</b><span id="tape-sub">You are between every turn.</span></p>
+        </div>
+      </div>
+      <ol class="rungs" id="rungs">
+        <li class="rung active" data-level="101">
+          <span class="lvl">101</span>
+          <div>
+            <h3>AI 101 @ Workplace</h3>
+            <p class="meta"><span class="badge">In the loop</span>For absolute AI and prompt beginners · Video, 20:28</p>
+            <p>What LLMs are, how to start prompting, what to watch out for: hallucinations, false confidence, slop, over-reliance.</p>
+            <blockquote>&ldquo;Intelligence is now cheap, but judgment is rare.&rdquo;</blockquote>
+          </div>
+        </li>
+        <li class="rung" data-level="201">
+          <span class="lvl">201</span>
+          <div>
+            <h3>AI 201 @ Workplace</h3>
+            <p class="meta"><span class="badge">In the loop</span>For regular chatbot users · Video, 49:40</p>
+            <p>How LLMs &ldquo;think&rdquo;, the six-element prompt framework, self-correction and meta-prompting, workflow design, task decomposition, quality control.</p>
+            <blockquote>&ldquo;Your LLM is only as good as your ability to direct it.&rdquo;</blockquote>
+          </div>
+        </li>
+        <li class="rung" data-level="301">
+          <span class="lvl">301</span>
+          <div>
+            <h3>AI 301 @ Workplace</h3>
+            <p class="meta"><span class="badge">In the loop</span>For advanced chatbot users · Video, 1:02:35</p>
+            <p>Custom bots and knowledge bases, context management, from chatbot to agent, the information map, failure patterns, the eval mindset.</p>
+            <blockquote>&ldquo;Your output is only as trustworthy as your ability to check it.&rdquo;</blockquote>
+          </div>
+        </li>
+        <li class="loop-split" aria-hidden="true">From here you are on the loop, not in it</li>
+        <li class="rung" data-level="401">
+          <span class="lvl">401</span>
+          <div>
+            <h3>AI 401 @ Workplace</h3>
+            <p class="meta"><span class="badge on">On the loop</span>For agent users · Video, 1:25:14</p>
+            <p>Upgrading to agents, harness engineering, determinism in agentic workflows, add-ons (skills, MCP), introducing loops, the translation barrier.</p>
+            <blockquote>&ldquo;Your agent is only as reliable as the harness you build around it.&rdquo;</blockquote>
+          </div>
+        </li>
+        <li class="rung coming" data-level="501">
+          <span class="lvl">501</span>
+          <div>
+            <h3>AI 501 @ Workplace</h3>
+            <p class="meta"><span class="badge on">On the loop</span>In preparation</p>
+            <p>Local agents, and going &ldquo;hands-free&rdquo;: letting it run without you reading every output.</p>
+          </div>
+        </li>
+        <li class="rung coming" data-level="601">
+          <span class="lvl">601</span>
+          <div>
+            <h3>AI 601 @ Workplace</h3>
+            <p class="meta"><span class="badge on">On the loop</span>In preparation</p>
+            <p>Dark factories. A full description of the scope is still to be written.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §5 START HERE ============ -->
+<section class="section" id="start" aria-labelledby="start-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="annun"><span class="annun-id">§5</span><span class="annun-txt">Start here</span></p>
+        <h2 id="start-title">Pick the path that sounds like you</h2>
+      </div>
+      <p class="prose">Three checklists. Each starts from where you already are.</p>
+    </div>
+    <div class="checklists">
+      <article class="cl">
+        <span class="label">Learner</span>
+        <h3>You use AI chat tools and want to get better on purpose</h3>
+        <p>Start with the AI @ Workplace series at the level that matches your experience, then take the five-minute self-diagnostic to find your default stance.</p>
+        <ol>
+          <li><a href="#ladder">AI @ Workplace 101&ndash;401<span class="dots"></span><span class="resp">Watch</span></a></li>
+          <li><a href="#" title="coming in the full build">Which mode are you in?<span class="dots"></span><span class="resp">Diagnose</span></a></li>
+        </ol>
+      </article>
+      <article class="cl">
+        <span class="label">Team lead</span>
+        <h3>Your team uses AI and you need it to be reliable, and documented</h3>
+        <p>The matrix tells you which layers your shared setup must make strong, given the stances your team uses most. The assessment applies it to your real workflows.</p>
+        <ol>
+          <li><a href="#matrix">The Mode Fluency Matrix<span class="dots"></span><span class="resp">Check</span></a></li>
+          <li><a href="#services">Work with me<span class="dots"></span><span class="resp">Engage</span></a></li>
+        </ol>
+      </article>
+      <article class="cl">
+        <span class="label">Builder</span>
+        <h3>You build agents, workflows or custom bots</h3>
+        <p>The Stack is the architecture. The Agent Audit Protocol in the repository is written for your agent to run against your own system.</p>
+        <ol>
+          <li><a href="#" title="coming in the full build">The AI-Human Engineering Stack<span class="dots"></span><span class="resp">Read</span></a></li>
+          <li><a href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md">Agent Audit Protocol (GitHub)<span class="dots"></span><span class="resp">Run</span></a></li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §6 SERVICES + ESSAY ============ -->
+<section class="section" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <p class="annun"><span class="annun-id">§6</span><span class="annun-txt">Services</span></p>
+    <div class="duo">
+      <section aria-labelledby="svc-title">
+        <h2 id="svc-title">Work with me</h2>
+        <div class="svc">
+          <h3>The Mode Fluency Assessment</h3>
+          <p>A fixed-fee diagnostic for a small team: where your AI work breaks, which layer to fix first, a 90-day plan, and an evidence pack of your AI-literacy measures.</p>
+          <span class="price">from $3,500<small>about two weeks</small></span>
+        </div>
+        <div class="svc">
+          <h3>AI @ Workplace workshops</h3>
+          <p>Remote, half or full day, mapped to your team's own workflows.</p>
+          <span class="price">from $1,200<small>per session</small></span>
+        </div>
+        <p><a class="more" href="#" title="coming in the full build">Details &rarr;</a></p>
+      </section>
+      <section class="essay" aria-labelledby="essay-title">
+        <span class="label">Latest essay</span>
+        <h2 id="essay-title" style="margin-top:.6rem">The Calculator Problem</h2>
+        <blockquote>True computer literacy &ldquo;is not just knowing how to make use of computers and computational ideas. It is knowing when it is appropriate to do so.&rdquo;</blockquote>
+        <p>Seymour Papert wrote that in 1980. Swap &ldquo;computers&rdquo; for &ldquo;AI&rdquo; and you have the problem this site is about.</p>
+        <p><a class="more" href="#" title="coming in the full build">Read the essay &rarr;</a></p>
+      </section>
+    </div>
+
+    <div class="why">
+      <h3>Where the cockpit analogy stops</h3>
+      <div>
+        <p>Autopilots alarm when they disconnect; LLMs do not. Calculators are deterministic; LLMs are fluently wrong. Aviation has licences and accident reports; knowledge work has none, so the accountability has to be self-imposed. That is why the instruments on this page are habits and structures you supply, not features you buy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap f-grid">
+    <div>
+      <p class="f-brand"><span class="brand-name" data-brand></span></p>
+      <p>The practice of Henrique Jr. Sanchez. This page is a design concept (October 2026): copy and prices are drafts.</p>
+    </div>
+    <ul>
+      <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+      <li><span>Repository license: GPL-3.0</span></li>
+      <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+      <li><a href="#" title="coming in the full build">About and credits</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

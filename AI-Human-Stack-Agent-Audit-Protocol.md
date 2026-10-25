@@ -1,7 +1,7 @@
 # AI-Human Engineering Stack — Agent Audit Protocol
 
 **Version:** 1.0 | March 2026  
-**Authors:** Hayen Mill & Henrique Jr. Sanchez  
+**Author:** Henrique Jr. Sanchez  
 **Purpose:** A structured protocol for an agent to audit a codebase or agentic workflow and produce a layer-by-layer component map.
 
 ---

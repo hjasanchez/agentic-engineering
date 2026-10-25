@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- @head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
+     is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
+<title>Mode Fluency · Know which mode you’re in</title>
+<meta name="description" content="A practice for working with AI deliberately: which stance you are in, what you must supply for it to hold, how much of the work you watch, and how big the ask is.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
+<link rel="stylesheet" href="assets/field.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('fieldTheme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="assets/field.js" defer></script>
+<!-- /@head -->
+</head>
+<body data-page="home">
+<!-- @header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html" aria-current="page">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5v4M27 16h-4M16 27v-4M5 16h4" stroke="currentColor" stroke-width="1.4"/><circle cx="21" cy="11" r="2.4" class="mark-human"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg>
+      <span class="brand-text" data-brand></span><span class="sr-only">, home</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul><li><a href="calculator-problem.html">The Calculator Problem</a></li><li><a href="stances.html">Stances</a></li><li><a href="stack.html">Stack</a></li><li><a href="matrix.html">Matrix</a></li><li><a href="diagnose.html">Diagnose</a></li><li><a href="learn.html">Learn</a></li><li><a href="work.html">Work with me</a></li><li><a href="about.html">About</a></li></ul>
+    </nav>
+    <a class="header-cta" href="work.html">Work with me</a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch colour theme"><span class="sys" aria-hidden="true">theme:</span> <span class="theme-label">auto</span></button>
+  </div>
+</header>
+<!-- /@header -->
+
+<main id="main" tabindex="-1">
+
+<!-- ============ HERO: the field + the compass instrument ============ -->
+<section class="hero" aria-labelledby="hero-title" data-field="hero">
+  <canvas class="field-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="sys sys-line"><span class="prompt-glyph">&gt;</span> field.init <span class="dim">agents=</span><span id="agent-count">1,600</span> <span class="dim">humans=</span>1</p>
+      <p class="eyebrow">A practice by Henrique Jr. Sanchez</p>
+      <h1 id="hero-title">Know which mode you're in.</h1>
+      <p class="lede">We taught everyone to press the buttons. Nobody taught them which problems the machine is for.</p>
+      <p class="prose"><span data-brand></span> is the practice of working with AI deliberately: knowing which stance you are in, what you must supply for it to hold, how much of the work you are watching, and how big an ask you are making. It is for people who already use AI every day and still get burned, and for the teams that have to show they did something about it.</p>
+      <div class="actions">
+        <a class="cmd" href="calculator-problem.html"><span class="cmd-glyph" aria-hidden="true">$</span> Read the essay</a>
+        <a class="cmd cmd-ghost" href="diagnose.html"><span class="cmd-glyph" aria-hidden="true">?</span> Which mode are you in?</a>
+      </div>
+    </div>
+
+    <div class="compass-col js-only">
+      <div class="compass-slot" id="compass-slot">
+        <div class="compass-axes" role="radiogroup" aria-label="The four axes. Move the pointer around the compass, or use the arrow keys, to choose one.">
+          <button type="button" class="axis-btn axis-n" role="radio" aria-checked="true" data-axis="0">Stance</button>
+          <button type="button" class="axis-btn axis-e" role="radio" aria-checked="false" data-axis="1" tabindex="-1">Structure</button>
+          <button type="button" class="axis-btn axis-s" role="radio" aria-checked="false" data-axis="2" tabindex="-1">Autonomy</button>
+          <button type="button" class="axis-btn axis-w" role="radio" aria-checked="false" data-axis="3" tabindex="-1">Ambition</button>
+        </div>
+      </div>
+      <p class="sys compass-readout" aria-hidden="true"><span class="dim">needle&nbsp;</span><span id="needle-deg">000</span>&deg; <span class="dim">&rarr; axis&nbsp;</span><span id="needle-axis">STANCE</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §1 The four axes (synchronised with the compass) ============ -->
+<section class="section axes" aria-labelledby="axes-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§1</span> four_axes</p>
+    <h2 id="axes-title">One space, four axes</h2>
+    <p class="prose">The Stances, the Stack, the Specifying guide with the AI @ Workplace curriculum, and Felix Rieseberg's ambition types are not separate things. Together they map four axes of one space. <span data-brand></span> is the skill of moving through it on purpose, and re-entering at the right point when the work goes wrong.</p>
+    <ol class="axis-list">
+      <li class="axis-row is-active" data-axis="0">
+        <p class="sys axis-meta"><span class="num">AXIS 01</span> N &middot; The Fourteen Stances</p>
+        <h3>Stance</h3>
+        <p class="axis-q">What am I expecting from this exchange?</p>
+        <p class="sys modes">Oracle, Genie, Tutor, Mirror, Adversary, Librarian, Interpreter, Simulator, Scribe, Executor, Muse, Miner, Therapist, Translator.</p>
+        <a class="more" href="stances.html">See all fourteen stances &rarr;</a>
+      </li>
+      <li class="axis-row" data-axis="1">
+        <p class="sys axis-meta"><span class="num">AXIS 02</span> E &middot; The AI-Human Engineering Stack</p>
+        <h3>Structure</h3>
+        <p class="axis-q">What must I supply for that expectation to hold?</p>
+        <p class="sys modes">Prompt, Context, Intent, Judgment, Coherence; plus two meta-functions, Evaluation and Harness.</p>
+        <a class="more" href="stack.html">Walk the stack &rarr;</a>
+      </li>
+      <li class="axis-row" data-axis="2">
+        <p class="sys axis-meta"><span class="num">AXIS 03</span> S &middot; Modes, from Specifying Work for AI</p>
+        <h3>Autonomy</h3>
+        <p class="axis-q">How much of the work do I watch?</p>
+        <p class="sys modes">Assistive (you type, AI suggests), Directed (you describe, AI types, you review), Autonomous (you assign, AI executes, you review), Continuous (AI runs as a background service).</p>
+        <a class="more" href="matrix.html#autonomy">Autonomy and spec rigor &rarr;</a>
+      </li>
+      <li class="axis-row" data-axis="3">
+        <p class="sys axis-meta"><span class="num">AXIS 04</span> W &middot; Felix Rieseberg's four types</p>
+        <h3>Ambition</h3>
+        <p class="axis-q">How big is the ask?</p>
+        <p class="sys modes">Speed, Altitude, Depth, Range.</p>
+        <a class="more" href="matrix.html#ambition">The four ambition types &rarr;</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ §2 Stance selector: the field reorganises ============ -->
+<section class="section stances" aria-labelledby="stance-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§2</span> stance_selector</p>
+    <h2 id="stance-title">A stance is a contract. Watch it run.</h2>
+    <p class="prose">Every exchange with AI carries an expectation you may never have said out loud. Pick any of the fourteen and watch hundreds of tokens behave as that contract: where they go, what they ask of you, and where the work quietly fails.</p>
+    <div class="stance-rig">
+      <div class="stance-picker js-only" role="radiogroup" aria-label="Choose a stance">
+        <button type="button" class="stance-btn" role="radio" aria-checked="true" data-stance="Oracle">Oracle</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Genie">Genie</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Tutor">Tutor</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Executor">Executor</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Miner">Miner</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Mirror">Mirror</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Muse">Muse</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Adversary">Adversary</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Librarian">Librarian</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Interpreter">Interpreter</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Simulator">Simulator</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Scribe">Scribe</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Translator">Translator</button>
+        <button type="button" class="stance-btn" role="radio" aria-checked="false" tabindex="-1" data-stance="Therapist">Therapist</button>
+      </div>
+      <div class="stance-stage js-only" data-field="stance">
+        <canvas class="stage-canvas" id="stance-canvas" aria-hidden="true"></canvas>
+        <p class="sys stage-hud" id="stage-hud" aria-hidden="true">mode=oracle &middot; converging</p>
+        <p class="sys stage-hint" id="stage-hint">Pointer or touch: you are the warm point.</p>
+      </div>
+      <div class="sys syslog" id="syslog" role="log" aria-live="polite" aria-label="System log for the chosen stance">
+        <p class="log-line"><span class="lv">stance</span> Oracle</p>
+        <p class="log-line"><span class="lv">expects</span> Truth to a hard question</p>
+        <p class="log-line"><span class="lv">load</span> JUDGMENT</p>
+        <p class="log-line warn"><span class="lv">fail</span> Confident plausible prose taken as fact</p>
+        <p class="log-line ok"><span class="lv">guard</span> Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §3 The matrix as a circuit ============ -->
+<section class="section matrix" aria-labelledby="matrix-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§3</span> matrix.circuit</p>
+    <h2 id="matrix-title">Each stance leans on one layer</h2>
+    <p class="prose">A stance is the contract you <em>think</em> you have with the AI. A Stack layer is what you must actually <em>supply</em> for that contract to hold. Each stance leans on one layer more than the others; that is where its failure lives, and where the guardrail belongs. <span class="js-only">Hover, tap or tab to a stance and follow the current.</span><span class="no-js-only">The full table is on <a href="matrix.html#mx-title">the matrix page</a>.</span></p>
+    <div class="circuit js-only" id="circuit">
+      <svg class="wires" id="wires" aria-hidden="true" focusable="false"></svg>
+      <div class="col col-stances">
+        <p class="sys col-head">stance</p>
+        <ul>
+          <li><button type="button" class="node s-node" data-i="0">Oracle</button></li>
+          <li><button type="button" class="node s-node" data-i="1">Genie</button></li>
+          <li><button type="button" class="node s-node" data-i="2">Interpreter</button></li>
+          <li><button type="button" class="node s-node" data-i="3">Executor</button></li>
+          <li><button type="button" class="node s-node" data-i="4">Miner</button></li>
+          <li><button type="button" class="node s-node" data-i="5">Tutor</button></li>
+          <li><button type="button" class="node s-node" data-i="6">Adversary</button></li>
+          <li><button type="button" class="node s-node" data-i="7">Scribe</button></li>
+          <li><button type="button" class="node s-node" data-i="8">Simulator</button></li>
+          <li><button type="button" class="node s-node" data-i="9">Librarian</button></li>
+          <li><button type="button" class="node s-node" data-i="10">Mirror</button></li>
+          <li><button type="button" class="node s-node" data-i="11">Translator</button></li>
+          <li><button type="button" class="node s-node" data-i="12">Therapist</button></li>
+          <li><button type="button" class="node s-node" data-i="13">Muse</button></li>
+        </ul>
+      </div>
+      <div class="col col-layers">
+        <p class="sys col-head">layer</p>
+        <ul>
+          <li><button type="button" class="node l-node" data-l="Prompt">Prompt<span class="sys l-sub">what to do</span></button></li>
+          <li><button type="button" class="node l-node" data-l="Context">Context<span class="sys l-sub">what to know</span></button></li>
+          <li><button type="button" class="node l-node" data-l="Intent">Intent<span class="sys l-sub">what to want</span></button></li>
+          <li><button type="button" class="node l-node" data-l="Judgment">Judgment<span class="sys l-sub">what to doubt</span></button></li>
+          <li><button type="button" class="node l-node" data-l="Coherence">Coherence<span class="sys l-sub">what to become</span></button></li>
+          <li><button type="button" class="node l-node meta" data-l="Evaluation">Evaluation<span class="sys l-sub">how to know</span></button></li>
+          <li><button type="button" class="node l-node meta" data-l="Harness">Harness<span class="sys l-sub">where and how</span></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="circuit-readout" id="circuit-readout" aria-live="polite">
+      <p class="sys cr-path"><span id="cr-stance">Oracle</span> <span class="dim">&mdash;load&rarr;</span> <span id="cr-layer">Judgment</span></p>
+      <dl class="cr-grid">
+        <div><dt class="sys">What you expect</dt><dd id="cr-expect">Truth to a hard question</dd></div>
+        <div><dt class="sys">Characteristic failure</dt><dd id="cr-fail">Confident plausible prose taken as fact</dd></div>
+        <div><dt class="sys">Guardrail</dt><dd id="cr-guard">Ask for the uncertainty before the answer. Treat the answer as a claim, not a verdict.</dd></div>
+      </dl>
+    </div>
+    <a class="more" href="matrix.html">The full interactive matrix &rarr;</a>
+  </div>
+</section>
+
+<!-- ============ §4 Start here ============ -->
+<section class="section paths" aria-labelledby="start-title">
+  <div class="wrap">
+    <p class="sys section-tag"><span class="num">§4</span> start_here</p>
+    <h2 id="start-title">Pick the path that sounds like you</h2>
+    <div class="path-grid">
+      <article class="path">
+        <p class="sys path-who">--role learner</p>
+        <h3>You use AI chat tools and want to get better on purpose</h3>
+        <p>Start with the AI @ Workplace video series (recorded talks with slides) at the level that matches your experience, then take the five-minute self-diagnostic to find your default stance.</p>
+        <p class="links"><a class="more" href="learn.html">AI @ Workplace 101&ndash;401 &rarr;</a><a class="more" href="diagnose.html">Which mode are you in? &rarr;</a></p>
+      </article>
+      <article class="path">
+        <p class="sys path-who">--role team-lead</p>
+        <h3>Your team uses AI and you need it to be reliable, and documented</h3>
+        <p>The matrix tells you which layers your shared setup must make strong, given the stances your team uses most. The assessment applies it to your real workflows.</p>
+        <p class="links"><a class="more" href="matrix.html">The <span data-brand></span> Matrix &rarr;</a><a class="more" href="work.html">Work with me &rarr;</a></p>
+      </article>
+      <article class="path">
+        <p class="sys path-who">--role builder</p>
+        <h3>You build agents, workflows or custom bots</h3>
+        <p>The Stack is the architecture. The Agent Audit Protocol in the repository is written for your agent to run against your own system.</p>
+        <p class="links"><a class="more" href="stack.html">The AI-Human Engineering Stack &rarr;</a><a class="more" href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md">Agent Audit Protocol (GitHub) &rarr;</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §5 Services + §6 Essay ============ -->
+<section class="section offer" aria-label="Services and latest essay">
+  <div class="wrap offer-grid">
+    <section class="offer-block" aria-labelledby="services-title">
+      <p class="sys section-tag"><span class="num">§5</span> services</p>
+      <h2 id="services-title">Work with me</h2>
+      <div class="svc">
+        <h3>The <span data-brand></span> Assessment</h3>
+        <p>A fixed-fee diagnostic for a small team: where your AI work breaks, which layer to fix first, a 90-day plan, and an evidence pack of your AI-literacy measures.</p>
+        <p class="sys price">from $3,500 &middot; about two weeks</p>
+      </div>
+      <div class="svc">
+        <h3>AI @ Workplace workshops</h3>
+        <p>Remote, half or full day, mapped to your team's own workflows.</p>
+        <p class="sys price">from $1,200 per session</p>
+      </div>
+      <p class="svc-free">Everything on this site and in the repo is free. You pay for my time.</p>
+      <a class="cmd" href="work.html"><span class="cmd-glyph" aria-hidden="true">$</span> Details</a>
+    </section>
+    <section class="offer-block essay" aria-labelledby="essay-title">
+      <p class="sys section-tag"><span class="num">§6</span> latest_essay</p>
+      <h2 id="essay-title">The Calculator Problem</h2>
+      <blockquote><p>&ldquo;True computer literacy is not just knowing how to make use of computers and computational ideas. It is knowing when it is appropriate to do so.&rdquo;</p><footer class="sys">Seymour Papert, 1980</footer></blockquote>
+      <p>Swap &ldquo;computers&rdquo; for &ldquo;AI&rdquo; and you have the problem this site is about.</p>
+      <a class="cmd cmd-ghost" href="calculator-problem.html"><span class="cmd-glyph" aria-hidden="true">$</span> Read the essay</a>
+    </section>
+  </div>
+</section>
+
+</main>
+
+<!-- @footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <section class="ticker" aria-labelledby="ticker-title">
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <ol class="sys ticker-lines" id="ticker-lines">
+        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
+        <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
+      </ol>
+    </section>
+    <div class="footer-meta">
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
+        <li>Code MIT · documents CC BY-SA 4.0</li>
+        <li><a href="https://www.linkedin.com/in/henriquejsanchez">LinkedIn</a></li>
+        <li><a href="about.html">About and credits</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+</body>
+</html>
