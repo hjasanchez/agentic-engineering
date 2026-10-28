@@ -1,6 +1,6 @@
 # Site QA report
 
-Run: 2026-10-25, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 188 s.
+Run: 2026-10-28, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 195 s.
 
 **Result: PASS: 97 of 97 checks passed.**
 
@@ -12,8 +12,8 @@ Run: 2026-10-25, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modef
 |---|---|---|
 | Loads (72) | PASS | console errors 0; failed requests 0; loads with horizontal overflow 0 |
 | JavaScript off (18) | PASS | readable 18 of 18 |
-| Contrast light | PASS | 4,437 text elements; below 4.5:1: 0; lowest 4.98:1 (`span.sd-lnum` "L3", stack.html 390); not parsed 0; exempt (disabled) 4 |
-| Contrast dark | PASS | 4,437 text elements; below 4.5:1: 0; lowest 6.07:1 (`caption` "From site-c/_qa/qa-report.md", about.html 390); not parsed 0; exempt (disabled) 4 |
+| Contrast light | PASS | 4,435 text elements; below 4.5:1: 0; lowest 4.98:1 (`span.sd-lnum` "L3", stack.html 390); not parsed 0; exempt (disabled) 4 |
+| Contrast dark | PASS | 4,435 text elements; below 4.5:1: 0; lowest 6.07:1 (`caption` "From site-c/_qa/qa-report.md", about.html 390); not parsed 0; exempt (disabled) 4 |
 | Banned words | PASS | 0 hits |
 | Diagnostic | PASS | 26,880 of 26,880 return a result; derived from source 26,880; derived from UI 26,880 |
 | Footer build log | PASS | 0 mismatches; footers identical on all pages: yes |
@@ -23,8 +23,8 @@ Run: 2026-10-25, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modef
 | Item | Value |
 |---|---|
 | Pages | 9 (about.html, calculator-problem.html, diagnose.html, index.html, learn.html, matrix.html, stack.html, stances.html, work.html) |
-| Deployable files (excl. `_qa/`, STATUS.md) | 15 |
-| Deployable bytes | 330,726 |
+| Deployable files (excl. `_qa/`, STATUS.md) | 16 |
+| Deployable bytes | 330,484 |
 | External scripts | 0 |
 
 ## 1. Loads
@@ -114,8 +114,8 @@ Requests answered locally (no network): fonts.googleapis.com (102), i.ytimg.com 
 
 | Page | Width | Main text (chars) | h1 | sw | Lost text | JS-only instruments hidden | Readable |
 |---|---|---|---|---|---|---|---|
-| about.html | 390 | 7,311 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
-| about.html | 1280 | 7,311 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
+| about.html | 390 | 7,310 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| about.html | 1280 | 7,310 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 | calculator-problem.html | 390 | 11,522 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | calculator-problem.html | 1280 | 11,522 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 | diagnose.html | 390 | 3,578 | yes | 390 | 0 | button.theme-toggle.js-only, div#console.console.js-only | yes |
@@ -130,8 +130,8 @@ Requests answered locally (no network): fonts.googleapis.com (102), i.ytimg.com 
 | stack.html | 1280 | 10,417 | yes | 1280 | 0 | button.theme-toggle.js-only, div.sd-bar.js-only, p#sd-readout.sys.sd-readout, span.js-only | yes |
 | stances.html | 390 | 15,764 | yes | 390 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
 | stances.html | 1280 | 15,764 | yes | 1280 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
-| work.html | 390 | 3,404 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
-| work.html | 1280 | 3,404 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
+| work.html | 390 | 3,390 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| work.html | 1280 | 3,390 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 
 ## 3. Contrast
 
@@ -139,8 +139,8 @@ Every visible text element, reduced-motion loads at 390 and 1280, plus interacti
 
 | Theme | Elements | Below 4.5 | Lowest | Element | Text | Page | Width | State |
 |---|---|---|---|---|---|---|---|---|
-| light | 4,437 | 0 | 4.98 | `span.sd-lnum` | L3 | stack.html | 390 | Context and Evaluation marked weak |
-| dark | 4,437 | 0 | 6.07 | `caption` | From site-c/_qa/qa-report.md | about.html | 390 | load |
+| light | 4,435 | 0 | 4.98 | `span.sd-lnum` | L3 | stack.html | 390 | Context and Evaluation marked weak |
+| dark | 4,435 | 0 | 6.07 | `caption` | From site-c/_qa/qa-report.md | about.html | 390 | load |
 
 **Light: lowest ten**
 
@@ -228,10 +228,10 @@ Per scan:
 | stances.html | 1280 | light | first layer filter on | 115 | 5.43 |
 | stances.html | 1280 | dark | load | 315 | 6.07 |
 | stances.html | 1280 | dark | first layer filter on | 115 | 6.07 |
-| work.html | 390 | light | load | 98 | 5.43 |
-| work.html | 390 | dark | load | 98 | 6.82 |
-| work.html | 1280 | light | load | 98 | 5.43 |
-| work.html | 1280 | dark | load | 98 | 6.82 |
+| work.html | 390 | light | load | 97 | 5.43 |
+| work.html | 390 | dark | load | 97 | 6.82 |
+| work.html | 1280 | light | load | 97 | 5.43 |
+| work.html | 1280 | dark | load | 97 | 6.82 |
 
 ## 4. Banned words
 
@@ -271,14 +271,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | Source | Item | Claimed | Measured | Match |
 |---|---|---|---|---|
 | about.html footer | pages | 9 | 9 | yes |
-| about.html footer | files | 15 | 15 | yes |
+| about.html footer | files | 16 | 16 | yes |
 | about.html footer | external_scripts | 0 | 0 | yes |
-| about.html footer | bytes | 330726 | 330726 | yes |
+| about.html footer | bytes | 330484 | 330484 | yes |
 | about.html footer | loads | 72 | 72 | yes |
 | about.html footer | console_errors | 0 | 0 | yes |
 | about.html footer | failed_requests | 0 | 0 | yes |
 | about.html footer | overflow | 0 | 0 | yes |
-| about.html footer | contrast_elements | 4437 | 4437 | yes |
+| about.html footer | contrast_elements | 4435 | 4435 | yes |
 | about.html footer | lowest_light | 4.98 | 4.98 | yes |
 | about.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | about.html footer | diag_ok | 26880 | 26880 | yes |
@@ -287,14 +287,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | about.html footer | checks_passed | 97 | 97 | yes |
 | about.html footer | checks_total | 97 | 97 | yes |
 | calculator-problem.html footer | pages | 9 | 9 | yes |
-| calculator-problem.html footer | files | 15 | 15 | yes |
+| calculator-problem.html footer | files | 16 | 16 | yes |
 | calculator-problem.html footer | external_scripts | 0 | 0 | yes |
-| calculator-problem.html footer | bytes | 330726 | 330726 | yes |
+| calculator-problem.html footer | bytes | 330484 | 330484 | yes |
 | calculator-problem.html footer | loads | 72 | 72 | yes |
 | calculator-problem.html footer | console_errors | 0 | 0 | yes |
 | calculator-problem.html footer | failed_requests | 0 | 0 | yes |
 | calculator-problem.html footer | overflow | 0 | 0 | yes |
-| calculator-problem.html footer | contrast_elements | 4437 | 4437 | yes |
+| calculator-problem.html footer | contrast_elements | 4435 | 4435 | yes |
 | calculator-problem.html footer | lowest_light | 4.98 | 4.98 | yes |
 | calculator-problem.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | calculator-problem.html footer | diag_ok | 26880 | 26880 | yes |
@@ -303,14 +303,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | calculator-problem.html footer | checks_passed | 97 | 97 | yes |
 | calculator-problem.html footer | checks_total | 97 | 97 | yes |
 | diagnose.html footer | pages | 9 | 9 | yes |
-| diagnose.html footer | files | 15 | 15 | yes |
+| diagnose.html footer | files | 16 | 16 | yes |
 | diagnose.html footer | external_scripts | 0 | 0 | yes |
-| diagnose.html footer | bytes | 330726 | 330726 | yes |
+| diagnose.html footer | bytes | 330484 | 330484 | yes |
 | diagnose.html footer | loads | 72 | 72 | yes |
 | diagnose.html footer | console_errors | 0 | 0 | yes |
 | diagnose.html footer | failed_requests | 0 | 0 | yes |
 | diagnose.html footer | overflow | 0 | 0 | yes |
-| diagnose.html footer | contrast_elements | 4437 | 4437 | yes |
+| diagnose.html footer | contrast_elements | 4435 | 4435 | yes |
 | diagnose.html footer | lowest_light | 4.98 | 4.98 | yes |
 | diagnose.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | diagnose.html footer | diag_ok | 26880 | 26880 | yes |
@@ -319,14 +319,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | diagnose.html footer | checks_passed | 97 | 97 | yes |
 | diagnose.html footer | checks_total | 97 | 97 | yes |
 | index.html footer | pages | 9 | 9 | yes |
-| index.html footer | files | 15 | 15 | yes |
+| index.html footer | files | 16 | 16 | yes |
 | index.html footer | external_scripts | 0 | 0 | yes |
-| index.html footer | bytes | 330726 | 330726 | yes |
+| index.html footer | bytes | 330484 | 330484 | yes |
 | index.html footer | loads | 72 | 72 | yes |
 | index.html footer | console_errors | 0 | 0 | yes |
 | index.html footer | failed_requests | 0 | 0 | yes |
 | index.html footer | overflow | 0 | 0 | yes |
-| index.html footer | contrast_elements | 4437 | 4437 | yes |
+| index.html footer | contrast_elements | 4435 | 4435 | yes |
 | index.html footer | lowest_light | 4.98 | 4.98 | yes |
 | index.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | index.html footer | diag_ok | 26880 | 26880 | yes |
@@ -335,14 +335,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | index.html footer | checks_passed | 97 | 97 | yes |
 | index.html footer | checks_total | 97 | 97 | yes |
 | learn.html footer | pages | 9 | 9 | yes |
-| learn.html footer | files | 15 | 15 | yes |
+| learn.html footer | files | 16 | 16 | yes |
 | learn.html footer | external_scripts | 0 | 0 | yes |
-| learn.html footer | bytes | 330726 | 330726 | yes |
+| learn.html footer | bytes | 330484 | 330484 | yes |
 | learn.html footer | loads | 72 | 72 | yes |
 | learn.html footer | console_errors | 0 | 0 | yes |
 | learn.html footer | failed_requests | 0 | 0 | yes |
 | learn.html footer | overflow | 0 | 0 | yes |
-| learn.html footer | contrast_elements | 4437 | 4437 | yes |
+| learn.html footer | contrast_elements | 4435 | 4435 | yes |
 | learn.html footer | lowest_light | 4.98 | 4.98 | yes |
 | learn.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | learn.html footer | diag_ok | 26880 | 26880 | yes |
@@ -351,14 +351,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | learn.html footer | checks_passed | 97 | 97 | yes |
 | learn.html footer | checks_total | 97 | 97 | yes |
 | matrix.html footer | pages | 9 | 9 | yes |
-| matrix.html footer | files | 15 | 15 | yes |
+| matrix.html footer | files | 16 | 16 | yes |
 | matrix.html footer | external_scripts | 0 | 0 | yes |
-| matrix.html footer | bytes | 330726 | 330726 | yes |
+| matrix.html footer | bytes | 330484 | 330484 | yes |
 | matrix.html footer | loads | 72 | 72 | yes |
 | matrix.html footer | console_errors | 0 | 0 | yes |
 | matrix.html footer | failed_requests | 0 | 0 | yes |
 | matrix.html footer | overflow | 0 | 0 | yes |
-| matrix.html footer | contrast_elements | 4437 | 4437 | yes |
+| matrix.html footer | contrast_elements | 4435 | 4435 | yes |
 | matrix.html footer | lowest_light | 4.98 | 4.98 | yes |
 | matrix.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | matrix.html footer | diag_ok | 26880 | 26880 | yes |
@@ -367,14 +367,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | matrix.html footer | checks_passed | 97 | 97 | yes |
 | matrix.html footer | checks_total | 97 | 97 | yes |
 | stack.html footer | pages | 9 | 9 | yes |
-| stack.html footer | files | 15 | 15 | yes |
+| stack.html footer | files | 16 | 16 | yes |
 | stack.html footer | external_scripts | 0 | 0 | yes |
-| stack.html footer | bytes | 330726 | 330726 | yes |
+| stack.html footer | bytes | 330484 | 330484 | yes |
 | stack.html footer | loads | 72 | 72 | yes |
 | stack.html footer | console_errors | 0 | 0 | yes |
 | stack.html footer | failed_requests | 0 | 0 | yes |
 | stack.html footer | overflow | 0 | 0 | yes |
-| stack.html footer | contrast_elements | 4437 | 4437 | yes |
+| stack.html footer | contrast_elements | 4435 | 4435 | yes |
 | stack.html footer | lowest_light | 4.98 | 4.98 | yes |
 | stack.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | stack.html footer | diag_ok | 26880 | 26880 | yes |
@@ -383,14 +383,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | stack.html footer | checks_passed | 97 | 97 | yes |
 | stack.html footer | checks_total | 97 | 97 | yes |
 | stances.html footer | pages | 9 | 9 | yes |
-| stances.html footer | files | 15 | 15 | yes |
+| stances.html footer | files | 16 | 16 | yes |
 | stances.html footer | external_scripts | 0 | 0 | yes |
-| stances.html footer | bytes | 330726 | 330726 | yes |
+| stances.html footer | bytes | 330484 | 330484 | yes |
 | stances.html footer | loads | 72 | 72 | yes |
 | stances.html footer | console_errors | 0 | 0 | yes |
 | stances.html footer | failed_requests | 0 | 0 | yes |
 | stances.html footer | overflow | 0 | 0 | yes |
-| stances.html footer | contrast_elements | 4437 | 4437 | yes |
+| stances.html footer | contrast_elements | 4435 | 4435 | yes |
 | stances.html footer | lowest_light | 4.98 | 4.98 | yes |
 | stances.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | stances.html footer | diag_ok | 26880 | 26880 | yes |
@@ -399,14 +399,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | stances.html footer | checks_passed | 97 | 97 | yes |
 | stances.html footer | checks_total | 97 | 97 | yes |
 | work.html footer | pages | 9 | 9 | yes |
-| work.html footer | files | 15 | 15 | yes |
+| work.html footer | files | 16 | 16 | yes |
 | work.html footer | external_scripts | 0 | 0 | yes |
-| work.html footer | bytes | 330726 | 330726 | yes |
+| work.html footer | bytes | 330484 | 330484 | yes |
 | work.html footer | loads | 72 | 72 | yes |
 | work.html footer | console_errors | 0 | 0 | yes |
 | work.html footer | failed_requests | 0 | 0 | yes |
 | work.html footer | overflow | 0 | 0 | yes |
-| work.html footer | contrast_elements | 4437 | 4437 | yes |
+| work.html footer | contrast_elements | 4435 | 4435 | yes |
 | work.html footer | lowest_light | 4.98 | 4.98 | yes |
 | work.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | work.html footer | diag_ok | 26880 | 26880 | yes |
@@ -415,13 +415,13 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | work.html footer | checks_passed | 97 | 97 | yes |
 | work.html footer | checks_total | 97 | 97 | yes |
 | about.html build-log table | pages | 9 | 9 | yes |
-| about.html build-log table | files | 15 | 15 | yes |
-| about.html build-log table | bytes | 330726 | 330726 | yes |
+| about.html build-log table | files | 16 | 16 | yes |
+| about.html build-log table | bytes | 330484 | 330484 | yes |
 | about.html build-log table | loads | 72 | 72 | yes |
 | about.html build-log table | console_errors | 0 | 0 | yes |
 | about.html build-log table | failed_requests | 0 | 0 | yes |
 | about.html build-log table | overflow | 0 | 0 | yes |
-| about.html build-log table | contrast_elements | 4437 | 4437 | yes |
+| about.html build-log table | contrast_elements | 4435 | 4435 | yes |
 | about.html build-log table | lowest_light | 4.98 | 4.98 | yes |
 | about.html build-log table | lowest_dark | 6.07 | 6.07 | yes |
 | about.html build-log table | diag_ok | 26880 | 26880 | yes |
@@ -430,14 +430,14 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`) plus the abou
 | about.html build-log table | checks_passed | 97 | 97 | yes |
 | about.html build-log table | checks_total | 97 | 97 | yes |
 | _qa/buildlog.json | pages | 9 | 9 | yes |
-| _qa/buildlog.json | files | 15 | 15 | yes |
+| _qa/buildlog.json | files | 16 | 16 | yes |
 | _qa/buildlog.json | external_scripts | 0 | 0 | yes |
-| _qa/buildlog.json | bytes | 330726 | 330726 | yes |
+| _qa/buildlog.json | bytes | 330484 | 330484 | yes |
 | _qa/buildlog.json | loads | 72 | 72 | yes |
 | _qa/buildlog.json | console_errors | 0 | 0 | yes |
 | _qa/buildlog.json | failed_requests | 0 | 0 | yes |
 | _qa/buildlog.json | overflow | 0 | 0 | yes |
-| _qa/buildlog.json | contrast_elements | 4437 | 4437 | yes |
+| _qa/buildlog.json | contrast_elements | 4435 | 4435 | yes |
 | _qa/buildlog.json | lowest_light | 4.98 | 4.98 | yes |
 | _qa/buildlog.json | lowest_dark | 6.07 | 6.07 | yes |
 | _qa/buildlog.json | diag_ok | 26880 | 26880 | yes |

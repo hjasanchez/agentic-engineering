@@ -46,7 +46,7 @@ modefluency/
 ```
 GitHub: https://github.com/hjasanchez/agentic-engineering. `main` holds everything (merge commit 19db5e2, 2026-10-25); `meta-strategy`
 is fast-forwarded to it and stays the working branch. **Live:** GitHub Pages from main /docs at https://hjasanchez.github.io/agentic-engineering/
-(checked 2026-10-25: every page 200, 0 console errors). modefluency.com is bought (Namecheap) but DNS is not pointed yet.
+(checked 2026-10-25: every page 200, 0 console errors). modefluency.com is live on it (DNS at Cloudflare) since 2026-10-28.
 
 Published pages (private to Henrique's account; still valid for reading):
 strategy brief https://claude.ai/artifact/P5ZSRJPmn2mFpJaF2gMFVS · naming round 2 https://claude.ai/artifact/FFh29UPzHQCKJAh93kW2bW ·
@@ -66,10 +66,11 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
    PR #2 merged; GitHub Pages enabled and verified.
 
 ## 5. What is left (suggested order)
-1. **Custom domain (Henrique's steps, then ours):** at Cloudflare add modefluency.com, point Namecheap's nameservers to it, add the DNS
-   records for GitHub Pages (A 185.199.108.153 / .109.153 / .110.153 / .111.153 for the apex, CNAME www → hjasanchez.github.io, DNS only /
-   grey cloud), and Email Routing hello@ → Gmail. Then we: set the custom domain in Pages (`gh api -X PUT .../pages -f cname=modefluency.com`
-   plus a `docs/CNAME` file), wait for the DNS check, enforce HTTPS, re-verify, and turn the work.html email into a mailto link.
+1. **Custom domain: done 2026-10-28 except HTTPS enforcement.** Nameservers on Cloudflare, four A records + www CNAME (DNS only),
+   custom domain attached to Pages (`docs/CNAME`), http://modefluency.com serves the site, Email Routing hello@ → Gmail verified
+   and tested, work.html shows a mailto link. **Left:** GitHub's certificate for modefluency.com was still pending at the end of the
+   session; once `curl -sI https://modefluency.com` returns 200, run
+   `gh api -X PUT repos/hjasanchez/agentic-engineering/pages --input - <<< '{"https_enforced":true}'` and confirm http → https redirects.
 2. **Real-device checks nobody has done:** Safari, Firefox (scroll-driven animations are behind @supports), a real screen reader, battery/perf
    on a mid laptop, the particle field on a phone. Fix what shows, re-run `python strategy/qa/site_qa.py docs --write-buildlog --out docs/_qa/qa-report.md`.
 3. **Still open for Henrique:** the first harness-kit job family (the one he knows from his day job); whether to polish the Oracle and Genie

@@ -1,16 +1,16 @@
 {
  "ticker": [
-  "build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0",
-  "size: 330,726 bytes deployable, fonts excluded (budget 900,000)",
-  "qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0",
-  "a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)",
+  "build: 9 pages, 16 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0",
+  "size: 330,484 bytes deployable, fonts excluded (budget 900,000)",
+  "qa 2026-10-28: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0",
+  "a11y: 4,435 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)",
   "diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI",
   "checks: 97 of 97 passed; report in _qa/qa-report.md"
  ],
  "about": [
   [
    "date",
-   "2026-10-25"
+   "2026-10-28"
   ],
   [
    "pages",
@@ -18,11 +18,11 @@
   ],
   [
    "files",
-   "15 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)"
+   "16 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)"
   ],
   [
    "size",
-   "330,726 bytes, fonts excluded (budget 900,000)"
+   "330,484 bytes, fonts excluded (budget 900,000)"
   ],
   [
    "libraries",
@@ -38,7 +38,7 @@
   ],
   [
    "contrast",
-   "4,437 text elements per theme; lowest 4.98:1 light, 6.07:1 dark"
+   "4,435 text elements per theme; lowest 4.98:1 light, 6.07:1 dark"
   ],
   [
    "diagnostic",
