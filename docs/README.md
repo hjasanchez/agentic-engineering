@@ -56,7 +56,7 @@ only the no-JavaScript and search-engine fallback; update them too if the rename
   No `CNAME` file is needed for Cloudflare.
 
 ## Before launch (decisions for Henrique)
-- `hello@modefluency.com` on work.html is a placeholder (see the HTML comment); it is shown as plain text, not a link.
+- `hello@modefluency.com` on work.html is live (Cloudflare Email Routing, since 2026-10-28) and is a mailto link.
 - Prices are "from $3,500" (assessment) and "from $1,200" (workshop).
 - License: code MIT, documents CC BY-SA 4.0 (decided 2026-10-25); about.html and the footer say so.
 - AI 601 ("dark factories") has no written scope yet; learn.html says so.
