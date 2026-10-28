@@ -66,11 +66,9 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
    PR #2 merged; GitHub Pages enabled and verified.
 
 ## 5. What is left (suggested order)
-1. **Custom domain: done 2026-10-28 except HTTPS enforcement.** Nameservers on Cloudflare, four A records + www CNAME (DNS only),
-   custom domain attached to Pages (`docs/CNAME`), http://modefluency.com serves the site, Email Routing hello@ → Gmail verified
-   and tested, work.html shows a mailto link. **Left:** GitHub's certificate for modefluency.com was still pending at the end of the
-   session; once `curl -sI https://modefluency.com` returns 200, run
-   `gh api -X PUT repos/hjasanchez/agentic-engineering/pages --input - <<< '{"https_enforced":true}'` and confirm http → https redirects.
+1. **Custom domain: done 2026-10-28.** Nameservers on Cloudflare, four A records + www CNAME (DNS only), `docs/CNAME`,
+   certificate issued, HTTPS enforced (http and www redirect to https://modefluency.com), Email Routing hello@ → Gmail verified and
+   tested, work.html shows a mailto link. Nothing left here.
 2. **Real-device checks nobody has done:** Safari, Firefox (scroll-driven animations are behind @supports), a real screen reader, battery/perf
    on a mid laptop, the particle field on a phone. Fix what shows, re-run `python strategy/qa/site_qa.py docs --write-buildlog --out docs/_qa/qa-report.md`.
 3. **Still open for Henrique:** the first harness-kit job family (the one he knows from his day job); whether to polish the Oracle and Genie
