@@ -49,59 +49,70 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§1</span> system_diagram</p>
     <h2 id="sys-title">Seven components, one system</h2>
-    <div class="prose"><p>Five layers stack bottom to top. Evaluation runs alongside every layer; the harness is the platform underneath. Each layer is harder to see, harder to specify, and harder to evaluate than the one below. <span class="js-only">The amber current climbs the dependency spine; the green pulses are evaluation reading each layer. Mark any layer weak and watch what happens above it.</span></p></div>
-    <div class="stackdiag" id="stackdiag">
-      <svg class="sd-wires" aria-hidden="true" focusable="false"></svg>
-      <div class="sd-layers">
-      <div class="sd-node" data-l="prompt" id="sd-prompt">
-        <span class="sd-lnum" aria-hidden="true">L1</span>
-        <h3>Prompt</h3>
-        <p class="sd-q">What to do</p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-session</span><span><span class="lv">fails as</span> Incoherent capability: individually plausible, collectively inconsistent</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
-      </div><div class="sd-node" data-l="context" id="sd-context">
-        <span class="sd-lnum" aria-hidden="true">L2</span>
-        <h3>Context</h3>
-        <p class="sd-q">What to know while doing</p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-system</span><span><span class="lv">fails as</span> Informed incompetence: good instructions, wrong or missing information</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
-      </div><div class="sd-node" data-l="intent" id="sd-intent">
-        <span class="sd-lnum" aria-hidden="true">L3</span>
-        <h3>Intent</h3>
-        <p class="sd-q">What to want while doing</p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-organization</span><span><span class="lv">fails as</span> Misaligned optimization: task done correctly, actual goal undermined</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
-      </div><div class="sd-node" data-l="judgment" id="sd-judgment">
-        <span class="sd-lnum" aria-hidden="true">L4</span>
-        <h3>Judgment</h3>
-        <p class="sd-q">What to doubt while doing</p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Continuous</span><span><span class="lv">fails as</span> Confident wrongness: high metric performance, progressive real-world drift</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
-      </div><div class="sd-node" data-l="coherence" id="sd-coherence">
-        <span class="sd-lnum" aria-hidden="true">L5</span>
-        <h3>Coherence</h3>
-        <p class="sd-q">What to become while doing</p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Per-ecosystem</span><span><span class="lv">fails as</span> Emergent misalignment: each agent correct, collective behavior wrong</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
-      </div>
-      </div>
-      <div class="sd-evalbar" aria-hidden="true"><span class="sd-evt">Evaluation</span><span class="sd-evq">how to know while doing</span></div>
-      <div class="sd-node sd-harness" data-l="harness" id="sd-harness">
-        <span class="sd-lnum" aria-hidden="true">base</span>
-        <h3>Harness</h3>
-        <p class="sd-q">Where and how to do</p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Infrastructure</span><span><span class="lv">fails as</span> Capability mismatch: the platform constrains what the cognitive layers could do</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
-      </div>
-      <div class="sd-node sd-evalctl" data-l="evaluation" id="sd-evaluation">
-        <h3 class="sr-only">Evaluation</h3>
-        <p class="sys sd-evlabel"><span aria-hidden="true">&uarr;</span> the dashed rail on the right is Evaluation: <em>how to know while doing</em></p>
-        <p class="sys sd-meta"><span><span class="lv">scope</span> Cross-layer</span><span><span class="lv">fails as</span> Silent failure: the system can&#x27;t see what&#x27;s breaking or where</span></p>
-        <div class="sd-ctl"><span class="sys sd-state">state: ok</span></div>
+    <div class="prose"><p>Five layers stack bottom to top, widest at the base. Evaluation runs beside every layer, in a loop; the harness encloses all of it. Each layer is harder to see, harder to specify, and harder to evaluate than the one below.</p></div>
+    <div class="stackdiag" id="stackdiag" role="figure" aria-labelledby="sd-title">
+      <p class="sr-only" id="sd-title">Diagram of the AI-Human Engineering Stack, read from the bottom up:</p>
+      <ol class="sr-only">
+        <li>The user begins with the prompt, at the bottom of the stack.</li>
+        <li>Five layers, bottom to top, each depending on all layers beneath it: Prompt engineering (what to do); Context engineering (what to know while doing); Intent engineering (what to want while doing); Judgment engineering (what to doubt while doing); Coherence engineering (what to become while doing).</li>
+        <li>Coherence, the top layer, feeds the final output.</li>
+        <li>Evaluation engineering (how to know while doing) is a bar beside all five layers, linked to each one: each layer is evaluated in a loop, autonomously.</li>
+        <li>Harness engineering (where and how to do) encloses the five layers and the evaluation bar. The user sets up the harness initially and may intervene or adjust as needed.</li>
+        <li>The user re-enters any layer when evaluation shows it is needed.</li>
+      </ol>
+      <!-- Visual figure. Static HTML and CSS, correct with JS off; field.js only adds the .is-live class that runs the pulses.
+           Layers are rows bottom-up (flex column-reverse); --i is the step index that narrows each row. To add a band under
+           Prompt later, insert a row before it and shift the --i values up by one. -->
+      <div class="sd-fig" aria-hidden="true">
+        <p class="sd-out sys">final output</p>
+        <div class="sd-frame"></div>
+        <span class="sd-up sd-up-out" style="--i:4"><i class="sd-a sd-a-up"></i></span>
+        <p class="sd-hlabel"><span class="sd-ht">Harness engineering</span><span class="sys sd-hq">where and how to do</span></p>
+        <div class="sd-evalbar"><span class="sd-evt">Evaluation engineering</span><span class="sys sd-evq">how to know while doing</span></div>
+        <div class="sd-layers">
+          <div class="sd-row" style="--i:0">
+            <span class="sd-link"><i class="sd-a sd-a-r"></i><i class="sd-a sd-a-l"></i></span>
+            <div class="sd-node" data-l="prompt"><p class="sd-name"><span class="sd-lnum">L1</span> Prompt <span class="sd-eng">engineering</span></p><p class="sd-q">What to do</p><p class="sys sd-meta"><span><span class="lv">scope</span> Per-session</span> <span><span class="lv">fails as</span> Incoherent capability: individually plausible, collectively inconsistent</span></p></div>
+            <span class="sd-re"><i class="sd-a sd-a-l sd-dash"></i></span>
+            <span class="sd-up"><i class="sd-a sd-a-up"></i></span>
+          </div>
+          <div class="sd-row" style="--i:1">
+            <span class="sd-link"><i class="sd-a sd-a-r"></i><i class="sd-a sd-a-l"></i></span>
+            <div class="sd-node" data-l="context"><p class="sd-name"><span class="sd-lnum">L2</span> Context <span class="sd-eng">engineering</span></p><p class="sd-q">What to know while doing</p><p class="sys sd-meta"><span><span class="lv">scope</span> Per-system</span> <span><span class="lv">fails as</span> Informed incompetence: good instructions, wrong or missing information</span></p></div>
+            <span class="sd-re"><i class="sd-a sd-a-l sd-dash"></i></span>
+            <span class="sd-up"><i class="sd-a sd-a-up"></i></span>
+          </div>
+          <div class="sd-row" style="--i:2">
+            <span class="sd-link"><i class="sd-a sd-a-r"></i><i class="sd-a sd-a-l"></i></span>
+            <div class="sd-node" data-l="intent"><p class="sd-name"><span class="sd-lnum">L3</span> Intent <span class="sd-eng">engineering</span></p><p class="sd-q">What to want while doing</p><p class="sys sd-meta"><span><span class="lv">scope</span> Per-organization</span> <span><span class="lv">fails as</span> Misaligned optimization: task done correctly, actual goal undermined</span></p></div>
+            <span class="sd-re"><i class="sd-a sd-a-l sd-dash"></i></span>
+            <span class="sd-up"><i class="sd-a sd-a-up"></i></span>
+          </div>
+          <div class="sd-row" style="--i:3">
+            <span class="sd-link"><i class="sd-a sd-a-r"></i><i class="sd-a sd-a-l"></i></span>
+            <div class="sd-node" data-l="judgment"><p class="sd-name"><span class="sd-lnum">L4</span> Judgment <span class="sd-eng">engineering</span></p><p class="sd-q">What to doubt while doing</p><p class="sys sd-meta"><span><span class="lv">scope</span> Continuous</span> <span><span class="lv">fails as</span> Confident wrongness: high metric performance, progressive real-world drift</span></p></div>
+            <span class="sd-re"><i class="sd-a sd-a-l sd-dash"></i></span>
+            <span class="sd-up"><i class="sd-a sd-a-up"></i></span>
+          </div>
+          <div class="sd-row" style="--i:4">
+            <span class="sd-link"><i class="sd-a sd-a-r"></i><i class="sd-a sd-a-l"></i></span>
+            <div class="sd-node" data-l="coherence"><p class="sd-name"><span class="sd-lnum">L5</span> Coherence <span class="sd-eng">engineering</span></p><p class="sd-q">What to become while doing</p><p class="sys sd-meta"><span><span class="lv">scope</span> Per-ecosystem</span> <span><span class="lv">fails as</span> Emergent misalignment: each agent correct, collective behavior wrong</span></p></div>
+            <span class="sd-re"><i class="sd-a sd-a-l sd-dash"></i></span>
+          </div>
+        </div>
+        <span class="sd-rail"></span>
+        <p class="sd-user sys"><span>user</span><i class="sd-a sd-a-up sd-dash"></i></p>
+        <span class="sd-ulink"><i class="sd-a sd-a-up"></i><i class="sd-hl"></i><i class="sd-hd"></i></span>
+        <ul class="sd-key sys">
+          <li><span class="sd-k sd-k-ev"><i class="sd-a sd-a-r"></i><i class="sd-a sd-a-l"></i></span><span>each layer is evaluated in a loop, autonomously</span></li>
+          <li><span class="sd-k sd-k-sp"><i class="sd-a sd-a-up"></i></span><span>each layer depends on all layers beneath it; the top one feeds the final output</span></li>
+          <li><span class="sd-k sd-k-u"><i class="sd-a sd-a-r"></i></span><span>the user begins with the prompt</span></li>
+          <li><span class="sd-k sd-k-up"><i class="sd-a sd-a-up sd-dash"></i></span><span>the user sets up the harness, and may intervene or adjust as needed</span></li>
+          <li><span class="sd-k sd-k-re"><i class="sd-a sd-a-l sd-dash"></i></span><span>the user re-enters any layer, depending on evaluation</span></li>
+        </ul>
       </div>
     </div>
-    <div class="sd-bar js-only"><button type="button" class="cmd cmd-ghost small" id="sd-reset" hidden><span class="cmd-glyph" aria-hidden="true">$</span> reset all layers</button></div>
-    <p class="sys sd-readout js-only" id="sd-readout" role="status" aria-live="polite">binding constraint: none marked. Mark a layer weak to find it.</p>
+    <p class="sys sd-more">The scope and failure signature of all seven components: <a href="#map-title">the component map</a> below.</p>
   </div>
 </section>
 
@@ -145,7 +156,7 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§4</span> component_map</p>
     <h2 id="map-title">The components in detail</h2>
-    <p class="source-note">From the Component Reference Map, v1.0, March 2026.</p>
+    <p class="source-note">From the Component Reference Map, March 2026.</p>
     <div class="ruled-grid two">
 <article id="prompt" aria-labelledby="c-prompt">
   <p class="card-tag"><span class="num">Layer 1</span></p>
@@ -197,7 +208,7 @@
     <dt>Characteristic artifacts</dt><dd>Uncertainty protocols, scope boundaries, pre-implementation checkpoints, escalation conditions</dd>
     <dt>Failure signature</dt><dd>Confident wrongness: high metric performance, progressive real-world drift</dd>
   </dl>
-  <p class="aside-line">It hits every metric. It violates no explicit boundary. And it is steadily drifting.</p>
+  <p class="aside-line">It hits every metric. It violates no explicit boundary. And it is steadily drifting into territory where its technically correct actions are producing strategically harmful outcomes.</p>
 </article>
 <article id="coherence" aria-labelledby="c-coherence">
   <p class="card-tag"><span class="num">Layer 5</span></p>
@@ -252,11 +263,12 @@
     <ul class="clean">
       <li><strong>Individual:</strong> how you instruct an AI tool, what personal context you provide, what your goals and values are, whether you notice when your approach stops working, and how your various AI tools work together rather than in isolation.</li>
       <li><strong>Team:</strong> how the team prompts shared AI tools, what organizational data those tools access, what team objectives they serve, whether the team detects when AI outputs are drifting, and how multiple AI-augmented workflows interact.</li>
-      <li><strong>Organization:</strong> the prompt libraries and standards, the data and knowledge architecture, the AI governance framework, the feedback systems that detect misalignment, and the ecosystem management that keeps hundreds of AI deployments coherent.</li>
+      <li><strong>Organization:</strong> the enterprise prompt libraries and standards, the data and knowledge architecture, the strategic AI governance framework, the feedback systems that detect misalignment, and the ecosystem management that keeps hundreds of AI deployments coherent rather than contradictory.</li>
     </ul>
     <p>The individual who masters intent engineering for their personal workflow is developing the exact skills needed to build organizational intent architecture.</p>
     <h3>Where the regress stops</h3>
-    <p>If judgment monitors intent, what monitors judgment? The regress is terminated by human governance. At some point in every system there must be a human, or a human institution, that says: &ldquo;This is what we value. This is what we are willing to be held accountable for.&rdquo; That foundation cannot be automated without circularity.</p>
+    <p>Why five layers and not fifteen? Each layer works at a higher level of abstraction than the one below it, and abstraction has diminishing returns. Coherence is the top. The next layer up would ask how the whole human-AI civilization stays aligned with human flourishing, and at that level the problem is no longer engineering. It is politics, ethics and philosophy: democratic governance, moral philosophy and institutional design.</p>
+    <p>The same limit stops the regress. If judgment monitors intent, what monitors judgment? If coherence governs the agents, what governs the coherence framework? A human, or a human institution, that says: &ldquo;This is what we value. This is what we are willing to be held accountable for. This is the foundation on which everything else rests.&rdquo; That foundation cannot be automated without circularity, because the question &ldquo;what should we ultimately value?&rdquo; is constitutive of human agency itself. The stack ends at coherence; the regress ends with people.</p>
   </div>
   </div>
 </section>
@@ -278,18 +290,18 @@
 <footer class="site-footer">
   <div class="wrap">
     <section class="ticker" aria-labelledby="ticker-title">
-      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; colophon. Built by an AI agent from my written briefs; this is its own log, unedited.</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
-        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
-        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
-        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>build: 9 pages, 16 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 323,426 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-29: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 3,722 text elements scanned per theme; lowest contrast 5.23:1 light, 6.07:1 dark (floor 4.5)</li>
         <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
         <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
       </ol>
     </section>
     <div class="footer-meta">
-      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; interested in a more tailored experience? Check the <a href="work.html">Work with me</a> page.</p>
       <ul class="footer-links">
         <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
         <li>Code MIT · documents CC BY-SA 4.0</li>

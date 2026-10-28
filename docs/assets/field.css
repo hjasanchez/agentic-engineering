@@ -480,50 +480,89 @@ html:not(.js) .read-strip { display: none; }
 html:not(.js) .sc-stage { display: none; }
 .meta-table td, .meta-table th { width: 50%; }
 
-/* ---------- stack: the system diagram ---------- */
-.stackdiag { position: relative; margin-top: 36px; display: grid; grid-template-columns: minmax(0, 1fr) 56px; grid-template-rows: auto auto auto; gap: 14px 14px; max-width: 980px; }
-.sd-wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
-.sd-layers { grid-column: 1; display: flex; flex-direction: column-reverse; gap: 14px; position: relative; z-index: 1; }
-.sd-node { position: relative; border: 1px solid var(--line); background: var(--bg); padding: 12px 14px 12px 44px; transition: opacity .35s, border-color .25s, background-color .25s; }
-.sd-node h3 { font-size: 1.35rem; }
-.sd-node .sd-q { font-style: italic; color: var(--ink); font-size: 1rem; }
-.sd-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; color: var(--ink-2); }
+/* ---------- stack: the system diagram (W13, after the published figure) ----------
+   Static HTML + CSS, correct with JS off. Grid columns: evaluation bar | layers | re-entry rail [| key, wide only].
+   Rows: final output | harness label | stack | user | key (narrow). The harness is a dashed frame around rows 2-3, cols 1-3.
+   --i on each .sd-row is its step up the pyramid: the eval link and the right gutter both grow by --st, so the node
+   narrows symmetrically and its centre (the dependency spine) stays put. */
+.stackdiag { margin-top: 36px; max-width: 1060px; --evw: 48px; --rw: 16px; --cg: 8px; --fp: 10px; --st: 9px; --lk: 6px; --lg: 16px; --ah: 7px; }
+.sd-fig { display: grid; grid-template-columns: var(--evw) minmax(0, 1fr) var(--rw); column-gap: var(--cg); padding: 0 var(--fp); }
+.sd-fig p { margin: 0; }
+.sd-out { grid-row: 1; grid-column: 2; justify-self: center; padding: 10px 22px; border: 1.5px solid var(--ink-2); border-radius: 50%; background: var(--surface); color: var(--ink); text-align: center; white-space: nowrap; }
+.sd-frame { grid-row: 2 / 4; grid-column: 1 / 4; margin: 18px calc(-1 * var(--fp)) calc(-1 * var(--fp)); border: 1.5px dashed var(--dim); border-radius: 3px; }
+.sd-up-out { grid-row: 2; grid-column: 2; justify-self: center; }
+.sd-hlabel { grid-row: 2; grid-column: 2 / 4; justify-self: end; display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding: 26px 0 12px; }
+.sd-ht { font-size: 1.05rem; line-height: 1.2; color: var(--ink); }
+.sd-hq { font-size: 0.75rem; color: var(--ink-2); }
+.sd-evalbar { grid-row: 3; grid-column: 1; display: flex; align-items: center; justify-content: center; gap: 2px; padding: 10px 0; border: 1.5px solid var(--ok); border-radius: 4px; background: var(--surface); }
+.sd-evalbar > span { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }
+.sd-evt { font-size: 1.05rem; line-height: 1.2; color: var(--ink); }
+.sd-evq { font-size: 0.6875rem; line-height: 1.3; color: var(--ink-2); }
+.sd-layers { grid-row: 3; grid-column: 2; align-self: start; display: flex; flex-direction: column-reverse; gap: var(--lg); }
+.sd-row { --in: calc(var(--lk) + var(--i) * var(--st)); position: relative; display: flex; }
+.sd-link { position: relative; flex: none; width: calc(var(--cg) + var(--in)); margin-left: calc(-1 * var(--cg)); }
+.sd-re { position: relative; flex: none; width: calc(var(--in) + var(--cg) + var(--rw) / 2); margin-right: calc(-1 * (var(--cg) + var(--rw) / 2)); }
+.sd-node { flex: 1 1 auto; min-width: 0; padding: 9px 8px 10px; border: 1px solid var(--dim); background: var(--surface); text-align: center; }
+.sd-name { font-size: 1.05rem; line-height: 1.2; color: var(--ink); }
+.sd-lnum { font-family: var(--mono); font-size: 0.6875rem; color: var(--human); vertical-align: 0.12em; }
+.sd-eng { display: none; }
+.sd-node .sd-q { margin-top: 3px; font-style: italic; font-size: 0.9375rem; line-height: 1.3; color: var(--ink); }
+.sd-meta { display: none; margin-top: 6px; font-size: 0.6875rem; line-height: 1.45; color: var(--ink-2); }
 .sd-meta .lv { color: var(--dim); }
-.sd-ctl { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 8px; }
-.sd-state { color: var(--ok); }
-.sd-node[data-state="weak"] { border-color: var(--human); background: var(--surface); }
-.sd-node[data-state="weak"] .sd-state { color: var(--human); }
-.sd-node[data-state="starved"] { background: var(--bg-2); border-style: dotted; }
-.sd-node[data-state="starved"] h3, .sd-node[data-state="starved"] .sd-q { color: var(--dim); }
-.sd-node[data-state="starved"] .sd-state { color: var(--ink-2); }
-.sd-node.is-binding::after { content: "binding constraint"; position: absolute; right: 10px; top: 10px; font-family: var(--mono); font-size: 0.6875rem; color: var(--bg); background: var(--human); padding: 1px 6px; }
-.sd-lnum { position: absolute; left: 12px; top: 13px; font-family: var(--mono); font-size: 0.75rem; color: var(--human); }
-.sd-evalbar { grid-column: 2; grid-row: 1; border: 1px dashed var(--ok); background: var(--bg); display: flex; flex-direction: row-reverse; align-items: center; justify-content: center; gap: 4px; position: relative; z-index: 1; }
-.sd-evt, .sd-evq { writing-mode: vertical-rl; }
-.sd-evt { font-size: 1.25rem; color: var(--ink); }
-.sd-evq { font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-2); }
-.sd-evalctl { grid-column: 1 / -1; grid-row: 3; border-style: dashed; border-color: var(--ok); }
-.stackdiag.eval-weak .sd-evalbar { border-color: var(--human); border-style: dotted; }
-.sd-harness { grid-column: 1 / -1; grid-row: 2; border-style: dashed; padding-left: 44px; }
-.sd-toggle { min-height: 36px; padding: 0 10px; border: 1px solid var(--line); background: transparent; border-radius: 2px; cursor: pointer; color: var(--ink); }
-.sd-toggle[aria-pressed="true"] { border-color: var(--human); color: var(--human); }
-.stackdiag.harness-weak .sd-layers .sd-node { border-style: dotted; }
-.stackdiag.eval-weak .sd-state { color: var(--dim); }
-.sd-wires path { fill: none; stroke: var(--line); stroke-width: 1.25; }
-.sd-wires path.sp { stroke: var(--human-glow); stroke-width: 1.5; }
-.sd-wires path.sp.cut { stroke: var(--line); stroke-dasharray: 3 4; }
-.sd-wires .pad { fill: var(--bg); stroke: var(--line); stroke-width: 1.25; }
-.sd-wires .pulse { fill: var(--human-glow); }
-.sd-wires .ev-pulse { fill: var(--ok); }
-.stackdiag.eval-weak .sd-wires path.ev { stroke-dasharray: 2 5; }
-.sd-readout { white-space: pre-line; margin-top: 18px; border: 1px solid var(--line); background: var(--surface); padding: 12px 14px; color: var(--ink); min-height: 4.8em; max-width: 980px; }
-.sd-readout::before { content: "> binding.check\A"; color: var(--dim); white-space: pre; }
-.sd-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-@media (max-width: 520px) {
-  .stackdiag { grid-template-columns: minmax(0, 1fr) 46px; gap: 10px; }
-  .sd-evt { font-size: 1.05rem; }
-  .sd-node { padding-left: 36px; }
-  .sd-meta { font-size: 0.75rem; }
+.sd-rail { grid-row: 3 / 5; grid-column: 3; justify-self: center; width: 0; margin: 22px 0 17px; border-left: 1.5px dashed var(--ink-2); }
+.sd-fig .sd-user { grid-row: 4; grid-column: 1; position: relative; height: 34px; margin-top: calc(var(--fp) + 26px); display: grid; place-items: center; border: 1.5px solid var(--ink-2); border-radius: 50%; background: var(--surface); color: var(--ink); }
+.sd-user .sd-a-up { top: auto; bottom: 100%; height: 26px; left: calc(50% - 4.5px); }
+.sd-ulink { grid-row: 4; grid-column: 2; position: relative; }
+.sd-ulink .sd-a-up { bottom: 16.25px; left: calc(50% - 4.5px); }
+.sd-hl, .sd-hd { position: absolute; bottom: 16.25px; height: 0; }
+.sd-hl { left: calc(-1 * var(--cg)); right: 50%; border-top: 1.5px solid var(--ink-2); }
+.sd-hd { left: 50%; right: calc(-1 * (var(--cg) + var(--rw) / 2)); border-top: 1.5px dashed var(--ink-2); }
+.sd-key { grid-row: 5; grid-column: 1 / -1; list-style: none; margin: 24px calc(-1 * var(--fp)) 0; padding: 0; display: grid; gap: 8px; color: var(--ink-2); }
+.sd-key li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: center; margin: 0; }
+.sd-k { position: relative; height: 20px; }
+.sd-k .sd-a-r, .sd-k .sd-a-l { top: 5.5px; }
+.sd-k-ev .sd-a-r { top: 1px; }
+.sd-k-ev .sd-a-l { top: 10px; }
+.sd-k .sd-a-up { left: 10px; }
+.sd-more { margin-top: 14px; color: var(--ink-2); }
+/* arrows: one element each, shaft + head cut with clip-path; --c is the colour; .sd-dash makes the shaft dashed */
+.sd-a { --c: var(--ink-2); position: absolute; display: block; background: var(--c); }
+.sd-a-r, .sd-a-l { left: 0; right: 0; height: 9px; }
+.sd-a-r { clip-path: polygon(0 calc(50% - .75px), calc(100% - var(--ah)) calc(50% - .75px), calc(100% - var(--ah)) 0, 100% 50%, calc(100% - var(--ah)) 100%, calc(100% - var(--ah)) calc(50% + .75px), 0 calc(50% + .75px)); }
+.sd-a-l { clip-path: polygon(100% calc(50% - .75px), var(--ah) calc(50% - .75px), var(--ah) 0, 0 50%, var(--ah) 100%, var(--ah) calc(50% + .75px), 100% calc(50% + .75px)); }
+.sd-a-up { top: 0; bottom: 0; left: 0; width: 9px; clip-path: polygon(calc(50% - .75px) 100%, calc(50% - .75px) var(--ah), 0 var(--ah), 50% 0, 100% var(--ah), calc(50% + .75px) var(--ah), calc(50% + .75px) 100%); }
+.sd-a-l.sd-dash { background: linear-gradient(var(--c), var(--c)) left / var(--ah) 100% no-repeat, repeating-linear-gradient(to left, var(--c) 0 5px, transparent 5px 9px); }
+.sd-a-up.sd-dash { background: linear-gradient(var(--c), var(--c)) top / 100% var(--ah) no-repeat, repeating-linear-gradient(to top, var(--c) 0 5px, transparent 5px 9px); }
+.sd-link .sd-a, .sd-k-ev .sd-a { --c: var(--ok); }
+.sd-link .sd-a-r { top: calc(50% - 11px); }
+.sd-link .sd-a-l { top: calc(50% + 2px); }
+.sd-re .sd-a-l { top: 18px; }
+.sd-up { position: relative; display: block; width: 9px; }
+.sd-row > .sd-up { position: absolute; left: calc(50% - 4.5px); bottom: 100%; height: var(--lg); }
+.sd-up .sd-a, .sd-k-sp .sd-a { --c: var(--human-glow); }
+/* pulses: hidden unless field.js marks the figure live (on screen, tab visible) and motion is allowed */
+.sd-link::after, .sd-up::after { content: ""; position: absolute; width: 5px; height: 5px; border-radius: 50%; opacity: 0; pointer-events: none; }
+.sd-link::after { background: var(--ok); top: calc(50% - 9px); left: 0; }
+.sd-up::after { background: var(--human-glow); left: 2px; top: calc(100% - 5px); }
+@media (prefers-reduced-motion: no-preference) {
+  .stackdiag.is-live .sd-link::after { animation: sd-ev 2.6s linear infinite; animation-delay: calc(var(--i) * -0.5s); }
+  .stackdiag.is-live .sd-up::after { animation: sd-sp 3s linear infinite; animation-delay: calc(var(--i) * 0.42s); }
+}
+@keyframes sd-ev { 0% { left: 0; opacity: 0; } 10% { opacity: 1; } 80% { left: calc(100% - 12px); opacity: 1; } 90%, 100% { left: calc(100% - 12px); opacity: 0; } }
+@keyframes sd-sp { 0% { top: calc(100% - 5px); opacity: 1; } 14% { top: 0; opacity: 1; } 15%, 100% { top: 0; opacity: 0; } }
+@media (min-width: 720px) {
+  .stackdiag { --evw: 60px; --rw: 22px; --cg: 12px; --fp: 14px; --st: 16px; --lk: 10px; --lg: 18px; }
+  .sd-eng { display: inline; }
+  .sd-meta { display: block; }
+  .sd-meta > span { display: block; }
+  .sd-name, .sd-ht { font-size: 1.2rem; }
+  .sd-evt { font-size: 1.2rem; }
+  .sd-node { padding: 10px 14px 11px; }
+}
+@media (min-width: 960px) {
+  .stackdiag { --evw: 66px; --rw: 28px; --cg: 14px; --fp: 16px; --st: 22px; --lk: 12px; }
+  .sd-fig { grid-template-columns: var(--evw) minmax(0, 1fr) var(--rw) 290px; }
+  .sd-key { grid-row: 2 / 5; grid-column: 4; align-self: center; margin: 0 0 0 calc(var(--fp) + 22px); gap: 14px; }
 }
 .loop-fig { margin: 28px 0 8px; max-width: 560px; }
 .loop-fig svg { width: 100%; height: auto; }
@@ -655,9 +694,6 @@ sup { line-height: 0; }
 .svc-free { font-style: italic; color: var(--ink); margin-top: 14px; font-size: 1.125rem; }
 
 /* ---- fix pass (blind review) ---- */
-.sd-evalctl { border: 0; border-top: 1px dashed var(--ok); background: transparent; padding: 10px 0 0 0; }
-.sd-evlabel { color: var(--ink-2); }
-.sd-evlabel em { font-family: var(--serif); font-size: 1rem; color: var(--ink); }
 .circuit.dim-others .wires path:not(.hot) { opacity: .22; }
 .wires path { stroke-width: 1.1; }
 .header-cta { display: none; }

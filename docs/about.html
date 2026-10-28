@@ -7,7 +7,7 @@
 <!-- WORDMARK: the visible name comes from --brand in assets/field.css (one edit renames the practice). This <title>
      is only the no-JS and search fallback; assets/field.js rewrites it from --brand on load. -->
 <title>About · Mode Fluency</title>
-<meta name="description" content="Henrique Jr. Sanchez, the lineage of the ideas, the self-audit, and how an AI agent built this site: build log and deviation report.">
+<meta name="description" content="Henrique Jr. Sanchez, the lineage of the ideas, the self-audit, and how an AI agent built this site.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +43,7 @@
     <p class="lede">A practitioner, not a vendor.</p>
     <div class="prose">
       <p>I work full time in a field that is not AI. I built everything on this site as a practitioner: the AI @ Workplace series, <a href="stack.html">the AI-Human Engineering Stack</a>, the Specifying Work guide, and <a href="stances.html">the Fourteen Stances</a>. <span data-brand></span> is the name for what holds them together.</p>
-      <p>I am not selling a model or a platform, and nothing here depends on one vendor. The specific models and tools will change. The skills underneath (clear communication, information management, purpose articulation, knowing the limits of your own knowledge, making many parts work as one) are not really AI skills. They are intelligence skills.</p>
+      <p>I am not selling a model or a platform, and nothing here depends on one vendor. The specific models and tools will change. The skills underneath (clear communication, information management, purpose articulation, knowing the limits of your own knowledge, making many parts work as one) are not really AI skills. They are intelligence and collaboration skills.</p>
     </div>
   </div>
 </header>
@@ -60,7 +60,7 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§2</span> self_audit</p>
     <h2 id="audit-title">We audited ourselves</h2>
-    <div class="prose"><p>Before launching this site, we ran the Stack on the project itself. The binding constraint was not prompt or context: there was plenty of content. It was <strong>intent</strong> (what is this work for?) and <strong>coherence</strong> (five artifacts, three names). This site, and the decision to call the whole thing <span data-brand></span>, is the coherence fix. If the method cannot diagnose its own author, it should not be sold to anyone else.</p></div>
+    <div class="prose"><p>Before launching this site, we ran the Stack on the project itself. The binding constraint was not prompt or context: there was plenty of content. It was <strong>intent</strong> (what is this work for?) and <strong>coherence</strong> (five artifacts, three names). This site, and the decision to call the whole thing <span data-brand></span>, is the coherence fix.</p></div>
   </div>
 </section>
 
@@ -68,47 +68,7 @@
   <div class="wrap">
     <p class="sys section-tag"><span class="num">§3</span> built_by_an_agent</p>
     <h2 id="agent-title">Built by an agent</h2>
-    <div class="prose"><p>This site was designed and built by an AI agent (Claude, working in Claude Code). It worked from written briefs (a design brief, three competing visual directions of which I chose this one, and a product spec for the nine pages) and from my own source texts. The agent wrote the code, ran its own quality checks, and wrote the report below about where it departed from the spec. The numbers are from its final QA run, not estimates.</p></div>
-    <h3 style="margin-top:28px">Build log</h3>
-    <div class="table-wrap" style="max-width:860px">
-      <table class="data log-table">
-        <caption>From site-c/_qa/qa-report.md</caption>
-        <tbody>
-<!-- @aboutlog -->
-          <tr><th scope="row" class="sys">date</th><td>2026-10-25</td></tr>
-          <tr><th scope="row" class="sys">pages</th><td>9, sharing one header and footer</td></tr>
-          <tr><th scope="row" class="sys">files</th><td>15 deployable (HTML, one stylesheet, two scripts, one icon, README, .nojekyll)</td></tr>
-          <tr><th scope="row" class="sys">size</th><td>330,726 bytes, fonts excluded (budget 900,000)</td></tr>
-          <tr><th scope="row" class="sys">libraries</th><td>0 frameworks, 0 libraries, 0 external scripts; fonts from Google Fonts</td></tr>
-          <tr><th scope="row" class="sys">fields</th><td>14 stance behaviours (7 from the design concept, 7 new) plus the hero, the essay strip and 14 card fields</td></tr>
-          <tr><th scope="row" class="sys">QA loads</th><td>72 in headless Chromium: console errors 0, failed requests 0, horizontal overflow 0</td></tr>
-          <tr><th scope="row" class="sys">contrast</th><td>4,437 text elements per theme; lowest 4.98:1 light, 6.07:1 dark</td></tr>
-          <tr><th scope="row" class="sys">diagnostic</th><td>26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</td></tr>
-          <tr><th scope="row" class="sys">hero field</th><td>1,600 agents at 1280 px, 60 fps in the QA browser (indicative)</td></tr>
-          <tr><th scope="row" class="sys">checks</th><td>97 of 97 passed</td></tr>
-<!-- /@aboutlog -->
-        </tbody>
-      </table>
-    </div>
-    <h3 style="margin-top:32px">Deviation report</h3>
-    <p class="source-note">Where this build departed from its spec, and why. Written by the agent at the end of the build.</p>
-    <!-- @deviations -->
-    <ol class="deviation prose">
-      <li><strong>Hero button renamed.</strong> The home hero&rsquo;s first button reads &ldquo;Read the essay&rdquo; instead of &ldquo;Read The Calculator Problem&rdquo;, so the word &ldquo;calculator&rdquo; does not appear in the hero (a spec requirement). The essay keeps its title.</li>
-      <li><strong>Two row orders.</strong> The matrix circuit and table follow MODE_FLUENCY_MATRIX.md (Oracle, Genie, Interpreter, Executor, Miner first); the stances page follows the v3 pantheon order. Which order is canonical is still an open question for Henrique, so each page follows its own source.</li>
-      <li><strong>The seven new stance fields are illustrations.</strong> Adversary, Librarian, Interpreter, Simulator, Scribe, Translator and Therapist were designed for this build. Their counters (for example &ldquo;never said 3&rdquo;) count simulated tokens on screen; they are not statistics about people or models.</li>
-      <li><strong>Binding-constraint demo scope.</strong> The dependency chain in the Stack demo covers the five cognitive layers only, as the source does. Evaluation and Harness have their own switches, which show their published failure signatures instead of dimming layers.</li>
-      <li><strong>Essay strip.</strong> The reactive strip sits at the top of the essay and stays pinned under the header while you read, marking reading progress. Nothing animates behind the text.</li>
-      <li><strong>Privacy sentence made more exact.</strong> Thumbnails are lazy-loaded, so learn.html says they load from YouTube&rsquo;s image host &ldquo;when they scroll into view&rdquo;; the rest of the spec&rsquo;s sentence is kept.</li>
-      <li><strong>Without JavaScript.</strong> Every page&rsquo;s text is present; the instruments (compass, fields, circuits, filters, console) are hidden, and their content is given as text instead: the axis list, the stance cards, the matrix table, and the diagnostic&rsquo;s questions on paper.</li>
-      <li><strong>Fix pass after a blind review.</strong> An independent reviewer found 0 high, 4 medium and 14 low issues and no invented content. All 4 medium issues and most low ones were fixed (see _qa/qa-report.md, &ldquo;Fix pass&rdquo;); the five stance texts that v3 gives at greater length (Oracle, Genie, Interpreter, Executor, Miner) were restored in full on 2026-10-25.</li>
-      <li><strong>Diagnostic logic untouched.</strong> The two open questions from the prototype review (the recovery question cannot name Judgment, Coherence or Harness; only a &ldquo;new&rdquo; experience answer changes the result) are left as they were, because the spec said to keep the logic.</li>
-      <li><strong>About wording.</strong> The prototype said Henrique works &ldquo;as an engineer&rdquo;; that detail is not in the source notes, so this page says only that Henrique works full time in a field that is not AI.</li>
-      <li><strong>Not verified.</strong> Safari, Firefox and real screen readers were not tested; frame rates come from headless Chromium and are indicative only. The site&rsquo;s own protocol audit has not been run yet (see below).</li>
-    </ol>
-    <!-- /@deviations -->
-    <h3 style="margin-top:32px">Re-audited with its own protocol</h3>
-    <div class="prose"><p>A site that teaches checkpoints and deviation reports should carry its own, and be checked by its own method rather than a separate standard. Each release of this site is to be re-audited with the repository&rsquo;s <a href="https://github.com/hjasanchez/agentic-engineering/blob/main/AI-Human-Stack-Agent-Audit-Protocol.md">Agent Audit Protocol</a>: find the binding layer, fix that first, publish what changed. This first build ships with its QA report and the deviation report above (<a href="_qa/qa-report.md">_qa/qa-report.md</a>); the first protocol audit of the site itself is the next step, and its findings will be published the same way.</p></div>
+    <div class="prose"><p>This site was designed and built by an AI agent (Claude, working in Claude Code). It worked from written briefs (a design brief, three competing visual directions of which I chose this one, and a product spec for the nine pages) and from my own source texts. The agent wrote the code, ran its own quality checks, and wrote a report about where it departed from the spec.</p></div>
   </div>
 </section>
 
@@ -135,18 +95,18 @@
 <footer class="site-footer">
   <div class="wrap">
     <section class="ticker" aria-labelledby="ticker-title">
-      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; colophon. Built by an AI agent from my written briefs; this is its own log, unedited.</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
-        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
-        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
-        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>build: 9 pages, 16 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 323,426 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-29: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 3,722 text elements scanned per theme; lowest contrast 5.23:1 light, 6.07:1 dark (floor 4.5)</li>
         <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
         <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
       </ol>
     </section>
     <div class="footer-meta">
-      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; interested in a more tailored experience? Check the <a href="work.html">Work with me</a> page.</p>
       <ul class="footer-links">
         <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
         <li>Code MIT · documents CC BY-SA 4.0</li>

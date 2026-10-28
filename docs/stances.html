@@ -43,14 +43,14 @@
     <p class="lede">Archetypes of human-AI interaction. Each stance is the contract you <em>think</em> you have with the AI before you type a word.</p>
     <div class="prose">
       <p>Most people hold one or two stances without naming them, usually the Oracle (truth to a hard question) and the Genie (grant my wish). Both are fragile, because they demand an authority the technology cannot reliably provide. The other twelve are quieter, and most of them are more useful. Each card gives the expectation, why the stance stays hidden, the boundary test where the source has one, the failure mode, and the cardinal rule.</p>
-      <p class="js-only">Each card also runs its stance as a small field of tokens: what the contract does when it runs, and where it quietly fails. Only the cards on screen animate. Pointer or touch: you are the warm point.</p>
+      <p class="js-only">Each card also runs its stance as a small field of tokens: what the contract does when it runs, and where it quietly fails. Pointer or touch: you are the warm point.</p>
     </div>
-    <p class="source-note">Text from <em>Archetypes of LLM-Human Interaction</em> v3 by Henrique Jr. Sanchez. Where v3 states a cardinal rule explicitly (Interpreter, Executor, Miner) it is quoted; for the other stances the rule is the guardrail column of the <a href="matrix.html"><span data-brand></span> Matrix</a>. Where v3 gives no failure mode (Tutor, Mirror, Adversary, Librarian, Simulator, Scribe, Therapist, Translator, Muse), the failure line is the Matrix&rsquo;s &ldquo;characteristic failure&rdquo; column and is labelled so. Load-bearing layers are from the Matrix. The consumption and construction tags follow the v3 table, where the Interpreter and the Executor appear in both columns.</p>
+    <p class="source-note">Stance texts are Henrique Jr. Sanchez&rsquo;s own. Where a stance states its cardinal rule explicitly, the card quotes it; otherwise the rule comes from the guardrail column of the <a href="matrix.html">Matrix</a>. Load-bearing layers are from the Matrix.</p>
   </div>
 </header>
 <section class="section" aria-labelledby="all-title" style="padding-top:28px">
   <div class="wrap">
-    <p class="sys section-tag"><span class="num">§1</span> pantheon</p>
+    <p class="sys section-tag"><span class="num">§1</span> the_fourteen</p>
     <h2 id="all-title">All fourteen stances</h2>
     <div class="filters js-only" role="group" aria-labelledby="filter-title">
     <p id="filter-title" class="sys section-tag" style="margin:0"><span class="num">&gt;</span> filter</p>
@@ -58,8 +58,7 @@
       <span class="label sys" aria-hidden="true">Load-bearing layer</span><button type="button" class="chip" data-filter="layer" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="layer" data-value="prompt" aria-pressed="false">Prompt</button><button type="button" class="chip" data-filter="layer" data-value="context" aria-pressed="false">Context</button><button type="button" class="chip" data-filter="layer" data-value="intent" aria-pressed="false">Intent</button><button type="button" class="chip" data-filter="layer" data-value="judgment" aria-pressed="false">Judgment</button><button type="button" class="chip" data-filter="layer" data-value="coherence" aria-pressed="false">Coherence</button><button type="button" class="chip" data-filter="layer" data-value="evaluation" aria-pressed="false">Evaluation</button><button type="button" class="chip" data-filter="layer" data-value="harness" aria-pressed="false">Harness</button><button type="button" class="chip" data-filter="layer" data-value="none" aria-pressed="false">None</button>
     </div>
     <div class="filter-group" role="group" aria-label="Filter by consumption or construction">
-      <span class="label sys" aria-hidden="true">Consumption / construction</span><button type="button" class="chip" data-filter="meta" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="meta" data-value="consumption" aria-pressed="false">Consumption</button><button type="button" class="chip" data-filter="meta" data-value="construction" aria-pressed="false">Construction</button><button type="button" class="chip" data-filter="meta" data-value="hinge" aria-pressed="false">Hinge (Interpreter)</button><button type="button" class="chip" data-filter="meta" data-value="unplaced" aria-pressed="false">Not placed</button>
-    </div>
+      <span class="label sys" aria-hidden="true">Consumption / construction</span><button type="button" class="chip" data-filter="meta" data-value="all" aria-pressed="true">All</button><button type="button" class="chip" data-filter="meta" data-value="consumption" aria-pressed="false">Consumption</button><button type="button" class="chip" data-filter="meta" data-value="construction" aria-pressed="false">Construction</button><button type="button" class="chip" data-filter="meta" data-value="hinge" aria-pressed="false">Hinge (Interpreter)</button>    </div>
   </div>
     <p class="status js-only" id="stance-status" role="status" aria-live="polite">Showing all 14 stances.</p>
     <div class="stance-grid" id="stance-grid">
@@ -116,7 +115,7 @@
 </article>
 <article class="stance-card" id="adversary" data-layers="intent" data-meta="unplaced" aria-labelledby="h-adversary">
   <div class="sc-top"><h3 id="h-adversary">Adversary <span class="alias">(or Devil&#x27;s Advocate)</span></h3><p class="sys sc-num">05 / 14</p></div>
-  <p class="sc-tags"><span class="tag hot">Layer: Intent</span><span class="tag">Not placed in v3 table</span></p>
+  <p class="sc-tags"><span class="tag hot">Layer: Intent</span></p>
   <div class="sc-stage js-only" data-stance="Adversary"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> critique streams in; until you name what you defend, it lands on a decoy</p>
   <dl class="facts">
@@ -153,7 +152,7 @@
 </article>
 <article class="stance-card" id="simulator" data-layers="context" data-meta="unplaced" aria-labelledby="h-simulator">
   <div class="sc-top"><h3 id="h-simulator">Simulator</h3><p class="sys sc-num">08 / 14</p></div>
-  <p class="sc-tags"><span class="tag hot">Layer: Context</span><span class="tag">Not placed in v3 table</span></p>
+  <p class="sc-tags"><span class="tag hot">Layer: Context</span></p>
   <div class="sc-stage js-only" data-stance="Simulator"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> two parties rehearse; without your real counterpart it is a generic scene</p>
   <dl class="facts">
@@ -166,7 +165,7 @@
 </article>
 <article class="stance-card" id="scribe" data-layers="prompt" data-meta="unplaced" aria-labelledby="h-scribe">
   <div class="sc-top"><h3 id="h-scribe">Scribe <span class="alias">(or Intern)</span></h3><p class="sys sc-num">09 / 14</p></div>
-  <p class="sc-tags"><span class="tag hot">Layer: Prompt</span><span class="tag">Not placed in v3 table</span></p>
+  <p class="sc-tags"><span class="tag hot">Layer: Prompt</span></p>
   <div class="sc-stage js-only" data-stance="Scribe"><canvas aria-hidden="true"></canvas><p class="sys sc-hud" aria-hidden="true"></p></div>
   <p class="sys sc-field js-only"><span class="lv">field</span> rough material becomes clean lines; the gaps are filled with marks you never wrote</p>
   <dl class="facts">
@@ -198,7 +197,7 @@
   <dl class="facts">
 <dt>Expectation</dt><dd>Not correctness, but provocation. The user wants lateral jumps, absurd juxtapositions, metaphors from unrelated domains.</dd>
 <dt>Why it stays hidden</dt><dd>It contradicts the utility-focused narrative around AI. You cannot metric a muse.</dd>
-<dt>Failure mode (from the Matrix)</dt><dd>There is no failure, only dross.</dd>
+<dt>Failure mode (from the Matrix)</dt><dd>There is no failure, only noise.</dd>
 </dl>
   <div class="rulebox"><p class="sys">cardinal rule (from the matrix guardrail)</p><p>None. This is why the Muse stays hidden: it cannot be metric&#x27;d.</p></div>
 </article>
@@ -209,7 +208,7 @@
   <p class="sys sc-field js-only"><span class="lv">field</span> tokens scatter; bright ore surfaces; pass over it to record it before the vein shifts</p>
   <dl class="facts">
 <dt>Expectation</dt><dd>Not an output but a space. The human treats the model as a vast, mostly unvisited space of possible outputs and works it like a vein: many variations generated cheaply, collected without immediate judgment, then selected and assayed later with cold attention. The implicit contract is “show me what the space contains” — not “tell me the best answer,” and not “provoke me once.”</dd>
-<dt>Why it stays hidden</dt><dd>It hides inside the Muse — “I asked for ideas” — and the difference between receiving one provocation and working a vein looks like degree rather than kind. It also looks wasteful: generating seven outputs to keep one violates every efficiency instinct the interface trains. And most of what comes up is dross, so without the selection discipline the dross rate reads as the tool failing rather than as the cost of ore.</dd>
+<dt>Why it stays hidden</dt><dd>It hides inside the Muse — “I asked for ideas” — and the difference between receiving one provocation and working a vein looks like degree rather than kind. It also looks wasteful: generating seven outputs to keep one violates every efficiency instinct the interface trains. And most of what comes up is noise, so without the selection discipline the noise rate reads as the tool failing rather than as the cost of ore.</dd>
 <dt>Boundary test</dt><dd>Did you ask for one good thing, or for the shape of the space? The Muse receives a provocation and judges it on arrival. The Miner generates in volume, withholds judgment, selects late — and keeps the strange results somewhere separate to be read cold. If you are evaluating while you read, you are not mining; you are browsing.</dd>
 <dt>Failure mode</dt><dd>The Miner is the only archetype that deliberately courts malfunction — hallucinated connections, wrong-but-interesting tangents, answers to questions you didn&#x27;t ask. That is its value and its vulnerability in one, and there are two errors to name in the same breath. The first is assaying nothing: the anomaly gets believed because it was wanted — sycophancy entered through the side door. The mined idea is ore, never a citation; nothing mined enters anything you stake something on until it has survived an independent check. The second is losing the vein: the ore is generated by sampling, not stored in the weights, so the vein moves — you cannot re-find a nugget by re-running the same prompt.</dd>
 </dl>
@@ -248,15 +247,15 @@
 <div class="wrap">
 <p class="sys section-tag"><span class="num">§2</span> meta_pattern</p>
     <h2 id="meta-title">Consumption vs. construction</h2>
-    <div class="prose"><p>There may be a deeper axis under the pantheon. The passive stances position the human as a recipient. The active stances position the human as a participant in the thinking. As AI becomes more embedded in serious work, the shift from passive to active may be the single most important cognitive upgrade users can make.</p></div>
+    <div class="prose"><p>There may be a deeper axis under the fourteen. The passive stances position the human as a recipient. The active stances position the human as a participant in the thinking. As AI becomes more embedded in serious work, the shift from passive to active may be the single most important cognitive upgrade users can make.</p></div>
     <div class="table-wrap" style="max-width:720px">
       <table class="data meta-table">
-        <caption>The meta-pattern, from Archetypes v3</caption>
+        <caption>The meta-pattern</caption>
         <thead><tr><th scope="col">Consumption (passive)</th><th scope="col">Construction (active)</th></tr></thead>
         <tbody><tr><td data-label="Consumption (passive)">Oracle</td><td data-label="Construction (active)">Tutor</td></tr><tr><td data-label="Consumption (passive)">Genie</td><td data-label="Construction (active)">Collaborator</td></tr><tr><td data-label="Consumption (passive)">Librarian</td><td data-label="Construction (active)">Translator</td></tr><tr><td data-label="Consumption (passive)">Therapist</td><td data-label="Construction (active)">Mirror</td></tr><tr><td data-label="Consumption (passive)">Interpreter (unverified)</td><td data-label="Construction (active)">Interpreter (evidence-trail mode)</td></tr><tr><td data-label="Consumption (passive)">Muse (receives the surprise)</td><td data-label="Construction (active)">Miner (works the vein)</td></tr><tr><td data-label="Consumption (passive)">Executor (blind delegation)</td><td data-label="Construction (active)">Executor (staged oversight)</td></tr></tbody>
       </table>
     </div>
-    <div class="prose" style="margin-top:22px"><p>The Interpreter sits at the hinge: passive by default, active only when you demand the evidence trail. The Executor sits at the passive extreme, which is why its guardrail must be built out of structure; the Miner sits at the active extreme, which is why its guardrail is the journal. The Collaborator appears in this table as the active form of the Genie but is not one of the fourteen. The Adversary, the Simulator and the Scribe are not placed in the v3 table, so the filter shows them as &ldquo;Not placed&rdquo;.</p>
+    <div class="prose" style="margin-top:22px"><p>The Interpreter sits at the hinge: passive by default, active only when you demand the evidence trail. The Executor sits at the passive extreme, which is why its guardrail must be built out of structure; the Miner sits at the active extreme, which is why its guardrail is the journal.</p>
     <p class="free-line">Every stance is one habit away from its active form.</p></div>
   </div>
 </section>
@@ -265,18 +264,18 @@
 <footer class="site-footer">
   <div class="wrap">
     <section class="ticker" aria-labelledby="ticker-title">
-      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; this site, built by an AI agent from a written brief; numbers from its own final QA run</span></p>
+      <p class="sys ticker-head" id="ticker-title"><span class="prompt-glyph">&gt;</span> cat build.log <span class="dim">&mdash; colophon. Built by an AI agent from my written briefs; this is its own log, unedited.</span></p>
       <ol class="sys ticker-lines" id="ticker-lines">
-        <li>build: 9 pages, 15 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
-        <li>size: 330,726 bytes deployable, fonts excluded (budget 900,000)</li>
-        <li>qa 2026-10-25: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
-        <li>a11y: 4,437 text elements scanned per theme; lowest contrast 4.98:1 light, 6.07:1 dark (floor 4.5)</li>
+        <li>build: 9 pages, 16 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0</li>
+        <li>size: 323,426 bytes deployable, fonts excluded (budget 900,000)</li>
+        <li>qa 2026-10-29: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0</li>
+        <li>a11y: 3,722 text elements scanned per theme; lowest contrast 5.23:1 light, 6.07:1 dark (floor 4.5)</li>
         <li>diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI</li>
         <li>checks: 97 of 97 passed; report in _qa/qa-report.md</li>
       </ol>
     </section>
     <div class="footer-meta">
-      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; paid work is listed on <a href="work.html">Work with me</a>.</p>
+      <p><strong data-brand></strong> is the practice of Henrique Jr. Sanchez. Everything on this site and in the repository is free to read and use; interested in a more tailored experience? Check the <a href="work.html">Work with me</a> page.</p>
       <ul class="footer-links">
         <li><a href="https://github.com/hjasanchez/agentic-engineering">Source repository: hjasanchez/agentic-engineering</a></li>
         <li>Code MIT · documents CC BY-SA 4.0</li>
