@@ -30,7 +30,7 @@ fluency in one move.
 | **Mirror** | My own thinking, clarified | **Coherence** | Flattery mistaken for reflection | Ask for the structure of your argument back, not for agreement. |
 | **Translator** | A bridge between two worlds | **Context** | A bridge from one world to a caricature of the other | Supply both maps; name both audiences. |
 | **Therapist / Confessor** | A space to think aloud | **Judgment** | Dependency; outsourcing judgment about your own life | Decide in advance what you will not delegate. |
-| **Muse** | Provocation, not correctness | *(none)* | There is no failure, only dross | None. This is why the Muse stays hidden: it cannot be metric'd. |
+| **Muse** | Provocation, not correctness | *(none)* | There is no failure, only noise | None. This is why the Muse stays hidden: it cannot be metric'd. |
 
 ## How to use it
 

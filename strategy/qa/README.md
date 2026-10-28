@@ -12,9 +12,10 @@ python strategy/qa/site_qa.py docs --out docs/_qa/qa-report.md
   PASS, 1 on FAIL, 2 if the harness itself broke.
 - `--out <file>`: where the report goes (default: `site-qa-report.md` next to the docs folder).
 - `--write-buildlog`: after measuring, rewrite the build log with this run's numbers, dated today, then re-check it.
-  This rewrites `docs/_qa/buildlog.json`, the `<ol id="ticker-lines">` list in every page's footer, and the rows between
-  `<!-- @aboutlog -->` and `<!-- /@aboutlog -->` in `about.html`. The pages do not read `buildlog.json` at runtime;
-  each page carries a static copy, which is why all three places are rewritten. Lines the harness does not measure
+  This rewrites `docs/_qa/buildlog.json` and the `<ol id="ticker-lines">` list in every page's footer. The pages do
+  not read `buildlog.json` at runtime; each page carries a static copy, which is why both places are rewritten. The
+  `about.html` build-log table was removed on 2026-10-29: the `<!-- @aboutlog -->` markers are now optional, and when
+  they are absent no about rows are written or checked. Lines the harness does not measure
   (frameworks and libraries text, hero field agents and fps, field counts) are kept as written. Not allowed together
   with `--pages`.
 - `--network`: let requests to Google Fonts and YouTube thumbnails through. By default they are answered locally
@@ -36,7 +37,7 @@ again with `--write-buildlog --out docs/_qa/qa-report.md`; confirm it prints PAS
 | Contrast | Every visible text element on the reduced-motion loads (static frames), at both widths and in both themes, plus four interactive states: the diagnostic report, the Stack with Context and Evaluation marked weak, a Matrix selection, a Stances filter. Ported from `strategy/design-directions/A-instrument/_qa/qa.js`: the text colour is composited over the backgrounds stacked under the element's centre (`elementsFromPoint`, alpha compositing, SVG fills). | Every scored element >= 4.5:1, in both themes; no colour left unparsed; every interactive state could be set |
 | Banned words | revolutionary, unlock, supercharge, game-changing, seamless, empower. Case-insensitive substring match (so "unlocks" and "empowerment" count), on each page's visible text: `innerText` with JS on (1280, light), `innerText` with JS off, and the `<title>`. | 0 hits |
 | Diagnostic | Runs `window.ModeFluencyDiagnostic.compute()` and `.text()` for every stance path x every common-answer combination from `.paths()`. Derives the expected count twice more, independently: by parsing `STANCE_QS` and `COMMON_QS` in `docs/assets/diagnose.js`, and by walking every branch of the live UI (clicking options and Back, memoised per question, checking each report reached). | Every combination has a non-empty stance, layer, guardrail and level and no `undefined`/`NaN` in the result or the copied text; the three counts agree (26,880 on 2026-10-25); every stance reaches a complete report in the UI |
-| Footer build log | Reads the numbers from every page's footer, the `about.html` table and `_qa/buildlog.json`, and compares each with this run: pages, files, bytes, external scripts, loads, errors, failed requests, overflow, contrast elements and lowest ratio per theme, diagnostic count, UI paths, checks. Dates are not compared. | Every stated number equals the measured one, and the footer is identical on every page |
+| Footer build log | Reads the numbers from every page's footer and `_qa/buildlog.json` (and the `about.html` table, only if its markers exist), and compares each with this run: pages, files, bytes, external scripts, loads, errors, failed requests, overflow, contrast elements and lowest ratio per theme, diagnostic count, UI paths, checks. Dates are not compared. | Every stated number equals the measured one, and the footer is identical on every page |
 
 Inventory rules: "deployable" means every file under `docs/` except `_qa/` and `STATUS.md`; "external scripts" counts
 `<script src="http...">` tags.

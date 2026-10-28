@@ -15,8 +15,7 @@ Checks (the gate in CLAUDE.md):
      instruments the CSS hides on purpose (`html:not(.js) ...` rules; detected by adding the `js` class and checking
      the element appears).
   3. Contrast: every visible text element on every page at both widths, in both themes, on the reduced-motion loads
-     (static frames), plus four interactive states (diagnostic report, stack with Context and Evaluation marked weak,
-     a matrix selection, a stances filter). Ported from strategy/design-directions/A-instrument/_qa/qa.js: the text
+     (static frames), plus three interactive states (diagnostic report, a matrix selection, a stances filter). Ported from strategy/design-directions/A-instrument/_qa/qa.js: the text
      colour is composited over the stack of backgrounds under the element's centre (elementsFromPoint, alpha
      compositing, SVG fills). Changes from qa.js: any CSS colour syntax is resolved through a 1x1 canvas (qa.js
      silently skipped colours it could not parse); ancestor opacity is multiplied into the text alpha; disabled
@@ -27,15 +26,16 @@ Checks (the gate in CLAUDE.md):
      and level, with no "undefined"/"NaN" in the result or the copied text (window.ModeFluencyDiagnostic.compute/text
      over .paths()). The expected count is derived twice, independently: by parsing STANCE_QS/COMMON_QS in the
      source, and by walking every branch of the live UI (clicking options and Back). All three numbers must agree.
-  6. Footer build log: the numbers in every page's footer (<ol id="ticker-lines">) and in the about.html build-log
-     table must equal what this run measured.
+  6. Footer build log: the numbers in every page's footer (<ol id="ticker-lines">) must equal what this run
+     measured (and, only if about.html still carries an <!-- @aboutlog --> table, that table too).
 
 Where the footer gets its numbers: nowhere at runtime. Each page carries a static copy of the build log inside
     <ol class="sys ticker-lines" id="ticker-lines"> ... </ol>
-(assets/field.js only appends one live "live: N fields ..." line, aria-hidden), and about.html carries the same
-facts as table rows between <!-- @aboutlog --> and <!-- /@aboutlog -->. docs/_qa/buildlog.json holds the same text
-("ticker" lines and "about" pairs) but no page reads it. --write-buildlog therefore rewrites buildlog.json, the
-ticker list in every page, and the about.html rows, dated today, then re-reads them to confirm they match.
+(assets/field.js only appends one live "live: N fields ..." line, aria-hidden). docs/_qa/buildlog.json holds the
+same text but no page reads it. --write-buildlog therefore rewrites buildlog.json and the ticker list in every page,
+dated today, then re-reads them to confirm they match. The about.html build-log table (between <!-- @aboutlog -->
+and <!-- /@aboutlog -->) was removed on 2026-10-29; the markers are optional, and when they are absent no about rows
+are written or checked.
 
 No network: requests to http(s) hosts (Google Fonts, YouTube thumbnails) are answered locally with an empty
 stylesheet / a 1x1 GIF and listed in the report, so pages render in fallback fonts. --network lets them through.
@@ -251,9 +251,6 @@ STATE_ACTIONS = {
     "diagnose.html": ("diagnostic report", r"""() => { const R = document.getElementById('dg-report'); let n = 0;
         while (R && R.hidden && n < 20) { const b = document.querySelector('#dg-opts .opt'); if (!b) break; b.click(); n++; }
         return !!R && !R.hidden; }"""),
-    "stack.html": ("Context and Evaluation marked weak", r"""() => { let n = 0;
-        for (const l of ['context', 'evaluation']) { const b = document.querySelector('.sd-node[data-l="' + l + '"] .sd-toggle'); if (b) { b.click(); n++; } }
-        return n > 0; }"""),
     "matrix.html": ("Librarian selected", r"""() => { const b = document.querySelector('.s-node[data-i="5"]') || document.querySelector('.s-node'); if (b) b.click(); return !!b; }"""),
     "stances.html": ("first layer filter on", r"""() => { const b = document.querySelectorAll('.chip[data-filter="layer"]')[1]; if (b) b.click(); return !!b; }"""),
 }
@@ -421,6 +418,9 @@ def build_log_text(m: dict, today: str, old: dict | None) -> tuple[list[str], li
 
 def write_buildlog(docs: Path, pages: list[str], ticker: list[str], about: list[list[str]]) -> list[str]:
     changed = []
+    about_page = docs / "about.html"
+    if not (about_page.exists() and ABOUT_RE.search(about_page.read_text(encoding="utf-8"))):
+        about = []  # the about.html build-log table is optional (removed 2026-10-29); nothing to write or check
     bl = docs / "_qa" / "buildlog.json"
     bl.parent.mkdir(exist_ok=True)
     bl.write_text(json.dumps({"ticker": ticker, "about": about}, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -485,7 +485,7 @@ def compare_footer(foot: dict, m: dict) -> tuple[bool, list[dict]]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("docs")
-    ap.add_argument("--write-buildlog", action="store_true", help="rewrite _qa/buildlog.json, every footer and the about.html table with this run's numbers")
+    ap.add_argument("--write-buildlog", action="store_true", help="rewrite _qa/buildlog.json and every footer (plus the about.html table, if its markers exist) with this run's numbers")
     ap.add_argument("--out", help="Markdown report path (default: <docs>/../site-qa-report.md)")
     ap.add_argument("--network", action="store_true", help="let http(s) requests through instead of answering them locally")
     ap.add_argument("--pages", help="comma-separated subset of pages (debugging; the gate needs all pages)")
@@ -813,8 +813,8 @@ def main() -> int:
     else:
         P("diagnose.html not in the page set.")
 
-    P("\n## 6. Footer build log\n\nThe footer is static HTML in every page (`<ol id=\"ticker-lines\">`) plus the about.html table between "
-      "`<!-- @aboutlog -->` markers; `_qa/buildlog.json` holds the same text. Dates are not compared. Run with `--write-buildlog` to refresh.\n")
+    P("\n## 6. Footer build log\n\nThe footer is static HTML in every page (`<ol id=\"ticker-lines\">`), plus the about.html table between "
+      "`<!-- @aboutlog -->` markers only if they exist; `_qa/buildlog.json` holds the same text. Dates are not compared. Run with `--write-buildlog` to refresh.\n")
     P("| Source | Item | Claimed | Measured | Match |\n|---|---|---|---|---|")
     for r in footer_rows:
         P(f"| {r['source']} | {r['item']} | {r['claimed']} | {r['measured']} | {'yes' if r['ok'] else '**no**'} |")

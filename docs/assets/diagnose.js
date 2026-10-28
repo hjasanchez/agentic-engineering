@@ -114,7 +114,7 @@
    ],
    "layerLabel": "(none)",
    "guardrail": "None. This is why the Muse stays hidden: it cannot be metric'd.",
-   "failure": "There is no failure, only dross",
+   "failure": "There is no failure, only noise",
    "expect": "Provocation, not correctness"
   },
   "miner": {
@@ -172,7 +172,7 @@
   "consumption": "Consumption",
   "construction": "Construction",
   "hinge": "Hinge: passive by default, active with the evidence trail",
-  "unplaced": "Not placed in v3 table"
+  "unplaced": "Varies with the task"
  },
  "autonomy": {
   "assistive": {
@@ -329,7 +329,7 @@
     if (ans.recovery === "self") {
       notes.push("Doing it yourself is sometimes right: “Is this faster to do myself, to direct the AI, or to hand off entirely?” If the same task keeps disappointing, diagnose the layer instead.");
     } else if (primary === "none") {
-      notes.push("The Muse has no load-bearing layer: there is no failure, only dross. Keep what sparks and let the rest go.");
+      notes.push("The Muse has no load-bearing layer: there is no failure, only noise. Keep what sparks and let the rest go.");
     } else if (s.layers.indexOf(ans.recovery) !== -1) {
       notes.push("You re-entered at the " + reName[ans.recovery] + " layer, which is the layer your stance leans on. Good instinct.");
     } else {

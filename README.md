@@ -2,7 +2,7 @@
 
 **Know which mode you're in when you work with AI.**
 
-Free guides, videos and tools for people who use AI at work every day and still get burned, and for the teams that have to show they did something about it. Everything here is free. Made by [Henrique Jr. Sanchez](https://www.linkedin.com/in/henriquejsanchez). Website: modefluency.com *(coming)*.
+Free guides, videos and tools for people who use AI at work every day and still get burned, and for the teams that have to show they did something about it. Everything here is free. Made by [Henrique Jr. Sanchez](https://www.linkedin.com/in/henriquejsanchez). Website: [modefluency.com](https://modefluency.com).
 
 ## Start here
 
@@ -10,22 +10,22 @@ Pick the door that fits you today.
 
 | If you… | Start with | Time |
 |---|---|---|
-| use ChatGPT, Claude, Gemini or Copilot and want to get reliably better | **[AI @ Workplace](#learn-ai--workplace)**, the video series, from 101 | 20 min per level |
+| use ChatGPT, Claude, Gemini or Copilot and want to get reliably better | **[AI @ Workplace](#learn-ai--workplace)**, the video series, from 101 onwards | 20–85 min per level |
 | want to know what is actually going wrong in how you (or your team) work with AI | **[The Mode Fluency Diagnostic](#diagnose-run-it-with-your-own-agent)**, run with your own AI | 10 min interview, or a full audit |
 | build agents, workflows or custom bots | **[The frameworks](#understand-the-frameworks)**: the Stack and the guide to specifying work | an evening |
 
 ## Learn: AI @ Workplace
 
-A video series that assumes you already know how to do your job and teaches you how to do it with AI. Each level builds on the last.
+A video series that assumes you already know how to do your job and teaches you how to do more and better with AI. Each level builds on the last.
 
 | Level | For | What you learn | Watch | Slides |
 |---|---|---|---|---|
 | **101** | absolute beginners | what an LLM is, how to write a prompt, what to look out for | [video](https://www.youtube.com/watch?v=jljFm4YPHO8) | [PDF](AI%20101%20%40%20Workplace.pdf) |
 | **201** | regular chatbot users | prompt systems, workflows, task decomposition, quality control | [video](https://www.youtube.com/watch?v=WVDDf8IlG6E) | [PDF](AI%20201%20%40%20Workplace%202026.pdf) · [templates](https://drive.google.com/drive/folders/1bltRycYpeBnKVlTjlSZhwFEI1KKc-bRe) |
-| **301** | advanced users | custom bots, context management, from chatbots to agents, the eval mindset | [video](https://youtu.be/R2p5aFcb0lY) | [PDF](AI%20301%20%40%20Workplace%202026.pdf) |
+| **301** | advanced users | custom bots, context engineering, from chatbots to agents, the eval mindset | [video](https://youtu.be/R2p5aFcb0lY) | [PDF](AI%20301%20%40%20Workplace%202026.pdf) |
 | **401** | agent users | the agent harness, deterministic tools, skills and MCP, loops, the translation barrier | [video](https://youtu.be/p6nMtu7iH1g) | [PDF](AI%20401%20%40%20Workplace%202026.pdf) |
-| 501 | *coming* | local agents | | |
-| 601 | *coming* | agents that run the shop ("dark factories") | | |
+| 501 | *coming* | going hands-free: loops and graphs, inner vs outer loop, keeping costs in check, local inference | | |
+| 601 | *coming* | many agents at once: orchestration, nested subagents, lights-on vs lights-off operation, uneven model ability | | |
 
 ## Diagnose: run it with your own agent
 
@@ -40,7 +40,7 @@ Three words you will meet: a **stance** is what you expect from the AI (an oracl
 ## Understand: the frameworks
 
 - **[The Calculator Problem](https://modefluency.com/calculator-problem)** *(essay)*: why we taught everyone to press the buttons and nobody taught them which problems the machine is for.
-- **[The Fourteen Stances](strategy/research/Archetypes_LLM-Human_Interaction_V3.md)**: the fourteen things people expect from an AI, each with its failure mode and its one rule.
+- **[The Fourteen Stances](https://modefluency.com/stances.html)**: the fourteen things people expect from an AI, each with its failure mode and its one rule.
 - **[The AI-Human Engineering Stack](The%20AI-Human%20Engineering%20Stack.pdf)**: five layers (what to do, know, want, doubt, become) and two meta-functions (how to know, where to run). The architecture of delegating work to a machine.
 - **[The Mode Fluency Matrix](MODE_FLUENCY_MATRIX.md)**: which layer carries each stance, and the guardrail that follows.
 - **[The Complete Guide to Specifying Work for AI](The%20Complete%20Guide%20to%20Specifying%20Work%20for%20AI.pdf)**: how to write the work down so the machine does what you meant (Intent Doc, Minimal Viable Spec, PRD).
@@ -50,7 +50,7 @@ For practitioners who want the raw instruments behind the diagnostic: [Agent Aud
 
 ## Work with me
 
-Everything above is free and stays free. What I charge for is my time: a two-week **Mode Fluency Assessment** of how your team works with AI (including the written "AI literacy measures" the EU AI Act asks deployers to show), and **AI @ Workplace workshops** run on your own workflows. Details on the website, or message me on [LinkedIn](https://www.linkedin.com/in/henriquejsanchez).
+Everything here is free to read and use. For your own team I take on a small number of engagements at a time, scoped in writing: a **Mode Fluency Assessment** of how your team works with AI, and **AI @ Workplace workshops** run on your own workflows. Write to hello@modefluency.com.
 
 ## Credits and lineage
 

@@ -13,7 +13,7 @@
   const BRAND = (getComputedStyle(root).getPropertyValue('--brand').trim().replace(/^["']|["']$/g, '')) || 'Mode Fluency';
   window.MF_BRAND = BRAND;
   const pageTitle = document.body.dataset.title;
-  document.title = pageTitle ? pageTitle.replace('{brand}', BRAND) + ' · ' + BRAND : BRAND + ' · Know which mode you’re in';
+  document.title = pageTitle ? pageTitle.replace('{brand}', BRAND) + ' · ' + BRAND : BRAND + ' · AI: Know which mode you’re in';
 
   /* ------------------------------------------------------------------ data (from MODE_FLUENCY_MATRIX.md, row order kept) */
   const LAYERS = ['Prompt', 'Context', 'Intent', 'Judgment', 'Coherence', 'Evaluation', 'Harness'];
@@ -33,7 +33,7 @@
     ['Mirror', 'My own thinking, clarified', ['Coherence'], 'Flattery mistaken for reflection', 'Ask for the structure of your argument back, not for agreement.'],
     ['Translator', 'A bridge between two worlds', ['Context'], 'A bridge from one world to a caricature of the other', 'Supply both maps; name both audiences.'],
     ['Therapist', 'A space to think aloud', ['Judgment'], 'Dependency; outsourcing judgment about your own life', 'Decide in advance what you will not delegate.', null, 'Therapist / Confessor'],
-    ['Muse', 'Provocation, not correctness', [], 'There is no failure, only dross', 'None. This is why the Muse stays hidden: it cannot be metric’d.', '(none)'],
+    ['Muse', 'Provocation, not correctness', [], 'There is no failure, only noise', 'None. This is why the Muse stays hidden: it cannot be metric’d.', '(none)'],
   ];
   const byName = Object.fromEntries(MATRIX.map(r => [r[0], r]));
   const layerLabel = r => r[5] || (r[2].join(' + ') || '(none)');
@@ -62,7 +62,7 @@
     Executor: 'Nothing passes the checkpoint uninspected.',
     Miner: 'Move over the bright ore to record it before the vein shifts.',
     Mirror: 'Move: the field shows you your own position, twice.',
-    Muse: 'Dross and sparks. Nothing to measure.',
+    Muse: 'Noise and sparks. Nothing to measure.',
     Adversary: 'Point at the plan (left) to name what you are defending.',
     Librarian: 'Hover the synthesis (right) to check the citations.',
     Interpreter: 'Point anywhere to demand the evidence trail.',
@@ -434,7 +434,7 @@
         }
       },
       draw(f, ctx) { dots(f, ctx, 0.7); },
-      hud: () => 'no target · no failure, only dross',
+      hud: () => 'no target · no failure, only noise',
     },
 
     /* ---------- the seven new behaviours ---------- */
@@ -1132,106 +1132,15 @@
     }));
   }
 
-  /* ================================================================== STACK PAGE: system diagram, binding constraint, loop */
+  /* ================================================================== STACK PAGE: system diagram
+     The figure is static HTML + CSS. JS only marks it live (on screen, tab visible, motion allowed) so the CSS pulses run. */
   const sd = $('#stackdiag');
   if (sd) {
-    const order = ['prompt', 'context', 'intent', 'judgment', 'coherence'];
-    const nodes = Object.fromEntries($$('.sd-node', sd).map(n => [n.dataset.l, n]));
-    const out = $('#sd-readout');
-    const weak = new Set();
-    const wsvg = $('.sd-wires', sd);
-    let spine = [], evalW = [], pulseRaf = 0;
-    const NAME = { prompt: 'Prompt', context: 'Context', intent: 'Intent', judgment: 'Judgment', coherence: 'Coherence', evaluation: 'Evaluation', harness: 'Harness' };
-    Object.entries(nodes).forEach(([l, n]) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'sd-toggle sys'; b.setAttribute('aria-pressed', 'false');
-      b.textContent = 'mark weak'; b.setAttribute('aria-label', 'Mark ' + NAME[l] + ' weak');
-      b.addEventListener('click', () => { if (weak.has(l)) weak.delete(l); else weak.add(l); render(); });
-      $('.sd-ctl', n).append(b);
-    });
-    const reset = $('#sd-reset');
-    if (reset) { reset.hidden = false; reset.addEventListener('click', () => { weak.clear(); render(); }); }
-    function layout() {
-      const r0 = sd.getBoundingClientRect();
-      wsvg.setAttribute('viewBox', '0 0 ' + r0.width + ' ' + r0.height); wsvg.innerHTML = '';
-      const box = n => { const r = n.getBoundingClientRect(); return { l: r.left - r0.left, r: r.right - r0.left, t: r.top - r0.top, b: r.bottom - r0.top, cx: r.left - r0.left + r.width / 2, cy: r.top - r0.top + r.height / 2 }; };
-      const h = box(nodes.harness), e = box($('.sd-evalbar', sd));
-      spine = []; evalW = [];
-      // dependency spine: harness → prompt → context → intent → judgment → coherence (each rests on the one below)
-      let prev = { x: box(nodes.prompt).l + 22, y: h.t };
-      order.forEach(l => {
-        const b = box(nodes[l]);
-        const p = svgEl('path', { d: 'M' + prev.x + ' ' + prev.y + 'V' + b.b, class: 'sp', 'data-l': l });
-        wsvg.append(p); spine.push({ l, p, len: p.getTotalLength() });
-        prev = { x: b.l + 22, y: b.t };
-        const w = svgEl('path', { d: 'M' + b.r + ' ' + b.cy + 'H' + e.l, class: 'ev', 'data-l': l });
-        wsvg.append(w); evalW.push({ l, p: w, len: w.getTotalLength() });
-        wsvg.append(svgEl('circle', { cx: b.r, cy: b.cy, r: 2.5, class: 'pad' }), svgEl('circle', { cx: e.l, cy: b.cy, r: 2.5, class: 'pad' }));
-      });
-      render();
-    }
-    function render() {
-      const lowest = order.find(l => weak.has(l));
-      const li = lowest ? order.indexOf(lowest) : 99;
-      order.forEach((l, i) => {
-        const n = nodes[l];
-        const state = weak.has(l) ? 'weak' : i > li ? 'starved' : 'ok';
-        n.dataset.state = state;
-        n.classList.toggle('is-binding', l === lowest);
-        $('.sd-state', n).textContent = weak.has('evaluation') ? 'state: unobserved' : state === 'weak' ? 'state: weak' : state === 'starved' ? 'state: capped by ' + NAME[lowest] : 'state: ok';
-        const b = $('.sd-toggle', n); if (b) { b.setAttribute('aria-pressed', String(weak.has(l))); b.textContent = weak.has(l) ? 'mark strong' : 'mark weak'; }
-      });
-      ['evaluation', 'harness'].forEach(l => {
-        const n = nodes[l]; n.dataset.state = weak.has(l) ? 'weak' : 'ok';
-        $('.sd-state', n).textContent = weak.has(l) ? 'state: weak' : 'state: ok';
-        const b = $('.sd-toggle', n); if (b) { b.setAttribute('aria-pressed', String(weak.has(l))); b.textContent = weak.has(l) ? 'mark strong' : 'mark weak'; }
-      });
-      sd.classList.toggle('harness-weak', weak.has('harness'));
-      sd.classList.toggle('eval-weak', weak.has('evaluation'));
-      spine.forEach(s => s.p.classList.toggle('cut', order.indexOf(s.l) > li));
-      const lines = [];
-      if (lowest) {
-        const above = order.slice(li + 1).map(l => NAME[l]);
-        lines.push('binding constraint: ' + NAME[lowest] + ' (the lowest weak layer)');
-        if (above.length) lines.push('above it, ' + above.join(', ') + ': improving these first produces diminishing returns');
-        else lines.push('nothing sits above it: fix ' + NAME[lowest] + ' directly');
-      } else lines.push('binding constraint: none marked. Mark a layer weak to find it.');
-      if (weak.has('evaluation')) lines.push('evaluation weak: the layers still function; you just cannot see whether they are functioning well');
-      if (weak.has('harness')) lines.push('harness weak: capability mismatch, the platform constrains what the cognitive layers could do');
-      out.textContent = lines.join('\n');
-      runPulses();
-    }
-    function runPulses() {
-      cancelAnimationFrame(pulseRaf);
-      $$('.pulse', wsvg).forEach(p => p.remove());
-      if (reduced) return;
-      const live = spine.filter(s => !s.p.classList.contains('cut'));
-      const dots2 = live.map(() => { const c = svgEl('circle', { r: 3, class: 'pulse' }); wsvg.append(c); return c; });
-      const evDots = weak.has('evaluation') ? [] : evalW.map(() => { const c = svgEl('circle', { r: 2.5, class: 'pulse ev-pulse' }); wsvg.append(c); return c; });
-      const t0 = performance.now();
-      const go = now => {
-        const el = (now - t0) / 1000;
-        // the pulse climbs the spine segment by segment, then stops where the dependency is cut
-        const seg = (el * 2.2) % (live.length + 1.2);
-        live.forEach((s, i) => {
-          const u = seg - i, c = dots2[i];
-          if (u < 0 || u > 1) { c.setAttribute('opacity', '0'); return; }
-          const pt = s.p.getPointAtLength(u * s.len); c.setAttribute('cx', pt.x.toFixed(1)); c.setAttribute('cy', pt.y.toFixed(1)); c.setAttribute('opacity', '1');
-        });
-        evalW.forEach((w, i) => {
-          const c = evDots[i]; if (!c) return;
-          const u = ((el * 0.6 + i * 0.17) % 1), pt = w.p.getPointAtLength((1 - u) * w.len);
-          c.setAttribute('cx', pt.x.toFixed(1)); c.setAttribute('cy', pt.y.toFixed(1));
-        });
-        if (document.hidden || !sdVisible) { pulseRaf = 0; return; }
-        pulseRaf = requestAnimationFrame(go);
-      };
-      if (sdVisible && !document.hidden) pulseRaf = requestAnimationFrame(go);
-    }
     let sdVisible = false;
-    new IntersectionObserver(es => { sdVisible = es[0].isIntersecting; runPulses(); }).observe(sd);
-    document.addEventListener('visibilitychange', () => runPulses());
-    new ResizeObserver(layout).observe(sd);
+    const sdLive = () => sd.classList.toggle('is-live', sdVisible && !document.hidden && !mqReduce.matches);
+    new IntersectionObserver(es => { sdVisible = es[0].isIntersecting; sdLive(); }).observe(sd);
+    document.addEventListener('visibilitychange', sdLive);
+    mqReduce.addEventListener('change', sdLive);
   }
 
   /* ================================================================== LEARN PAGE: the altimeter */
