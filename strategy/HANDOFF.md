@@ -22,6 +22,8 @@
 | Repo name | keep `agentic-engineering` for now (rides Karpathy's generic term); the site/branding is Mode Fluency. |
 | Retitle | "AIES" → spell out "The AI-Human Engineering Stack" (AIES is an AAAI/ACM conference). "Archetypes" → "The Fourteen Stances" in headlines, archetypes kept in lineage. |
 | Business model | Ladder: free videos → free diagnostic skill → (later) course → workshops from $1,200 → **Mode Fluency Assessment** from $3,500 (incl. EU AI Act Art. 4 "literacy measures" evidence pack) → Workflow Delegation Sprint → retainer. Skills are free (MIT). |
+| Prices on the site | **None** (2026-10-29). The site says engagements are scoped in writing and points to hello@modefluency.com. Reference points stay internal (assessment from $3,500, workshop from $1,200). |
+| Public copy | Never exposes build mechanics, agent housekeeping, internal file names, document versions or open decisions (2026-10-29). The footer "cat build.log" colophon is the one deliberate exception. |
 | Hosting | Static site in `docs/`; recommended Cloudflare Pages connected to the repo (output dir `docs`), or GitHub Pages (main, /docs). Henrique buys the domain (modefluency.com and .dev were free on 2026-10-21; .ai/.io unverified). |
 | Evidence rules | Every stat dated and sourced; METR's "19% slower" is history (METR's Feb 2026 update shows no slowdown); S&P 42% figure is March 2025. Banned words everywhere: revolutionary, unlock, supercharge, game-changing, seamless, empower. No testimonials, logos or invented numbers. |
 
@@ -64,21 +66,38 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
    deleted; reusable QA gate `strategy/qa/site_qa.py` (97/97, build log rewritten from measurement); blind review of the edits and fix pass;
    skill re-run blind on 3 eval cases (9/9) and Windows fixes (UTF-8 output, `-X utf8`, audit JSON outside scope); R6 one-off offers research;
    PR #2 merged; GitHub Pages enabled and verified.
+8. **2026-10-28:** modefluency.com on Cloudflare DNS, HTTPS enforced, Email Routing hello@ → Gmail, mailto on work.html (PRs #4, #5).
+9. **2026-10-29 (overnight, Henrique's review of the live site):** PR #6 merged: prices off, work page reframed around engagements, hero
+   "AI: Know which mode you're in", "dross" → "noise", method notes/version labels/build disclaimers removed, About trimmed (removed HTML
+   archived in workspace/deliverables/), colophon framing, learn 501/601 scopes, Article 4 condensed, Stack diagram rebuilt to the published
+   figure, regress paragraph aligned with the PDF (R7). Three preview branches for Henrique to judge (see §5). Research: R7 (stack page vs PDF),
+   R8 (essay title options). Reviews: strategy/site-review/review-2026-10-29.md.
 
 ## 5. What is left (suggested order)
-1. **Custom domain: done 2026-10-28.** Nameservers on Cloudflare, four A records + www CNAME (DNS only), `docs/CNAME`,
-   certificate issued, HTTPS enforced (http and www redirect to https://modefluency.com), Email Routing hello@ → Gmail verified and
-   tested, work.html shows a mailto link. Nothing left here.
-2. **Real-device checks nobody has done:** Safari, Firefox (scroll-driven animations are behind @supports), a real screen reader, battery/perf
-   on a mid laptop, the particle field on a phone. Fix what shows, re-run `python strategy/qa/site_qa.py docs --write-buildlog --out docs/_qa/qa-report.md`.
-3. **Still open for Henrique:** the first harness-kit job family (the one he knows from his day job); whether to polish the Oracle and Genie
-   expectation sentences, which are his own v3 wording verbatim and read a little raw on a public card.
-4. **Trademark sanity search** for "Mode Fluency" (EU/WIPO blocked automated checks; USPTO had no hit on 2026-10-21).
-5. **Launch essay distribution:** "The Calculator Problem" on LinkedIn + a "From AI Fluency (4Ds) to Mode Fluency" piece; 5-post series; HN once.
-   A "Mode Fluency" playlist and channel section on his main YouTube channel; the site's learn page links the playlist.
-6. **Announce the skill** (repo README already links it). The eval re-run passed; the units check in grader 04 is thin (see EVAL_RERUN).
-7. **First one-off product:** the Workflow teardown (R6 shortlist #1), a one-page offer and intake form; then the Article 4 evidence pack.
-8. **Next content:** AI 501 (local agents) as planned; the 90-day plan in STRATEGY_BRIEF.md §3.5. Later products per OFFER_BRAINSTORM.md.
+1. **Henrique's calls on the three preview branches** (each built from main, QA 97/97, pushed, not merged; open the worktree's docs/index.html
+   locally or read the screenshots in workspace/previews/):
+   - `preview/landing-doors` (workspace/worktrees/landing-doors): a three-door strip under the hero (learn 101→401 / find your stance / go deeper).
+     Cost: the hero grows ~220 px at 1280×800 and the strip sits at the fold. Counter-argument and a cheaper one-line alternative in
+     workspace/previews/landing-doors-NOTE.md.
+   - `preview/essay-mode-confusion` (workspace/worktrees/essay-mode-confusion): the essay retitled "Mode Confusion" per R8; file name and URL unchanged.
+     If accepted, also update HANDOFF §5.5, STRATEGY_BRIEF.md and briefs/00_SHARED_CONTEXT.md mentions of the old title.
+   - `preview/stances-document` (workspace/worktrees/stances-document): THE_FOURTEEN_STANCES.md at the repo root, reviewed against the source,
+     linked from README, stances.html, matrix.html, MODE_FLUENCY_MATRIX.md and LICENSE. Six source-vs-Matrix disagreements are stated neutrally
+     inside it; Henrique should read §4.2 (the Collaborator) before publishing.
+   To merge one: `gh pr create --base main --head preview/<name>` then merge; then fast-forward meta-strategy; then `git worktree remove` the folder.
+   To drop one: `git branch -D preview/<name>` and `git push origin --delete preview/<name>`, and remove the worktree.
+2. **Lexical substrate:** Henrique has two unpublished companion documents (The Lexical Substrate; Lexical Field Guide, July 2026) in his notes.
+   The published Stack PDF does not mention them, so the site does not. When he publishes them, add the substrate band under the layers in the
+   Stack diagram (its own §6 gives the placement) and a component card.
+3. **Still open for Henrique:** the first harness-kit job family; whether to keep "stances" (site term) or go back to "archetypes" (his document's
+   term; see the 2026-10-29 report); whether to polish the Oracle and Genie expectation sentences on the cards (his raw wording, verbatim).
+4. **Real-device checks nobody has done:** Safari, Firefox, a real screen reader, battery/perf on a mid laptop, the particle field on a phone.
+5. **Trademark sanity search** for "Mode Fluency" (USPTO had no hit on 2026-10-21; EU/WIPO not checked).
+6. **Launch essay distribution:** the essay (title per item 1) on LinkedIn + a "From AI Fluency (4Ds) to Mode Fluency" piece; 5-post series; HN once.
+   A "Mode Fluency" playlist and channel section on his main YouTube channel; the learn page links the playlist.
+7. **Announce the skill** (repo README links it). Grader 04's units check is thin (EVAL_RERUN_2026-10-25).
+8. **First one-off product:** the Workflow teardown (R6 shortlist #1): one-page offer and intake form; then the Article 4 evidence pack.
+9. **Next content:** AI 501 as previewed on the learn page; the 90-day plan in STRATEGY_BRIEF.md §3.5.
 ## 6. How we worked (keep these conventions)
 - **Orchestrator thin, agents do bulk work.** Every delegated task got a written brief in `strategy/briefs/` (Minimal Viable Spec or PRD: inputs by path, exact output path, binary acceptance criteria, non-goals, uncertainty policy, budget, tier, "no helpers"). Agents write to disk and return ≤15 lines. Important artefacts get a **blind review** by a fresh agent that did not build them, then a fix pass by the builder, then the orchestrator verifies deterministically (greps, tests, contrast scans) before committing.
 - **Save early.** One run of three builders was lost to a cloud worker restart before any file was saved. Builders now write a working file within 15 minutes and keep a STATUS.md.
