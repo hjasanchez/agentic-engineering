@@ -40,7 +40,7 @@ Three words you will meet: a **stance** is what you expect from the AI (an oracl
 ## Understand: the frameworks
 
 - **[The Calculator Problem](https://modefluency.com/calculator-problem)** *(essay)*: why we taught everyone to press the buttons and nobody taught them which problems the machine is for.
-- **[The Fourteen Stances](https://modefluency.com/stances.html)**: the fourteen things people expect from an AI, each with its failure mode and its one rule.
+- **[The Fourteen Stances](THE_FOURTEEN_STANCES.md)** ([on the site](https://modefluency.com/stances.html)): the fourteen things people expect from an AI, each with its failure mode and its one rule.
 - **[The AI-Human Engineering Stack](The%20AI-Human%20Engineering%20Stack.pdf)**: five layers (what to do, know, want, doubt, become) and two meta-functions (how to know, where to run). The architecture of delegating work to a machine.
 - **[The Mode Fluency Matrix](MODE_FLUENCY_MATRIX.md)**: which layer carries each stance, and the guardrail that follows.
 - **[The Complete Guide to Specifying Work for AI](The%20Complete%20Guide%20to%20Specifying%20Work%20for%20AI.pdf)**: how to write the work down so the machine does what you meant (Intent Doc, Minimal Viable Spec, PRD).
