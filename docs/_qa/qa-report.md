@@ -1,6 +1,6 @@
 # Site QA report
 
-Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 231 s.
+Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\workspace\worktrees\essay-mode-confusion\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 237 s.
 
 **Result: PASS: 97 of 97 checks passed.**
 
@@ -24,7 +24,7 @@ Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modef
 |---|---|
 | Pages | 9 (about.html, calculator-problem.html, diagnose.html, index.html, learn.html, matrix.html, stack.html, stances.html, work.html) |
 | Deployable files (excl. `_qa/`, STATUS.md) | 16 |
-| Deployable bytes | 323,426 |
+| Deployable bytes | 325,997 |
 | External scripts | 0 |
 
 ## 1. Loads
@@ -116,12 +116,12 @@ Requests answered locally (no network): fonts.googleapis.com (102), i.ytimg.com 
 |---|---|---|---|---|---|---|---|
 | about.html | 390 | 3,115 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | about.html | 1280 | 3,115 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
-| calculator-problem.html | 390 | 10,921 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
-| calculator-problem.html | 1280 | 10,921 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
+| calculator-problem.html | 390 | 10,906 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
+| calculator-problem.html | 1280 | 10,906 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 | diagnose.html | 390 | 3,578 | yes | 390 | 0 | button.theme-toggle.js-only, div#console.console.js-only | yes |
 | diagnose.html | 1280 | 3,578 | yes | 1280 | 0 | button.theme-toggle.js-only, div#console.console.js-only | yes |
-| index.html | 390 | 4,522 | yes | 390 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
-| index.html | 1280 | 4,522 | yes | 1280 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
+| index.html | 390 | 4,622 | yes | 390 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
+| index.html | 1280 | 4,622 | yes | 1280 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
 | learn.html | 390 | 2,805 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | learn.html | 1280 | 2,805 | yes | 1280 | 0 | button.theme-toggle.js-only, div#altimeter.altimeter.js-only | yes |
 | matrix.html | 390 | 6,547 | yes | 390 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
@@ -269,7 +269,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | about.html footer | pages | 9 | 9 | yes |
 | about.html footer | files | 16 | 16 | yes |
 | about.html footer | external_scripts | 0 | 0 | yes |
-| about.html footer | bytes | 323426 | 323426 | yes |
+| about.html footer | bytes | 325997 | 325997 | yes |
 | about.html footer | loads | 72 | 72 | yes |
 | about.html footer | console_errors | 0 | 0 | yes |
 | about.html footer | failed_requests | 0 | 0 | yes |
@@ -285,7 +285,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | calculator-problem.html footer | pages | 9 | 9 | yes |
 | calculator-problem.html footer | files | 16 | 16 | yes |
 | calculator-problem.html footer | external_scripts | 0 | 0 | yes |
-| calculator-problem.html footer | bytes | 323426 | 323426 | yes |
+| calculator-problem.html footer | bytes | 325997 | 325997 | yes |
 | calculator-problem.html footer | loads | 72 | 72 | yes |
 | calculator-problem.html footer | console_errors | 0 | 0 | yes |
 | calculator-problem.html footer | failed_requests | 0 | 0 | yes |
@@ -301,7 +301,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | diagnose.html footer | pages | 9 | 9 | yes |
 | diagnose.html footer | files | 16 | 16 | yes |
 | diagnose.html footer | external_scripts | 0 | 0 | yes |
-| diagnose.html footer | bytes | 323426 | 323426 | yes |
+| diagnose.html footer | bytes | 325997 | 325997 | yes |
 | diagnose.html footer | loads | 72 | 72 | yes |
 | diagnose.html footer | console_errors | 0 | 0 | yes |
 | diagnose.html footer | failed_requests | 0 | 0 | yes |
@@ -317,7 +317,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | index.html footer | pages | 9 | 9 | yes |
 | index.html footer | files | 16 | 16 | yes |
 | index.html footer | external_scripts | 0 | 0 | yes |
-| index.html footer | bytes | 323426 | 323426 | yes |
+| index.html footer | bytes | 325997 | 325997 | yes |
 | index.html footer | loads | 72 | 72 | yes |
 | index.html footer | console_errors | 0 | 0 | yes |
 | index.html footer | failed_requests | 0 | 0 | yes |
@@ -333,7 +333,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | learn.html footer | pages | 9 | 9 | yes |
 | learn.html footer | files | 16 | 16 | yes |
 | learn.html footer | external_scripts | 0 | 0 | yes |
-| learn.html footer | bytes | 323426 | 323426 | yes |
+| learn.html footer | bytes | 325997 | 325997 | yes |
 | learn.html footer | loads | 72 | 72 | yes |
 | learn.html footer | console_errors | 0 | 0 | yes |
 | learn.html footer | failed_requests | 0 | 0 | yes |
@@ -349,7 +349,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | matrix.html footer | pages | 9 | 9 | yes |
 | matrix.html footer | files | 16 | 16 | yes |
 | matrix.html footer | external_scripts | 0 | 0 | yes |
-| matrix.html footer | bytes | 323426 | 323426 | yes |
+| matrix.html footer | bytes | 325997 | 325997 | yes |
 | matrix.html footer | loads | 72 | 72 | yes |
 | matrix.html footer | console_errors | 0 | 0 | yes |
 | matrix.html footer | failed_requests | 0 | 0 | yes |
@@ -365,7 +365,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | stack.html footer | pages | 9 | 9 | yes |
 | stack.html footer | files | 16 | 16 | yes |
 | stack.html footer | external_scripts | 0 | 0 | yes |
-| stack.html footer | bytes | 323426 | 323426 | yes |
+| stack.html footer | bytes | 325997 | 325997 | yes |
 | stack.html footer | loads | 72 | 72 | yes |
 | stack.html footer | console_errors | 0 | 0 | yes |
 | stack.html footer | failed_requests | 0 | 0 | yes |
@@ -381,7 +381,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | stances.html footer | pages | 9 | 9 | yes |
 | stances.html footer | files | 16 | 16 | yes |
 | stances.html footer | external_scripts | 0 | 0 | yes |
-| stances.html footer | bytes | 323426 | 323426 | yes |
+| stances.html footer | bytes | 325997 | 325997 | yes |
 | stances.html footer | loads | 72 | 72 | yes |
 | stances.html footer | console_errors | 0 | 0 | yes |
 | stances.html footer | failed_requests | 0 | 0 | yes |
@@ -397,7 +397,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | work.html footer | pages | 9 | 9 | yes |
 | work.html footer | files | 16 | 16 | yes |
 | work.html footer | external_scripts | 0 | 0 | yes |
-| work.html footer | bytes | 323426 | 323426 | yes |
+| work.html footer | bytes | 325997 | 325997 | yes |
 | work.html footer | loads | 72 | 72 | yes |
 | work.html footer | console_errors | 0 | 0 | yes |
 | work.html footer | failed_requests | 0 | 0 | yes |
@@ -413,7 +413,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | _qa/buildlog.json | pages | 9 | 9 | yes |
 | _qa/buildlog.json | files | 16 | 16 | yes |
 | _qa/buildlog.json | external_scripts | 0 | 0 | yes |
-| _qa/buildlog.json | bytes | 323426 | 323426 | yes |
+| _qa/buildlog.json | bytes | 325997 | 325997 | yes |
 | _qa/buildlog.json | loads | 72 | 72 | yes |
 | _qa/buildlog.json | console_errors | 0 | 0 | yes |
 | _qa/buildlog.json | failed_requests | 0 | 0 | yes |
