@@ -165,6 +165,24 @@ h1 { font-size: clamp(2.75rem, 9vw, 5.6rem); font-weight: 350; letter-spacing: -
 .hero .prose { font-size: 1.0625rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
+/* three doors: learn / find your stance / go deeper, directly under the hero copy (static, no motion) */
+.doors ol { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line-soft); background: color-mix(in srgb, var(--bg) 90%, transparent); }
+.door { display: flex; flex-direction: column; align-items: flex-start; padding: 16px 16px 2px; }
+.door + .door { border-top: 1px solid var(--line-soft); }
+.door-tag { color: var(--ink-2); }
+.door-tag .num { margin-right: 6px; }
+.door-say { color: var(--ink); margin-top: 6px; font-size: 1.0625rem; line-height: 1.45; flex: 1; }
+@media (min-width: 720px) {
+  .doors ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .door + .door { border-top: 0; border-left: 1px solid var(--line-soft); }
+}
+@media (min-width: 960px) {
+  .hero-grid { grid-template-rows: 1fr auto; row-gap: 32px; }
+  .hero-copy { grid-column: 1; grid-row: 1; }
+  .compass-col { grid-column: 2; grid-row: 1; }
+  .doors { grid-column: 1 / -1; grid-row: 2; }
+}
+
 /* commands: buttons are typed commands with a caret that blinks on focus */
 .cmd {
   --caret: 0;

@@ -1,9 +1,9 @@
 {
  "ticker": [
   "build: 9 pages, 16 files; plain HTML, CSS and JS; frameworks 0; libraries 0; external scripts 0",
-  "size: 325,997 bytes deployable, fonts excluded (budget 900,000)",
+  "size: 329,003 bytes deployable, fonts excluded (budget 900,000)",
   "qa 2026-10-29: 72 headless Chromium loads (9 pages × 390/1280 × light/dark × motion on/off); console errors 0; failed requests 0; horizontal overflow 0",
-  "a11y: 3,722 text elements scanned per theme; lowest contrast 5.23:1 light, 6.07:1 dark (floor 4.5)",
+  "a11y: 3,752 text elements scanned per theme; lowest contrast 5.23:1 light, 6.07:1 dark (floor 4.5)",
   "diagnostic: 26,880 of 26,880 answer combinations return a result; 32 paths driven through the UI",
   "checks: 97 of 97 passed; report in _qa/qa-report.md"
  ],
