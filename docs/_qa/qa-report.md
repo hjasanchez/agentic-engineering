@@ -1,6 +1,6 @@
 # Site QA report
 
-Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 225 s.
+Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 184 s.
 
 **Result: PASS: 97 of 97 checks passed.**
 
@@ -24,7 +24,7 @@ Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modef
 |---|---|
 | Pages | 9 (about.html, calculator-problem.html, diagnose.html, index.html, learn.html, matrix.html, stack.html, stances.html, work.html) |
 | Deployable files (excl. `_qa/`, STATUS.md) | 16 |
-| Deployable bytes | 326,658 |
+| Deployable bytes | 329,226 |
 | External scripts | 0 |
 
 ## 1. Loads
@@ -128,8 +128,8 @@ Requests answered locally (no network): fonts.googleapis.com (102), i.ytimg.com 
 | matrix.html | 1280 | 6,594 | yes | 1280 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
 | stack.html | 390 | 11,646 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | stack.html | 1280 | 12,208 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
-| stances.html | 390 | 15,129 | yes | 390 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
-| stances.html | 1280 | 15,129 | yes | 1280 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
+| stances.html | 390 | 14,997 | yes | 390 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
+| stances.html | 1280 | 14,997 | yes | 1280 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
 | work.html | 390 | 3,084 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | work.html | 1280 | 3,084 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 
@@ -269,7 +269,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | about.html footer | pages | 9 | 9 | yes |
 | about.html footer | files | 16 | 16 | yes |
 | about.html footer | external_scripts | 0 | 0 | yes |
-| about.html footer | bytes | 326658 | 326658 | yes |
+| about.html footer | bytes | 329226 | 329226 | yes |
 | about.html footer | loads | 72 | 72 | yes |
 | about.html footer | console_errors | 0 | 0 | yes |
 | about.html footer | failed_requests | 0 | 0 | yes |
@@ -285,7 +285,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | calculator-problem.html footer | pages | 9 | 9 | yes |
 | calculator-problem.html footer | files | 16 | 16 | yes |
 | calculator-problem.html footer | external_scripts | 0 | 0 | yes |
-| calculator-problem.html footer | bytes | 326658 | 326658 | yes |
+| calculator-problem.html footer | bytes | 329226 | 329226 | yes |
 | calculator-problem.html footer | loads | 72 | 72 | yes |
 | calculator-problem.html footer | console_errors | 0 | 0 | yes |
 | calculator-problem.html footer | failed_requests | 0 | 0 | yes |
@@ -301,7 +301,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | diagnose.html footer | pages | 9 | 9 | yes |
 | diagnose.html footer | files | 16 | 16 | yes |
 | diagnose.html footer | external_scripts | 0 | 0 | yes |
-| diagnose.html footer | bytes | 326658 | 326658 | yes |
+| diagnose.html footer | bytes | 329226 | 329226 | yes |
 | diagnose.html footer | loads | 72 | 72 | yes |
 | diagnose.html footer | console_errors | 0 | 0 | yes |
 | diagnose.html footer | failed_requests | 0 | 0 | yes |
@@ -317,7 +317,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | index.html footer | pages | 9 | 9 | yes |
 | index.html footer | files | 16 | 16 | yes |
 | index.html footer | external_scripts | 0 | 0 | yes |
-| index.html footer | bytes | 326658 | 326658 | yes |
+| index.html footer | bytes | 329226 | 329226 | yes |
 | index.html footer | loads | 72 | 72 | yes |
 | index.html footer | console_errors | 0 | 0 | yes |
 | index.html footer | failed_requests | 0 | 0 | yes |
@@ -333,7 +333,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | learn.html footer | pages | 9 | 9 | yes |
 | learn.html footer | files | 16 | 16 | yes |
 | learn.html footer | external_scripts | 0 | 0 | yes |
-| learn.html footer | bytes | 326658 | 326658 | yes |
+| learn.html footer | bytes | 329226 | 329226 | yes |
 | learn.html footer | loads | 72 | 72 | yes |
 | learn.html footer | console_errors | 0 | 0 | yes |
 | learn.html footer | failed_requests | 0 | 0 | yes |
@@ -349,7 +349,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | matrix.html footer | pages | 9 | 9 | yes |
 | matrix.html footer | files | 16 | 16 | yes |
 | matrix.html footer | external_scripts | 0 | 0 | yes |
-| matrix.html footer | bytes | 326658 | 326658 | yes |
+| matrix.html footer | bytes | 329226 | 329226 | yes |
 | matrix.html footer | loads | 72 | 72 | yes |
 | matrix.html footer | console_errors | 0 | 0 | yes |
 | matrix.html footer | failed_requests | 0 | 0 | yes |
@@ -365,7 +365,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | stack.html footer | pages | 9 | 9 | yes |
 | stack.html footer | files | 16 | 16 | yes |
 | stack.html footer | external_scripts | 0 | 0 | yes |
-| stack.html footer | bytes | 326658 | 326658 | yes |
+| stack.html footer | bytes | 329226 | 329226 | yes |
 | stack.html footer | loads | 72 | 72 | yes |
 | stack.html footer | console_errors | 0 | 0 | yes |
 | stack.html footer | failed_requests | 0 | 0 | yes |
@@ -381,7 +381,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | stances.html footer | pages | 9 | 9 | yes |
 | stances.html footer | files | 16 | 16 | yes |
 | stances.html footer | external_scripts | 0 | 0 | yes |
-| stances.html footer | bytes | 326658 | 326658 | yes |
+| stances.html footer | bytes | 329226 | 329226 | yes |
 | stances.html footer | loads | 72 | 72 | yes |
 | stances.html footer | console_errors | 0 | 0 | yes |
 | stances.html footer | failed_requests | 0 | 0 | yes |
@@ -397,7 +397,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | work.html footer | pages | 9 | 9 | yes |
 | work.html footer | files | 16 | 16 | yes |
 | work.html footer | external_scripts | 0 | 0 | yes |
-| work.html footer | bytes | 326658 | 326658 | yes |
+| work.html footer | bytes | 329226 | 329226 | yes |
 | work.html footer | loads | 72 | 72 | yes |
 | work.html footer | console_errors | 0 | 0 | yes |
 | work.html footer | failed_requests | 0 | 0 | yes |
@@ -413,7 +413,7 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | _qa/buildlog.json | pages | 9 | 9 | yes |
 | _qa/buildlog.json | files | 16 | 16 | yes |
 | _qa/buildlog.json | external_scripts | 0 | 0 | yes |
-| _qa/buildlog.json | bytes | 326658 | 326658 | yes |
+| _qa/buildlog.json | bytes | 329226 | 329226 | yes |
 | _qa/buildlog.json | loads | 72 | 72 | yes |
 | _qa/buildlog.json | console_errors | 0 | 0 | yes |
 | _qa/buildlog.json | failed_requests | 0 | 0 | yes |

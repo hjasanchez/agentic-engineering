@@ -27,10 +27,7 @@ layer that carries it, and section 6 says what to do with all of it.
 
 Every exchange with an AI starts with an unspoken answer to one question: what am I expecting from this exchange?
 
-Two answers dominate. The oracle, in the human's eye, is the mental model of coming to the LLM with the expectation of
-receiving truth in the form of an answer to a difficult question not easily knowable by the human. The genie, in the
-human's eye, is the mental model of coming to the LLM with the expectation of asking for a wish, a request with a
-discrete deliverable outcome which can be verified, and receiving that by the LLM/"genie".
+Two answers dominate. The Oracle is the expectation of truth. You bring a hard question you cannot easily answer yourself, and you expect the answer to be correct. The Genie is the expectation of a wish granted. You ask for a discrete deliverable that can be verified, and you expect to receive exactly that.
 
 The Oracle and the Genie are dominant, perhaps because they map neatly onto the two oldest human impulses toward
 knowledge: _knowing_ and _having_. But they also happen to be the two most fragile archetypes for LLMs, because they
@@ -77,8 +74,7 @@ The Oracle and the Genie come first; the twelve after them are quieter, and most
 
 *Load-bearing layer: Judgment · Consumption (passive)*
 
-**Expectation.** The oracle, in the human's eye, is the mental model of coming to the LLM with the expectation of
-receiving truth in the form of an answer to a difficult question not easily knowable by the human.
+**Expectation.** The Oracle is the expectation of truth. You bring a hard question you cannot easily answer yourself, and you expect the answer to be correct.
 
 **Why it dominates.** It maps, perhaps, onto _knowing_, one of the two oldest human impulses toward knowledge. The human asks,
 the LLM delivers, and the human's cognitive load is minimized.
@@ -95,9 +91,7 @@ verdict.
 
 *Load-bearing layer: Prompt · Consumption (passive)*
 
-**Expectation.** The genie, in the human's eye, is the mental model of coming to the LLM with the expectation of asking
-for a wish, a request with a discrete deliverable outcome which can be verified, and receiving that by the
-LLM/"genie".
+**Expectation.** The Genie is the expectation of a wish granted. You ask for a discrete deliverable that can be verified, and you expect to receive exactly that.
 
 **Why it dominates.** It maps, perhaps, onto _having_, the other of the two impulses. The human asks, the LLM delivers, and the
 human's cognitive load is minimized.

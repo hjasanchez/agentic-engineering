@@ -8,6 +8,7 @@
   const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
   const mqDark = matchMedia('(prefers-color-scheme: dark)');
   let reduced = mqReduce.matches;
+  const noHover = matchMedia('(hover: none)').matches; // phones and tablets: no hover, touch only
 
   /* WORDMARK: read from the CSS custom property --brand (assets/field.css), the one place to rename the practice. */
   const BRAND = (getComputedStyle(root).getPropertyValue('--brand').trim().replace(/^["']|["']$/g, '')) || 'Mode Fluency';
@@ -143,7 +144,8 @@
       const r = canvas.getBoundingClientRect();
       const W = Math.max(1, Math.round(r.width)), H = Math.max(1, Math.round(r.height));
       const sx = W / f.W, sy = H / f.H;
-      f.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // touch screens: a tall canvas at DPR 2+ is mostly off-screen fill, so cap the backing store near 1.2 MP (desktop unchanged)
+      f.dpr = noHover ? Math.min(window.devicePixelRatio || 1, 1.5, Math.max(1, Math.sqrt(1.2e6 / (W * H)))) : Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(W * f.dpr); canvas.height = Math.round(H * f.dpr);
       ctx.setTransform(f.dpr, 0, 0, f.dpr, 0, 0);
       if (f.x) for (let i = 0; i < f.N; i++) { f.x[i] *= sx; f.y[i] *= sy; }
@@ -738,9 +740,11 @@
   axisSay.className = 'sr-only'; axisSay.setAttribute('aria-live', 'polite');
   if (slot) slot.after(axisSay);
   let axisSaid = -1;
+  let tour = 0; // start time of the touch-screen intro tour (see tourStep), 0 when not touring
   function setAxis(i, focus) {
     if (!axisBtns.length) return;
     i = ((i % 4) + 4) % 4;
+    tour = 0; // any selection ends the tour: the needle and readout follow the selection at once
     if (i !== axisSaid && axisSaid !== -1) axisSay.textContent = 'Axis: ' + AXES[i].toLowerCase() + '. ' + (axisRows[i] ? $('.axis-q', axisRows[i]).textContent : '');
     axisSaid = i;
     axis = i;
@@ -764,7 +768,23 @@
       else if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); setAxis(axis - 1, true); }
     });
   });
-  axisRows.forEach((r, j) => r.addEventListener('pointerenter', () => setAxis(j)));
+  // a touch that starts a scroll also fires pointerenter: on touch, a row is chosen by tapping it, not by passing over it
+  axisRows.forEach((r, j) => { r.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch') setAxis(j); }); r.addEventListener('click', () => setAxis(j)); });
+  const bearingAxis = (dx, dy) => Math.round(((Math.atan2(dx, -dy) * 180 / Math.PI) + 360) % 360 / 90) % 4;
+  /* touch screens have no hover, so the needle would sit still until touched: the first time the compass is in view,
+     it tours the four axes once and comes back. Desktop keeps following the pointer from the first move. */
+  function endTour() { // stop mid-tour: needle back on the selected axis, readout written for it
+    tour = 0; needle = needleTarget = -Math.PI / 2 + axis * Math.PI / 2;
+    if (axEl) axEl.textContent = AXES[axis];
+    writeDeg();
+  }
+  function tourStep() {
+    const el = performance.now() - tour, q = Math.floor(el / 700), base = -Math.PI / 2 + axis * Math.PI / 2;
+    if (q >= 4) { tour = 0; needle = base; if (axEl) axEl.textContent = AXES[axis]; return; }
+    const p = clamp((el - q * 700) / 450, 0, 1), e = p * p * (3 - 2 * p);
+    needle = base + (q + e) * Math.PI / 2;
+    if (axEl) axEl.textContent = AXES[(axis + q + (p >= 0.5 ? 1 : 0)) % 4];
+  }
 
   if (hero && heroCanvas && slot) {
     heroField = makeField(heroCanvas, hero, {
@@ -776,13 +796,12 @@
         G.q = { x0: cr.left - hr.left - 12, y0: cr.top - hr.top - 12, x1: cr.right - hr.left + 12, y1: cr.bottom - hr.top + 12 };
         const ac = $('#agent-count'); if (ac) ac.textContent = f.N.toLocaleString('en-US');
       },
-      pointer(f) {
+      pointer(f, e) {
         const dx = f.pointer.x - G.cx, dy = f.pointer.y - G.cy;
         needleTarget = Math.atan2(dy, dx);
-        if (dx * dx + dy * dy < (G.R * 1.7) ** 2) {
-          const b = ((Math.atan2(dx, -dy) * 180 / Math.PI) + 360) % 360;
-          setAxis(Math.round(b / 90) % 4);
-        }
+        if (tour) { tour = 0; if (axEl) axEl.textContent = AXES[axis]; } // any touch or move ends the tour
+        // touch picks the axis on pointerup (a tap), so a thumb scrolling past the compass does not change it
+        if (e.pointerType !== 'touch' && dx * dx + dy * dy < (G.R * 1.7) ** 2) setAxis(bearingAxis(dx, dy));
         if (reduced) { needle = needleTarget; writeDeg(); }
       },
       leave() { needleTarget = -Math.PI / 2 + axis * Math.PI / 2; if (reduced) { needle = needleTarget; writeDeg(); } },
@@ -813,7 +832,8 @@
           if (y[i] < -4) y[i] += H + 8; else if (y[i] > H + 4) y[i] -= H + 8;
         }
         scrollV *= 0.92;
-        needle += Math.atan2(Math.sin(needleTarget - needle), Math.cos(needleTarget - needle)) * Math.min(1, 0.12 * k);
+        if (tour && !reduced) tourStep();
+        else needle += Math.atan2(Math.sin(needleTarget - needle), Math.cos(needleTarget - needle)) * Math.min(1, 0.12 * k);
         if (f.frame % 4 === 0) writeDeg();
       },
       draw(f, still) {
@@ -831,6 +851,19 @@
         drawHuman(f, ctx);
       },
     });
+    hero.addEventListener('pointerup', e => {
+      if (e.pointerType !== 'touch') return;
+      const r = heroCanvas.getBoundingClientRect(), dx = e.clientX - r.left - G.cx, dy = e.clientY - r.top - G.cy;
+      if (dx * dx + dy * dy < (G.R * 1.7) ** 2) setAxis(bearingAxis(dx, dy));
+    }, { passive: true });
+    if (noHover && !reduced) {
+      const seen = new IntersectionObserver(es => {
+        if (!es.some(e => e.isIntersecting)) return;
+        seen.disconnect();
+        if (!reduced && !heroField.pointer.active) tour = performance.now();
+      }, { threshold: 0.6 });
+      seen.observe(slot);
+    }
   }
 
   function drawCompass(ctx) {
@@ -842,11 +875,15 @@
     ctx.strokeStyle = C.line; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.arc(0, 0, R * 0.62, 0, TAU); ctx.stroke();
     ctx.strokeStyle = C.dim;
-    for (let d = 0; d < 360; d += 5) {
-      const a = d * Math.PI / 180 - Math.PI / 2, major = d % 90 === 0, mid = d % 30 === 0;
-      const r0 = R + 6, r1 = R + (major ? 20 : mid ? 14 : 10);
+    for (const major of [false, true]) { // two strokes instead of 72: same pixels, a fraction of the draw calls
       ctx.lineWidth = major ? 2 : 1;
-      ctx.beginPath(); ctx.moveTo(Math.cos(a) * r0, Math.sin(a) * r0); ctx.lineTo(Math.cos(a) * r1, Math.sin(a) * r1); ctx.stroke();
+      ctx.beginPath();
+      for (let d = 0; d < 360; d += 5) {
+        if ((d % 90 === 0) !== major) continue;
+        const a = d * Math.PI / 180 - Math.PI / 2, r0 = R + 6, r1 = R + (major ? 20 : d % 30 === 0 ? 14 : 10);
+        ctx.moveTo(Math.cos(a) * r0, Math.sin(a) * r0); ctx.lineTo(Math.cos(a) * r1, Math.sin(a) * r1);
+      }
+      ctx.stroke();
     }
     const sa = -Math.PI / 2 + axis * Math.PI / 2;
     ctx.strokeStyle = C.human; ctx.lineWidth = 2;
@@ -1217,7 +1254,7 @@
 
   /* ================================================================== init */
   document.addEventListener('visibilitychange', () => fields.forEach(f => f.update()));
-  mqReduce.addEventListener('change', e => { reduced = e.matches; fields.forEach(f => { f.update(); if (reduced) f.still(); }); });
+  mqReduce.addEventListener('change', e => { reduced = e.matches; if (reduced && tour) endTour(); fields.forEach(f => { f.update(); if (reduced) f.still(); }); });
   mqDark.addEventListener('change', () => { readColors(); fields.forEach(f => f.recolor()); });
 
   const saved = store.get('fieldTheme');
