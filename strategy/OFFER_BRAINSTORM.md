@@ -71,3 +71,26 @@ and it produces the Sprint's spec. Credit the fee against a Sprint or assessment
 
 **Ladder note.** The teardown, Redline and debrief add paid rungs below the $1,200 workshop. This is an explicit addition; no
 existing rung moves. Credits on every one-off keep pointing buyers up the ladder.
+
+## Scalable products (added 2026-10-29)
+Built once, sold many times, little time per sale. Twelve candidates with dated benchmarks, hours, fees and arithmetic:
+`strategy/research/R11_scalable_products.md`. Bands are internal; nothing here goes on the site or in the README.
+
+| Rank | Product | Build h | 12-mo gross | Why |
+|---|---|---|---|---|
+| 1 | **Article 4 do-it-yourself records kit** ($49–99) | 15–20 | $98–2,475 | Best ratio once ongoing hours count ($40/h); same template as the Article 4 pack and the assessment; price credited to the pack |
+| 2 | **Team profile kit, offline** ($99–190/team) | 20–30 | $99–1,520 | Highest strategic value: each sale runs 5–10 people through the Diagnostic and points at the Team read |
+| 3 | **Free newsletter** (paid tier later) | 4–6 | $144–1,200 | Builds the list the practice lacks; 12–20 h/month, so it is time, not a product |
+
+Looks good on the build-hours ratio but not on total hours: paid community (15–25 h/month) and the paid newsletter tier.
+GitHub Sponsors: 1–2 h, $50–400; worth doing as a signal.
+Not now: self-serve course, hosted team edition (60–100 h, GDPR duties), paid skills, certification, e-book, L&D licensing.
+
+**Decisions this touches (Henrique's call):**
+- Team edition is "no for now". The offline kit holds no data and needs no server; consider moving its trigger to "first two or three
+  manual Team reads delivered". The hosted version stays deferred.
+- Any self-serve product needs a public price on its checkout page. The no-prices rule covers the site and README; whether the site
+  may link to a priced storefront is not on file.
+- "Charge for skill files" and "certificates" stay on the would-not-do list; the evidence still supports both.
+
+At current reach none of these replaces one assessment in year one. Their case is reach and lead quality.
