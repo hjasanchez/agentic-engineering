@@ -60,6 +60,6 @@ knowledge workers and SME teams, with a slice of technical teams, leadership buy
 - Name: "Mode Fluency" stays (it grew on him). Tagline: "Know which mode you're in."
 - Landing copy: replace "calculator" with "machine" in the hero lede so first-time visitors are not puzzled:
   "We taught everyone to press the buttons. Nobody taught them which problems the machine is for."
-  The essay keeps its title "The Calculator Problem" (the explanation follows immediately there).
+  The essay keeps its title "Mode Confusion" (retitled 2026-10-29 from "The Calculator Problem") (the explanation follows immediately there).
 - Philosophy: free resources for everyone; charge for what needs his human time. The repo's "AIES Implementation Docs"
   will be replaced in the spotlight by a polished, downloadable diagnostic skill people run with their own agent.
