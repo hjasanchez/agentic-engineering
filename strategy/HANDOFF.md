@@ -17,7 +17,7 @@
 | Decision | Outcome |
 |---|---|
 | Umbrella name | **Mode Fluency** (kept after a 120-name second round; "Agent Stance" was my recommendation, Henrique preferred Mode Fluency). Google's "AI Mode" search product shadows the term; mitigate with the essay and the matrix, not the two words. |
-| Hero copy | "We taught everyone to press the buttons. Nobody taught them which problems the **machine** is for." Essay keeps the title "The Calculator Problem". |
+| Hero copy | "We taught everyone to press the buttons. Nobody taught them which problems the **machine** is for." Essay title: preview branch `preview/essay-mode-confusion` proposes "Mode Confusion" (R8); Henrique to decide. |
 | Website design | **Direction C, "The Field"** (reactive particle field, two-voice typography: serif human / monospace system). Full nine-page build done. |
 | Repo name | keep `agentic-engineering` for now (rides Karpathy's generic term); the site/branding is Mode Fluency. |
 | Retitle | "AIES" → spell out "The AI-Human Engineering Stack" (AIES is an AAAI/ACM conference). "Archetypes" → "The Fourteen Stances" in headlines, archetypes kept in lineage. |
