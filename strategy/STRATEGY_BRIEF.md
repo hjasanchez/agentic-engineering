@@ -205,7 +205,7 @@ release skills free under MIT for reach, sell a team edition later if demand app
 ### 3.4 Distribution: the real constraint
 
 Content without reach is the binding constraint of the venture. Minimum viable distribution for a side project:
-- **One essay, launched properly:** "The Calculator Problem" on the site, cross-posted to LinkedIn (your Linktree already
+- **One essay, launched properly:** "Mode Confusion" (retitled 2026-10-29 from "The Calculator Problem") on the site, cross-posted to LinkedIn (your Linktree already
   points there) and submitted to the Anthropic/Claude community channels and Hacker News once.
 - **Map onto the 4Ds publicly.** A one-page "From AI Fluency to Mode Fluency" piece rides a course with a reported >1M
   enrollments (UNVERIFIED) and positions you as the next step rather than a rival.
@@ -222,7 +222,7 @@ Content without reach is the binding constraint of the venture. Minimum viable d
 | Weeks | Do | Output |
 |---|---|---|
 | 1–2 | Approve/adjust this brief; register modefluency.com (+ .dev); trademark sanity search; retitle the Stack and Stances per §3.1; add the matrix to the repo | Branch merged; domain live |
-| 3–4 | Launch the site (prototype in `site/`, fix copy); publish "The Calculator Problem"; LinkedIn post series (5 posts) | First inbound |
+| 3–4 | Launch the site (prototype in `site/`, fix copy); publish "Mode Confusion" (retitled 2026-10-29 from "The Calculator Problem"); LinkedIn post series (5 posts) | First inbound |
 | 5–6 | Package the Assessment: one-page offer, intake form, the audit-agent runbook built on your Protocol; price it at $3,500 | Offer page live |
 | 7–8 | Record AI 501 (local agents) as planned; run two free 45-minute "mode fluency clinics" for warm contacts to generate case material and testimonials | 2 clinics, 2 testimonials |
 | 9–10 | Release the first three skills (MIT): `/stance`, `/stack-audit`, `/spec`; announce | Skills in repo |
