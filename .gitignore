@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+# Drafts that contain unpublished material stay local until Henrique approves them (see strategy/HANDOFF.md)
+strategy/drafts/
