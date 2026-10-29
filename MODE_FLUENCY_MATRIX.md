@@ -1,7 +1,7 @@
 # The Mode Fluency Matrix: which Stack layer carries each Stance
 
 **Version:** 0.1 (draft) | October 2026 | **Author:** Henrique Jr. Sanchez
-**Companion to:** *The AI-Human Engineering Stack* and *The Fourteen Stances (Archetypes of Human-AI Interaction, v3)*
+**Companion to:** *The AI-Human Engineering Stack* and [*The Fourteen Stances*](THE_FOURTEEN_STANCES.md)
 
 ## Why this table exists
 
@@ -47,7 +47,7 @@ table and 401–601 on the lower-right: the layer that carries the load moves as
 
 ## Lineage
 
-Stances build on the author's *Archetypes of LLM-Human Interaction* (v3). Related framings that classify by autonomy or
+The Stances are set out in full in [*The Fourteen Stances*](THE_FOURTEEN_STANCES.md). Related framings that classify by autonomy or
 social role rather than by the human's expectation: Anthropic's AI Fluency (4Ds: Delegation, Description, Discernment,
 Diligence), Mollick's centaurs and cyborgs, Microsoft's "agent boss", and the CHI 2026 "human-LLM archetypes" paper for
 decision support (arXiv 2602.11924). The Stack's "intent engineering" layer is credited to Nate B. Jones.

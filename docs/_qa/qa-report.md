@@ -1,6 +1,6 @@
 # Site QA report
 
-Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 231 s.
+Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modefluency\workspace\worktrees\stances-document\docs`. Headless Chromium (Playwright for Python), pages from file://. Network: off (http/https requests answered locally, see section 1). Runtime 237 s.
 
 **Result: PASS: 97 of 97 checks passed.**
 
@@ -12,8 +12,8 @@ Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modef
 |---|---|---|
 | Loads (72) | PASS | console errors 0; failed requests 0; loads with horizontal overflow 0 |
 | JavaScript off (18) | PASS | readable 18 of 18 |
-| Contrast light | PASS | 3,722 text elements; below 4.5:1: 0; lowest 5.23:1 (`p#stage-hint.sys.stage-hint` "Pointer or touch: you are the warm point. Disturb ", index.html 390); not parsed 0; exempt (disabled) 4 |
-| Contrast dark | PASS | 3,722 text elements; below 4.5:1: 0; lowest 6.07:1 (`h2#console-title.sys` "session: diagnose", diagnose.html 390); not parsed 0; exempt (disabled) 4 |
+| Contrast light | PASS | 3,730 text elements; below 4.5:1: 0; lowest 5.23:1 (`p#stage-hint.sys.stage-hint` "Pointer or touch: you are the warm point. Disturb ", index.html 390); not parsed 0; exempt (disabled) 4 |
+| Contrast dark | PASS | 3,730 text elements; below 4.5:1: 0; lowest 6.07:1 (`h2#console-title.sys` "session: diagnose", diagnose.html 390); not parsed 0; exempt (disabled) 4 |
 | Banned words | PASS | 0 hits |
 | Diagnostic | PASS | 26,880 of 26,880 return a result; derived from source 26,880; derived from UI 26,880 |
 | Footer build log | PASS | 0 mismatches; footers identical on all pages: yes |
@@ -24,7 +24,7 @@ Run: 2026-10-29, `strategy/qa/site_qa.py` on `C:\Users\henri\Desktop\CCode\modef
 |---|---|
 | Pages | 9 (about.html, calculator-problem.html, diagnose.html, index.html, learn.html, matrix.html, stack.html, stances.html, work.html) |
 | Deployable files (excl. `_qa/`, STATUS.md) | 16 |
-| Deployable bytes | 323,426 |
+| Deployable bytes | 328,075 |
 | External scripts | 0 |
 
 ## 1. Loads
@@ -124,12 +124,12 @@ Requests answered locally (no network): fonts.googleapis.com (102), i.ytimg.com 
 | index.html | 1280 | 4,522 | yes | 1280 | 0 | button.theme-toggle.js-only, div#circuit.circuit.js-only, div.compass-col.js-only, div.stance-picker.js-only, div.stance-stage.js-only, span.js-only | yes |
 | learn.html | 390 | 2,805 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | learn.html | 1280 | 2,805 | yes | 1280 | 0 | button.theme-toggle.js-only, div#altimeter.altimeter.js-only | yes |
-| matrix.html | 390 | 6,547 | yes | 390 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
-| matrix.html | 1280 | 6,547 | yes | 1280 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
+| matrix.html | 390 | 6,594 | yes | 390 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
+| matrix.html | 1280 | 6,594 | yes | 1280 | 0 | button.theme-toggle.js-only, section.section.matrix | yes |
 | stack.html | 390 | 11,646 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | stack.html | 1280 | 12,208 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
-| stances.html | 390 | 15,086 | yes | 390 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
-| stances.html | 1280 | 15,086 | yes | 1280 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
+| stances.html | 390 | 15,129 | yes | 390 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
+| stances.html | 1280 | 15,129 | yes | 1280 | 0 | button.theme-toggle.js-only, div.filters.js-only, p#stance-status.status.js-only, p.js-only, p.sys.sc-field | yes |
 | work.html | 390 | 3,084 | yes | 390 | 0 | button.theme-toggle.js-only | yes |
 | work.html | 1280 | 3,084 | yes | 1280 | 0 | button.theme-toggle.js-only | yes |
 
@@ -139,8 +139,8 @@ Every visible text element, reduced-motion loads at 390 and 1280, plus interacti
 
 | Theme | Elements | Below 4.5 | Lowest | Element | Text | Page | Width | State |
 |---|---|---|---|---|---|---|---|---|
-| light | 3,722 | 0 | 5.23 | `p#stage-hint.sys.stage-hint` | Pointer or touch: you are the warm point. Disturb  | index.html | 390 | load |
-| dark | 3,722 | 0 | 6.07 | `h2#console-title.sys` | session: diagnose | diagnose.html | 390 | load |
+| light | 3,730 | 0 | 5.23 | `p#stage-hint.sys.stage-hint` | Pointer or touch: you are the warm point. Disturb  | index.html | 390 | load |
+| dark | 3,730 | 0 | 6.07 | `h2#console-title.sys` | session: diagnose | diagnose.html | 390 | load |
 
 **Light: lowest ten**
 
@@ -204,26 +204,26 @@ Per scan:
 | learn.html | 390 | dark | load | 93 | 6.82 |
 | learn.html | 1280 | light | load | 101 | 5.43 |
 | learn.html | 1280 | dark | load | 101 | 6.82 |
-| matrix.html | 390 | light | load | 229 | 5.43 |
-| matrix.html | 390 | light | Librarian selected | 229 | 5.43 |
-| matrix.html | 390 | dark | load | 229 | 6.07 |
-| matrix.html | 390 | dark | Librarian selected | 229 | 6.07 |
-| matrix.html | 1280 | light | load | 236 | 5.43 |
-| matrix.html | 1280 | light | Librarian selected | 236 | 5.43 |
-| matrix.html | 1280 | dark | load | 236 | 6.07 |
-| matrix.html | 1280 | dark | Librarian selected | 236 | 6.07 |
+| matrix.html | 390 | light | load | 230 | 5.43 |
+| matrix.html | 390 | light | Librarian selected | 230 | 5.43 |
+| matrix.html | 390 | dark | load | 230 | 6.07 |
+| matrix.html | 390 | dark | Librarian selected | 230 | 6.07 |
+| matrix.html | 1280 | light | load | 237 | 5.43 |
+| matrix.html | 1280 | light | Librarian selected | 237 | 5.43 |
+| matrix.html | 1280 | dark | load | 237 | 6.07 |
+| matrix.html | 1280 | dark | Librarian selected | 237 | 6.07 |
 | stack.html | 390 | light | load | 213 | 5.43 |
 | stack.html | 390 | dark | load | 213 | 6.07 |
 | stack.html | 1280 | light | load | 238 | 5.43 |
 | stack.html | 1280 | dark | load | 238 | 6.07 |
-| stances.html | 390 | light | load | 310 | 5.43 |
-| stances.html | 390 | light | first layer filter on | 112 | 5.43 |
-| stances.html | 390 | dark | load | 310 | 6.07 |
-| stances.html | 390 | dark | first layer filter on | 112 | 6.07 |
-| stances.html | 1280 | light | load | 310 | 5.43 |
-| stances.html | 1280 | light | first layer filter on | 112 | 5.43 |
-| stances.html | 1280 | dark | load | 310 | 6.07 |
-| stances.html | 1280 | dark | first layer filter on | 112 | 6.07 |
+| stances.html | 390 | light | load | 311 | 5.43 |
+| stances.html | 390 | light | first layer filter on | 113 | 5.43 |
+| stances.html | 390 | dark | load | 311 | 6.07 |
+| stances.html | 390 | dark | first layer filter on | 113 | 6.07 |
+| stances.html | 1280 | light | load | 311 | 5.43 |
+| stances.html | 1280 | light | first layer filter on | 113 | 5.43 |
+| stances.html | 1280 | dark | load | 311 | 6.07 |
+| stances.html | 1280 | dark | first layer filter on | 113 | 6.07 |
 | work.html | 390 | light | load | 95 | 5.43 |
 | work.html | 390 | dark | load | 95 | 6.82 |
 | work.html | 1280 | light | load | 95 | 5.43 |
@@ -269,12 +269,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | about.html footer | pages | 9 | 9 | yes |
 | about.html footer | files | 16 | 16 | yes |
 | about.html footer | external_scripts | 0 | 0 | yes |
-| about.html footer | bytes | 323426 | 323426 | yes |
+| about.html footer | bytes | 328075 | 328075 | yes |
 | about.html footer | loads | 72 | 72 | yes |
 | about.html footer | console_errors | 0 | 0 | yes |
 | about.html footer | failed_requests | 0 | 0 | yes |
 | about.html footer | overflow | 0 | 0 | yes |
-| about.html footer | contrast_elements | 3722 | 3722 | yes |
+| about.html footer | contrast_elements | 3730 | 3730 | yes |
 | about.html footer | lowest_light | 5.23 | 5.23 | yes |
 | about.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | about.html footer | diag_ok | 26880 | 26880 | yes |
@@ -285,12 +285,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | calculator-problem.html footer | pages | 9 | 9 | yes |
 | calculator-problem.html footer | files | 16 | 16 | yes |
 | calculator-problem.html footer | external_scripts | 0 | 0 | yes |
-| calculator-problem.html footer | bytes | 323426 | 323426 | yes |
+| calculator-problem.html footer | bytes | 328075 | 328075 | yes |
 | calculator-problem.html footer | loads | 72 | 72 | yes |
 | calculator-problem.html footer | console_errors | 0 | 0 | yes |
 | calculator-problem.html footer | failed_requests | 0 | 0 | yes |
 | calculator-problem.html footer | overflow | 0 | 0 | yes |
-| calculator-problem.html footer | contrast_elements | 3722 | 3722 | yes |
+| calculator-problem.html footer | contrast_elements | 3730 | 3730 | yes |
 | calculator-problem.html footer | lowest_light | 5.23 | 5.23 | yes |
 | calculator-problem.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | calculator-problem.html footer | diag_ok | 26880 | 26880 | yes |
@@ -301,12 +301,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | diagnose.html footer | pages | 9 | 9 | yes |
 | diagnose.html footer | files | 16 | 16 | yes |
 | diagnose.html footer | external_scripts | 0 | 0 | yes |
-| diagnose.html footer | bytes | 323426 | 323426 | yes |
+| diagnose.html footer | bytes | 328075 | 328075 | yes |
 | diagnose.html footer | loads | 72 | 72 | yes |
 | diagnose.html footer | console_errors | 0 | 0 | yes |
 | diagnose.html footer | failed_requests | 0 | 0 | yes |
 | diagnose.html footer | overflow | 0 | 0 | yes |
-| diagnose.html footer | contrast_elements | 3722 | 3722 | yes |
+| diagnose.html footer | contrast_elements | 3730 | 3730 | yes |
 | diagnose.html footer | lowest_light | 5.23 | 5.23 | yes |
 | diagnose.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | diagnose.html footer | diag_ok | 26880 | 26880 | yes |
@@ -317,12 +317,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | index.html footer | pages | 9 | 9 | yes |
 | index.html footer | files | 16 | 16 | yes |
 | index.html footer | external_scripts | 0 | 0 | yes |
-| index.html footer | bytes | 323426 | 323426 | yes |
+| index.html footer | bytes | 328075 | 328075 | yes |
 | index.html footer | loads | 72 | 72 | yes |
 | index.html footer | console_errors | 0 | 0 | yes |
 | index.html footer | failed_requests | 0 | 0 | yes |
 | index.html footer | overflow | 0 | 0 | yes |
-| index.html footer | contrast_elements | 3722 | 3722 | yes |
+| index.html footer | contrast_elements | 3730 | 3730 | yes |
 | index.html footer | lowest_light | 5.23 | 5.23 | yes |
 | index.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | index.html footer | diag_ok | 26880 | 26880 | yes |
@@ -333,12 +333,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | learn.html footer | pages | 9 | 9 | yes |
 | learn.html footer | files | 16 | 16 | yes |
 | learn.html footer | external_scripts | 0 | 0 | yes |
-| learn.html footer | bytes | 323426 | 323426 | yes |
+| learn.html footer | bytes | 328075 | 328075 | yes |
 | learn.html footer | loads | 72 | 72 | yes |
 | learn.html footer | console_errors | 0 | 0 | yes |
 | learn.html footer | failed_requests | 0 | 0 | yes |
 | learn.html footer | overflow | 0 | 0 | yes |
-| learn.html footer | contrast_elements | 3722 | 3722 | yes |
+| learn.html footer | contrast_elements | 3730 | 3730 | yes |
 | learn.html footer | lowest_light | 5.23 | 5.23 | yes |
 | learn.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | learn.html footer | diag_ok | 26880 | 26880 | yes |
@@ -349,12 +349,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | matrix.html footer | pages | 9 | 9 | yes |
 | matrix.html footer | files | 16 | 16 | yes |
 | matrix.html footer | external_scripts | 0 | 0 | yes |
-| matrix.html footer | bytes | 323426 | 323426 | yes |
+| matrix.html footer | bytes | 328075 | 328075 | yes |
 | matrix.html footer | loads | 72 | 72 | yes |
 | matrix.html footer | console_errors | 0 | 0 | yes |
 | matrix.html footer | failed_requests | 0 | 0 | yes |
 | matrix.html footer | overflow | 0 | 0 | yes |
-| matrix.html footer | contrast_elements | 3722 | 3722 | yes |
+| matrix.html footer | contrast_elements | 3730 | 3730 | yes |
 | matrix.html footer | lowest_light | 5.23 | 5.23 | yes |
 | matrix.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | matrix.html footer | diag_ok | 26880 | 26880 | yes |
@@ -365,12 +365,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | stack.html footer | pages | 9 | 9 | yes |
 | stack.html footer | files | 16 | 16 | yes |
 | stack.html footer | external_scripts | 0 | 0 | yes |
-| stack.html footer | bytes | 323426 | 323426 | yes |
+| stack.html footer | bytes | 328075 | 328075 | yes |
 | stack.html footer | loads | 72 | 72 | yes |
 | stack.html footer | console_errors | 0 | 0 | yes |
 | stack.html footer | failed_requests | 0 | 0 | yes |
 | stack.html footer | overflow | 0 | 0 | yes |
-| stack.html footer | contrast_elements | 3722 | 3722 | yes |
+| stack.html footer | contrast_elements | 3730 | 3730 | yes |
 | stack.html footer | lowest_light | 5.23 | 5.23 | yes |
 | stack.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | stack.html footer | diag_ok | 26880 | 26880 | yes |
@@ -381,12 +381,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | stances.html footer | pages | 9 | 9 | yes |
 | stances.html footer | files | 16 | 16 | yes |
 | stances.html footer | external_scripts | 0 | 0 | yes |
-| stances.html footer | bytes | 323426 | 323426 | yes |
+| stances.html footer | bytes | 328075 | 328075 | yes |
 | stances.html footer | loads | 72 | 72 | yes |
 | stances.html footer | console_errors | 0 | 0 | yes |
 | stances.html footer | failed_requests | 0 | 0 | yes |
 | stances.html footer | overflow | 0 | 0 | yes |
-| stances.html footer | contrast_elements | 3722 | 3722 | yes |
+| stances.html footer | contrast_elements | 3730 | 3730 | yes |
 | stances.html footer | lowest_light | 5.23 | 5.23 | yes |
 | stances.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | stances.html footer | diag_ok | 26880 | 26880 | yes |
@@ -397,12 +397,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | work.html footer | pages | 9 | 9 | yes |
 | work.html footer | files | 16 | 16 | yes |
 | work.html footer | external_scripts | 0 | 0 | yes |
-| work.html footer | bytes | 323426 | 323426 | yes |
+| work.html footer | bytes | 328075 | 328075 | yes |
 | work.html footer | loads | 72 | 72 | yes |
 | work.html footer | console_errors | 0 | 0 | yes |
 | work.html footer | failed_requests | 0 | 0 | yes |
 | work.html footer | overflow | 0 | 0 | yes |
-| work.html footer | contrast_elements | 3722 | 3722 | yes |
+| work.html footer | contrast_elements | 3730 | 3730 | yes |
 | work.html footer | lowest_light | 5.23 | 5.23 | yes |
 | work.html footer | lowest_dark | 6.07 | 6.07 | yes |
 | work.html footer | diag_ok | 26880 | 26880 | yes |
@@ -413,12 +413,12 @@ The footer is static HTML in every page (`<ol id="ticker-lines">`), plus the abo
 | _qa/buildlog.json | pages | 9 | 9 | yes |
 | _qa/buildlog.json | files | 16 | 16 | yes |
 | _qa/buildlog.json | external_scripts | 0 | 0 | yes |
-| _qa/buildlog.json | bytes | 323426 | 323426 | yes |
+| _qa/buildlog.json | bytes | 328075 | 328075 | yes |
 | _qa/buildlog.json | loads | 72 | 72 | yes |
 | _qa/buildlog.json | console_errors | 0 | 0 | yes |
 | _qa/buildlog.json | failed_requests | 0 | 0 | yes |
 | _qa/buildlog.json | overflow | 0 | 0 | yes |
-| _qa/buildlog.json | contrast_elements | 3722 | 3722 | yes |
+| _qa/buildlog.json | contrast_elements | 3730 | 3730 | yes |
 | _qa/buildlog.json | lowest_light | 5.23 | 5.23 | yes |
 | _qa/buildlog.json | lowest_dark | 6.07 | 6.07 | yes |
 | _qa/buildlog.json | diag_ok | 26880 | 26880 | yes |
