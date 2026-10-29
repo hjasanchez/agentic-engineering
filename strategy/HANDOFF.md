@@ -74,18 +74,9 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
    R8 (essay title options). Reviews: strategy/site-review/review-2026-10-29.md.
 
 ## 5. What is left (suggested order)
-1. **Henrique's calls on the three preview branches** (each built from main, QA 97/97, pushed, not merged; open the worktree's docs/index.html
-   locally or read the screenshots in workspace/previews/):
-   - `preview/landing-doors` (workspace/worktrees/landing-doors): a three-door strip under the hero (learn 101→401 / find your stance / go deeper).
-     Cost: the hero grows ~220 px at 1280×800 and the strip sits at the fold. Counter-argument and a cheaper one-line alternative in
-     workspace/previews/landing-doors-NOTE.md.
-   - `preview/essay-mode-confusion` (workspace/worktrees/essay-mode-confusion): the essay retitled "Mode Confusion" per R8; file name and URL unchanged.
-     If accepted, also update HANDOFF §5.5, STRATEGY_BRIEF.md and briefs/00_SHARED_CONTEXT.md mentions of the old title.
-   - `preview/stances-document` (workspace/worktrees/stances-document): THE_FOURTEEN_STANCES.md at the repo root, reviewed against the source,
-     linked from README, stances.html, matrix.html, MODE_FLUENCY_MATRIX.md and LICENSE. Six source-vs-Matrix disagreements are stated neutrally
-     inside it; Henrique should read §4.2 (the Collaborator) before publishing.
-   To merge one: `gh pr create --base main --head preview/<name>` then merge; then fast-forward meta-strategy; then `git worktree remove` the folder.
-   To drop one: `git branch -D preview/<name>` and `git push origin --delete preview/<name>`, and remove the worktree.
+1. **Three previews merged 2026-10-29 (PR #8), branches and worktrees removed:** the home-page three-door strip, the essay retitled
+   "Mode Confusion" (file name calculator-problem.html kept), and THE_FOURTEEN_STANCES.md at the repo root, linked from README, the site
+   and the Matrix. Henrique may still want to read its §4.2 (the Collaborator) and polish the Oracle/Genie expectation sentences.
 2. **Lexical substrate:** Henrique has two unpublished companion documents (The Lexical Substrate; Lexical Field Guide, July 2026) in his notes.
    The published Stack PDF does not mention them, so the site does not. When he publishes them, add the substrate band under the layers in the
    Stack diagram (its own §6 gives the placement) and a component card.
