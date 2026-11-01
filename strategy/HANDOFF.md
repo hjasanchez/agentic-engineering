@@ -75,27 +75,31 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
 10. **2026-10-29 (day):** the three previews merged (PR #8); hero compass fixed for touch and the field's pixel cost capped (PR #10, reviewed);
     Oracle and Genie expectation sentences polished on his decision; research R9 (trademark), R10 (harness-kit job family), R11 (scalable
     products); Stack v2 draft with the lexical substrate written, blind-reviewed and fixed (local, awaiting Henrique).
+11. **2026-11-01:** Stack v2 produced to PDF with the new master figure (SVG/PNG) and lexical engineering as the closing section, all
+    verification markers resolved (local); first harness kit built, blind-reviewed twice and merged (PR #12); research R12 (navigation pass
+    on scalable products), R13 (education track), R14 (grounded ranking of 17 candidates).
 
 ## 5. What is left (suggested order)
-1. **Henrique reads the Stack v2 draft:** `strategy/drafts/The-AI-Human-Engineering-Stack-v2-DRAFT.md` (local only; the folder is git-ignored
-   because it contains his unpublished Lexical Substrate material). Written from the PDF with lexical engineering as a substrate section after
-   Layer 1, blind-reviewed (`strategy/drafts/REVIEW-v2-2026-10-29.md`) and fixed. It ends with three open questions for him and a "Before
-   publication" checklist. When he approves: produce the final .md (and PDF if he wants one), replace the PDF on GitHub, update the links in
-   README and docs/stack.html. The site copy does not change (his decision: lexical engineering stays a curiosity for the adventurous).
-2. **First harness kit:** R10 recommends Operations & admin for SMEs (finance second); first workflow "three quotes, one recommendation"
-   (Executor with an Interpreter step; binding layer Harness + Judgment; three checks; a design partner for insider knowledge). Henrique confirms
-   the family, then an agent builds the kit folder as a free download in the repo.
-3. **Scalable products:** R11 ranks twelve; first build suggested: an Article 4 do-it-yourself records kit. Two calls for Henrique: may the site link
-   to a priced storefront (the no-prices rule covers only site and README), and does the offline team-profile kit justify revisiting the
-   "no team edition for now" decision after a few manual team reads.
-4. **Real-device checks:** the touch fix for the hero compass (2026-10-29) still needs one look on Henrique's Android phone (tour feel, DPR softness,
-   fast flicks); Safari, Firefox, a screen reader.
-5. **Launch:** Henrique picks one of the three short LinkedIn posts drafted 2026-10-29 (in the session report) and posts when ready; the
-   "From AI Fluency to Mode Fluency" piece and the five-post series are still to draft. YouTube playlist + learn-page link.
-6. **Trademark:** R9 sanity check done 2026-10-29 (TMview searched by hand: nothing combines "mode" and "fluency"; US near marks listed).
-   A lawyer's search is the remaining step if he wants to register.
-7. **Announce the skill;** grader 04's units check is thin (EVAL_RERUN_2026-10-25).
-8. **Workflow teardown** as the first one-off product: one-page offer and intake form, prices quoted by email only.
+1. **Henrique reads the Stack v2 PDF:** `strategy/drafts/The-AI-Human-Engineering-Stack-v2.pdf` (33 pages; also .md and .html; figures in
+   `strategy/drafts/figures/`, SVG is the source; CHANGELOG-v2.md lists every change; the folder is git-ignored until he approves). Lexical
+   engineering is the last body section, before the Conclusion; the new master figure has the substrate band under Prompt. One open question
+   remains in the changelog (amend Layer 1's role-definition lines or leave v1 text). On approval: copy the PDF and the .md to the repo root
+   replacing the old PDF, add the figures, update README and docs/stack.html links, commit. The site copy does not change.
+2. **First harness kit shipped (PR #12), not announced:** `kits/ops-three-quotes/`. Two known check gaps are stated in its README (prose figures only
+   loosely checked; a request line mapped to the wrong quote line passes if figures copy cleanly). Next: one design partner (an SME ops manager)
+   runs it on two redacted past quote sets; then announce it with the skill. Finance is the second kit.
+3. **Scalable products, decisions for Henrique (R11, R12, R14):** first build is the Article 4 do-it-yourself records kit with a per-person record
+   sheet; then the free spec lint with the named spec folded in; the scored "literacy record" only after demand shows and a lawyer has read the
+   wording. Decisions to make: may the site link to a priced storefront; keep the certification refusal but allow a "record" that claims neither
+   competence nor compliance; whether seat-based records fall under "no team edition for now".
+4. **Education track (R13):** the gap is a shared vocabulary for "what help am I asking for and who checks", not a lack of policy. Suggested first
+   builds: a teacher edition of the Diagnostic (adults only), a "Who checks?" assignment sheet with five classroom stance cards, one pilot (one
+   teacher, one class, one term). Recommended after the first paid SME assessment, because of time.
+5. **Real-device checks:** the touch fix for the hero compass still needs one look on Henrique's Android phone; Safari, Firefox, a screen reader.
+6. **Launch:** Henrique picks one of the three short LinkedIn posts (2026-10-29 report) and posts when ready; the companion piece and the
+   five-post series are still to draft. YouTube playlist + learn-page link.
+7. **Trademark:** R9 sanity check done; a lawyer's search only if he wants to register.
+8. **Workflow teardown** as the first one-off service: one-page offer and intake form, prices by email only.
 9. **Next content:** AI 501 as previewed; the 90-day plan in STRATEGY_BRIEF.md §3.5.
 ## 6. How we worked (keep these conventions)
 - **Orchestrator thin, agents do bulk work.** Every delegated task got a written brief in `strategy/briefs/` (Minimal Viable Spec or PRD: inputs by path, exact output path, binary acceptance criteria, non-goals, uncertainty policy, budget, tier, "no helpers"). Agents write to disk and return ≤15 lines. Important artefacts get a **blind review** by a fresh agent that did not build them, then a fix pass by the builder, then the orchestrator verifies deterministically (greps, tests, contrast scans) before committing.
