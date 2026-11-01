@@ -94,3 +94,18 @@ Not now: self-serve course, hosted team edition (60–100 h, GDPR duties), paid 
 - "Charge for skill files" and "certificates" stay on the would-not-do list; the evidence still supports both.
 
 At current reach none of these replaces one assessment in year one. Their case is reach and lead quality.
+
+## Education track (added 2026-11-01)
+Teachers and students as a second track next to SMEs. Landscape, gap verdict, ten builds, pilot and sources:
+`strategy/research/R13_education_angle.md`. Bands are internal; nothing here goes on the site.
+
+- **Gap verdict.** Guidance exists (UNESCO, EU+OECD, DfE, AIAS, two-lane). Missing is the layer between "how much AI" and the tool's
+  built-in tutor: a shared way to name what kind of help you ask for and who checks it. Bastani et al. (PNAS, July 2025) is the best
+  external evidence for the stance claim: same model, Tutor vs answer-giver, opposite exam results.
+- **Do first:** (1) Diagnostic, teacher edition: teachers are adult users, 5–8 h, no minors. (2) Who-checks assignment sheet + five
+  classroom stances, free, 16–24 h. (3) One pilot: one teacher, one class, one term; proves feasibility, not a causal effect.
+- **Paid later:** a teacher workshop (UK INSET market £900–2,000/day, 2025) only after a pilot case study; EU school edition of the
+  Article 4 kit.
+- **Would not do:** anything sold or addressed directly to minors; tutoring software; AI detection; grading students (EU high-risk).
+- **Constraints:** free competitors funded by AI labs and governments; slow procurement and safeguarding checks; Claude.ai is 18+;
+  NYC and Los Angeles restricted student AI in Sept 2026. Suggested timing: E2 now, the rest after the first paid SME assessment.
