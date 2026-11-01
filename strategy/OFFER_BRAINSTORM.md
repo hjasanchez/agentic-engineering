@@ -94,3 +94,36 @@ Not now: self-serve course, hosted team edition (60–100 h, GDPR duties), paid 
 - "Charge for skill files" and "certificates" stay on the would-not-do list; the evidence still supports both.
 
 At current reach none of these replaces one assessment in year one. Their case is reach and lead quality.
+
+## Education track (added 2026-11-01)
+Teachers and students as a second track next to SMEs. Landscape, gap verdict, ten builds, pilot and sources:
+`strategy/research/R13_education_angle.md`. Bands are internal; nothing here goes on the site.
+
+- **Gap verdict.** Guidance exists (UNESCO, EU+OECD, DfE, AIAS, two-lane). Missing is the layer between "how much AI" and the tool's
+  built-in tutor: a shared way to name what kind of help you ask for and who checks it. Bastani et al. (PNAS, July 2025) is the best
+  external evidence for the stance claim: same model, Tutor vs answer-giver, opposite exam results.
+- **Do first:** (1) Diagnostic, teacher edition: teachers are adult users, 5–8 h, no minors. (2) Who-checks assignment sheet + five
+  classroom stances, free, 16–24 h. (3) One pilot: one teacher, one class, one term; proves feasibility, not a causal effect.
+- **Paid later:** a teacher workshop (UK INSET market £900–2,000/day, 2025) only after a pilot case study; EU school edition of the
+  Article 4 kit.
+- **Would not do:** anything sold or addressed directly to minors; tutoring software; AI detection; grading students (EU high-risk).
+- **Constraints:** free competitors funded by AI labs and governments; slow procurement and safeguarding checks; Claude.ai is 18+;
+  NYC and Los Angeles restricted student AI in Sept 2026. Suggested timing: E2 now, the rest after the first paid SME assessment.
+
+## Navigation candidates (added 2026-11-01)
+R12 (`strategy/research/R12_scalable_products_navigation.md`) proposed five products R11 could not see; R14
+(`strategy/research/R14_navigation_candidates_grounded.md`) grounds them and ranks all seventeen on one table. Bands are internal.
+
+| # | Candidate | Build h | 12-mo gross | $/h incl. ongoing | Strategic | Verdict |
+|---|---|---|---|---|---|---|
+| N | AI literacy record, scored, per person ($19–29) | 50–80 | $190–5,220 | $27 | 5 | Later, with conditions: most money and most risk |
+| O | Spec lint, free (skill, CLI, page) | 20–35 | $0–490 | $7 | 5 | Second build; best reach tool, no risk |
+| P | Named, versioned spec + badge | 10–15 | $0 | $0 | 3 | Fold into O: a format spreads through its tool |
+| Q | Library membership ($12–19/mo) | 25–40 | $180–3,800 | $19 | 3 | Not now: needs the catalogue and 4–8 h a month |
+| R | Book, 40–60k words | 70–120 | $120–2,100 | $11 | 4 | Not now: authority play, slowest money |
+
+First build is unchanged: the Article 4 kit (E), plus a per-person record sheet in the Bundesnetzagentur fields (the manual form of N).
+Then O with P inside it; then N once three kit buyers or an assessment client ask for per-person records and a lawyer has read the wording.
+The Commission Q&A (2026-10-20): no duty to measure knowledge, no certificate needed, an internal record of measures suffices.
+Decisions for Henrique: keep the certificate refusal but allow a "literacy record"?; may the site link to a priced storefront?; does a
+seat-coded record fall under the team-edition decision? Evidence for each is in R14.

@@ -1,0 +1,24 @@
+SYNTHETIC EXAMPLE - fictional supplier, fictional prices. Not a real quotation.
+
+=== Page 1 of 1 ===
+
+TALLOWMERE IT (fictional)
+Quotation no. TIT-EX-2207                Issued 2026-10-21
+Customer: Brindle & Moss Studio (fictional)
+Re: your RFQ-EX-07
+
+Line  Product                                      Qty  Unit      Unit price     Amount
+1     Managed switch, 24 x PoE+ ports, 1U            2  each          512.00   1,024.00
+2     Ceiling access point, Wi-Fi 6, PoE             4  each          205.00     820.00
+3     Patch lead Cat6, 1 m, grey                    48  each            2.10     100.80
+4     Security gateway with 1-year protection        1  each        1,195.00   1,195.00
+      subscription
+5     Delivery to customer site                      1  lot             0.00       0.00
+
+                                                Subtotal (EUR)     3,139.80
+                                                VAT 20%              627.96
+                                                Total (EUR)        3,767.76
+
+Lead time 15 working days. 3 years warranty on hardware.
+Free delivery on orders over EUR 2,500.00.
+Prices valid until 2026-11-20.

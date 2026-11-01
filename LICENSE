@@ -1,12 +1,12 @@
 This repository uses two licenses.
 
 MIT (full text: LICENSES/MIT.txt)
-  Code: the website in docs/, the skills in skills/, and any scripts.
+  Code: the website in docs/, the skills in skills/, the scripts in kits/, and any other scripts.
 
 CC BY-SA 4.0 (full text: LICENSES/CC-BY-SA-4.0.txt)
   Documents: the PDFs, AI-Human-Stack-Agent-Audit-Protocol.md,
   AI-Human-Stack-Component-Reference-Map.md, MODE_FLUENCY_MATRIX.md,
-  THE_FOURTEEN_STANCES.md,
+  THE_FOURTEEN_STANCES.md, the text of the kits in kits/,
   the essays, and the text on the website.
 
 Copyright (c) 2026 Henrique Jr. Sanchez.
