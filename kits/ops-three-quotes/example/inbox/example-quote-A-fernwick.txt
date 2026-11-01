@@ -1,0 +1,37 @@
+SYNTHETIC EXAMPLE - fictional supplier, fictional prices. Not a real quotation.
+
+=== Page 1 of 2 ===
+
+FERNWICK NETWORK SUPPLY (fictional)
+Unit 4, Example Trading Estate
+
+QUOTATION Q-EX-1041                                   Date: 2026-10-20
+To: Brindle & Moss Studio (fictional), attn. Operations
+Your ref: RFQ-EX-07 Office network refresh
+Valid for 30 days from the date above.
+
+Item  Description                                        Qty  Unit             Unit price      Amount
+----  -------------------------------------------------  ---  ---------------  ----------  ----------
+1     24-port managed PoE+ switch, rack-mount              2  each                 545.00    1,090.00
+2     Wi-Fi 6 access point, ceiling mount, PoE             4  each                 189.00      756.00
+3     Cat6 patch cable 1 m                                48  each                   2.40      115.20
+4     Firewall appliance incl. 1-year security             1  each               1,240.00    1,240.00
+      subscription
+5     Installation and configuration on site               1  half day (4 h)       380.00      380.00
+6     Delivery                                             1  lot                   45.00       45.00
+
+(continued overleaf)
+
+=== Page 2 of 2 ===
+
+                                                        Subtotal              3,626.20
+                                                        VAT 20%                 725.24
+                                                        Total EUR             4,351.44
+
+Terms
+- Lead time: 10 working days from written order.
+- Warranty: 3 years on all hardware, return to base.
+- Additional half days of installation: EUR 380.00 each, agreed in advance.
+- Payment 30 days from invoice.
+
+Fernwick Network Supply (fictional) - this quotation is an invented example.

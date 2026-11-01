@@ -1,0 +1,34 @@
+supplier,ref,kind,status,quote_text,qty,unit,unit_price,amount,vat_rate,source_file,page,units_needed,note
+Fernwick Network Supply,R1,line,quoted,"24-port managed PoE+ switch, rack-mount",2,each,545.00,1090.00,,example-quote-A-fernwick.txt,1,2,item 1
+Fernwick Network Supply,R2,line,quoted,"Wi-Fi 6 access point, ceiling mount, PoE",4,each,189.00,756.00,,example-quote-A-fernwick.txt,1,4,item 2
+Fernwick Network Supply,R3,line,quoted,Cat6 patch cable 1 m,48,each,2.40,115.20,,example-quote-A-fernwick.txt,1,48,item 3
+Fernwick Network Supply,R4,line,quoted,Firewall appliance incl. 1-year security,1,each,1240.00,1240.00,,example-quote-A-fernwick.txt,1,1,item 4 (description continues on the next line: subscription)
+Fernwick Network Supply,R5,line,qualified,Installation and configuration on site,1,half day (4 h),380.00,380.00,,example-quote-A-fernwick.txt,1,2,item 5; priced per half day; page 2 terms: additional half days 380.00 each
+Fernwick Network Supply,R6,line,quoted,Delivery,1,lot,45.00,45.00,,example-quote-A-fernwick.txt,1,1,item 6
+Fernwick Network Supply,T1,term,quoted,Lead time,10,working days,,,,example-quote-A-fernwick.txt,2,,from written order
+Fernwick Network Supply,T2,term,quoted,Warranty,3,years,,,,example-quote-A-fernwick.txt,2,,on all hardware
+Fernwick Network Supply,,subtotal,stated,Subtotal,,,,3626.20,,example-quote-A-fernwick.txt,2,,
+Fernwick Network Supply,,vat,stated,VAT 20%,,,,725.24,20,example-quote-A-fernwick.txt,2,,
+Fernwick Network Supply,,total,stated,Total EUR,,,,4351.44,,example-quote-A-fernwick.txt,2,,
+Tallowmere IT,R1,line,quoted,"Managed switch, 24 x PoE+ ports, 1U",2,each,512.00,1024.00,,example-quote-B-tallowmere.txt,1,2,line 1
+Tallowmere IT,R2,line,quoted,"Ceiling access point, Wi-Fi 6, PoE",4,each,205.00,820.00,,example-quote-B-tallowmere.txt,1,4,line 2
+Tallowmere IT,R3,line,quoted,"Patch lead Cat6, 1 m, grey",48,each,2.10,100.80,,example-quote-B-tallowmere.txt,1,48,line 3
+Tallowmere IT,R4,line,quoted,Security gateway with 1-year protection,1,each,1195.00,1195.00,,example-quote-B-tallowmere.txt,1,1,line 4 (continues: subscription); read as the requested firewall
+Tallowmere IT,R5,line,missing,,,,,,,example-quote-B-tallowmere.txt,,,no installation line or mention anywhere in the quote
+Tallowmere IT,R6,line,quoted,Delivery to customer site,1,lot,0.00,0.00,,example-quote-B-tallowmere.txt,1,1,line 5; free delivery over 2500.00
+Tallowmere IT,T1,term,quoted,Lead time,15,working days,,,,example-quote-B-tallowmere.txt,1,,
+Tallowmere IT,T2,term,quoted,warranty,3,years,,,,example-quote-B-tallowmere.txt,1,,on hardware
+Tallowmere IT,,subtotal,stated,Subtotal (EUR),,,,3139.80,,example-quote-B-tallowmere.txt,1,,
+Tallowmere IT,,vat,stated,VAT 20%,,,,627.96,20,example-quote-B-tallowmere.txt,1,,
+Tallowmere IT,,total,stated,Total (EUR),,,,3767.76,,example-quote-B-tallowmere.txt,1,,
+Orrin Bay Systems,R1,line,quoted,"Switch, 24-port managed, PoE+, rack-mountable",2,each,560.00,1120.00,,example-quote-C-orrinbay.txt,1,2,pos 1
+Orrin Bay Systems,R2,line,quoted,"Access point Wi-Fi 6, ceiling, PoE",4,each,179.00,716.00,,example-quote-C-orrinbay.txt,1,4,pos 2
+Orrin Bay Systems,R3,line,quoted,"Cat6 patch cable, 1 m",48,each,2.25,108.00,,example-quote-C-orrinbay.txt,1,48,pos 3
+Orrin Bay Systems,R4,line,quoted,Firewall with 1-year security subscription,1,each,1210.00,1210.00,,example-quote-C-orrinbay.txt,1,1,pos 4
+Orrin Bay Systems,R5,line,quoted,"Installation, configuration and handover",1,day (8 h),640.00,640.00,,example-quote-C-orrinbay.txt,1,1,pos 5
+Orrin Bay Systems,R6,line,quoted,Delivery,1,lot,60.00,60.00,,example-quote-C-orrinbay.txt,1,1,pos 6
+Orrin Bay Systems,T1,term,quoted,Lead time,8,working days,,,,example-quote-C-orrinbay.txt,2,,after order confirmation
+Orrin Bay Systems,T2,term,quoted,Warranty,3,years,,,,example-quote-C-orrinbay.txt,2,,parts and labour
+Orrin Bay Systems,,subtotal,stated,Subtotal,,,,3584.00,,example-quote-C-orrinbay.txt,2,,
+Orrin Bay Systems,,vat,stated,VAT 20%,,,,716.80,20,example-quote-C-orrinbay.txt,2,,
+Orrin Bay Systems,,total,stated,Total,,,,4300.80,,example-quote-C-orrinbay.txt,2,,

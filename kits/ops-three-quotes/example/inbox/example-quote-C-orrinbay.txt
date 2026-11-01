@@ -1,0 +1,26 @@
+SYNTHETIC EXAMPLE - fictional supplier, fictional prices. Not a real quotation.
+
+=== Page 1 of 2 ===
+
+ORRIN BAY SYSTEMS (fictional)
+Quote OBS-EX-0388                                    22 October 2026
+For: Brindle & Moss Studio (fictional) - RFQ-EX-07
+
+Pos  Description                                         Qty  Unit        Price each      Total
+1    Switch, 24-port managed, PoE+, rack-mountable         2  each            560.00   1,120.00
+2    Access point Wi-Fi 6, ceiling, PoE                    4  each            179.00     716.00
+3    Cat6 patch cable, 1 m                                48  each              2.25     108.00
+4    Firewall with 1-year security subscription            1  each          1,210.00   1,210.00
+5    Installation, configuration and handover              1  day (8 h)       640.00     640.00
+6    Delivery                                              1  lot              60.00      60.00
+
+=== Page 2 of 2 ===
+
+Summary
+   Subtotal                     EUR 3,584.00
+   VAT 20%                      EUR   716.80
+   Total                        EUR 4,300.80
+
+Lead time: 8 working days after order confirmation.
+Warranty: 3 years parts and labour.
+Orrin Bay Systems (fictional) - invented example quotation.
