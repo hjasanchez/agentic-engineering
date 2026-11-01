@@ -109,3 +109,21 @@ Teachers and students as a second track next to SMEs. Landscape, gap verdict, te
 - **Would not do:** anything sold or addressed directly to minors; tutoring software; AI detection; grading students (EU high-risk).
 - **Constraints:** free competitors funded by AI labs and governments; slow procurement and safeguarding checks; Claude.ai is 18+;
   NYC and Los Angeles restricted student AI in Sept 2026. Suggested timing: E2 now, the rest after the first paid SME assessment.
+
+## Navigation candidates (added 2026-11-01)
+R12 (`strategy/research/R12_scalable_products_navigation.md`) proposed five products R11 could not see; R14
+(`strategy/research/R14_navigation_candidates_grounded.md`) grounds them and ranks all seventeen on one table. Bands are internal.
+
+| # | Candidate | Build h | 12-mo gross | $/h incl. ongoing | Strategic | Verdict |
+|---|---|---|---|---|---|---|
+| N | AI literacy record, scored, per person ($19–29) | 50–80 | $190–5,220 | $27 | 5 | Later, with conditions: most money and most risk |
+| O | Spec lint, free (skill, CLI, page) | 20–35 | $0–490 | $7 | 5 | Second build; best reach tool, no risk |
+| P | Named, versioned spec + badge | 10–15 | $0 | $0 | 3 | Fold into O: a format spreads through its tool |
+| Q | Library membership ($12–19/mo) | 25–40 | $180–3,800 | $19 | 3 | Not now: needs the catalogue and 4–8 h a month |
+| R | Book, 40–60k words | 70–120 | $120–2,100 | $11 | 4 | Not now: authority play, slowest money |
+
+First build is unchanged: the Article 4 kit (E), plus a per-person record sheet in the Bundesnetzagentur fields (the manual form of N).
+Then O with P inside it; then N once three kit buyers or an assessment client ask for per-person records and a lawyer has read the wording.
+The Commission Q&A (2026-10-20): no duty to measure knowledge, no certificate needed, an internal record of measures suffices.
+Decisions for Henrique: keep the certificate refusal but allow a "literacy record"?; may the site link to a priced storefront?; does a
+seat-coded record fall under the team-edition decision? Evidence for each is in R14.
