@@ -101,7 +101,7 @@ Teachers and students as a second track next to SMEs. Landscape, gap verdict, te
 
 - **Gap verdict.** Guidance exists (UNESCO, EU+OECD, DfE, AIAS, two-lane). Missing is the layer between "how much AI" and the tool's
   built-in tutor: a shared way to name what kind of help you ask for and who checks it. Bastani et al. (PNAS, July 2025) is the best
-  external evidence for the stance claim: same model, Tutor vs answer-giver, opposite exam results.
+  external evidence for the stance claim: same model, Tutor vs answer-giver: the answer-giver hurt the later exam, the tutor with guardrails removed the harm.
 - **Do first:** (1) Diagnostic, teacher edition: teachers are adult users, 5–8 h, no minors. (2) Who-checks assignment sheet + five
   classroom stances, free, 16–24 h. (3) One pilot: one teacher, one class, one term; proves feasibility, not a causal effect.
 - **Paid later:** a teacher workshop (UK INSET market £900–2,000/day, 2025) only after a pilot case study; EU school edition of the
