@@ -7,7 +7,7 @@ Repo root: C:\Users\henri\Desktop\CCode\modefluency\repo-agentic-engineering
 
 ## 2. Inputs
 - docs/calculator-problem.html: the essay itself (read all of it; note where the calculator analogy is load-bearing and where §4 dismantles it).
-- C:\Users\henri\Documents\Hayen Mill\0. prescreening\1.1 calculator problem.md: Henrique's prompt and the other model's reply. Its candidates:
+- C:\Users\henri\Documents\<notes>\0. prescreening\1.1 calculator problem.md: Henrique's prompt and the other model's reply. Its candidates:
   The Fluency Illusion (its top pick), No Clean Line, The Who-Checks Problem, The Offloading Problem, The Second-Brain Problem, The Autopilot Problem,
   Cognitive Debt (borrowed). It also names established terms: ironies of automation (Bainbridge 1983), cognitive offloading (Risko & Gilbert 2016),
   cognitive debt (Kosmyna et al., MIT Media Lab, June 2025), deskilling, automation complacency/bias, desirable difficulties / productive struggle.

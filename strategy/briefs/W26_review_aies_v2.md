@@ -7,7 +7,7 @@ Find what would make Henrique distrust the draft. You did not write it. Repo roo
 - The draft: strategy/drafts/The-AI-Human-Engineering-Stack-v2-DRAFT.md (with its change log at the end).
 - The requirement: strategy/briefs/W23_aies_v2_lexical.md.
 - The sources: "The AI-Human Engineering Stack.pdf" at the repo root (extract with `pdftotext -layout`), and Henrique's two companion
-  documents at C:\Users\henri\Documents\Hayen Mill\1. Rough Notes\AI\AI-Human Engineering\Lexical-Substrate.md and Lexical-Field-Guide.md.
+  documents at C:\Users\henri\Documents\<notes>\1. Rough Notes\AI\AI-Human Engineering\Lexical-Substrate.md and Lexical-Field-Guide.md.
 - The writer's notes: C:\Users\henri\AppData\Local\Temp\claude\C--Users-henri-Desktop-CCode-modefluency\30d2be6e-ee02-497a-9ebc-a4b5153f79ac\scratchpad\W23_NOTES.md
   (read it last, after forming your own view).
 

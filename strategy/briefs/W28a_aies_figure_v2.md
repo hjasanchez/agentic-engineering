@@ -15,7 +15,7 @@ of truth) and a PNG export (for the PDF and the web). Repo root: C:\Users\henri\
   the blue annotations: "Eval runs through harness", "Each layer is evaluated in a loop autonomously", "Each layer depends on all layers
   beneath it", "User begins with the prompt", "User re-enters each layer if needed depending on evaluation", "User sets up the harness
   initially and may intervene/adjust as needed".
-- The Lexical Substrate's own placement (C:\Users\henri\Documents\Hayen Mill\1. Rough Notes\AI\AI-Human Engineering\Lexical-Substrate.md §6):
+- The Lexical Substrate's own placement (C:\Users\henri\Documents\<notes>\1. Rough Notes\AI\AI-Human Engineering\Lexical-Substrate.md §6):
   a band under the layers, inside the harness, reached by the evaluation loop, drawn with a distinct border because its relation is
   compositional, not sequential.
 

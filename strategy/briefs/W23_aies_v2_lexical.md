@@ -9,7 +9,7 @@ stays a curiosity for the adventurous. Repo root: C:\Users\henri\Desktop\CCode\m
 ## 2. Inputs (read all, in full)
 - "The AI-Human Engineering Stack.pdf" at the repo root, 29 pages. Extract its text with `pdftotext -layout` (installed; the Read tool cannot render
   this PDF). This is the base text; keep it verbatim wherever you do not need to change it.
-- C:\Users\henri\Documents\Hayen Mill\1. Rough Notes\AI\AI-Human Engineering\Lexical-Substrate.md (the argument, mechanisms, instruments, graveyard,
+- C:\Users\henri\Documents\<notes>\1. Rough Notes\AI\AI-Human Engineering\Lexical-Substrate.md (the argument, mechanisms, instruments, graveyard,
   placement in the stack with its own §6 diagram, hypotheses, limits, references) and ...\Lexical-Field-Guide.md (the practitioner protocols).
 - AI-Human-Stack-Component-Reference-Map.md and AI-Human-Stack-Agent-Audit-Protocol.md (they describe the seven components; note where a substrate
   would need a line, but do not edit them).

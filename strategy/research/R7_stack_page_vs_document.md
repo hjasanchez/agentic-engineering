@@ -210,7 +210,7 @@ misstatement; no edit proposed.
 
 | Page | Document | Result |
 |---|---|---|
-| L273 "(Henrique Jr. Sanchez, March 2026)" | PDF p.1 byline "Hayen Mill & Henrique Jr. Sanchez, March 2026" | **Note**: differs from the PDF, but follows the decision on file (remove the Hayen Mill credit from the site; PDFs stay as published). No edit. |
+| L273 "(Henrique Jr. Sanchez, March 2026)" | PDF p.1 byline "the pen name & Henrique Jr. Sanchez, March 2026" | **Note**: differs from the PDF, but follows the decision on file (remove the the pen name credit from the site; PDFs stay as published). No edit. |
 | L148 "From the Component Reference Map, v1.0, March 2026." | Reference Map line 3 "Version: 1.0 \| March 2026" | OK |
 
 ### Note on §2 dependency_rule (out of scope; for the agent rebuilding it)

@@ -2,7 +2,7 @@
 
 Run date: 2026-10-29. Brief: `strategy/briefs/W15_essay_title_research.md`. Read-only research; nothing on the site was changed.
 
-**Input gap.** The brief's second input, `C:\Users\henri\Documents\Hayen Mill\0. prescreening\1.1 calculator problem.md`, does not exist
+**Input gap.** The brief's second input, `C:\Users\henri\Documents\<notes>\0. prescreening\1.1 calculator problem.md`, does not exist
 at that path (checked 2026-10-29; the folder exists, the file does not, and a name search of Documents found no match). The other model's
 candidates and terms are taken from the brief's own list; its reasoning was not read. **Brief correction:** the essay's "where the
 analogy breaks" section is §3, not §4; §4 is the cockpit.
