@@ -78,6 +78,7 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
 11. **2026-11-01:** Stack v2 produced to PDF with the new master figure (SVG/PNG) and lexical engineering as the closing section, all
     verification markers resolved (local); first harness kit built, blind-reviewed twice and merged (PR #12); research R12 (navigation pass
     on scalable products), R13 (education track), R14 (grounded ranking of 17 candidates).
+12. **2026-11-02:** classroom pack built from existing material and blind-reviewed twice (PR merged); Bastani et al. wording corrected in R13.
 
 ## 5. What is left (suggested order)
 1. **Henrique reads the Stack v2 PDF:** `strategy/drafts/The-AI-Human-Engineering-Stack-v2.pdf` (33 pages; also .md and .html; figures in
@@ -92,9 +93,11 @@ answers/README/offer https://claude.ai/artifact/8GfCvf7a8Kxq1VvVsGxT7W
    sheet; then the free spec lint with the named spec folded in; the scored "literacy record" only after demand shows and a lawyer has read the
    wording. Decisions to make: may the site link to a priced storefront; keep the certification refusal but allow a "record" that claims neither
    competence nor compliance; whether seat-based records fall under "no team edition for now".
-4. **Education track (R13):** the gap is a shared vocabulary for "what help am I asking for and who checks", not a lack of policy. Suggested first
-   builds: a teacher edition of the Diagnostic (adults only), a "Who checks?" assignment sheet with five classroom stance cards, one pilot (one
-   teacher, one class, one term). Recommended after the first paid SME assessment, because of time.
+4. **Education track: classroom pack shipped (2026-11-02), not announced:** `kits/classroom/` repackages the existing material for teachers of
+   students 16+: teacher guide (11 pp), one-lesson slides (16) with notes, student self-check, "Who checks?" assignment sheet, mode log,
+   activity handout, five stance cards; one-command PDF build; blind-reviewed twice as a teacher. Not piloted (the README says so). Next:
+   one teacher runs the lesson and sends feedback to hello@; Henrique decides whether and where the site mentions the pack (R13 has the
+   longer list: teacher edition of the Diagnostic, a pilot). Nothing here costs Henrique's hours until a pilot.
 5. **Real-device checks:** the touch fix for the hero compass still needs one look on Henrique's Android phone; Safari, Firefox, a screen reader.
 6. **Launch:** Henrique picks one of the three short LinkedIn posts (2026-10-29 report) and posts when ready; the companion piece and the
    five-post series are still to draft. YouTube playlist + learn-page link.
