@@ -110,7 +110,7 @@ teacher-led AI instruction (2025) [17]†, 36% of UK undergraduates got institut
 no guidance on AI for grading (2026) [19]†.
 
 **Why this is Mode Fluency's best external evidence in any domain.** Bastani is the cleanest field test of the stance claim anywhere: the
-same model, two stances (Genie/Oracle vs Tutor), opposite exam outcomes [23]. The calculator lesson in the essay ("foundations first, then
+same model, two stances (Genie/Oracle vs Tutor): unrestricted answers hurt the later exam without AI (about 17% worse than no AI), the tutor with guardrails showed no significant difference; both raised practice scores (about +48% and +127%) [23]. The calculator lesson in the essay ("foundations first, then
 the tool; redesign the checking around the tool") is native to teachers.
 
 **What the evidence does not show (the honest limit).** In Bastani and Kestin the guardrails were **designed into the tool**. Nobody has
