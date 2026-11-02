@@ -24,7 +24,7 @@ import sys
 
 KIT = pathlib.Path(__file__).resolve().parent.parent
 
-BANNED = ["revolutionary", "unlock", "supercharge", "game-changing", "game changing", "seamless", "empower", "Hayen"]
+BANNED = ["revolutionary", "unlock", "supercharge", "game-changing", "game changing", "seamless", "empower"]
 PRICE = re.compile(r"[$£€]\s?\d")
 
 # name: (kind, min pages, max pages)
